@@ -74,6 +74,7 @@ product = pd.read_csv(
 
 
 ```{python}
+#| warning: false
 # Metadata of the dataset 
 product.shape
 
@@ -477,7 +478,7 @@ bar_r = product.filter (['COUNTRY']) \
        .rename (columns = {'count':'n'}) \
        .sort_values (by = ['n'])
 
-(ggplot(data = bar_r, 
+plot = (ggplot(data = bar_r, 
   mapping = aes(x = 'COUNTRY', y = 'n'))+
   geom_bar (fill = "pink", stat = "identity")+
   labs (x = 'Country',
@@ -485,7 +486,7 @@ bar_r = product.filter (['COUNTRY']) \
   #,title = 'Total Observations of Countries'
   )
 )
-
+plot.draw(True)
 ```
 
 ## Line Chart 
@@ -495,13 +496,13 @@ bar_r = product.filter (['COUNTRY']) \
 #| fig-cap: "Relations between Shoe Size and Sale Price in Different Countries"
 #| fig-align: center
 
-(ggplot(product, aes(x = 'SIZE_US', y= 'UNITPRICE', color = 'GENDER'))+
+plot = (ggplot(product, aes(x = 'SIZE_US', y= 'UNITPRICE', color = 'GENDER'))+
  facet_wrap('COUNTRY')+
  geom_smooth(se = False, method = 'lm')+
  labs(x = "Shoe Size (US)", y = "Price")+
  theme (legend_position = "top")
 )
-
+plot.draw(True)
 ```
 
 ```{python}
@@ -516,12 +517,13 @@ month_sales = product['MONTH'] \
 
 month_sales['MONTH'] = pd.to_numeric(month_sales['MONTH']) 
 
-(ggplot(month_sales, aes ("MONTH", "SALES"))
+plot = (ggplot(month_sales, aes ("MONTH", "SALES"))
  + geom_point(color = 'blue')
  + labs(x = "Month", y = "Total Sales"
    #,title = "SALES IN DIFFERENT MONTHS"
    )
 )
+plot.draw(True)
 ```
 
 # Conclusion 
