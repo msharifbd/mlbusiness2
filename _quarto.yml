@@ -64,6 +64,7 @@ website:
         - section: "Slides"
           contents:
               - chap01_slide.qmd
+              - chap03_slide.qmd 
 
 format:
   html:
@@ -71,7 +72,7 @@ format:
     light: flatly
     css: styles.css
     toc: true
-    linkcolor: blue
+    linkcolor: orangered
     mainfont: "Georgia"
 
 

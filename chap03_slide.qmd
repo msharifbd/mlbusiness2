@@ -1,0 +1,91 @@
+---
+title: "<center> Chapter # 03 <br> K Nearest Neighbor (KNN)"
+format:
+    revealjs: 
+        theme: dark
+        controls: true
+        navigation-mode: vertical
+        self-contained: true
+        slide-number: true
+        slide-tone: true
+        css: styles.css
+---
+
+## Introduction 
+![](images/chap03-0.png)
+
+## Introduction (Cont'd)
+![](images/chap03-1.png)
+
+## What is KNN Algorithm?
+![](images/chap03-2.png)
+
+## How Does KNN Learn? 
+![](images/chap03-3.png)
+
+## How Does KNN Learn? (Cont'd)
+![](images/chap03-4.png)
+
+## How Does KNN Learn? (Cont'd)
+![](images/chap03-5.png)
+
+## What Happens if the Vote is Tied? 
+![](images/chap03-6.png)
+
+## FYI
+![](images/chap03-7.png)
+
+## Building KNN Algorithm 
+![](images/chap03-8.png)
+
+## Defining the Task 
+![](images/chap03-9.png)
+
+## Define the Learner 
+![](images/chap03-10.png)
+
+## Train the Model
+![](images/chap03-11.png)
+
+## Making Predictions using our Model and Evaluating Performance of the Model 
+![](images/chap03-12.png)
+
+## Bias-Variance Trade Off – Two Sources of Model Error 
+![](images/chap03-13.png)
+
+## Bias-Variance Trade Off – Two Sources of Model Error (Cont'd)
+![](images/chap03-14.png)
+
+## Holdout Cross-validation (CV) 
+![](images/chap03-15.png)
+
+## Holdout Cross-validation (CV) (Cont’d)
+![](images/chap03-16.png)
+
+## K-fold CV
+![](images/chap03-17.png)
+
+## K-fold CV (Cont'd)
+![](images/chap03-18.png)
+
+## Leave-One-Out (LOO) CV
+![](images/chap03-19.png)
+
+## Parameters vs Hyperparameters
+![](images/chap03-20.png)
+
+## Parameters vs Hyperparameters (Cont’d) 
+![](images/chap03-21.png)
+
+
+## Questions or Queries {style="text-align:center;"}
+
+::: columns
+::: {.column width="50%" style="text-align:center;"}
+![Questions](images/question1.jpeg){fig-align="center"}
+:::
+
+::: {.column width="50%" style="text-align:center;"}
+![Queries](images/question2.jpeg){fig-align="center"}
+:::
+:::

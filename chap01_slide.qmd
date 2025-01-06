@@ -23,16 +23,16 @@ format:
 ## Artificial Intelligence (AL) vs Machine Learning (ML)
 ![](images/chap01-4.png)
 
-## Artificial intelligence (AI) vs machine learning (ML)(Cont’d) 
+## Artificial Intelligence (AI) vs Machine Learning (ML)(Cont’d) 
 ![](images/chap01-5.png)
 
-## Model vs algorithm
+## Model vs Algorithm
 ![](images/chap01-6.png)
 
-## Model vs algorithm (Cont’d) 
+## Model vs Algorithm (Cont’d) 
 ![](images/chap01-7.png)
 
-## Model vs algorithm (Cont’d) 
+## Model vs Algorithm (Cont’d) 
 
 ![](images/chap01-8.png)
 
@@ -51,11 +51,24 @@ format:
 ## Artificial Intelligence (AI), Machine learning (ML), and Deep learning (DL) 
 ![](images/chap01-13.png)
 
-## Ethics in Machine learning
+## Ethics in Machine Learning
 ![](images/chap01-14.png)
 
-## Python VS. R for machine learning 
+## Python VS. R for Machine Learning 
 ![](images/chap01-15.png)
 
-## What will we learn from BSAN405 
+## What will We Learn from BSAN405 
 ![](images/chap01-16.png)
+
+
+## Questions or Queries {style="text-align:center;"}
+
+::: columns
+::: {.column width="50%" style="text-align:center;"}
+![Questions](images/question1.jpeg){fig-align="center"}
+:::
+
+::: {.column width="50%" style="text-align:center;"}
+![Queries](images/question2.jpeg){fig-align="center"}
+:::
+:::
