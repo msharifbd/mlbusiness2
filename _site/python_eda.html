@@ -448,8 +448,7 @@ Exploratory Data Analysis in Python</center></h1>
 </div>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>product.count()[<span class="dv">0</span>] <span class="co"># counting the number of rows in the dataset</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>&lt;string&gt;:2: FutureWarning: Series.__getitem__ treating keys as positions is deprecated. In a future version, integer keys will always be treated as labels (consistent with DataFrame behavior). To access a value by position, use `ser.iloc[pos]`
-np.int64(14967)</code></pre>
+<pre><code>np.int64(14967)</code></pre>
 </div>
 </div>
 <div class="cell">
@@ -1574,7 +1573,7 @@ United States   163.490316  143.727421</code></pre>
 <div class="sourceCode cell-code" id="cb119"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb119-1"><a href="#cb119-1" aria-hidden="true" tabindex="-1"></a>product.groupby([<span class="st">'COUNTRY'</span>]) [[<span class="st">'UNITPRICE'</span>, <span class="st">'SALEPRICE'</span>]] <span class="op">\</span></span>
 <span id="cb119-2"><a href="#cb119-2" aria-hidden="true" tabindex="-1"></a>       .agg(np.mean)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>&lt;string&gt;:3: FutureWarning: The provided callable &lt;function mean at 0x000002059ED93740&gt; is currently using DataFrameGroupBy.mean. In a future version of pandas, the provided callable will be used directly. To keep current behavior pass the string "mean" instead.
+<pre><code>&lt;string&gt;:3: FutureWarning: The provided callable &lt;function mean at 0x000001869CE93740&gt; is currently using DataFrameGroupBy.mean. In a future version of pandas, the provided callable will be used directly. To keep current behavior pass the string "mean" instead.
                  UNITPRICE   SALEPRICE
 COUNTRY                               
 Canada          164.691057  144.228963
@@ -1739,48 +1738,66 @@ Name: count, Length: 192, dtype: int64</code></pre>
 <span id="cb139-4"><a href="#cb139-4" aria-hidden="true" tabindex="-1"></a>       .rename (columns <span class="op">=</span> {<span class="st">'count'</span>:<span class="st">'n'</span>}) <span class="op">\</span></span>
 <span id="cb139-5"><a href="#cb139-5" aria-hidden="true" tabindex="-1"></a>       .sort_values (by <span class="op">=</span> [<span class="st">'n'</span>])</span>
 <span id="cb139-6"><a href="#cb139-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb139-7"><a href="#cb139-7" aria-hidden="true" tabindex="-1"></a>(ggplot(data <span class="op">=</span> bar_r, </span>
+<span id="cb139-7"><a href="#cb139-7" aria-hidden="true" tabindex="-1"></a>plot <span class="op">=</span> (ggplot(data <span class="op">=</span> bar_r, </span>
 <span id="cb139-8"><a href="#cb139-8" aria-hidden="true" tabindex="-1"></a>  mapping <span class="op">=</span> aes(x <span class="op">=</span> <span class="st">'COUNTRY'</span>, y <span class="op">=</span> <span class="st">'n'</span>))<span class="op">+</span></span>
 <span id="cb139-9"><a href="#cb139-9" aria-hidden="true" tabindex="-1"></a>  geom_bar (fill <span class="op">=</span> <span class="st">"pink"</span>, stat <span class="op">=</span> <span class="st">"identity"</span>)<span class="op">+</span></span>
 <span id="cb139-10"><a href="#cb139-10" aria-hidden="true" tabindex="-1"></a>  labs (x <span class="op">=</span> <span class="st">'Country'</span>,</span>
 <span id="cb139-11"><a href="#cb139-11" aria-hidden="true" tabindex="-1"></a>  y <span class="op">=</span> <span class="st">'Number of Observations'</span></span>
 <span id="cb139-12"><a href="#cb139-12" aria-hidden="true" tabindex="-1"></a>  <span class="co">#,title = 'Total Observations of Countries'</span></span>
 <span id="cb139-13"><a href="#cb139-13" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb139-14"><a href="#cb139-14" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>&lt;plotnine.ggplot.ggplot object at 0x00000205B1812990&gt;</code></pre>
+<span id="cb139-14"><a href="#cb139-14" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb139-15"><a href="#cb139-15" aria-hidden="true" tabindex="-1"></a>plot.draw(<span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="python_eda_files/figure-html/unnamed-chunk-41-1.png" class="img-fluid figure-img" width="614"></p>
+<figcaption>Total Observations of Countries</figcaption>
+</figure>
+</div>
 </div>
 </div>
 </section>
 <section id="line-chart" class="level2" data-number="9.2">
 <h2 data-number="9.2" class="anchored" data-anchor-id="line-chart"><span class="header-section-number">9.2</span> Line Chart</h2>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb141"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb141-1"><a href="#cb141-1" aria-hidden="true" tabindex="-1"></a>(ggplot(product, aes(x <span class="op">=</span> <span class="st">'SIZE_US'</span>, y<span class="op">=</span> <span class="st">'UNITPRICE'</span>, color <span class="op">=</span> <span class="st">'GENDER'</span>))<span class="op">+</span></span>
-<span id="cb141-2"><a href="#cb141-2" aria-hidden="true" tabindex="-1"></a> facet_wrap(<span class="st">'COUNTRY'</span>)<span class="op">+</span></span>
-<span id="cb141-3"><a href="#cb141-3" aria-hidden="true" tabindex="-1"></a> geom_smooth(se <span class="op">=</span> <span class="va">False</span>, method <span class="op">=</span> <span class="st">'lm'</span>)<span class="op">+</span></span>
-<span id="cb141-4"><a href="#cb141-4" aria-hidden="true" tabindex="-1"></a> labs(x <span class="op">=</span> <span class="st">"Shoe Size (US)"</span>, y <span class="op">=</span> <span class="st">"Price"</span>)<span class="op">+</span></span>
-<span id="cb141-5"><a href="#cb141-5" aria-hidden="true" tabindex="-1"></a> theme (legend_position <span class="op">=</span> <span class="st">"top"</span>)</span>
-<span id="cb141-6"><a href="#cb141-6" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>&lt;plotnine.ggplot.ggplot object at 0x00000205B1743F00&gt;</code></pre>
+<div class="sourceCode cell-code" id="cb140"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb140-1"><a href="#cb140-1" aria-hidden="true" tabindex="-1"></a>plot <span class="op">=</span> (ggplot(product, aes(x <span class="op">=</span> <span class="st">'SIZE_US'</span>, y<span class="op">=</span> <span class="st">'UNITPRICE'</span>, color <span class="op">=</span> <span class="st">'GENDER'</span>))<span class="op">+</span></span>
+<span id="cb140-2"><a href="#cb140-2" aria-hidden="true" tabindex="-1"></a> facet_wrap(<span class="st">'COUNTRY'</span>)<span class="op">+</span></span>
+<span id="cb140-3"><a href="#cb140-3" aria-hidden="true" tabindex="-1"></a> geom_smooth(se <span class="op">=</span> <span class="va">False</span>, method <span class="op">=</span> <span class="st">'lm'</span>)<span class="op">+</span></span>
+<span id="cb140-4"><a href="#cb140-4" aria-hidden="true" tabindex="-1"></a> labs(x <span class="op">=</span> <span class="st">"Shoe Size (US)"</span>, y <span class="op">=</span> <span class="st">"Price"</span>)<span class="op">+</span></span>
+<span id="cb140-5"><a href="#cb140-5" aria-hidden="true" tabindex="-1"></a> theme (legend_position <span class="op">=</span> <span class="st">"top"</span>)</span>
+<span id="cb140-6"><a href="#cb140-6" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb140-7"><a href="#cb140-7" aria-hidden="true" tabindex="-1"></a>plot.draw(<span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="python_eda_files/figure-html/unnamed-chunk-42-3.png" class="img-fluid figure-img" width="614"></p>
+<figcaption>Relations between Shoe Size and Sale Price in Different Countries</figcaption>
+</figure>
+</div>
 </div>
 </div>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb143"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb143-1"><a href="#cb143-1" aria-hidden="true" tabindex="-1"></a>month_sales <span class="op">=</span> product[<span class="st">'MONTH'</span>] <span class="op">\</span></span>
-<span id="cb143-2"><a href="#cb143-2" aria-hidden="true" tabindex="-1"></a>    .value_counts(sort <span class="op">=</span> <span class="va">False</span>) <span class="op">\</span></span>
-<span id="cb143-3"><a href="#cb143-3" aria-hidden="true" tabindex="-1"></a>    .reset_index(name <span class="op">=</span> <span class="st">'SALES'</span>) <span class="op">\</span></span>
-<span id="cb143-4"><a href="#cb143-4" aria-hidden="true" tabindex="-1"></a>    .rename (columns <span class="op">=</span> {<span class="st">'index'</span> : <span class="st">'MONTH'</span>})</span>
-<span id="cb143-5"><a href="#cb143-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb143-6"><a href="#cb143-6" aria-hidden="true" tabindex="-1"></a>month_sales[<span class="st">'MONTH'</span>] <span class="op">=</span> pd.to_numeric(month_sales[<span class="st">'MONTH'</span>]) </span>
-<span id="cb143-7"><a href="#cb143-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb143-8"><a href="#cb143-8" aria-hidden="true" tabindex="-1"></a>(ggplot(month_sales, aes (<span class="st">"MONTH"</span>, <span class="st">"SALES"</span>))</span>
-<span id="cb143-9"><a href="#cb143-9" aria-hidden="true" tabindex="-1"></a> <span class="op">+</span> geom_point(color <span class="op">=</span> <span class="st">'blue'</span>)</span>
-<span id="cb143-10"><a href="#cb143-10" aria-hidden="true" tabindex="-1"></a> <span class="op">+</span> labs(x <span class="op">=</span> <span class="st">"Month"</span>, y <span class="op">=</span> <span class="st">"Total Sales"</span></span>
-<span id="cb143-11"><a href="#cb143-11" aria-hidden="true" tabindex="-1"></a>   <span class="co">#,title = "SALES IN DIFFERENT MONTHS"</span></span>
-<span id="cb143-12"><a href="#cb143-12" aria-hidden="true" tabindex="-1"></a>   )</span>
-<span id="cb143-13"><a href="#cb143-13" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>&lt;plotnine.ggplot.ggplot object at 0x00000205B1773F20&gt;</code></pre>
+<div class="sourceCode cell-code" id="cb141"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb141-1"><a href="#cb141-1" aria-hidden="true" tabindex="-1"></a>month_sales <span class="op">=</span> product[<span class="st">'MONTH'</span>] <span class="op">\</span></span>
+<span id="cb141-2"><a href="#cb141-2" aria-hidden="true" tabindex="-1"></a>    .value_counts(sort <span class="op">=</span> <span class="va">False</span>) <span class="op">\</span></span>
+<span id="cb141-3"><a href="#cb141-3" aria-hidden="true" tabindex="-1"></a>    .reset_index(name <span class="op">=</span> <span class="st">'SALES'</span>) <span class="op">\</span></span>
+<span id="cb141-4"><a href="#cb141-4" aria-hidden="true" tabindex="-1"></a>    .rename (columns <span class="op">=</span> {<span class="st">'index'</span> : <span class="st">'MONTH'</span>})</span>
+<span id="cb141-5"><a href="#cb141-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb141-6"><a href="#cb141-6" aria-hidden="true" tabindex="-1"></a>month_sales[<span class="st">'MONTH'</span>] <span class="op">=</span> pd.to_numeric(month_sales[<span class="st">'MONTH'</span>]) </span>
+<span id="cb141-7"><a href="#cb141-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb141-8"><a href="#cb141-8" aria-hidden="true" tabindex="-1"></a>plot <span class="op">=</span> (ggplot(month_sales, aes (<span class="st">"MONTH"</span>, <span class="st">"SALES"</span>))</span>
+<span id="cb141-9"><a href="#cb141-9" aria-hidden="true" tabindex="-1"></a> <span class="op">+</span> geom_point(color <span class="op">=</span> <span class="st">'blue'</span>)</span>
+<span id="cb141-10"><a href="#cb141-10" aria-hidden="true" tabindex="-1"></a> <span class="op">+</span> labs(x <span class="op">=</span> <span class="st">"Month"</span>, y <span class="op">=</span> <span class="st">"Total Sales"</span></span>
+<span id="cb141-11"><a href="#cb141-11" aria-hidden="true" tabindex="-1"></a>   <span class="co">#,title = "SALES IN DIFFERENT MONTHS"</span></span>
+<span id="cb141-12"><a href="#cb141-12" aria-hidden="true" tabindex="-1"></a>   )</span>
+<span id="cb141-13"><a href="#cb141-13" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb141-14"><a href="#cb141-14" aria-hidden="true" tabindex="-1"></a>plot.draw(<span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="python_eda_files/figure-html/unnamed-chunk-43-5.png" class="img-fluid figure-img" width="614"></p>
+<figcaption>Sales of Shoe in Different Months</figcaption>
+</figure>
+</div>
 </div>
 </div>
 </section>
