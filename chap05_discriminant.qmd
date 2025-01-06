@@ -1,0 +1,588 @@
+---
+title: "<center> Chapter # 05 <br> Discriminant Analysis"
+format: 
+  html: 
+    toc: true
+    toc-title: Table of Contents 
+    toc-depth: 5
+    number-sections: true
+    mainfont: emoji
+---
+
+## Introduction
+
+
+
+## Assumptions of Linear Discriminant Analysis 
+
+Discriminant analysis assumes that:
+
+  1. The data is normally distributed.
+  
+  2. Means of each class are specific to that class.
+  
+  3. All classes have a common covariance matrix. 
+
+If these assumptions are realized, DA generates a linear decision boundary.
+
+
+## Loading Python Packages
+
+```{python}
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt 
+import seaborn as sns
+# For Visualization
+sns.set(style = "white")
+sns.set(style = "whitegrid", color_codes = True)
+
+import sklearn # For Machine Learning 
+
+import warnings 
+warnings.filterwarnings('ignore')
+
+import sys
+sys.version
+
+print ('The Python version that is used for this code file is {}'.format(sys.version))
+print ('The Scikit-learn version that is used for this code file is {}'.format(sklearn.__version__))
+print ('The Panda version that is used for this code file is {}'.format(pd.__version__))
+print ('The Numpy version that is used for this code file is {}'.format(np.__version__))
+```
+
+## Working Directory
+
+```{python}
+#| eval: false
+import os
+os.getcwd()
+```
+
+```{python}
+#| eval: false
+for x in os.listdir():
+  print (x)
+```
+
+## Importing Datasets
+
+```{python}
+from sklearn import datasets
+dataset = datasets.load_wine()
+```
+
+## Metadata of the Imported Dataset
+
+```{python}
+dataset.keys()
+```
+
+```{python}
+dataset['data']
+```
+
+```{python}
+dataset['target']
+```
+
+```{python}
+dataset['target_names']
+```
+
+```{python}
+# Creating Data frame from the array 
+data = pd.DataFrame(dataset['data'], columns = dataset['feature_names'])
+data.head()
+```
+
+```{python}
+# Feature Vector 
+features_df = pd.DataFrame(dataset.data, columns = dataset.feature_names)
+# Target Vector 
+target_df = pd.Categorical.from_codes(dataset.target, dataset.target_names)
+```
+
+```{python}
+target_df
+```
+
+```{python}
+# Joining the above two datasets 
+df = features_df.join(pd.Series(target_df, name = 'class'))
+df.head()
+```
+
+```{python}
+df.info()
+```
+
+```{python}
+df.columns
+num_features= dataset.feature_names
+num_features
+# Looping functions 
+df.groupby('class')[num_features].mean().transpose()
+```
+
+## Analysis of Variance (`ANOVA`)
+
+One-way ANOVA (also known as "Analysis of Variance") is a test that is used to find out whether there exists a statistically significant difference between the mean values of more than one group.
+
+See @fig-corr to know when you should use which correlation
+
+::: {#fig-corr}
+![](images/corr.webp){fig-align="center"}
+
+When You Should Use Which Correlation?
+:::
+
+A one-way ANOVA has the below given null and alternative hypotheses:
+
+**H~0~ (Null hypothesis)**: `μ1 = μ2 = μ3 = … = μk` (It implies that the means of all the population are equal)
+
+**H~1~ (Alternate hypothesis)**: It states that there will be at least one population mean that differs from the rest
+
+```{python}
+dataset.target_names
+alc_class0 = df[df['class']=='class_0']['alcohol']
+type(alc_class0)
+alc_class1 = df[df['class']=='class_1']['alcohol']
+alc_class2 = df[df['class']=='class_2']['alcohol']
+
+
+from scipy.stats import f_oneway
+f_oneway(alc_class0,alc_class1,alc_class2)
+```
+
+The `F statistic` is `135.0776` and `p-value` is `0.000`. Since the p-value is less than 0.05, we reject Null Hypothesis (**H~0~**). The findings imply that there exists a difference between three groups for the variable `alcohol`.
+
+So, where does the difference come from? We can perform `Post Hoc` Analysis to check where does the differences come from
+
+```{python}
+import statsmodels.api as sm
+from statsmodels.stats.multicomp import pairwise_tukeyhsd
+tukey = pairwise_tukeyhsd(endog=df['alcohol'],     # Data
+                          groups=df['class'],   # Groups
+                          alpha=0.05)
+tukey.summary()
+```
+
+See @fig-tukey for the sources of differences of target variable and `alcohol`
+
+```{python}
+#| label: fig-tukey
+#| fig-cap: Where Does the Difference Come From between Target variable and variable alcohol?
+tukey.plot_simultaneous()    # Plot group confidence intervals
+plt.vlines(x=49.57,ymin=-0.5,ymax=4.5, color="red")
+plt.show()
+```
+
+### Using `ANOVA` for Feature Selection
+
+```{python}
+list(dataset.target_names)
+```
+
+```{python}
+tukey_malic = pairwise_tukeyhsd(endog=df['malic_acid'],     # Data
+                          groups=df['class'],   # Groups
+                          alpha=0.05)
+tukey_malic.summary()
+```
+
+See @fig-tukey2 for the difference between target variable and `malic_acid`
+
+```{python}
+#| label: fig-tukey2
+#| fig-cap: Where Does the Difference Come From between Target variable and variable malic_acid? 
+tukey_malic.plot_simultaneous()    # Plot group confidence intervals
+plt.vlines(x=49.57,ymin=-0.5,ymax=4.5, color="red")
+plt.show()
+```
+
+```{python}
+import statsmodels.api as sm
+from statsmodels.formula.api import ols
+df.rename(columns = {
+  'od280/od315_of_diluted_wines': 'diluted_wines'}, inplace = True)
+```
+
+```{python}
+#| eval: false
+#| echo: false
+#| include: false
+# To calculate the anova results for all variables 
+keys = []
+tables = []
+for variable in df.columns:
+  model = ols('{} ~ class'.format(variable), data = df).fit()
+  anova_table = sm.stats.anova_lm(model, typ=2)
+  keys.append(variable)
+  tables.append(anova_table)
+  
+  
+keys
+df_anova = pd.concat(tables, keys = keys, axis = 0)
+df_anova
+```
+
+## Linear Discriminant Analysis
+
+```{python}
+X = dataset.data
+y = dataset.target
+target_names = dataset.target_names
+```
+
+```{python}
+from sklearn.discriminant_analysis import LinearDiscriminantAnalysis
+```
+
+```{python}
+lda = LinearDiscriminantAnalysis(n_components = 2)
+```
+
+```{python}
+X_r2 = lda.fit(X,y).transform(X)
+```
+
+```{python}
+X_r2[0:10,]
+```
+
+```{python}
+lda.explained_variance_ratio_
+```
+
+### Plotting the Dataset
+
+```{python}
+plt.figure(figsize = (15,8))
+plt.scatter(X_r2[:,0], X_r2[:,1], c = dataset.target,cmap = 'gnuplot', alpha = 0.7)
+plt.xlabel('DF1')
+plt.ylabel('DF2')
+plt.show()
+```
+
+### Distribution of LDA Components
+
+```{python}
+df_lda = pd.DataFrame(zip(X_r2[:,0], X_r2[:,1],y), columns = ["ld1", "ld2", "class"])
+sns.set(rc={'figure.figsize':(12,8)})
+plt.subplot(2,1,1)
+sns.boxplot(data = df_lda, x = 'class', y = 'ld1')
+plt.subplot(2,1,2)
+sns.boxplot(data = df_lda, x = 'class', y = 'ld2')
+plt.show()
+```
+
+## Using LDA to Solve Classification Problem
+
+```{python}
+from sklearn.model_selection import train_test_split
+X_train, X_test, y_train, y_test = train_test_split(X,y, test_size = 0.25, random_state = 2024)
+```
+
+### Training the Model
+
+```{python}
+lda_model = LinearDiscriminantAnalysis(n_components = 2)
+lda_model.fit(X_train, y_train)
+```
+
+### Testing the Model
+
+```{python}
+y_pred = lda_model.predict(X_test)
+
+```
+
+### Checking Model Accuracy
+
+```{python}
+from sklearn.metrics import accuracy_score
+print ("The Accuracy of LDA Model is %0.2f%%." % (accuracy_score(y_test, y_pred)*100))
+```
+
+```{python}
+from sklearn.metrics import confusion_matrix, classification_report
+confusion_matrix(y_test, y_pred)
+sns.heatmap(confusion_matrix(y_test, y_pred), annot=True)
+plt.show()
+```
+
+## Cross Validation
+
+```{python}
+from sklearn.model_selection import RepeatedStratifiedKFold
+from sklearn.model_selection import cross_val_score
+```
+
+```{python}
+#| eval: false
+cv = RepeatedStratifiedKFold(n_splits = 10, n_repeats = 50, random_state = 1)
+scores = cross_val_score(lda_model, X,y, scoring = "accuracy", cv = cv, n_jobs = -1)
+print(np.mean(scores))
+```
+
+## LDA vs PCA (Visualization Difference)
+
+### PCA Model
+
+```{python}
+from sklearn.decomposition import PCA
+pca = PCA(n_components = 2)
+X_pca = pca.fit(X).transform(X)
+```
+
+```{python}
+from pylab import *
+subplot(2,1,1)
+title ("PCA")
+plt.scatter(X_pca[:,0], X_pca[:,1], c = dataset.target, cmap = "gnuplot")
+subplot(2,1,2)
+title ("LDA")
+plt.scatter(X_r2[:,0], X_r2[:,1], c = dataset.target, cmap = "gnuplot")
+plt.show()
+```
+
+Both algorithms have successfully reduced the components but created different clusters because both have reduced the components based on different principles.
+
+Now let's also visualize and compare the distributions of each of the algorithms on their respective components. Here we will visualize the distribution of the first component of each algorithm (LDA-1 and PCA-1).
+
+```{python}
+# creating dataframs
+df=pd.DataFrame(zip(X_pca[:,0],X_r2[:,0],y),columns=["pc1","ld1","class"])
+# plotting the lda1
+plt.subplot(2,1,1)
+sns.boxplot(x='class', y='ld1', data=df)
+# plotting pca1
+plt.subplot(2,1,2)
+sns.boxplot(x='class', y='pc1', data=df)
+plt.show()
+```
+
+There is a slight difference in the distribution of both of the algorithms. For example, the PCA result shows outliers only at the first target variable, whereas the LDA result contains outliers for every target variable.
+
+## Variance Covariance Matrix
+
+To calculate the covariance matrix in Python using NumPy, you can import NumPy as np, create or load your data as a NumPy array, subtract the mean of each column from the data, transpose the array, multiply the transposed array and original array, divide the multiplied array by the number of observations, and print the array. Alternatively, you can use the `np.cov` function which takes the data array as an input and returns the covariance matrix as an output.
+
+To learn more about [variance-covariance matrix.](https://builtin.com/data-science/covariance-matrix)
+
+To learn more about [eigenvalues and eigenvectors.](https://github.com/learn-co-students/dsc-3-34-07-pca-implementation-visualization-python-numpy-lab-seattle-ds-career-040119)
+
+```{python}
+A = [45, 37, 42, 35, 39]
+B = [38, 31, 26, 28, 33]
+C = [10, 15, 17, 21, 12]
+
+data = np.array([A, B, C])
+
+cov_matrix = np.cov(data, bias=True)
+print(cov_matrix)
+```
+```{python}
+np.var(A)
+```
+
+
+```{python}
+np.var(C)
+```
+
+
+### Eigenvalues and Eigenvector for Variance-covariance Matrix
+
+```{python}
+# eigendecomposition
+from numpy.linalg import eig
+```
+
+
+
+```{python}
+# calculate eigendecomposition
+values, vectors = eig(cov_matrix)
+# Eigenvalues 
+print(values)
+
+```
+
+```{python}
+# Eigenvectors 
+print(vectors)
+```
+
+## Regularized Discriminant Analysis
+
+Since regularization techniques have been highly successful in the solution of ill-posed and poorly-posed inverse problems so to mitigate this problem the most reliable way is to use the regularization technique. 
+
+  * A poorly posed problem occurs when the number of parameters to be estimated is comparable to the number of observations.
+  
+  * Similarly,ill-posed if that number exceeds the sample size.
+  
+In these cases the parameter estimates can be highly unstable, giving rise to high variance. Regularization would help to improve the estimates by shifting them away from their sample-based values towards values that are more physically valid; this would be achieved by applying shrinkage to each class. 
+
+While regularization reduces the variance associated with the sample-based estimate, it may also increase bias. This process known as bias-variance trade-off is generally controlled by one or more degree-of-belief parameters that determine how strongly biasing towards “plausible” values of population parameters takes place.
+
+Whenever the sample size is not significantly greater than the dimension of measurement space for any class, Quantitative discriminant analysis (QDA) is ill-posed. Typically, `regularization is applied to a discriminant analysis by replacing the individual class sample covariance matrices with the average weights assigned to the eigenvalues`. 
+
+This applies a considerable degree of regularization by substantially reducing the number of parameters to be estimated. `The regularization parameter () which is added to the equation of QDA and LDA takes a value between 0 to 1`. It controls the degree of shrinkage of the individual class covariance matrix estimates toward the pooled estimate. Values between these limits represent degrees of regularization.
+
+```{python}
+from sklearn.metrics import ConfusionMatrixDisplay,precision_score,recall_score,confusion_matrix
+from imblearn.over_sampling import SMOTE # To install module, run this line of code - pip install imblearn
+from sklearn.model_selection import train_test_split,cross_val_score,RepeatedStratifiedKFold,GridSearchCV
+```
+
+```{python}
+# Reading a new dataset 
+df = pd.read_csv('DATA/healthcare-dataset-stroke-data.csv')
+print("Records = ", df.shape[0], "\nFeatures = ", df.shape[1])
+```
+
+```{python}
+df.sample(5)
+```
+```{python}
+df.info()
+```
+
+```{python}
+# Missing Values 
+(df.isnull().sum()/len(df)*100)
+```
+
+```{python}
+# Dropping the Missing Observations
+df.dropna(axis = 0, inplace = True)
+df.shape
+```
+
+```{python}
+# Creating the Dummies 
+df_pre = pd.get_dummies(df, drop_first = True)
+df_pre.sample(5)
+```
+
+```{python}
+# Training and Testing the Split 
+X = df_pre.drop(['stroke'], axis = 1)
+y = df_pre['stroke']
+X_train, X_test, y_train, y_test = train_test_split(X,y, test_size = 0.30, random_state = 25)
+```
+
+```{python}
+# Building the LDA
+LDA = LinearDiscriminantAnalysis()
+LDA.fit_transform(X_train, y_train)
+X_test['predictions'] = LDA.predict(X_test)
+ConfusionMatrixDisplay.from_predictions(y_test, X_test['predictions'])
+plt.show()
+```
+```{python}
+tn, fp, fn, tp = confusion_matrix(list(y_test), list(X_test['predictions']), labels=[0, 1]).ravel()
+```
+
+
+```{python}
+print('True Positive :', tp)
+print('True Negative :', tn)
+print('False Positive :', fp)
+print('False Negative :', fn)
+print("Precision score",precision_score(y_test,X_test['predictions']))
+```
+It has only 32% precision rate, which is very poor performance.
+
+
+```{python}
+print("Accuracy Score",accuracy_score(y_test,X_test['predictions']))
+```
+The accuracy is approximately 95%, but the precision is 32%. 
+
+### Cross Validation of the Dataset 
+
+```{python}
+from sklearn.model_selection import RepeatedStratifiedKFold
+from sklearn.model_selection import cross_val_score
+```
+
+```{python}
+#Define method to evaluate model
+cv = RepeatedStratifiedKFold(n_splits=10, n_repeats=50, random_state=1)
+
+#evaluate model
+scores = cross_val_score(LDA, X_train, y_train, scoring='precision', cv=cv, n_jobs=-1)
+print(np.mean(scores)) 
+```
+
+```{python}
+#evaluate model
+scores = cross_val_score(LDA, X_train, y_train, scoring='accuracy', cv=cv, n_jobs=-1)
+print(np.mean(scores)) 
+```
+Even after cross validation, the precision is about 24% and the accuracy is 95% approximately. There is no significant improvement of the metrics of the model. 
+
+## Regularizing and Shrinking the LDA
+
+```{python}
+df_pre['stroke'].value_counts()
+```
+As observed by the value count of the dependent variable the data is imbalanced as the quantity of 1’s is approx 4% of the total dependent variable. So, it needs to be balanced for the learner to be a good predictor.
+
+### Balancing the Dependent Variable 
+
+There are two ways by which the data can be synthesized: one by oversampling and the second, by undersampling. In this scenario, oversampling is better which will synthesize the lesser category linear interpolation.
+
+
+```{python}
+oversample = SMOTE()
+X_smote, y_smote = oversample.fit_resample(X, y)
+Xs_train, Xs_test, ys_train, ys_test = train_test_split(X_smote, y_smote, test_size=0.30, random_state=42)
+```
+
+The imbalance is mitigated by using the `Synthetic Minority Oversampling Technique (SMOTE)` but this will not help much we also need to regularize the leaner by using the `GridSearchCV` which will find the best parameters for the learner and add a penalty to the solver which will shrink the eigenvalue i.e regularization.
+
+```{python}
+cv = RepeatedStratifiedKFold(n_splits=10, n_repeats=3, random_state=42)
+grid = dict()
+grid['solver'] = ['eigen','lsqr']
+grid['shrinkage'] = ['auto',0.2,1,0.3,0.5]
+search = GridSearchCV(LDA, grid, scoring='precision', cv=cv, n_jobs=-1)
+results = search.fit(Xs_train, ys_train)
+print('Precision: %.3f' % results.best_score_)
+print('Configuration:',results.best_params_)
+```
+
+The precision score jumped right from 35% to 87% with the help of regularization and shrinkage of the learner and the best solver for the Linear Discriminant Analysis is `eigen` and the shrinkage method is `auto` which uses the Ledoit-Wolf lemma for finding the shrinkage penalty. 
+
+## Building the Regularized Discriminant Analysis (RDA)
+
+```{python}
+# Build the RDA
+LDA_final=LinearDiscriminantAnalysis(shrinkage='auto', solver='eigen')
+LDA_final.fit_transform(Xs_train,ys_train)
+Xs_test['predictions']=LDA_final.predict(Xs_test)
+ConfusionMatrixDisplay.from_predictions(ys_test, Xs_test['predictions'])
+plt.show()
+ 
+tn, fp, fn, tp = confusion_matrix(list(ys_test), list(Xs_test['predictions']), labels=[0, 1]).ravel()
+ 
+print('True Positive :', tp)
+print('True Negative :', tn)
+print('False Positive :', fp)
+print('False Negative :', fn)
+```
+
+
+```{python}
+print("Precision score",np.round(precision_score(ys_test,Xs_test['predictions']),3))
+```
+
+```{python}
+print("Accuracy score",np.round(accuracy_score(ys_test,Xs_test['predictions']),3))
+```
+
+## Conclusion 

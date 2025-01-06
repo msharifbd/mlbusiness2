@@ -1,0 +1,61 @@
+---
+title: "<center> Chapter # 01 <br> Introduction to Machine Learning"
+format:
+    revealjs: 
+        theme: dark
+        controls: true
+        navigation-mode: vertical
+        self-contained: true
+        slide-number: true
+        slide-tone: true
+        css: styles.css
+---
+
+## Introduction 
+![](images/chap01-1.png)
+
+## One Caveat 
+![](images/chap01-2.png)
+
+## What is Machine Learning (ML)
+![](images/chap01-3.png)
+
+## Artificial Intelligence (AL) vs Machine Learning (ML)
+![](images/chap01-4.png)
+
+## Artificial intelligence (AI) vs machine learning (ML)(Cont’d) 
+![](images/chap01-5.png)
+
+## Model vs algorithm
+![](images/chap01-6.png)
+
+## Model vs algorithm (Cont’d) 
+![](images/chap01-7.png)
+
+## Model vs algorithm (Cont’d) 
+
+![](images/chap01-8.png)
+
+## Classes of Machine Learning Algorithm
+![](images/chap01-9.png)
+
+## Classes of Machine Learning Algorithm (Cont’d)
+![](images/chap01-10.png)
+
+## Classes of Machine Learning Algorithm (Cont’d)
+![](images/chap01-11.png)
+
+## Classes of Machine Learning Algorithm (Cont’d)
+![](images/chap01-12.png)
+
+## Artificial Intelligence (AI), Machine learning (ML), and Deep learning (DL) 
+![](images/chap01-13.png)
+
+## Ethics in Machine learning
+![](images/chap01-14.png)
+
+## Python VS. R for machine learning 
+![](images/chap01-15.png)
+
+## What will we learn from BSAN405 
+![](images/chap01-16.png)

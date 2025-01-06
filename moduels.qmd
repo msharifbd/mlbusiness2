@@ -1,0 +1,29 @@
+---
+title: "Modules"
+---
+
+The following Modules (Chapters) are suggested for the course - 
+
+
+01. Chapter # 01 - Introduction to Machine Learning (ML) & Concepts 
+
+
+02. Chapter # 02 - Introduction to `R` and `Python` and Exploratory Data Analysis (EDA)
+
+
+03. Chapter # 03 - KNN Algorithm and Fundamental Concepts in ML Modeling 
+
+04. Chapter # 04 - Logistic Regression Algorithm 
+
+05. Chapter # 05 - Discriminant Analysis
+
+06. Chapter # 06 - Support Vector Machine (SVM)
+
+07. Chapter # 07 - Linear Regression 
+
+08. Chapter # 08 - Decision Tree Analysis 
+
+09. Chapter # 09 - Dimension Reduction and Principal Component Analysis 
+
+10. Chapter # 10 - K- Means Clustering 
+

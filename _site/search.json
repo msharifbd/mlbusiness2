@@ -1,0 +1,580 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "\nMachine Learning in Business",
+    "section": "",
+    "text": "Back to top"
+  },
+  {
+    "objectID": "syllabus.html#books",
+    "href": "syllabus.html#books",
+    "title": "Syllabus",
+    "section": "Books",
+    "text": "Books"
+  },
+  {
+    "objectID": "syllabus.html#grading",
+    "href": "syllabus.html#grading",
+    "title": "Syllabus",
+    "section": "Grading",
+    "text": "Grading"
+  },
+  {
+    "objectID": "syllabus.html#classroom-etiquette",
+    "href": "syllabus.html#classroom-etiquette",
+    "title": "Syllabus",
+    "section": "Classroom Etiquette",
+    "text": "Classroom Etiquette"
+  },
+  {
+    "objectID": "syllabus.html#modules",
+    "href": "syllabus.html#modules",
+    "title": "Syllabus",
+    "section": "Modules",
+    "text": "Modules\n\n01. Basics of R, Python, Tableau, and Power BI\n\n\n02. Working with Data\n\n\n03. Data Visualization\n\n\n04. Working with Databases\n\n\n05. Regression\n\n\n06. Machine Learning\n\n\n07. Textual Analysis"
+  },
+  {
+    "objectID": "recent-developments.html",
+    "href": "recent-developments.html",
+    "title": "News",
+    "section": "",
+    "text": "Back to top"
+  },
+  {
+    "objectID": "python_eda.html",
+    "href": "python_eda.html",
+    "title": "\nExploratory Data Analysis in Python",
+    "section": "",
+    "text": "The objective of this document is to introduce the necessary functions from pandas library in Python for data manipulation and matplotlib and seaborn libraries for data visualization. There are basically six functions - select(), filter(), mutate(), arrange(), group_by(), and summarize() - from dplyr package of tidyverse ecosystem that are very much necessary for data manipulation. These six functions can be used for 80% of data manipulation problems. In this document, we will compare the above six functions from dplyr with the equivalent pandas functions. Additionally, this handout also compares some other Python packages, particularly plotnine library that can be used to apply ggplot in Python.",
+    "crumbs": [
+      "Modules & Slides",
+      "Appendix",
+      "<center> Exploratory Data Analysis in Python"
+    ]
+  },
+  {
+    "objectID": "python_eda.html#changing-the-types-of-the-variables",
+    "href": "python_eda.html#changing-the-types-of-the-variables",
+    "title": "\nExploratory Data Analysis in Python",
+    "section": "6.1 Changing the Types of the Variables",
+    "text": "6.1 Changing the Types of the Variables\n      There are several types of data in Python as it is in R. Table Table 1 lists the data types in python.\n\n\n\n\nTable 1: Types of Data in Python\n\n\n\n\n\n\nPython Data Type\nData Nature\n\n\n\n\nfloat64\nReal Numbers\n\n\ncategory\ncateogries\n\n\ndatetime64\nDate Times\n\n\nint64\nIntegers\n\n\nbool\nTrue or False\n\n\nstring\nText\n\n\n\n\n\n\n\n\n\n\n\n# Changing the DATE variable from object to date\nproduct['DATE'] = pd.to_datetime(product['DATE']) \nproduct.info()\n\n&lt;class 'pandas.core.frame.DataFrame'&gt;\nRangeIndex: 14967 entries, 0 to 14966\nData columns (total 14 columns):\n #   Column       Non-Null Count  Dtype         \n---  ------       --------------  -----         \n 0   INVOICENO    14967 non-null  int64         \n 1   DATE         14967 non-null  datetime64[ns]\n 2   COUNTRY      14967 non-null  object        \n 3   PRODUCTID    14967 non-null  int64         \n 4   SHOP         14967 non-null  object        \n 5   GENDER       14967 non-null  object        \n 6   SIZE_US      14967 non-null  float64       \n 7   SIZE_EUROPE  14967 non-null  object        \n 8   SIZE_UK      14967 non-null  float64       \n 9   UNITPRICE    14967 non-null  int64         \n 10  DISCOUNT     14967 non-null  float64       \n 11  YEAR         14967 non-null  int64         \n 12  MONTH        14967 non-null  int64         \n 13  SALEPRICE    14967 non-null  float64       \ndtypes: datetime64[ns](1), float64(4), int64(5), object(4)\nmemory usage: 1.6+ MB\n\n\n\n# converting integer to object\nproduct.INVOICENO = product.INVOICENO.astype(str) \nproduct[['MONTH', 'PRODUCTID']] = product[['MONTH', 'PRODUCTID']].astype(str) \nproduct.info()\n\n&lt;class 'pandas.core.frame.DataFrame'&gt;\nRangeIndex: 14967 entries, 0 to 14966\nData columns (total 14 columns):\n #   Column       Non-Null Count  Dtype         \n---  ------       --------------  -----         \n 0   INVOICENO    14967 non-null  object        \n 1   DATE         14967 non-null  datetime64[ns]\n 2   COUNTRY      14967 non-null  object        \n 3   PRODUCTID    14967 non-null  object        \n 4   SHOP         14967 non-null  object        \n 5   GENDER       14967 non-null  object        \n 6   SIZE_US      14967 non-null  float64       \n 7   SIZE_EUROPE  14967 non-null  object        \n 8   SIZE_UK      14967 non-null  float64       \n 9   UNITPRICE    14967 non-null  int64         \n 10  DISCOUNT     14967 non-null  float64       \n 11  YEAR         14967 non-null  int64         \n 12  MONTH        14967 non-null  object        \n 13  SALEPRICE    14967 non-null  float64       \ndtypes: datetime64[ns](1), float64(4), int64(2), object(7)\nmemory usage: 1.6+ MB",
+    "crumbs": [
+      "Modules & Slides",
+      "Appendix",
+      "<center> Exploratory Data Analysis in Python"
+    ]
+  },
+  {
+    "objectID": "python_eda.html#select-equivalent-in-python---accessing-columns",
+    "href": "python_eda.html#select-equivalent-in-python---accessing-columns",
+    "title": "\nExploratory Data Analysis in Python",
+    "section": "7.1 select () Equivalent in Python - Accessing Columns",
+    "text": "7.1 select () Equivalent in Python - Accessing Columns\n\nprod2 = product[['YEAR','SALEPRICE', 'DISCOUNT', 'UNITPRICE']]\nprod2.head()\n\n   YEAR  SALEPRICE  DISCOUNT  UNITPRICE\n0  2014      159.0       0.0        159\n1  2014      159.2       0.2        199\n2  2014      119.2       0.2        149\n3  2014      159.0       0.0        159\n4  2014      159.0       0.0        159\n\n\n\nproduct.loc[:,['YEAR','SALEPRICE', 'DISCOUNT', 'UNITPRICE']]\n\n       YEAR  SALEPRICE  DISCOUNT  UNITPRICE\n0      2014      159.0       0.0        159\n1      2014      159.2       0.2        199\n2      2014      119.2       0.2        149\n3      2014      159.0       0.0        159\n4      2014      159.0       0.0        159\n...     ...        ...       ...        ...\n14962  2016      139.0       0.0        139\n14963  2016      149.0       0.0        149\n14964  2016      125.3       0.3        179\n14965  2016      199.0       0.0        199\n14966  2016      125.1       0.1        139\n\n[14967 rows x 4 columns]\n\nproduct.loc[0:5,['YEAR','SALEPRICE', 'DISCOUNT', 'UNITPRICE']]\n\n   YEAR  SALEPRICE  DISCOUNT  UNITPRICE\n0  2014      159.0       0.0        159\n1  2014      159.2       0.2        199\n2  2014      119.2       0.2        149\n3  2014      159.0       0.0        159\n4  2014      159.0       0.0        159\n5  2014      159.0       0.0        159\n\n\n\nproduct.filter(['YEAR','SALEPRICE', 'DISCOUNT', 'UNITPRICE'])\n\n       YEAR  SALEPRICE  DISCOUNT  UNITPRICE\n0      2014      159.0       0.0        159\n1      2014      159.2       0.2        199\n2      2014      119.2       0.2        149\n3      2014      159.0       0.0        159\n4      2014      159.0       0.0        159\n...     ...        ...       ...        ...\n14962  2016      139.0       0.0        139\n14963  2016      149.0       0.0        149\n14964  2016      125.3       0.3        179\n14965  2016      199.0       0.0        199\n14966  2016      125.1       0.1        139\n\n[14967 rows x 4 columns]\n\n\n\n# Regular Expression (Regex)\nproduct.filter(regex = \"PRICE$\") # Ends with Price \n\n       UNITPRICE  SALEPRICE\n0            159      159.0\n1            199      159.2\n2            149      119.2\n3            159      159.0\n4            159      159.0\n...          ...        ...\n14962        139      139.0\n14963        149      149.0\n14964        179      125.3\n14965        199      199.0\n14966        139      125.1\n\n[14967 rows x 2 columns]\n\nproduct.filter(regex = \"^SIZE\")  # Starts with SIZE\n\n       SIZE_US SIZE_EUROPE  SIZE_UK\n0         11.0          44     10.5\n1         11.5       44-45     11.0\n2          9.5       42-43      9.0\n3          9.5          40      7.5\n4          9.0       39-40      7.0\n...        ...         ...      ...\n14962      9.5       42-43      9.0\n14963     12.0       42-43     10.0\n14964     10.5       43-44     10.0\n14965      9.5          40      7.5\n14966      6.5          37      4.5\n\n[14967 rows x 3 columns]\n\nproduct.filter(regex = \"PRICE\")  # Contains the word Price \n\n       UNITPRICE  SALEPRICE\n0            159      159.0\n1            199      159.2\n2            149      119.2\n3            159      159.0\n4            159      159.0\n...          ...        ...\n14962        139      139.0\n14963        149      149.0\n14964        179      125.3\n14965        199      199.0\n14966        139      125.1\n\n[14967 rows x 2 columns]\n\n\n\nproduct.select_dtypes('object')\n\n      INVOICENO         COUNTRY PRODUCTID  SHOP  GENDER SIZE_EUROPE MONTH\n0         52389  United Kingdom      2152   UK2    Male          44     1\n1         52390   United States      2230  US15    Male       44-45     1\n2         52391          Canada      2160  CAN7    Male       42-43     1\n3         52392   United States      2234   US6  Female          40     1\n4         52393  United Kingdom      2222   UK4  Female       39-40     1\n...         ...             ...       ...   ...     ...         ...   ...\n14962     65773  United Kingdom      2154   UK2    Male       42-43    12\n14963     65774   United States      2181  US12  Female       42-43    12\n14964     65775          Canada      2203  CAN6    Male       43-44    12\n14965     65776         Germany      2231  GER1  Female          40    12\n14966     65777         Germany      2156  GER1  Female          37    12\n\n[14967 rows x 7 columns]\n\nproduct.select_dtypes('int')\n\n       UNITPRICE  YEAR\n0            159  2014\n1            199  2014\n2            149  2014\n3            159  2014\n4            159  2014\n...          ...   ...\n14962        139  2016\n14963        149  2016\n14964        179  2016\n14965        199  2016\n14966        139  2016\n\n[14967 rows x 2 columns]\n\n\n\nproduct.loc[:,product.columns.str.startswith('SIZE')]\n\n       SIZE_US SIZE_EUROPE  SIZE_UK\n0         11.0          44     10.5\n1         11.5       44-45     11.0\n2          9.5       42-43      9.0\n3          9.5          40      7.5\n4          9.0       39-40      7.0\n...        ...         ...      ...\n14962      9.5       42-43      9.0\n14963     12.0       42-43     10.0\n14964     10.5       43-44     10.0\n14965      9.5          40      7.5\n14966      6.5          37      4.5\n\n[14967 rows x 3 columns]\n\nproduct.loc[:,product.columns.str.contains('PRICE')]\n\n       UNITPRICE  SALEPRICE\n0            159      159.0\n1            199      159.2\n2            149      119.2\n3            159      159.0\n4            159      159.0\n...          ...        ...\n14962        139      139.0\n14963        149      149.0\n14964        179      125.3\n14965        199      199.0\n14966        139      125.1\n\n[14967 rows x 2 columns]\n\nproduct.loc[:,product.columns.str.endswith('PRICE')]\n\n       UNITPRICE  SALEPRICE\n0            159      159.0\n1            199      159.2\n2            149      119.2\n3            159      159.0\n4            159      159.0\n...          ...        ...\n14962        139      139.0\n14963        149      149.0\n14964        179      125.3\n14965        199      199.0\n14966        139      125.1\n\n[14967 rows x 2 columns]\n\n\n\n# Dropping some columns \nproduct.info()\n\n&lt;class 'pandas.core.frame.DataFrame'&gt;\nRangeIndex: 14967 entries, 0 to 14966\nData columns (total 14 columns):\n #   Column       Non-Null Count  Dtype         \n---  ------       --------------  -----         \n 0   INVOICENO    14967 non-null  object        \n 1   DATE         14967 non-null  datetime64[ns]\n 2   COUNTRY      14967 non-null  object        \n 3   PRODUCTID    14967 non-null  object        \n 4   SHOP         14967 non-null  object        \n 5   GENDER       14967 non-null  object        \n 6   SIZE_US      14967 non-null  float64       \n 7   SIZE_EUROPE  14967 non-null  object        \n 8   SIZE_UK      14967 non-null  float64       \n 9   UNITPRICE    14967 non-null  int64         \n 10  DISCOUNT     14967 non-null  float64       \n 11  YEAR         14967 non-null  int64         \n 12  MONTH        14967 non-null  object        \n 13  SALEPRICE    14967 non-null  float64       \ndtypes: datetime64[ns](1), float64(4), int64(2), object(7)\nmemory usage: 1.6+ MB\n\nproduct.drop(columns = ['SIZE_EUROPE', 'SIZE_UK'], axis = 1)\n\n      INVOICENO       DATE         COUNTRY  ...  YEAR MONTH SALEPRICE\n0         52389 2014-01-01  United Kingdom  ...  2014     1     159.0\n1         52390 2014-01-01   United States  ...  2014     1     159.2\n2         52391 2014-01-01          Canada  ...  2014     1     119.2\n3         52392 2014-01-01   United States  ...  2014     1     159.0\n4         52393 2014-01-01  United Kingdom  ...  2014     1     159.0\n...         ...        ...             ...  ...   ...   ...       ...\n14962     65773 2016-12-31  United Kingdom  ...  2016    12     139.0\n14963     65774 2016-12-31   United States  ...  2016    12     149.0\n14964     65775 2016-12-31          Canada  ...  2016    12     125.3\n14965     65776 2016-12-31         Germany  ...  2016    12     199.0\n14966     65777 2016-12-31         Germany  ...  2016    12     125.1\n\n[14967 rows x 12 columns]\n\nproduct.drop(columns = ['SIZE_EUROPE', 'SIZE_UK'], axis = 1) \\\n    .pipe(lambda x: x.info())\n\n&lt;class 'pandas.core.frame.DataFrame'&gt;\nRangeIndex: 14967 entries, 0 to 14966\nData columns (total 12 columns):\n #   Column     Non-Null Count  Dtype         \n---  ------     --------------  -----         \n 0   INVOICENO  14967 non-null  object        \n 1   DATE       14967 non-null  datetime64[ns]\n 2   COUNTRY    14967 non-null  object        \n 3   PRODUCTID  14967 non-null  object        \n 4   SHOP       14967 non-null  object        \n 5   GENDER     14967 non-null  object        \n 6   SIZE_US    14967 non-null  float64       \n 7   UNITPRICE  14967 non-null  int64         \n 8   DISCOUNT   14967 non-null  float64       \n 9   YEAR       14967 non-null  int64         \n 10  MONTH      14967 non-null  object        \n 11  SALEPRICE  14967 non-null  float64       \ndtypes: datetime64[ns](1), float64(3), int64(2), object(6)\nmemory usage: 1.4+ MB\n\n\n\n7.1.1 Rearranging Columns\n\n# Sorting Alphabetically\nproduct.reindex(sorted(product.columns), axis = 1)\n\n              COUNTRY       DATE  DISCOUNT  ... SIZE_US UNITPRICE  YEAR\n0      United Kingdom 2014-01-01       0.0  ...    11.0       159  2014\n1       United States 2014-01-01       0.2  ...    11.5       199  2014\n2              Canada 2014-01-01       0.2  ...     9.5       149  2014\n3       United States 2014-01-01       0.0  ...     9.5       159  2014\n4      United Kingdom 2014-01-01       0.0  ...     9.0       159  2014\n...               ...        ...       ...  ...     ...       ...   ...\n14962  United Kingdom 2016-12-31       0.0  ...     9.5       139  2016\n14963   United States 2016-12-31       0.0  ...    12.0       149  2016\n14964          Canada 2016-12-31       0.3  ...    10.5       179  2016\n14965         Germany 2016-12-31       0.0  ...     9.5       199  2016\n14966         Germany 2016-12-31       0.1  ...     6.5       139  2016\n\n[14967 rows x 14 columns]\n\n# Sorting As You Want (ASY)\nproduct.columns.to_list()\n\n['INVOICENO', 'DATE', 'COUNTRY', 'PRODUCTID', 'SHOP', 'GENDER', 'SIZE_US', 'SIZE_EUROPE', 'SIZE_UK', 'UNITPRICE', 'DISCOUNT', 'YEAR', 'MONTH', 'SALEPRICE']\n\ncol_first = ['YEAR','MONTH']\ncol_rest = product.columns.difference(col_first, sort=False).to_list()\nproduct2 = product[col_first + col_rest]\nproduct2.info()\n\n&lt;class 'pandas.core.frame.DataFrame'&gt;\nRangeIndex: 14967 entries, 0 to 14966\nData columns (total 14 columns):\n #   Column       Non-Null Count  Dtype         \n---  ------       --------------  -----         \n 0   YEAR         14967 non-null  int64         \n 1   MONTH        14967 non-null  object        \n 2   INVOICENO    14967 non-null  object        \n 3   DATE         14967 non-null  datetime64[ns]\n 4   COUNTRY      14967 non-null  object        \n 5   PRODUCTID    14967 non-null  object        \n 6   SHOP         14967 non-null  object        \n 7   GENDER       14967 non-null  object        \n 8   SIZE_US      14967 non-null  float64       \n 9   SIZE_EUROPE  14967 non-null  object        \n 10  SIZE_UK      14967 non-null  float64       \n 11  UNITPRICE    14967 non-null  int64         \n 12  DISCOUNT     14967 non-null  float64       \n 13  SALEPRICE    14967 non-null  float64       \ndtypes: datetime64[ns](1), float64(4), int64(2), object(7)\nmemory usage: 1.6+ MB",
+    "crumbs": [
+      "Modules & Slides",
+      "Appendix",
+      "<center> Exploratory Data Analysis in Python"
+    ]
+  },
+  {
+    "objectID": "python_eda.html#filter-equivalent-in-python---accessing-rows",
+    "href": "python_eda.html#filter-equivalent-in-python---accessing-rows",
+    "title": "\nExploratory Data Analysis in Python",
+    "section": "7.2 filter () Equivalent in Python - Accessing Rows",
+    "text": "7.2 filter () Equivalent in Python - Accessing Rows\n\nproduct.info()\n\n&lt;class 'pandas.core.frame.DataFrame'&gt;\nRangeIndex: 14967 entries, 0 to 14966\nData columns (total 14 columns):\n #   Column       Non-Null Count  Dtype         \n---  ------       --------------  -----         \n 0   INVOICENO    14967 non-null  object        \n 1   DATE         14967 non-null  datetime64[ns]\n 2   COUNTRY      14967 non-null  object        \n 3   PRODUCTID    14967 non-null  object        \n 4   SHOP         14967 non-null  object        \n 5   GENDER       14967 non-null  object        \n 6   SIZE_US      14967 non-null  float64       \n 7   SIZE_EUROPE  14967 non-null  object        \n 8   SIZE_UK      14967 non-null  float64       \n 9   UNITPRICE    14967 non-null  int64         \n 10  DISCOUNT     14967 non-null  float64       \n 11  YEAR         14967 non-null  int64         \n 12  MONTH        14967 non-null  object        \n 13  SALEPRICE    14967 non-null  float64       \ndtypes: datetime64[ns](1), float64(4), int64(2), object(7)\nmemory usage: 1.6+ MB\n\nproduct.COUNTRY.value_counts()\n\nCOUNTRY\nUnited States     5886\nGermany           4392\nCanada            2952\nUnited Kingdom    1737\nName: count, dtype: int64\n\nproduct['YEAR'].unique()\n\narray([2014, 2015, 2016])\n\nproduct['YEAR'].value_counts()\n\nYEAR\n2016    7366\n2015    4848\n2014    2753\nName: count, dtype: int64\n\n\n\nproduct.query('COUNTRY == \"United States\"')\n\n      INVOICENO       DATE        COUNTRY  ...  YEAR MONTH SALEPRICE\n1         52390 2014-01-01  United States  ...  2014     1     159.2\n3         52392 2014-01-01  United States  ...  2014     1     159.0\n5         52394 2014-01-01  United States  ...  2014     1     159.0\n8         52397 2014-01-02  United States  ...  2014     1     139.0\n10        52399 2014-01-02  United States  ...  2014     1     129.0\n...         ...        ...            ...  ...   ...   ...       ...\n14956     65767 2016-12-31  United States  ...  2016    12     139.0\n14959     65770 2016-12-31  United States  ...  2016    12     119.2\n14960     65771 2016-12-31  United States  ...  2016    12     189.0\n14961     65772 2016-12-31  United States  ...  2016    12     129.0\n14963     65774 2016-12-31  United States  ...  2016    12     149.0\n\n[5886 rows x 14 columns]\n\nproduct.query('COUNTRY == \"United States\" | COUNTRY == \"Canada\"')\n\n      INVOICENO       DATE        COUNTRY  ...  YEAR MONTH SALEPRICE\n1         52390 2014-01-01  United States  ...  2014     1     159.2\n2         52391 2014-01-01         Canada  ...  2014     1     119.2\n3         52392 2014-01-01  United States  ...  2014     1     159.0\n5         52394 2014-01-01  United States  ...  2014     1     159.0\n7         52396 2014-01-02         Canada  ...  2014     1     169.0\n...         ...        ...            ...  ...   ...   ...       ...\n14959     65770 2016-12-31  United States  ...  2016    12     119.2\n14960     65771 2016-12-31  United States  ...  2016    12     189.0\n14961     65772 2016-12-31  United States  ...  2016    12     129.0\n14963     65774 2016-12-31  United States  ...  2016    12     149.0\n14964     65775 2016-12-31         Canada  ...  2016    12     125.3\n\n[8838 rows x 14 columns]\n\nproduct.query(\"COUNTRY in ['United States', 'Canada']\")\n\n      INVOICENO       DATE        COUNTRY  ...  YEAR MONTH SALEPRICE\n1         52390 2014-01-01  United States  ...  2014     1     159.2\n2         52391 2014-01-01         Canada  ...  2014     1     119.2\n3         52392 2014-01-01  United States  ...  2014     1     159.0\n5         52394 2014-01-01  United States  ...  2014     1     159.0\n7         52396 2014-01-02         Canada  ...  2014     1     169.0\n...         ...        ...            ...  ...   ...   ...       ...\n14959     65770 2016-12-31  United States  ...  2016    12     119.2\n14960     65771 2016-12-31  United States  ...  2016    12     189.0\n14961     65772 2016-12-31  United States  ...  2016    12     129.0\n14963     65774 2016-12-31  United States  ...  2016    12     149.0\n14964     65775 2016-12-31         Canada  ...  2016    12     125.3\n\n[8838 rows x 14 columns]\n\nproduct.query(\"COUNTRY == 'United States' & YEAR == 2016\")\n\n      INVOICENO       DATE        COUNTRY  ...  YEAR MONTH SALEPRICE\n7610      59206 2016-01-02  United States  ...  2016     1     132.3\n7613      59209 2016-01-02  United States  ...  2016     1     127.2\n7617      59213 2016-01-02  United States  ...  2016     1     125.3\n7618      59214 2016-01-02  United States  ...  2016     1     151.2\n7619      59214 2016-01-02  United States  ...  2016     1     151.2\n...         ...        ...            ...  ...   ...   ...       ...\n14956     65767 2016-12-31  United States  ...  2016    12     139.0\n14959     65770 2016-12-31  United States  ...  2016    12     119.2\n14960     65771 2016-12-31  United States  ...  2016    12     189.0\n14961     65772 2016-12-31  United States  ...  2016    12     129.0\n14963     65774 2016-12-31  United States  ...  2016    12     149.0\n\n[2935 rows x 14 columns]\n\nproduct.query(\"COUNTRY == 'United States' & YEAR in [2015,2016]\")\n\n      INVOICENO       DATE        COUNTRY  ...  YEAR MONTH SALEPRICE\n2753      54725 2015-01-01  United States  ...  2015     1     179.0\n2754      54726 2015-01-01  United States  ...  2015     1     169.0\n2755      54727 2015-01-01  United States  ...  2015     1     116.1\n2761      54733 2015-01-02  United States  ...  2015     1     179.0\n2766      54738 2015-01-02  United States  ...  2015     1     199.0\n...         ...        ...            ...  ...   ...   ...       ...\n14956     65767 2016-12-31  United States  ...  2016    12     139.0\n14959     65770 2016-12-31  United States  ...  2016    12     119.2\n14960     65771 2016-12-31  United States  ...  2016    12     189.0\n14961     65772 2016-12-31  United States  ...  2016    12     129.0\n14963     65774 2016-12-31  United States  ...  2016    12     149.0\n\n[4859 rows x 14 columns]\n\n\n\nproduct.loc[(product['COUNTRY'] == \"United States\")]\n\n      INVOICENO       DATE        COUNTRY  ...  YEAR MONTH SALEPRICE\n1         52390 2014-01-01  United States  ...  2014     1     159.2\n3         52392 2014-01-01  United States  ...  2014     1     159.0\n5         52394 2014-01-01  United States  ...  2014     1     159.0\n8         52397 2014-01-02  United States  ...  2014     1     139.0\n10        52399 2014-01-02  United States  ...  2014     1     129.0\n...         ...        ...            ...  ...   ...   ...       ...\n14956     65767 2016-12-31  United States  ...  2016    12     139.0\n14959     65770 2016-12-31  United States  ...  2016    12     119.2\n14960     65771 2016-12-31  United States  ...  2016    12     189.0\n14961     65772 2016-12-31  United States  ...  2016    12     129.0\n14963     65774 2016-12-31  United States  ...  2016    12     149.0\n\n[5886 rows x 14 columns]\n\nproduct.loc[product['COUNTRY'].isin([\"United States\", \"Canada\"])]\n\n      INVOICENO       DATE        COUNTRY  ...  YEAR MONTH SALEPRICE\n1         52390 2014-01-01  United States  ...  2014     1     159.2\n2         52391 2014-01-01         Canada  ...  2014     1     119.2\n3         52392 2014-01-01  United States  ...  2014     1     159.0\n5         52394 2014-01-01  United States  ...  2014     1     159.0\n7         52396 2014-01-02         Canada  ...  2014     1     169.0\n...         ...        ...            ...  ...   ...   ...       ...\n14959     65770 2016-12-31  United States  ...  2016    12     119.2\n14960     65771 2016-12-31  United States  ...  2016    12     189.0\n14961     65772 2016-12-31  United States  ...  2016    12     129.0\n14963     65774 2016-12-31  United States  ...  2016    12     149.0\n14964     65775 2016-12-31         Canada  ...  2016    12     125.3\n\n[8838 rows x 14 columns]\n\nproduct.loc[product['COUNTRY'] \\\n  .isin([\"United States\", \"Canada\"]) & (product['YEAR'] == 2014)]\n\n     INVOICENO       DATE        COUNTRY  ...  YEAR MONTH SALEPRICE\n1        52390 2014-01-01  United States  ...  2014     1     159.2\n2        52391 2014-01-01         Canada  ...  2014     1     119.2\n3        52392 2014-01-01  United States  ...  2014     1     159.0\n5        52394 2014-01-01  United States  ...  2014     1     159.0\n7        52396 2014-01-02         Canada  ...  2014     1     169.0\n...        ...        ...            ...  ...   ...   ...       ...\n2739     54713 2014-12-30  United States  ...  2014    12     189.0\n2745     54718 2014-12-31         Canada  ...  2014    12     151.2\n2746     54719 2014-12-31  United States  ...  2014    12     199.0\n2748     54721 2014-12-31         Canada  ...  2014    12      74.5\n2749     54722 2014-12-31  United States  ...  2014    12     118.3\n\n[1649 rows x 14 columns]\n\nproduct.loc[(product['COUNTRY'] == \"United States\") & (product[\"YEAR\"] == 2014)]\n\n     INVOICENO       DATE        COUNTRY  ...  YEAR MONTH SALEPRICE\n1        52390 2014-01-01  United States  ...  2014     1     159.2\n3        52392 2014-01-01  United States  ...  2014     1     159.0\n5        52394 2014-01-01  United States  ...  2014     1     159.0\n8        52397 2014-01-02  United States  ...  2014     1     139.0\n10       52399 2014-01-02  United States  ...  2014     1     129.0\n...        ...        ...            ...  ...   ...   ...       ...\n2731     54705 2014-12-29  United States  ...  2014    12     179.0\n2734     54708 2014-12-30  United States  ...  2014    12     159.0\n2739     54713 2014-12-30  United States  ...  2014    12     189.0\n2746     54719 2014-12-31  United States  ...  2014    12     199.0\n2749     54722 2014-12-31  United States  ...  2014    12     118.3\n\n[1027 rows x 14 columns]\n\n\n\n7.2.1 loc[] Function can be used both for Slicing (selecting Rows) and Selecting Columns\n\nproduct.loc[\n  product['COUNTRY'] == 'United States',\n  ['COUNTRY', \"UNITPRICE\", \"SALEPRICE\"]]\n\n             COUNTRY  UNITPRICE  SALEPRICE\n1      United States        199      159.2\n3      United States        159      159.0\n5      United States        159      159.0\n8      United States        139      139.0\n10     United States        129      129.0\n...              ...        ...        ...\n14956  United States        139      139.0\n14959  United States        149      119.2\n14960  United States        189      189.0\n14961  United States        129      129.0\n14963  United States        149      149.0\n\n[5886 rows x 3 columns]",
+    "crumbs": [
+      "Modules & Slides",
+      "Appendix",
+      "<center> Exploratory Data Analysis in Python"
+    ]
+  },
+  {
+    "objectID": "python_eda.html#arrange-equivalent-in-python---sorting-or-arranging-rows",
+    "href": "python_eda.html#arrange-equivalent-in-python---sorting-or-arranging-rows",
+    "title": "\nExploratory Data Analysis in Python",
+    "section": "7.3 arrange () Equivalent in Python - Sorting or Arranging Rows",
+    "text": "7.3 arrange () Equivalent in Python - Sorting or Arranging Rows\n\nproduct.sort_values(by = ['MONTH'])\n\n      INVOICENO       DATE         COUNTRY  ...  YEAR MONTH SALEPRICE\n0         52389 2014-01-01  United Kingdom  ...  2014     1     159.0\n2862      54831 2015-01-13         Germany  ...  2015     1     169.0\n2863      54832 2015-01-13         Germany  ...  2015     1     125.1\n2864      54833 2015-01-13   United States  ...  2015     1     135.2\n2865      54834 2015-01-13         Germany  ...  2015     1     149.0\n...         ...        ...             ...  ...   ...   ...       ...\n13225     64202 2016-09-28          Canada  ...  2016     9     189.0\n13224     64201 2016-09-28         Germany  ...  2016     9     149.0\n13223     64200 2016-09-28          Canada  ...  2016     9     199.0\n13235     64210 2016-09-29   United States  ...  2016     9     135.2\n12749     63775 2016-09-08         Germany  ...  2016     9     139.0\n\n[14967 rows x 14 columns]\n\nproduct.sort_values(by = ['MONTH'], ascending = False)\n\n      INVOICENO       DATE         COUNTRY  ...  YEAR MONTH SALEPRICE\n13162     64145 2016-09-26  United Kingdom  ...  2016     9      90.3\n5946      57674 2015-09-12   United States  ...  2015     9     159.0\n5944      57672 2015-09-12          Canada  ...  2015     9     179.0\n5943      57671 2015-09-12         Germany  ...  2015     9     159.0\n5942      57670 2015-09-12          Canada  ...  2015     9     179.0\n...         ...        ...             ...  ...   ...   ...       ...\n3037      54995 2015-01-29   United States  ...  2015     1     103.2\n3038      54996 2015-01-30          Canada  ...  2015     1     161.1\n3039      54997 2015-01-30          Canada  ...  2015     1      84.5\n3040      54997 2015-01-30          Canada  ...  2015     1     169.0\n0         52389 2014-01-01  United Kingdom  ...  2014     1     159.0\n\n[14967 rows x 14 columns]\n\nproduct.sort_values(by = ['MONTH', 'SALEPRICE'])\n\n      INVOICENO       DATE         COUNTRY  ...  YEAR MONTH SALEPRICE\n33        52414 2014-01-05         Germany  ...  2014     1      64.5\n177       52533 2014-01-25          Canada  ...  2014     1      64.5\n185       52539 2014-01-26  United Kingdom  ...  2014     1      64.5\n194       52548 2014-01-27  United Kingdom  ...  2014     1      64.5\n2762      54734 2015-01-02         Germany  ...  2015     1      64.5\n...         ...        ...             ...  ...   ...   ...       ...\n13245     64219 2016-09-29  United Kingdom  ...  2016     9     199.0\n13246     64220 2016-09-29   United States  ...  2016     9     199.0\n13248     64222 2016-09-29   United States  ...  2016     9     199.0\n13251     64224 2016-09-29         Germany  ...  2016     9     199.0\n13272     64244 2016-09-30   United States  ...  2016     9     199.0\n\n[14967 rows x 14 columns]",
+    "crumbs": [
+      "Modules & Slides",
+      "Appendix",
+      "<center> Exploratory Data Analysis in Python"
+    ]
+  },
+  {
+    "objectID": "python_eda.html#rename-equivalent-in-python---renaming-column-names",
+    "href": "python_eda.html#rename-equivalent-in-python---renaming-column-names",
+    "title": "\nExploratory Data Analysis in Python",
+    "section": "7.4 rename () Equivalent in Python - Renaming Column Names",
+    "text": "7.4 rename () Equivalent in Python - Renaming Column Names\n      We already did some renaming of the columns using str. function. Here we use rename () function to change the name of the columns.\n\nproduct.info()\n\n&lt;class 'pandas.core.frame.DataFrame'&gt;\nRangeIndex: 14967 entries, 0 to 14966\nData columns (total 14 columns):\n #   Column       Non-Null Count  Dtype         \n---  ------       --------------  -----         \n 0   INVOICENO    14967 non-null  object        \n 1   DATE         14967 non-null  datetime64[ns]\n 2   COUNTRY      14967 non-null  object        \n 3   PRODUCTID    14967 non-null  object        \n 4   SHOP         14967 non-null  object        \n 5   GENDER       14967 non-null  object        \n 6   SIZE_US      14967 non-null  float64       \n 7   SIZE_EUROPE  14967 non-null  object        \n 8   SIZE_UK      14967 non-null  float64       \n 9   UNITPRICE    14967 non-null  int64         \n 10  DISCOUNT     14967 non-null  float64       \n 11  YEAR         14967 non-null  int64         \n 12  MONTH        14967 non-null  object        \n 13  SALEPRICE    14967 non-null  float64       \ndtypes: datetime64[ns](1), float64(4), int64(2), object(7)\nmemory usage: 1.6+ MB\n\nproduct.rename( columns = \n  {'SIZE_(EUROPE)': 'SIZE_EUROPE',\n   'SIZE_(UK)' : 'SIZE_UK'}) \\\n   .pipe(lambda x: x.info())\n\n&lt;class 'pandas.core.frame.DataFrame'&gt;\nRangeIndex: 14967 entries, 0 to 14966\nData columns (total 14 columns):\n #   Column       Non-Null Count  Dtype         \n---  ------       --------------  -----         \n 0   INVOICENO    14967 non-null  object        \n 1   DATE         14967 non-null  datetime64[ns]\n 2   COUNTRY      14967 non-null  object        \n 3   PRODUCTID    14967 non-null  object        \n 4   SHOP         14967 non-null  object        \n 5   GENDER       14967 non-null  object        \n 6   SIZE_US      14967 non-null  float64       \n 7   SIZE_EUROPE  14967 non-null  object        \n 8   SIZE_UK      14967 non-null  float64       \n 9   UNITPRICE    14967 non-null  int64         \n 10  DISCOUNT     14967 non-null  float64       \n 11  YEAR         14967 non-null  int64         \n 12  MONTH        14967 non-null  object        \n 13  SALEPRICE    14967 non-null  float64       \ndtypes: datetime64[ns](1), float64(4), int64(2), object(7)\nmemory usage: 1.6+ MB",
+    "crumbs": [
+      "Modules & Slides",
+      "Appendix",
+      "<center> Exploratory Data Analysis in Python"
+    ]
+  },
+  {
+    "objectID": "python_eda.html#mutate-equivalent-in-python---creating-new-columns-variables",
+    "href": "python_eda.html#mutate-equivalent-in-python---creating-new-columns-variables",
+    "title": "\nExploratory Data Analysis in Python",
+    "section": "7.5 mutate () Equivalent in Python - Creating New Columns (Variables)",
+    "text": "7.5 mutate () Equivalent in Python - Creating New Columns (Variables)\n\nproduct['NECOLUMN'] = 5\nproduct.head()\n\n  INVOICENO       DATE         COUNTRY  ... MONTH SALEPRICE NECOLUMN\n0     52389 2014-01-01  United Kingdom  ...     1     159.0        5\n1     52390 2014-01-01   United States  ...     1     159.2        5\n2     52391 2014-01-01          Canada  ...     1     119.2        5\n3     52392 2014-01-01   United States  ...     1     159.0        5\n4     52393 2014-01-01  United Kingdom  ...     1     159.0        5\n\n[5 rows x 15 columns]\n\nproduct.drop(columns = ['NECOLUMN'], axis = 1, inplace = True) \n\n\nproduct['SALEPRICE2'] = product['UNITPRICE']*(1-product['DISCOUNT'])\nproduct.info()\n\n&lt;class 'pandas.core.frame.DataFrame'&gt;\nRangeIndex: 14967 entries, 0 to 14966\nData columns (total 15 columns):\n #   Column       Non-Null Count  Dtype         \n---  ------       --------------  -----         \n 0   INVOICENO    14967 non-null  object        \n 1   DATE         14967 non-null  datetime64[ns]\n 2   COUNTRY      14967 non-null  object        \n 3   PRODUCTID    14967 non-null  object        \n 4   SHOP         14967 non-null  object        \n 5   GENDER       14967 non-null  object        \n 6   SIZE_US      14967 non-null  float64       \n 7   SIZE_EUROPE  14967 non-null  object        \n 8   SIZE_UK      14967 non-null  float64       \n 9   UNITPRICE    14967 non-null  int64         \n 10  DISCOUNT     14967 non-null  float64       \n 11  YEAR         14967 non-null  int64         \n 12  MONTH        14967 non-null  object        \n 13  SALEPRICE    14967 non-null  float64       \n 14  SALEPRICE2   14967 non-null  float64       \ndtypes: datetime64[ns](1), float64(5), int64(2), object(7)\nmemory usage: 1.7+ MB\n\n\n\n# Using the assign () function \nproduct[['PRODUCTID', 'UNITPRICE', 'DISCOUNT']] \\\n .assign(SALEPRICE3 = lambda x: x.UNITPRICE*(1-x.DISCOUNT)) \\\n .head(5)\n\n  PRODUCTID  UNITPRICE  DISCOUNT  SALEPRICE3\n0      2152        159       0.0       159.0\n1      2230        199       0.2       159.2\n2      2160        149       0.2       119.2\n3      2234        159       0.0       159.0\n4      2222        159       0.0       159.0",
+    "crumbs": [
+      "Modules & Slides",
+      "Appendix",
+      "<center> Exploratory Data Analysis in Python"
+    ]
+  },
+  {
+    "objectID": "python_eda.html#group_by-and-summarize-equivalent-in-python---summarizing-data",
+    "href": "python_eda.html#group_by-and-summarize-equivalent-in-python---summarizing-data",
+    "title": "\nExploratory Data Analysis in Python",
+    "section": "7.6 group_by () and summarize () Equivalent in Python - Summarizing Data",
+    "text": "7.6 group_by () and summarize () Equivalent in Python - Summarizing Data\n      Figure Figure 1 presents the split-apply-combine principle in group_by () and summarize () functions.\n\n\n\n\n\n\n\n\nFigure 1: Split Apply and Combine Principle\n\n\n\n\n\n\nproduct.info()\n\n&lt;class 'pandas.core.frame.DataFrame'&gt;\nRangeIndex: 14967 entries, 0 to 14966\nData columns (total 15 columns):\n #   Column       Non-Null Count  Dtype         \n---  ------       --------------  -----         \n 0   INVOICENO    14967 non-null  object        \n 1   DATE         14967 non-null  datetime64[ns]\n 2   COUNTRY      14967 non-null  object        \n 3   PRODUCTID    14967 non-null  object        \n 4   SHOP         14967 non-null  object        \n 5   GENDER       14967 non-null  object        \n 6   SIZE_US      14967 non-null  float64       \n 7   SIZE_EUROPE  14967 non-null  object        \n 8   SIZE_UK      14967 non-null  float64       \n 9   UNITPRICE    14967 non-null  int64         \n 10  DISCOUNT     14967 non-null  float64       \n 11  YEAR         14967 non-null  int64         \n 12  MONTH        14967 non-null  object        \n 13  SALEPRICE    14967 non-null  float64       \n 14  SALEPRICE2   14967 non-null  float64       \ndtypes: datetime64[ns](1), float64(5), int64(2), object(7)\nmemory usage: 1.7+ MB\n\nproduct.groupby(['COUNTRY']) ['UNITPRICE'].mean()\n\nCOUNTRY\nCanada            164.691057\nGermany           164.163934\nUnited Kingdom    165.614853\nUnited States     163.490316\nName: UNITPRICE, dtype: float64\n\nproduct.groupby(['COUNTRY']) [['UNITPRICE', 'SALEPRICE']].mean()\n\n                 UNITPRICE   SALEPRICE\nCOUNTRY                               \nCanada          164.691057  144.228963\nGermany         164.163934  143.574658\nUnited Kingdom  165.614853  145.505872\nUnited States   163.490316  143.727421\n\nproduct.groupby(['COUNTRY']) [['UNITPRICE', 'SALEPRICE']] \\\n       .agg(np.mean)\n\n&lt;string&gt;:3: FutureWarning: The provided callable &lt;function mean at 0x00000172A9393740&gt; is currently using DataFrameGroupBy.mean. In a future version of pandas, the provided callable will be used directly. To keep current behavior pass the string \"mean\" instead.\n                 UNITPRICE   SALEPRICE\nCOUNTRY                               \nCanada          164.691057  144.228963\nGermany         164.163934  143.574658\nUnited Kingdom  165.614853  145.505872\nUnited States   163.490316  143.727421\n\nproduct.groupby(['COUNTRY']) [['UNITPRICE', 'SALEPRICE']] \\\n       .agg(\"mean\")\n\n                 UNITPRICE   SALEPRICE\nCOUNTRY                               \nCanada          164.691057  144.228963\nGermany         164.163934  143.574658\nUnited Kingdom  165.614853  145.505872\nUnited States   163.490316  143.727421\n\n       \nproduct.groupby(['COUNTRY']) [['UNITPRICE', 'SALEPRICE']] \\\n       .agg(AVG_UNITPRICE = (\"UNITPRICE\", \"mean\"), \n            AVG_LISTPRICE = (\"SALEPRICE\", \"mean\"))\n\n                AVG_UNITPRICE  AVG_LISTPRICE\nCOUNTRY                                     \nCanada             164.691057     144.228963\nGermany            164.163934     143.574658\nUnited Kingdom     165.614853     145.505872\nUnited States      163.490316     143.727421\n\n            \n            \nproduct.groupby(['COUNTRY']) [['UNITPRICE', 'SALEPRICE']] \\\n       .agg(AVG_UNITPRICE = (\"UNITPRICE\", \"mean\"), \n            AVG_LISTPRICE = (\"SALEPRICE\", \"mean\"),\n            TOTALN = (\"SALEPRICE\", \"size\"), # size function for n\n            TOTALOBS = (\"SALEPRICE\", \"count\") # count function for n\n            )\n\n                AVG_UNITPRICE  AVG_LISTPRICE  TOTALN  TOTALOBS\nCOUNTRY                                                       \nCanada             164.691057     144.228963    2952      2952\nGermany            164.163934     143.574658    4392      4392\nUnited Kingdom     165.614853     145.505872    1737      1737\nUnited States      163.490316     143.727421    5886      5886\n\n# Combining Several Pandas Functions together           \nproduct.groupby(['COUNTRY']) [['UNITPRICE', 'SALEPRICE']] \\\n       .agg(AVG_UNITPRICE = (\"UNITPRICE\", \"mean\"), \n            AVG_LISTPRICE = (\"SALEPRICE\", \"mean\"),\n            TOTALN = (\"SALEPRICE\", \"size\"), # size function for n\n            TOTALOBS = (\"SALEPRICE\", \"count\") # count function for n\n            ) \\\n       .sort_values(by = ['TOTALOBS'], ascending = False) \\\n       .reset_index() \\\n       .query ('COUNTRY == \"United States\"')\n\n         COUNTRY  AVG_UNITPRICE  AVG_LISTPRICE  TOTALN  TOTALOBS\n0  United States     163.490316     143.727421    5886      5886",
+    "crumbs": [
+      "Modules & Slides",
+      "Appendix",
+      "<center> Exploratory Data Analysis in Python"
+    ]
+  },
+  {
+    "objectID": "python_eda.html#summary-statistics-in-python",
+    "href": "python_eda.html#summary-statistics-in-python",
+    "title": "\nExploratory Data Analysis in Python",
+    "section": "7.7 Summary Statistics in Python",
+    "text": "7.7 Summary Statistics in Python\n\n# Summary Statistics in Python \nproduct.GENDER.value_counts()\n\nGENDER\nMale      8919\nFemale    6048\nName: count, dtype: int64\n\n# Encoding a Categorical Variables \nproduct['SEX'] = product['GENDER'].map({\n  'Male':1,\n  'Female':0\n})\n\n\n# Defining a Function \ndef percentile(n):\n    def percentile_(x):\n        return x.quantile(n)\n    percentile_.__name__ = 'percentile_{:02.0f}'.format(n*100)\n    return percentile_\n  \nproduct [['SALEPRICE', 'UNITPRICE', 'SEX']] \\\n     .agg([\"count\",\"mean\", \"std\", \"median\", percentile(0.25), percentile(0.75)]) \\\n     .transpose () \\\n     .reset_index() \\\n     .rename(columns = {'index': \"Variables\",\n                        'percentile_25': 'P25',\n                        'percentile_75': 'P75',\n                        'count': 'n',\n                        'mean' : 'Mean',\n                        'median' : 'Median',\n                        'std': 'Std'\n                       }) \\\n      .round(3) # rounding to two decimal places \n\n   Variables        n     Mean     Std  Median    P25    P75\n0  SALEPRICE  14967.0  143.988  35.181   149.0  125.1  169.0\n1  UNITPRICE  14967.0  164.171  22.941   159.0  149.0  179.0\n2        SEX  14967.0    0.596   0.491     1.0    0.0    1.0",
+    "crumbs": [
+      "Modules & Slides",
+      "Appendix",
+      "<center> Exploratory Data Analysis in Python"
+    ]
+  },
+  {
+    "objectID": "python_eda.html#bar-chart",
+    "href": "python_eda.html#bar-chart",
+    "title": "\nExploratory Data Analysis in Python",
+    "section": "9.1 Bar Chart",
+    "text": "9.1 Bar Chart\n\nbar_r = product.filter (['COUNTRY']) \\\n       .value_counts() \\\n       .reset_index() \\\n       .rename (columns = {'count':'n'}) \\\n       .sort_values (by = ['n'])\n\n(ggplot(data = bar_r, \n  mapping = aes(x = 'COUNTRY', y = 'n'))+\n  geom_bar (fill = \"pink\", stat = \"identity\")+\n  labs (x = 'Country',\n  y = 'Number of Observations'\n  #,title = 'Total Observations of Countries'\n  )\n)\n\n&lt;plotnine.ggplot.ggplot object at 0x00000172BC012990&gt;",
+    "crumbs": [
+      "Modules & Slides",
+      "Appendix",
+      "<center> Exploratory Data Analysis in Python"
+    ]
+  },
+  {
+    "objectID": "python_eda.html#line-chart",
+    "href": "python_eda.html#line-chart",
+    "title": "\nExploratory Data Analysis in Python",
+    "section": "9.2 Line Chart",
+    "text": "9.2 Line Chart\n\n(ggplot(product, aes(x = 'SIZE_US', y= 'UNITPRICE', color = 'GENDER'))+\n facet_wrap('COUNTRY')+\n geom_smooth(se = False, method = 'lm')+\n labs(x = \"Shoe Size (US)\", y = \"Price\")+\n theme (legend_position = \"top\")\n)\n\n&lt;plotnine.ggplot.ggplot object at 0x00000172BBD43680&gt;\n\n\n\nmonth_sales = product['MONTH'] \\\n    .value_counts(sort = False) \\\n    .reset_index(name = 'SALES') \\\n    .rename (columns = {'index' : 'MONTH'})\n\nmonth_sales['MONTH'] = pd.to_numeric(month_sales['MONTH']) \n\n(ggplot(month_sales, aes (\"MONTH\", \"SALES\"))\n + geom_point(color = 'blue')\n + labs(x = \"Month\", y = \"Total Sales\"\n   #,title = \"SALES IN DIFFERENT MONTHS\"\n   )\n)\n\n&lt;plotnine.ggplot.ggplot object at 0x00000172BB3A7A70&gt;",
+    "crumbs": [
+      "Modules & Slides",
+      "Appendix",
+      "<center> Exploratory Data Analysis in Python"
+    ]
+  },
+  {
+    "objectID": "python_eda.html#footnotes",
+    "href": "python_eda.html#footnotes",
+    "title": "\nExploratory Data Analysis in Python",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nhttps://www.techrepublic.com/article/why-data-scientist-is-the-most-promising-job-of-2019/↩︎",
+    "crumbs": [
+      "Modules & Slides",
+      "Appendix",
+      "<center> Exploratory Data Analysis in Python"
+    ]
+  },
+  {
+    "objectID": "readings.html",
+    "href": "readings.html",
+    "title": "Readings",
+    "section": "",
+    "text": "Back to top"
+  },
+  {
+    "objectID": "r_eda.html",
+    "href": "r_eda.html",
+    "title": "\nExploratory Data Analysis in R",
+    "section": "",
+    "text": "The objective of this document is to introduce the necessary functions from tidyverse package for data manipulation and data visualization. There are basically six functions - select(), filter(), mutate(), arrange(), group_by(), and summarize() - from dplyr package of tidyverse ecosystem that are very much necessary for data manipulation. These six functions can be used for 80% of data manipulation problems. Additionally, this handout also introduces ggplot functions from tidyverse. ggplot is considered very effective for data visualization.",
+    "crumbs": [
+      "Modules & Slides",
+      "Appendix",
+      "<center> Exploratory Data Analysis in R"
+    ]
+  },
+  {
+    "objectID": "r_eda.html#st-first-verb---select",
+    "href": "r_eda.html#st-first-verb---select",
+    "title": "\nExploratory Data Analysis in R",
+    "section": "7.1 1st (First) verb - select ()",
+    "text": "7.1 1st (First) verb - select ()\n      The select () function is used to select some columns from your data set. For example, if you want to select all variables except SIZE_EUROPE and SIZE_UK from your data set. Then you should write the following code (We created a new data set called product2)\n\nproduct2 &lt;- product %&gt;% \n  select(\n   -SIZE_EUROPE, - SIZE_UK  \n  )  # 1st Verb\nglimpse(product2)\n\nRows: 14,967\nColumns: 12\n$ INVOICE_NO &lt;chr&gt; \"52389\", \"52390\", \"52391\", \"52392\", \"52393\", \"52394\", \"5239…\n$ DATE       &lt;date&gt; 2014-01-01, 2014-01-01, 2014-01-01, 2014-01-01, 2014-01-01…\n$ COUNTRY    &lt;chr&gt; \"United Kingdom\", \"United States\", \"Canada\", \"United States…\n$ PRODUCT_ID &lt;chr&gt; \"2152\", \"2230\", \"2160\", \"2234\", \"2222\", \"2173\", \"2200\", \"22…\n$ SHOP       &lt;chr&gt; \"UK2\", \"US15\", \"CAN7\", \"US6\", \"UK4\", \"US15\", \"GER2\", \"CAN5\"…\n$ GENDER     &lt;chr&gt; \"Male\", \"Male\", \"Male\", \"Female\", \"Female\", \"Male\", \"Female…\n$ SIZE_US    &lt;chr&gt; \"11\", \"11.5\", \"9.5\", \"9.5\", \"9\", \"10.5\", \"9\", \"10\", \"10.5\",…\n$ UNIT_PRICE &lt;dbl&gt; 159, 199, 149, 159, 159, 159, 179, 169, 139, 149, 129, 169,…\n$ DISCOUNT   &lt;dbl&gt; 0.0, 0.2, 0.2, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.1,…\n$ YEAR       &lt;dbl&gt; 2014, 2014, 2014, 2014, 2014, 2014, 2014, 2014, 2014, 2014,…\n$ MONTH      &lt;chr&gt; \"1\", \"1\", \"1\", \"1\", \"1\", \"1\", \"1\", \"1\", \"1\", \"1\", \"1\", \"1\",…\n$ SALE_PRICE &lt;dbl&gt; 159.0, 159.2, 119.2, 159.0, 159.0, 159.0, 179.0, 169.0, 139…",
+    "crumbs": [
+      "Modules & Slides",
+      "Appendix",
+      "<center> Exploratory Data Analysis in R"
+    ]
+  },
+  {
+    "objectID": "r_eda.html#nd-second-verb---filter",
+    "href": "r_eda.html#nd-second-verb---filter",
+    "title": "\nExploratory Data Analysis in R",
+    "section": "9.1 2nd (Second) verb - filter ()",
+    "text": "9.1 2nd (Second) verb - filter ()\n      If we want to subset our dataset by rows, then filter () is used. For example - we want to create a data set that will include only observations for United States, then we should write the following code. The name of the dataset is given US.\n\nUS &lt;- product %&gt;% \n  filter(\n    COUNTRY == \"United States\"\n  )   # 2nd Verb\n\nglimpse(US)\n\nRows: 5,886\nColumns: 14\n$ INVOICE_NO  &lt;chr&gt; \"52390\", \"52392\", \"52394\", \"52397\", \"52399\", \"52399\", \"523…\n$ DATE        &lt;date&gt; 2014-01-01, 2014-01-01, 2014-01-01, 2014-01-02, 2014-01-0…\n$ COUNTRY     &lt;chr&gt; \"United States\", \"United States\", \"United States\", \"United…\n$ PRODUCT_ID  &lt;chr&gt; \"2230\", \"2234\", \"2173\", \"2191\", \"2197\", \"2213\", \"2206\", \"2…\n$ SHOP        &lt;chr&gt; \"US15\", \"US6\", \"US15\", \"US13\", \"US1\", \"US11\", \"US2\", \"US15…\n$ GENDER      &lt;chr&gt; \"Male\", \"Female\", \"Male\", \"Male\", \"Male\", \"Female\", \"Femal…\n$ SIZE_US     &lt;chr&gt; \"11.5\", \"9.5\", \"10.5\", \"10.5\", \"10\", \"9.5\", \"9.5\", \"8\", \"1…\n$ SIZE_EUROPE &lt;chr&gt; \"44-45\", \"40\", \"43-44\", \"43-44\", \"43\", \"40\", \"40\", \"41\", \"…\n$ SIZE_UK     &lt;dbl&gt; 11.0, 7.5, 10.0, 10.0, 9.5, 7.5, 7.5, 7.5, 10.5, 7.5, 9.5,…\n$ UNIT_PRICE  &lt;dbl&gt; 199, 159, 159, 139, 129, 169, 139, 139, 149, 159, 129, 169…\n$ DISCOUNT    &lt;dbl&gt; 0.2, 0.0, 0.0, 0.0, 0.0, 0.1, 0.0, 0.0, 0.5, 0.0, 0.0, 0.1…\n$ YEAR        &lt;dbl&gt; 2014, 2014, 2014, 2014, 2014, 2014, 2014, 2014, 2014, 2014…\n$ MONTH       &lt;chr&gt; \"1\", \"1\", \"1\", \"1\", \"1\", \"1\", \"1\", \"1\", \"1\", \"1\", \"1\", \"1\"…\n$ SALE_PRICE  &lt;dbl&gt; 159.2, 159.0, 159.0, 139.0, 129.0, 152.1, 139.0, 139.0, 74…\n\nGermany &lt;- product %&gt;% \n  filter(\n    COUNTRY == \"Germany\" & YEAR %in% c ('2014', '2015')\n  ) \nglimpse(Germany)\n\nRows: 2,229\nColumns: 14\n$ INVOICE_NO  &lt;chr&gt; \"52395\", \"52401\", \"52401\", \"52408\", \"52409\", \"52414\", \"524…\n$ DATE        &lt;date&gt; 2014-01-02, 2014-01-03, 2014-01-03, 2014-01-04, 2014-01-0…\n$ COUNTRY     &lt;chr&gt; \"Germany\", \"Germany\", \"Germany\", \"Germany\", \"Germany\", \"Ge…\n$ PRODUCT_ID  &lt;chr&gt; \"2200\", \"2235\", \"2197\", \"2206\", \"2157\", \"2235\", \"2239\", \"2…\n$ SHOP        &lt;chr&gt; \"GER2\", \"GER1\", \"GER1\", \"GER2\", \"GER2\", \"GER1\", \"GER2\", \"G…\n$ GENDER      &lt;chr&gt; \"Female\", \"Male\", \"Female\", \"Male\", \"Male\", \"Male\", \"Femal…\n$ SIZE_US     &lt;chr&gt; \"9\", \"10.5\", \"8.5\", \"8.5\", \"12\", \"9.5\", \"8.5\", \"10.5\", \"10…\n$ SIZE_EUROPE &lt;chr&gt; \"39-40\", \"43-44\", \"39\", \"41-42\", \"45\", \"42-43\", \"39\", \"43-…\n$ SIZE_UK     &lt;dbl&gt; 7.0, 10.0, 6.5, 8.0, 11.5, 9.0, 6.5, 10.0, 9.5, 8.0, 10.0,…\n$ UNIT_PRICE  &lt;dbl&gt; 179, 169, 179, 149, 149, 169, 129, 169, 199, 149, 169, 189…\n$ DISCOUNT    &lt;dbl&gt; 0.0, 0.5, 0.2, 0.2, 0.2, 0.3, 0.5, 0.5, 0.0, 0.2, 0.5, 0.1…\n$ YEAR        &lt;dbl&gt; 2014, 2014, 2014, 2014, 2014, 2014, 2014, 2014, 2014, 2014…\n$ MONTH       &lt;chr&gt; \"1\", \"1\", \"1\", \"1\", \"1\", \"1\", \"1\", \"1\", \"1\", \"1\", \"1\", \"1\"…\n$ SALE_PRICE  &lt;dbl&gt; 179.0, 84.5, 143.2, 119.2, 119.2, 118.3, 64.5, 84.5, 199.0…\n\ncount (Germany, YEAR)\n\n# A tibble: 2 × 2\n   YEAR     n\n  &lt;dbl&gt; &lt;int&gt;\n1  2014   710\n2  2015  1519\n\n\nQUESTIONS - 1. Filter those observations that belong to United States and Germany and that are related to Male Gender.",
+    "crumbs": [
+      "Modules & Slides",
+      "Appendix",
+      "<center> Exploratory Data Analysis in R"
+    ]
+  },
+  {
+    "objectID": "r_eda.html#rd-third-verb---summarize",
+    "href": "r_eda.html#rd-third-verb---summarize",
+    "title": "\nExploratory Data Analysis in R",
+    "section": "10.1 3rd (Third) verb - summarize ()",
+    "text": "10.1 3rd (Third) verb - summarize ()\n      The summarize () function is used to calculate different statistics such as mean, median, standard deviation, maximum, and minimum value. For example, we want to calculate the average price of all products -\n\nproduct %&gt;% \n  summarize(AVG_PRICE = mean(SALE_PRICE)) # 3rd Verb\n\n# A tibble: 1 × 1\n  AVG_PRICE\n      &lt;dbl&gt;\n1      144.",
+    "crumbs": [
+      "Modules & Slides",
+      "Appendix",
+      "<center> Exploratory Data Analysis in R"
+    ]
+  },
+  {
+    "objectID": "r_eda.html#th-fourth-verb---group_by",
+    "href": "r_eda.html#th-fourth-verb---group_by",
+    "title": "\nExploratory Data Analysis in R",
+    "section": "10.2 4th (Fourth) verb - group_by ()",
+    "text": "10.2 4th (Fourth) verb - group_by ()\n      The group_by () function is very useful when it is used with summarize () function. For example, we want to know the average price for each country; then, we should write the following code -",
+    "crumbs": [
+      "Modules & Slides",
+      "Appendix",
+      "<center> Exploratory Data Analysis in R"
+    ]
+  },
+  {
+    "objectID": "r_eda.html#th-fifth-verb---arrange",
+    "href": "r_eda.html#th-fifth-verb---arrange",
+    "title": "\nExploratory Data Analysis in R",
+    "section": "10.3 5th (Fifth) verb - arrange ()",
+    "text": "10.3 5th (Fifth) verb - arrange ()\n      The arrange ()function allows you to reorder your data set by one or more variables. For example, if you want to reorder the average price in difference countries, you need to execute the following code -\n\nproduct %&gt;% \n  group_by(COUNTRY) %&gt;% # 4th Verb \n  summarise(AVG_PRICE = mean(SALE_PRICE)) %&gt;% \n  arrange(AVG_PRICE) # 5th Verb\n\n# A tibble: 4 × 2\n  COUNTRY        AVG_PRICE\n  &lt;chr&gt;              &lt;dbl&gt;\n1 Germany             144.\n2 United States       144.\n3 Canada              144.\n4 United Kingdom      146.\n\n\nQUESTIONS - 1. Calculate the average price for both Gender. Who pays greater price? 2. Calculate the average discount for both Gender. Who gets higher discount? 3. Calculate the average discount for each month. In which month highest discount is provided?",
+    "crumbs": [
+      "Modules & Slides",
+      "Appendix",
+      "<center> Exploratory Data Analysis in R"
+    ]
+  },
+  {
+    "objectID": "r_eda.html#tidy-data",
+    "href": "r_eda.html#tidy-data",
+    "title": "\nExploratory Data Analysis in R",
+    "section": "11.1 Tidy Data",
+    "text": "11.1 Tidy Data\n      There are three interrelated rules which make a dataset tidy:\n\nEach variable must have its own column.\nEach observation must have its own row.\nEach value must have its own cell.\n\n\n\n\n\n\n\n\n\n\n\n# An example of a Tidy Dataset \ntable1\n\n# A tibble: 6 × 4\n  country      year  cases population\n  &lt;chr&gt;       &lt;dbl&gt;  &lt;dbl&gt;      &lt;dbl&gt;\n1 Afghanistan  1999    745   19987071\n2 Afghanistan  2000   2666   20595360\n3 Brazil       1999  37737  172006362\n4 Brazil       2000  80488  174504898\n5 China        1999 212258 1272915272\n6 China        2000 213766 1280428583\n\n\n      Manipulating tidy data is easy. For example, for dataset table1, if we want to measure the rate of, we can do it easily.\n\ntable1 %&gt;% \n  mutate(rate = cases / population * 10000)\n\n# A tibble: 6 × 5\n  country      year  cases population  rate\n  &lt;chr&gt;       &lt;dbl&gt;  &lt;dbl&gt;      &lt;dbl&gt; &lt;dbl&gt;\n1 Afghanistan  1999    745   19987071 0.373\n2 Afghanistan  2000   2666   20595360 1.29 \n3 Brazil       1999  37737  172006362 2.19 \n4 Brazil       2000  80488  174504898 4.61 \n5 China        1999 212258 1272915272 1.67 \n6 China        2000 213766 1280428583 1.67",
+    "crumbs": [
+      "Modules & Slides",
+      "Appendix",
+      "<center> Exploratory Data Analysis in R"
+    ]
+  },
+  {
+    "objectID": "r_eda.html#untidy-data",
+    "href": "r_eda.html#untidy-data",
+    "title": "\nExploratory Data Analysis in R",
+    "section": "11.2 Untidy Data",
+    "text": "11.2 Untidy Data\n      Untidy data violate the principle of the tidy data. Therefore, we need to apply analytics to transform it into tidy data. There are two important functions from tidyr that can be used to reshape data. The first one is - pivot_wider function and the second one is pivot_longer function. pivot_wider widens a LONG data whereas pivot_longer lengthens a WIDE data.\n\n\n\n\n\n\n\n\n\n\n# Some Built-in Untidy Datasets\n\ntable2\n\n# A tibble: 12 × 4\n   country      year type            count\n   &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;           &lt;dbl&gt;\n 1 Afghanistan  1999 cases             745\n 2 Afghanistan  1999 population   19987071\n 3 Afghanistan  2000 cases            2666\n 4 Afghanistan  2000 population   20595360\n 5 Brazil       1999 cases           37737\n 6 Brazil       1999 population  172006362\n 7 Brazil       2000 cases           80488\n 8 Brazil       2000 population  174504898\n 9 China        1999 cases          212258\n10 China        1999 population 1272915272\n11 China        2000 cases          213766\n12 China        2000 population 1280428583\n\ntable3\n\n# A tibble: 6 × 3\n  country      year rate             \n  &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;            \n1 Afghanistan  1999 745/19987071     \n2 Afghanistan  2000 2666/20595360    \n3 Brazil       1999 37737/172006362  \n4 Brazil       2000 80488/174504898  \n5 China        1999 212258/1272915272\n6 China        2000 213766/1280428583\n\ntable4a\n\n# A tibble: 3 × 3\n  country     `1999` `2000`\n  &lt;chr&gt;        &lt;dbl&gt;  &lt;dbl&gt;\n1 Afghanistan    745   2666\n2 Brazil       37737  80488\n3 China       212258 213766\n\ntable4b\n\n# A tibble: 3 × 3\n  country         `1999`     `2000`\n  &lt;chr&gt;            &lt;dbl&gt;      &lt;dbl&gt;\n1 Afghanistan   19987071   20595360\n2 Brazil       172006362  174504898\n3 China       1272915272 1280428583\n\n\n\n11.2.1 pivot_longer()\n\ntable4a %&gt;% \n  pivot_longer(c(`1999`, `2000`), names_to = \"year\", values_to = \"cases\")\n\n# A tibble: 6 × 3\n  country     year   cases\n  &lt;chr&gt;       &lt;chr&gt;  &lt;dbl&gt;\n1 Afghanistan 1999     745\n2 Afghanistan 2000    2666\n3 Brazil      1999   37737\n4 Brazil      2000   80488\n5 China       1999  212258\n6 China       2000  213766\n\n\n\ntable4b %&gt;% \n  pivot_longer(c(`1999`, `2000`), names_to = \"year\", values_to = \"population\")\n\n# A tibble: 6 × 3\n  country     year  population\n  &lt;chr&gt;       &lt;chr&gt;      &lt;dbl&gt;\n1 Afghanistan 1999    19987071\n2 Afghanistan 2000    20595360\n3 Brazil      1999   172006362\n4 Brazil      2000   174504898\n5 China       1999  1272915272\n6 China       2000  1280428583\n\n\n\ntidy4a &lt;- table4a %&gt;% \n  pivot_longer(c(`1999`, `2000`), names_to = \"year\", values_to = \"cases\")\ntidy4b &lt;- table4b %&gt;% \n  pivot_longer(c(`1999`, `2000`), names_to = \"year\", values_to = \"population\")\nleft_join(tidy4a, tidy4b,\n          by = c ('country', 'year'))\n\n# A tibble: 6 × 4\n  country     year   cases population\n  &lt;chr&gt;       &lt;chr&gt;  &lt;dbl&gt;      &lt;dbl&gt;\n1 Afghanistan 1999     745   19987071\n2 Afghanistan 2000    2666   20595360\n3 Brazil      1999   37737  172006362\n4 Brazil      2000   80488  174504898\n5 China       1999  212258 1272915272\n6 China       2000  213766 1280428583\n\n\n\n\n11.2.2 pivot_wider()\n\ntable2 %&gt;%\n    pivot_wider(names_from = type, values_from = count)\n\n# A tibble: 6 × 4\n  country      year  cases population\n  &lt;chr&gt;       &lt;dbl&gt;  &lt;dbl&gt;      &lt;dbl&gt;\n1 Afghanistan  1999    745   19987071\n2 Afghanistan  2000   2666   20595360\n3 Brazil       1999  37737  172006362\n4 Brazil       2000  80488  174504898\n5 China        1999 212258 1272915272\n6 China        2000 213766 1280428583",
+    "crumbs": [
+      "Modules & Slides",
+      "Appendix",
+      "<center> Exploratory Data Analysis in R"
+    ]
+  },
+  {
+    "objectID": "r_eda.html#identify-total-sales-by-gender-of-each-product-product_id",
+    "href": "r_eda.html#identify-total-sales-by-gender-of-each-product-product_id",
+    "title": "\nExploratory Data Analysis in R",
+    "section": "11.3 Identify Total Sales by Gender of Each Product (PRODUCT_ID)",
+    "text": "11.3 Identify Total Sales by Gender of Each Product (PRODUCT_ID)\n\n11.3.1 6th (Sixth) verb - mutate ()\n      The function mutate () is used to create new variables (columns). For example, we want to know the TOTAL_SALE, which is the sum of the sum of sale by gender; then, we should write the following code -\n\nproduct %&gt;%\n  count(PRODUCT_ID, GENDER) %&gt;%\n  arrange(-n) %&gt;% \n  pivot_wider(\n    names_from = GENDER,\n    values_from = n\n  ) %&gt;% \n  rename_all(toupper) %&gt;% \n  rename_at(vars(c(\"MALE\",\"FEMALE\")), ~paste0(.x,\"_SALE\")) %&gt;% \n  mutate(\n    TOTAL_SALE = MALE_SALE + FEMALE_SALE\n  ) %&gt;% # 6th Verb\n  arrange(-TOTAL_SALE)\n\n# A tibble: 96 × 4\n   PRODUCT_ID MALE_SALE FEMALE_SALE TOTAL_SALE\n   &lt;chr&gt;          &lt;int&gt;       &lt;int&gt;      &lt;int&gt;\n 1 2190             132          75        207\n 2 2226             123          81        204\n 3 2213             114          90        204\n 4 2192             135          66        201\n 5 2158             120          78        198\n 6 2172             114          75        189\n 7 2179             102          87        189\n 8 2239              87         102        189\n 9 2225             117          69        186\n10 2183             123          60        183\n# ℹ 86 more rows\n\n\nQUESTIONS - 1. Identify Total Sales by Gender of Each Shoe Size (SIZE_US)",
+    "crumbs": [
+      "Modules & Slides",
+      "Appendix",
+      "<center> Exploratory Data Analysis in R"
+    ]
+  },
+  {
+    "objectID": "r_eda.html#create-a-bar-chart-of-sale-of-shoes-by-gender-of-different-sizes",
+    "href": "r_eda.html#create-a-bar-chart-of-sale-of-shoes-by-gender-of-different-sizes",
+    "title": "\nExploratory Data Analysis in R",
+    "section": "12.1 Create a Bar Chart of Sale of Shoes by Gender of Different Sizes",
+    "text": "12.1 Create a Bar Chart of Sale of Shoes by Gender of Different Sizes\n\nproduct %&gt;%\n  count(SIZE_US, GENDER) %&gt;%\n  pivot_wider(\n    names_from = \"GENDER\",\n    values_from = \"n\"\n  ) %&gt;%\n  rename_all(toupper) %&gt;%\n  replace(is.na(.),0) %&gt;%\n  mutate(\n    TOTAL_SALES = FEMALE + MALE\n  ) %&gt;%\n  pivot_longer(\n    cols = c(\"FEMALE\", \"MALE\"),\n    names_to = \"GENDER\",\n    values_to = \"GENDERSALES\"\n  )%&gt;%\n  ggplot(aes(x=reorder(SIZE_US,as.numeric(SIZE_US)), y= GENDERSALES, fill = GENDER))+\n  geom_bar(stat = \"identity\")+\n  labs(x = \"SHOE SIZE\",\n       y = \"TOTAL SALES\",\n       title = \"SALES OF DIFFERENT SIZES OF SHOE\")+\n  geom_text(aes(label = GENDERSALES),\n            position = position_stack(vjust = 0.5),\n            color = \"black\",\n            size = 2\n  )+\n  theme(legend.title = element_blank())",
+    "crumbs": [
+      "Modules & Slides",
+      "Appendix",
+      "<center> Exploratory Data Analysis in R"
+    ]
+  },
+  {
+    "objectID": "r_eda.html#create-a-bar-chart-of-sale-of-shoes-by-gender-of-different-sizes-in-different-countries",
+    "href": "r_eda.html#create-a-bar-chart-of-sale-of-shoes-by-gender-of-different-sizes-in-different-countries",
+    "title": "\nExploratory Data Analysis in R",
+    "section": "12.2 Create a Bar Chart of Sale of Shoes by Gender of Different Sizes in different countries",
+    "text": "12.2 Create a Bar Chart of Sale of Shoes by Gender of Different Sizes in different countries\n\nproduct %&gt;%\n  count(SIZE_US, GENDER, COUNTRY) %&gt;%\n  ggplot(aes(x=reorder(SIZE_US,as.numeric(SIZE_US)), y= n, fill = GENDER))+\n  geom_bar(stat = \"identity\")+\n  labs(x = \"SHOE SIZE\",\n       y = \"TOTAL SALES\",\n       title = \"SALES OF DIFFERENT SIZES OF SHOE BY GENDER IN DIFFERENT COUNTRIES\"\n  )+\n  geom_text(\n    aes(label = n),\n    position = position_stack(vjust = 0.5),\n    color = \"black\",\n    size = 2\n  )+\n  facet_wrap(~ COUNTRY, nrow = 2, ncol = 2\n  )+\n  theme(legend.position=\"top\",\n        legend.title = element_blank())+\n  theme(axis.text.x = element_text(angle = 90, hjust = 1))",
+    "crumbs": [
+      "Modules & Slides",
+      "Appendix",
+      "<center> Exploratory Data Analysis in R"
+    ]
+  },
+  {
+    "objectID": "r_eda.html#create-a-bar-chart-for-product-id-product_id-2190-sales-by-shoes-sizes",
+    "href": "r_eda.html#create-a-bar-chart-for-product-id-product_id-2190-sales-by-shoes-sizes",
+    "title": "\nExploratory Data Analysis in R",
+    "section": "12.3 Create a Bar Chart for Product ID (PRODUCT_ID) 2190 Sales by shoes sizes",
+    "text": "12.3 Create a Bar Chart for Product ID (PRODUCT_ID) 2190 Sales by shoes sizes\n\nproduct %&gt;% \n  filter(\n    PRODUCT_ID == \"2190\"\n  ) %&gt;% \n  count(SIZE_US) %&gt;% \n  mutate(SIZE_US = (str_c (\"SIZE_\", SIZE_US))) %&gt;% \n  ggplot(aes(x = reorder(SIZE_US,n), y = n))+\n  geom_bar(stat=\"identity\", color = \"blue\", fill = \"orange\")+\n  coord_flip()+\n  geom_text(aes(label = n), stat = \"identity\", hjust = -0.2)+ # Here also try to use vjust and take out coord_flip()\n  xlab(\"SHOE SIZE\")+\n  ylab(\"SALES (UNIT)\")+\n  ggtitle(\"DISTRIBUTION of SALES for PRODUCT ID 2190\")\n\n\n\n\n\n\n\n\nQUESTIONS - 1. Create a Bar Chart for Product ID (PRODUCT_ID) 2190 Sales by Gender of Different Shoes Sizes",
+    "crumbs": [
+      "Modules & Slides",
+      "Appendix",
+      "<center> Exploratory Data Analysis in R"
+    ]
+  },
+  {
+    "objectID": "r_eda.html#relationship-between-shoe-size-and-price-in-different-gender-and-in-different-countries",
+    "href": "r_eda.html#relationship-between-shoe-size-and-price-in-different-gender-and-in-different-countries",
+    "title": "\nExploratory Data Analysis in R",
+    "section": "13.1 Relationship between Shoe Size and Price in Different Gender and in Different Countries",
+    "text": "13.1 Relationship between Shoe Size and Price in Different Gender and in Different Countries\n\nproduct %&gt;%\n  ggplot(\n    aes(x = as.numeric(SIZE_US), y = UNIT_PRICE, color = GENDER)\n  )+\n  geom_smooth(se = FALSE)+\n  xlab(\"SHOE SIZE (US)\")+\n  ylab(\"PRICE\")+\n  facet_wrap(~COUNTRY)+\n  theme(legend.title = element_blank())\n\n`geom_smooth()` using method = 'gam' and formula = 'y ~ s(x, bs = \"cs\")'\n\n\n\n\n\n\n\n\n\nQUESTIONS - 1. Do the Above Analyses for the Relationship between Shoe Size and Discount",
+    "crumbs": [
+      "Modules & Slides",
+      "Appendix",
+      "<center> Exploratory Data Analysis in R"
+    ]
+  },
+  {
+    "objectID": "r_eda.html#footnotes",
+    "href": "r_eda.html#footnotes",
+    "title": "\nExploratory Data Analysis in R",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nhttps://www.techrepublic.com/article/why-data-scientist-is-the-most-promising-job-of-2019/↩︎",
+    "crumbs": [
+      "Modules & Slides",
+      "Appendix",
+      "<center> Exploratory Data Analysis in R"
+    ]
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "The website is for the course BSAN405 - Machine Learning in Business - in College of Business & Analytics in Southern Illinois University Carbondale (SIUC). If you have questions or queries, please email the instructor at mdshariful.islam@siu.edu.\n\n\n\n Back to top"
+  },
+  {
+    "objectID": "books.html",
+    "href": "books.html",
+    "title": "Books",
+    "section": "",
+    "text": "The following books are suggested for the classroom -\n\n\n\n\n\n\n\n\n Back to top"
+  },
+  {
+    "objectID": "moduels.html",
+    "href": "moduels.html",
+    "title": "Modules",
+    "section": "",
+    "text": "The following Modules (Chapters) are suggested for the course -\n\nChapter # 01 - Introduction to Machine Learning (ML) & Concepts\nChapter # 02 - Introduction to R and Python and Exploratory Data Analysis (EDA)\nChapter # 03 - KNN Algorithm and Fundamental Concepts in ML Modeling\nChapter # 04 - Logistic Regression Algorithm\nChapter # 05 - Discriminant Analysis\nChapter # 06 - Support Vector Machine (SVM)\nChapter # 07 - Linear Regression\nChapter # 08 - Decision Tree Analysis\nChapter # 09 - Dimension Reduction and Principal Component Analysis\nChapter # 10 - K- Means Clustering\n\n\n\n\n Back to top",
+    "crumbs": [
+      "Modules & Slides",
+      "Modules"
+    ]
+  },
+  {
+    "objectID": "chap01_slide.html#introduction",
+    "href": "chap01_slide.html#introduction",
+    "title": "\nChapter # 01  Introduction to Machine Learning",
+    "section": "Introduction",
+    "text": "Introduction",
+    "crumbs": [
+      "Modules & Slides",
+      "Slides",
+      "<center> Chapter # 01 <br> Introduction to Machine Learning"
+    ]
+  },
+  {
+    "objectID": "chap01_slide.html#one-caveat",
+    "href": "chap01_slide.html#one-caveat",
+    "title": "\nChapter # 01  Introduction to Machine Learning",
+    "section": "One Caveat",
+    "text": "One Caveat",
+    "crumbs": [
+      "Modules & Slides",
+      "Slides",
+      "<center> Chapter # 01 <br> Introduction to Machine Learning"
+    ]
+  },
+  {
+    "objectID": "chap01_slide.html#what-is-machine-learning-ml",
+    "href": "chap01_slide.html#what-is-machine-learning-ml",
+    "title": "\nChapter # 01  Introduction to Machine Learning",
+    "section": "What is Machine Learning (ML)",
+    "text": "What is Machine Learning (ML)",
+    "crumbs": [
+      "Modules & Slides",
+      "Slides",
+      "<center> Chapter # 01 <br> Introduction to Machine Learning"
+    ]
+  },
+  {
+    "objectID": "chap01_slide.html#artificial-intelligence-al-vs-machine-learning-ml",
+    "href": "chap01_slide.html#artificial-intelligence-al-vs-machine-learning-ml",
+    "title": "\nChapter # 01  Introduction to Machine Learning",
+    "section": "Artificial Intelligence (AL) vs Machine Learning (ML)",
+    "text": "Artificial Intelligence (AL) vs Machine Learning (ML)",
+    "crumbs": [
+      "Modules & Slides",
+      "Slides",
+      "<center> Chapter # 01 <br> Introduction to Machine Learning"
+    ]
+  },
+  {
+    "objectID": "chap01_slide.html#artificial-intelligence-ai-vs-machine-learning-mlcontd",
+    "href": "chap01_slide.html#artificial-intelligence-ai-vs-machine-learning-mlcontd",
+    "title": "\nChapter # 01  Introduction to Machine Learning",
+    "section": "Artificial intelligence (AI) vs machine learning (ML)(Cont’d)",
+    "text": "Artificial intelligence (AI) vs machine learning (ML)(Cont’d)",
+    "crumbs": [
+      "Modules & Slides",
+      "Slides",
+      "<center> Chapter # 01 <br> Introduction to Machine Learning"
+    ]
+  },
+  {
+    "objectID": "chap01_slide.html#model-vs-algorithm",
+    "href": "chap01_slide.html#model-vs-algorithm",
+    "title": "\nChapter # 01  Introduction to Machine Learning",
+    "section": "Model vs algorithm",
+    "text": "Model vs algorithm",
+    "crumbs": [
+      "Modules & Slides",
+      "Slides",
+      "<center> Chapter # 01 <br> Introduction to Machine Learning"
+    ]
+  },
+  {
+    "objectID": "chap01_slide.html#model-vs-algorithm-contd",
+    "href": "chap01_slide.html#model-vs-algorithm-contd",
+    "title": "\nChapter # 01  Introduction to Machine Learning",
+    "section": "Model vs algorithm (Cont’d)",
+    "text": "Model vs algorithm (Cont’d)",
+    "crumbs": [
+      "Modules & Slides",
+      "Slides",
+      "<center> Chapter # 01 <br> Introduction to Machine Learning"
+    ]
+  },
+  {
+    "objectID": "chap01_slide.html#model-vs-algorithm-contd-1",
+    "href": "chap01_slide.html#model-vs-algorithm-contd-1",
+    "title": "\nChapter # 01  Introduction to Machine Learning",
+    "section": "Model vs algorithm (Cont’d)",
+    "text": "Model vs algorithm (Cont’d)",
+    "crumbs": [
+      "Modules & Slides",
+      "Slides",
+      "<center> Chapter # 01 <br> Introduction to Machine Learning"
+    ]
+  },
+  {
+    "objectID": "chap01_slide.html#classes-of-machine-learning-algorithm",
+    "href": "chap01_slide.html#classes-of-machine-learning-algorithm",
+    "title": "\nChapter # 01  Introduction to Machine Learning",
+    "section": "Classes of Machine Learning Algorithm",
+    "text": "Classes of Machine Learning Algorithm",
+    "crumbs": [
+      "Modules & Slides",
+      "Slides",
+      "<center> Chapter # 01 <br> Introduction to Machine Learning"
+    ]
+  },
+  {
+    "objectID": "chap01_slide.html#classes-of-machine-learning-algorithm-contd",
+    "href": "chap01_slide.html#classes-of-machine-learning-algorithm-contd",
+    "title": "\nChapter # 01  Introduction to Machine Learning",
+    "section": "Classes of Machine Learning Algorithm (Cont’d)",
+    "text": "Classes of Machine Learning Algorithm (Cont’d)",
+    "crumbs": [
+      "Modules & Slides",
+      "Slides",
+      "<center> Chapter # 01 <br> Introduction to Machine Learning"
+    ]
+  },
+  {
+    "objectID": "chap01_slide.html#classes-of-machine-learning-algorithm-contd-1",
+    "href": "chap01_slide.html#classes-of-machine-learning-algorithm-contd-1",
+    "title": "\nChapter # 01  Introduction to Machine Learning",
+    "section": "Classes of Machine Learning Algorithm (Cont’d)",
+    "text": "Classes of Machine Learning Algorithm (Cont’d)",
+    "crumbs": [
+      "Modules & Slides",
+      "Slides",
+      "<center> Chapter # 01 <br> Introduction to Machine Learning"
+    ]
+  },
+  {
+    "objectID": "chap01_slide.html#classes-of-machine-learning-algorithm-contd-2",
+    "href": "chap01_slide.html#classes-of-machine-learning-algorithm-contd-2",
+    "title": "\nChapter # 01  Introduction to Machine Learning",
+    "section": "Classes of Machine Learning Algorithm (Cont’d)",
+    "text": "Classes of Machine Learning Algorithm (Cont’d)",
+    "crumbs": [
+      "Modules & Slides",
+      "Slides",
+      "<center> Chapter # 01 <br> Introduction to Machine Learning"
+    ]
+  },
+  {
+    "objectID": "chap01_slide.html#artificial-intelligence-ai-machine-learning-ml-and-deep-learning-dl",
+    "href": "chap01_slide.html#artificial-intelligence-ai-machine-learning-ml-and-deep-learning-dl",
+    "title": "\nChapter # 01  Introduction to Machine Learning",
+    "section": "Artificial Intelligence (AI), Machine learning (ML), and Deep learning (DL)",
+    "text": "Artificial Intelligence (AI), Machine learning (ML), and Deep learning (DL)",
+    "crumbs": [
+      "Modules & Slides",
+      "Slides",
+      "<center> Chapter # 01 <br> Introduction to Machine Learning"
+    ]
+  },
+  {
+    "objectID": "chap01_slide.html#ethics-in-machine-learning",
+    "href": "chap01_slide.html#ethics-in-machine-learning",
+    "title": "\nChapter # 01  Introduction to Machine Learning",
+    "section": "Ethics in Machine learning",
+    "text": "Ethics in Machine learning",
+    "crumbs": [
+      "Modules & Slides",
+      "Slides",
+      "<center> Chapter # 01 <br> Introduction to Machine Learning"
+    ]
+  },
+  {
+    "objectID": "chap01_slide.html#python-vs.-r-for-machine-learning",
+    "href": "chap01_slide.html#python-vs.-r-for-machine-learning",
+    "title": "\nChapter # 01  Introduction to Machine Learning",
+    "section": "Python VS. R for machine learning",
+    "text": "Python VS. R for machine learning",
+    "crumbs": [
+      "Modules & Slides",
+      "Slides",
+      "<center> Chapter # 01 <br> Introduction to Machine Learning"
+    ]
+  },
+  {
+    "objectID": "chap01_slide.html#what-will-we-learn-from-bsan405",
+    "href": "chap01_slide.html#what-will-we-learn-from-bsan405",
+    "title": "\nChapter # 01  Introduction to Machine Learning",
+    "section": "What will we learn from BSAN405",
+    "text": "What will we learn from BSAN405",
+    "crumbs": [
+      "Modules & Slides",
+      "Slides",
+      "<center> Chapter # 01 <br> Introduction to Machine Learning"
+    ]
+  }
+]

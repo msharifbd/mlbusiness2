@@ -1,0 +1,74 @@
+{
+  "index.qmd": {
+    "index.html": "d77976d7"
+  },
+  "about.qmd": {
+    "about.html": "4a35bd89"
+  },
+  "books.qmd": {
+    "books.html": "903a58dd"
+  },
+  "chap01_intro.qmd": {
+    "chap01_intro.html": "eb9b1714"
+  },
+  "chap01_slide.qmd": {
+    "chap01_slide.html": "baad8add"
+  },
+  "chap02_RpythonEDA.qmd": {
+    "chap02_RpythonEDA.html": "82af34e1"
+  },
+  "chap03_knn.qmd": {
+    "chap03_knn.html": "971c72c2"
+  },
+  "chap04_logistic.qmd": {
+    "chap04_logistic.html": "513e9bc9"
+  },
+  "chap05_discriminant.qmd": {
+    "chap05_discriminant.html": "42d9b32b"
+  },
+  "chap09_pca.qmd": {
+    "chap09_pca.html": "6a29c015"
+  },
+  "chap10_kmeansclustering.qmd": {
+    "chap10_kmeansclustering.html": "ca076e9c"
+  },
+  "mlbusiness2/Lib/site-packages/numpy/random/LICENSE.md": {
+    "LICENSE.html": "7eea85cf"
+  },
+  "mlbusiness2/Lib/site-packages/pandas/tests/indexes/datetimes/test_indexing.py": {
+    "test_indexing.html": "0344fe88"
+  },
+  "mlbusiness2/Lib/site-packages/pandas/tests/indexes/period/test_constructors.py": {
+    "test_constructors.html": "b0cf74d0"
+  },
+  "mlbusiness2/Lib/site-packages/pandas/tests/indexes/period/test_indexing.py": {
+    "test_indexing.html": "d1f36adb"
+  },
+  "mlbusiness2/Lib/site-packages/pyzmq-26.2.0.dist-info/licenses/LICENSE.md": {
+    "LICENSE.html": "9678afff"
+  },
+  "mlbusiness2/Lib/site-packages/seaborn-0.13.2.dist-info/LICENSE.md": {
+    "LICENSE.html": "af9ec7ca"
+  },
+  "moduels.qmd": {
+    "moduels.html": "121c1bf5"
+  },
+  "projects.qmd": {
+    "projects.html": "3c16d26a"
+  },
+  "python_eda.qmd": {
+    "python_eda.html": "a705977a"
+  },
+  "readings.qmd": {
+    "readings.html": "39d55c99"
+  },
+  "recent-developments.qmd": {
+    "recent-developments.html": "de9bff46"
+  },
+  "r_eda.qmd": {
+    "r_eda.html": "607abfe7"
+  },
+  "syllabus.qmd": {
+    "syllabus.html": "b2ee36ed"
+  }
+}

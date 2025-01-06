@@ -1,0 +1,9 @@
+---
+title: "About"
+format: 
+    html: 
+     css: styles.css
+     linkcolor: blue
+---
+
+The website is for the course BSAN405 - Machine Learning in Business - in College of Business & Analytics in Southern Illinois University Carbondale (SIUC). If you have questions or queries, please email the instructor at mdshariful.islam@siu.edu. 

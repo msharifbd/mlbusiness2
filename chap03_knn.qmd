@@ -1,0 +1,14 @@
+---
+title: "<center> Chapter # 03 <br> K Nearest Neighbor (KNN) Algorithm"
+---
+
+The following books are suggested for the classroom - 
+
+01. 
+
+
+02. 
+
+
+03. 
+

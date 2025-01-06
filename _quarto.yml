@@ -1,0 +1,78 @@
+project:
+  type: website
+
+website:
+  title: "Machine Learning in Business"
+  reader-mode: true
+  page-navigation: true
+  back-to-top-navigation: true
+  repo-url: https://github.com/msharifbd/Accounting-Analytics.github.io
+  #repo-actions: [edit, issue]
+  page-footer:
+    right: |
+      ![](images/siuc2.png){width=100}
+    background: black
+    center: 
+      - "The world's most valuable resource is no longer oil, but data (The Economist, 2017) <br> Copyright@2025, Sharif Islam, DBA, CPA, CMA"
+  navbar:
+    background: black
+    logo: images/siuc2.png
+    right:
+      - href: index.qmd
+        text: Home
+      - href: about.qmd
+        text: About
+      - href: syllabus.qmd
+        text: Syllabus
+      - href: books.qmd
+        text: Books
+      - href: moduels.qmd
+        text: Modules & Slides
+      - href: projects.qmd
+        text: Projects
+      - href: readings.qmd
+        text: Readings
+      - href: recent-developments.qmd
+        text: News
+
+   
+  sidebar:
+    - title: "Modules"
+      style: docked
+      background: dark
+      contents: 
+        - moduels.qmd
+        - section: "Introduction"
+          contents: 
+              - chap01_intro.qmd
+              - chap02_RpythonEDA.qmd
+        - section: "Supervised ML Algorithm"
+          contents: 
+              - chap03_knn.qmd
+              - chap04_logistic.qmd
+              - chap05_discriminant.qmd
+        - section: "Unsupervised ML Algorithm"
+          contents: 
+              - chap09_pca.qmd 
+        - section: "Clustering"
+          contents: 
+              - chap10_kmeansclustering.qmd
+        - section: Appendix
+          contents:
+              - r_eda.qmd
+              - python_eda.qmd 
+        - section: "Slides"
+          contents:
+              - chap01_slide.qmd
+
+format:
+  html:
+    theme: solar
+    light: flatly
+    css: styles.css
+    toc: true
+    linkcolor: blue
+    mainfont: "Georgia"
+
+
+

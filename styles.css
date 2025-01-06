@@ -1,0 +1,13 @@
+/* css styles */
+
+.navigate-up .controls-arrow,
+.navigate-down .controls-arrow {
+  font-size: 20px;
+  color: red;
+}
+
+a[href^="mailto:"] {
+
+  color: blue; /* Replace "blue" with your desired color  */
+
+}
