@@ -22,7 +22,7 @@ website:
         text: Home
       - href: about.qmd
         text: About
-      - href: syllabus.qmd
+      - href: syllabus/bsan405.pdf
         text: Syllabus
       - href: books.qmd
         text: Books
@@ -33,7 +33,7 @@ website:
       - href: readings.qmd
         text: Readings
       - href: recent-developments.qmd
-        text: News
+        text: Blogs
 
    
   sidebar:

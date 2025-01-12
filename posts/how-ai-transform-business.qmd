@@ -1,0 +1,9 @@
+---
+title: "How AI/ML will Transform Business?"
+date: "January 12, 2025" 
+jupyter: python3
+description: "AI's vast capabilities are already transforming business and changing the nature of many jobs"
+---
+
+
+[How Artificial Intelligence Will Transform Businesses](https://www.forbes.com/sites/davidmorel/2023/08/31/the-future-of-work-how-will-ai-change-business/)

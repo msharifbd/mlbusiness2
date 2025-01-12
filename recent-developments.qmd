@@ -1,4 +1,15 @@
 ---
-title: "News"
+title: "Blogs"
+engine: knitr
+jupyter: python3
+listing: 
+  contents: posts
+  sort: false 
+  type: default
+  categories: true
+  sort-ui: true 
+  filter-ui: true 
+page-layout: full
+title-block-banner: false
 ---
 

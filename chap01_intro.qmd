@@ -2,4 +2,4 @@
 title: "<center> Chapter # 01 <br> Introduction to Machine Learning"
 ---
 
-Please see the "Slides" tab on the menu bar of this website. 
+To get the slides of this chapter, please see the "slide" dropdown menu on "Modules & Slides" tab on the menu bar of this website. 
