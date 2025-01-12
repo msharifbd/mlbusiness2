@@ -32,6 +32,8 @@ website:
         text: Projects
       - href: readings.qmd
         text: Readings
+      - href: other-materials.qmd
+        text: Others 
       - href: recent-developments.qmd
         text: Blogs
 

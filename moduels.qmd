@@ -1,6 +1,8 @@
 ---
-title: "Modules"
+title: "Modules & Slides"
 ---
+
+## Modules 
 
 The following Modules (Chapters) are suggested for the course - 
 
@@ -26,4 +28,8 @@ The following Modules (Chapters) are suggested for the course -
 09. Chapter # 09 - Dimension Reduction and Principal Component Analysis 
 
 10. Chapter # 10 - K- Means Clustering 
+
+## Slides 
+
+The slides for the course are available [here](https://saluki-my.sharepoint.com/:f:/g/personal/mdshariful_islam_siu_edu/EuBYe8SXLY9DsiduAU7XEJAB-_4nbW-SRhNJMcXRcYSJcg?e=V64rHv).
 

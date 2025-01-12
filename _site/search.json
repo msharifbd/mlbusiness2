@@ -1451,12 +1451,11 @@
   {
     "objectID": "moduels.html",
     "href": "moduels.html",
-    "title": "Modules",
+    "title": "Modules & Slides",
     "section": "",
-    "text": "The following Modules (Chapters) are suggested for the course -\n\nChapter # 01 - Introduction to Machine Learning (ML) & Concepts\nChapter # 02 - Introduction to R and Python and Exploratory Data Analysis (EDA)\nChapter # 03 - KNN Algorithm and Fundamental Concepts in ML Modeling\nChapter # 04 - Logistic Regression Algorithm\nChapter # 05 - Discriminant Analysis\nChapter # 06 - Support Vector Machine (SVM)\nChapter # 07 - Linear Regression\nChapter # 08 - Decision Tree Analysis\nChapter # 09 - Dimension Reduction and Principal Component Analysis\nChapter # 10 - K- Means Clustering\n\n\n\n\n Back to top",
+    "text": "The following Modules (Chapters) are suggested for the course -\n\nChapter # 01 - Introduction to Machine Learning (ML) & Concepts\nChapter # 02 - Introduction to R and Python and Exploratory Data Analysis (EDA)\nChapter # 03 - KNN Algorithm and Fundamental Concepts in ML Modeling\nChapter # 04 - Logistic Regression Algorithm\nChapter # 05 - Discriminant Analysis\nChapter # 06 - Support Vector Machine (SVM)\nChapter # 07 - Linear Regression\nChapter # 08 - Decision Tree Analysis\nChapter # 09 - Dimension Reduction and Principal Component Analysis\nChapter # 10 - K- Means Clustering",
     "crumbs": [
-      "Modules & Slides",
-      "Modules"
+      "Modules & Slides"
     ]
   },
   {
@@ -1640,5 +1639,32 @@
       "Appendix",
       "<center> Exploratory Data Analysis in R"
     ]
+  },
+  {
+    "objectID": "moduels.html#modules",
+    "href": "moduels.html#modules",
+    "title": "Modules & Slides",
+    "section": "",
+    "text": "The following Modules (Chapters) are suggested for the course -\n\nChapter # 01 - Introduction to Machine Learning (ML) & Concepts\nChapter # 02 - Introduction to R and Python and Exploratory Data Analysis (EDA)\nChapter # 03 - KNN Algorithm and Fundamental Concepts in ML Modeling\nChapter # 04 - Logistic Regression Algorithm\nChapter # 05 - Discriminant Analysis\nChapter # 06 - Support Vector Machine (SVM)\nChapter # 07 - Linear Regression\nChapter # 08 - Decision Tree Analysis\nChapter # 09 - Dimension Reduction and Principal Component Analysis\nChapter # 10 - K- Means Clustering",
+    "crumbs": [
+      "Modules & Slides"
+    ]
+  },
+  {
+    "objectID": "moduels.html#slides",
+    "href": "moduels.html#slides",
+    "title": "Modules & Slides",
+    "section": "Slides",
+    "text": "Slides\nThe slides for the course are available here.",
+    "crumbs": [
+      "Modules & Slides"
+    ]
+  },
+  {
+    "objectID": "other-materials.html",
+    "href": "other-materials.html",
+    "title": "Other Materials",
+    "section": "",
+    "text": "Other materials of the course will be available here.\n\n\n\n Back to top"
   }
 ]
