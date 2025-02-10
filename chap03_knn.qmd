@@ -10,6 +10,8 @@ format:
 ---
 
 ## Introduction 
+The data set for this lecture practice is available in this [link](https://saluki-my.sharepoint.com/:f:/g/personal/mdshariful_islam_siu_edu/EuCMsHGrmL5FudfCysZh3KcBnkopvKuro6u8vIXFqk7PKg?e=PHP49d).
+
 
 # Importing Necessary `Python` Packages
 
