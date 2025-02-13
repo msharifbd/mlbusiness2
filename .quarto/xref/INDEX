@@ -82,5 +82,17 @@
   },
   "r_eda.knit.md": {
     "r_eda.knit.html": "6994fbf8"
+  },
+  "chap06_naive_bayes.qmd": {
+    "chap06_naive_bayes.html": "1ed68568"
+  },
+  "chap06_svm.qmd": {
+    "chap06_svm.html": "aa80aa69"
+  },
+  "chap07_regression.qmd": {
+    "chap07_regression.html": "d9eae811"
+  },
+  "chap08_decision_tree.qmd": {
+    "chap08_decision_tree.html": "236781a7"
   }
 }

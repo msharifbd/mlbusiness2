@@ -19,7 +19,7 @@ The following Modules (Chapters) are suggested for the course -
 
 05. Chapter # 05 - Discriminant Analysis
 
-06. Chapter # 06 - Support Vector Machine (SVM)
+06. Chapter # 06 - Naive Bayes and Support Vector Machine (SVM)
 
 07. Chapter # 07 - Linear Regression 
 

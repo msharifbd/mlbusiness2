@@ -41,7 +41,8 @@ website:
   sidebar:
     - title: "Modules"
       style: docked
-      background: dark
+      background: light
+      collapse-level: 1
       contents: 
         - moduels.qmd
         - section: "Introduction"
@@ -53,6 +54,10 @@ website:
               - chap03_knn.qmd
               - chap04_logistic.qmd
               - chap05_discriminant.qmd
+              - chap06_naive_bayes.qmd
+              - chap06_svm.qmd
+              - chap07_regression.qmd
+              - chap08_decision_tree.qmd
         - section: "Unsupervised ML Algorithm"
           contents: 
               - chap09_pca.qmd 
@@ -70,7 +75,7 @@ website:
 
 format:
   html:
-    theme: solar
+    theme: united
     light: flatly
     css: styles.css
     toc: true
