@@ -33,7 +33,7 @@ website:
       - href: readings.qmd
         text: Readings
       - href: other-materials.qmd
-        text: Others 
+        text: Data & Others 
       - href: recent-developments.qmd
         text: Blogs
 

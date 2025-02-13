@@ -3,3 +3,205 @@ title: "<center> Chapter # 06 (Part A) <br> Naive Bayes"
 format: html
 ---
 
+## Introduction
+The [Naive Bayes Classifier](http://dataaspirant.com/2017/02/06/naive-bayes-classifier-machine-learning/) technique is based on the so-called Bayesian theorem and is particularly suited when the dimensionality of the inputs is high. Despite its simplicity, Naive Bayes can often outperform more sophisticated classification methods.
+
+## Bayes' Theorem
+
+The algorithm is based on the famous [___Bayes theorem___](https://en.wikipedia.org/wiki/Bayes%27_theorem) named after Rev. Thomas Bayes. It works on conditional probability. [Conditional probability](https://en.wikipedia.org/wiki/Conditional_probability) is the probability that something will happen, given that something else has already occurred. Using the conditional probability, we can calculate the probability of an event using its prior knowledge.
+
+Bayes' theorem is stated mathematically as the following equation:
+
+$${\displaystyle P(A\mid B)={\frac {P(B\mid A)\,P(A)}{P(B)}},}$$
+where $A$ and $B$ are events and $P(B)\neq{0}$.
+
+$P(A\mid B)$ is a [conditional probability](https://en.wikipedia.org/wiki/Conditional_probability): the likelihood of event $A$ occurring given that $B$ is true.
+
+$P(B\mid A)$ is also a conditional probability: the likelihood of event $B$ occurring given that $A$ is true.
+
+$P(A)$ and $P(B)$ are the probabilities of observing $A$ and $B$ independently of each other; this is known as the [marginal probability](https://en.wikipedia.org/wiki/Marginal_probability).
+
+## What's _Naive_ in Naive Bayes and why is it a superfast algorithm?
+
+It is called naive Bayes or idiot Bayes because the calculation of the probabilities for each hypothesis are simplified to make their calculation tractable. Rather than attempting to calculate the values of each attribute value, they are assumed to be conditionally independent given the target value.
+
+This is a very strong assumption that is most unlikely in real data, i.e. that the attributes do not interact. Nevertheless, the approach performs surprisingly well on data where this assumption does not hold.
+
+Training is fast because only the probability of each class and the probability of each class given different input values need to be calculated. **No coefficients need to be fitted by optimization procedures.**
+
+The class probabilities are simply the frequency of instances that belong to each class divided by the total number of instances. The conditional probabilities are the frequency of each attribute value for a given class value divided by the frequency of instances with that class value.
+
+## Data analyzed in this notebook
+
+In this notebook, we will show how to use Python scikit-learn's Naive Bayes method to classify origin of wine based on physio-chemical analysis data. These data are the results of a chemical analysis of wines grown in the same region in Italy but derived from three different cultivars. The analysis determined the quantities of 13 constituents found in each of the three types of wines.
+
+Details can be [**found here**](http://archive.ics.uci.edu/ml/datasets/Wine).
+
+
+```{python}
+#| collapsed: true
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+```
+
+## Read in the data and perform basic exploratory analysis
+
+### Data set
+
+```{python}
+df = pd.read_csv('DATA/wine.data.csv')
+df.head(10)
+```
+
+### Basic statistics of the features
+
+```{python}
+df.iloc[:,1:].describe()
+```
+
+### Boxplots by output labels/classes
+
+```{python}
+#| scrolled: true
+for c in df.columns[1:]:
+    df.boxplot(c,by='Wine',figsize=(7,4),fontsize=14)
+    plt.title("{}\n".format(c),fontsize=16)
+    plt.xlabel("Wine Class", fontsize=16)
+```
+
+**It can be seen that some features classify the wine labels pretty clearly.** For example, Alcalinity, Total Phenols, or Flavonoids produce boxplots with well-separated medians, which are clearly indicative of wine classes.
+
+Below is an example of class seperation using two variables
+
+```{python}
+plt.figure(figsize=(10,6))
+plt.scatter(df['OD'],df['Flavanoids'],c=df['Wine'],edgecolors='k',alpha=0.8,s=100)
+plt.grid(True)
+plt.title("Scatter plot of two features showing the correlation and class seperation",fontsize=15)
+plt.xlabel("OD280/OD315 of diluted wines",fontsize=15)
+plt.ylabel("Flavanoids",fontsize=15)
+```
+
+### Are the features independent? Plot co-variance matrix
+
+It can be seen that there are some good amount of correlation between features i.e. they are not independent of each other, as assumed in Naive Bayes technique. However, we will still go ahead and apply yhe classifier to see its performance.
+
+```{python}
+def correlation_matrix(df):
+    from matplotlib import pyplot as plt
+    from matplotlib import cm as cm
+
+    fig = plt.figure(figsize=(16,12))
+    ax1 = fig.add_subplot(111)
+    cmap = cm.get_cmap('jet', 30)
+    cax = ax1.imshow(df.corr(), interpolation="nearest", cmap=cmap)
+    ax1.grid(True)
+    plt.title('Wine data set features correlation',fontsize=15)
+    labels=df.columns
+    ax1.set_xticklabels(labels,fontsize=9)
+    ax1.set_yticklabels(labels,fontsize=9)
+    # Add colorbar, make sure to specify tick locations to match desired ticklabels
+    fig.colorbar(cax, ticks=[0.1*i for i in range(-11,11)])
+    plt.show()
+
+correlation_matrix(df)
+```
+
+## Naive Bayes Classification
+
+### Test/train split
+
+```{python}
+#| collapsed: true
+from sklearn.model_selection import train_test_split
+
+test_size=0.3 # Test-set fraction
+```
+
+```{python}
+#| collapsed: true
+X = df.drop('Wine',axis=1)
+y = df['Wine']
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=test_size)
+```
+
+```{python}
+X_train.shape
+```
+
+```{python}
+X_train.head()
+```
+
+### Classification using GaussianNB
+
+Given a class variable $y$ and a dependent feature vector $x_1$ through $x_n$, Bayes’ theorem states the following relationship:
+
+$$P(y \mid x_1, \dots, x_n) = \frac{P(y) P(x_1, \dots x_n \mid y)} {P(x_1, \dots, x_n)}$$
+Using the naive independence assumption that
+$$P(x_i | y, x_1, \dots, x_{i-1}, x_{i+1}, \dots, x_n) = P(x_i | y),$$
+for all $i$, this relationship is simplified to
+$$P(y \mid x_1, \dots, x_n) = \frac{P(y) \prod_{i=1}^{n} P(x_i \mid y)} {P(x_1, \dots, x_n)}$$
+
+Since $P(x_1, \dots, x_n)$ is constant given the input, we can use the following classification rule:
+$$P(y \mid x_1, \dots, x_n) \propto P(y) \prod_{i=1}^{n} P(x_i \mid y)$$
+$$\Downarrow$$ 
+$$\hat{y} = \arg\max_y P(y) \prod_{i=1}^{n} P(x_i \mid y),$$
+
+and we can use [**Maximum A Posteriori**](https://en.wikipedia.org/wiki/Maximum_a_posteriori_estimation) (MAP) estimation to estimate $P(y)$ and $P(x_i \mid y)$; the former is then the relative frequency of class $y$ in the training set.
+
+***GaussianNB ()*** implements the Gaussian Naive Bayes algorithm for classification. **The likelihood of the features is assumed to be Gaussian**:
+
+$$ P(x_i \mid y) = \frac{1}{\sqrt{2\pi\sigma^2_y}} \exp(-\frac{(x_i - \mu_y)^2}{2\sigma^2_y}) $$
+
+The parameters $\sigma_y$ and $\mu_y$ are estimated using maximum likelihood.
+
+```{python}
+#| collapsed: true
+from sklearn.naive_bayes import GaussianNB
+```
+
+```{python}
+#| collapsed: true
+nbc = GaussianNB()
+```
+
+```{python}
+nbc.fit(X_train,y_train)
+```
+
+### Prediction, classification report, and confusion matrix
+
+```{python}
+y_pred = nbc.predict(X_test)
+mislabel = np.sum((y_test!=y_pred))
+print("Total number of mislabelled data points from {} test samples is {}".format(len(y_test),mislabel))
+```
+
+```{python}
+#| collapsed: true
+from sklearn.metrics import classification_report
+```
+
+```{python}
+print("The classification report is as follows...")
+print(classification_report(y_pred,y_test))
+```
+
+```{python}
+#| collapsed: true
+from sklearn.metrics import confusion_matrix
+```
+
+```{python}
+cm = (confusion_matrix(y_test,y_pred))
+cmdf = pd.DataFrame(cm,index=['Class 1','Class 2',' Class 3'], columns=['Class 1','Class 2',' Class 3'])
+print("The confusion matrix looks like following...")
+cmdf
+```
+
+
+This showed that even in the presence of correlation among features, the Naive Bayes algorithm performed quite well and could separate the classes easily
+
+## Conclusion 

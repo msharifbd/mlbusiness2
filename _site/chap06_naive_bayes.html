@@ -20,10 +20,44 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="site_libs/quarto-nav/headroom.min.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
 <script src="site_libs/quarto-search/autocomplete.umd.js"></script>
@@ -68,7 +102,42 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
 
+
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -123,7 +192,7 @@ ul.task-list li input[type="checkbox"] {
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./other-materials.html"> 
-<span class="menu-text">Others</span></a>
+<span class="menu-text">Data &amp; Others</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./recent-developments.html"> 
@@ -324,8 +393,31 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#bayes-theorem" id="toc-bayes-theorem" class="nav-link" data-scroll-target="#bayes-theorem">Bayes’ Theorem</a></li>
+  <li><a href="#whats-naive-in-naive-bayes-and-why-is-it-a-superfast-algorithm" id="toc-whats-naive-in-naive-bayes-and-why-is-it-a-superfast-algorithm" class="nav-link" data-scroll-target="#whats-naive-in-naive-bayes-and-why-is-it-a-superfast-algorithm">What’s <em>Naive</em> in Naive Bayes and why is it a superfast algorithm?</a></li>
+  <li><a href="#data-analyzed-in-this-notebook" id="toc-data-analyzed-in-this-notebook" class="nav-link" data-scroll-target="#data-analyzed-in-this-notebook">Data analyzed in this notebook</a></li>
+  <li><a href="#read-in-the-data-and-perform-basic-exploratory-analysis" id="toc-read-in-the-data-and-perform-basic-exploratory-analysis" class="nav-link" data-scroll-target="#read-in-the-data-and-perform-basic-exploratory-analysis">Read in the data and perform basic exploratory analysis</a>
+  <ul class="collapse">
+  <li><a href="#data-set" id="toc-data-set" class="nav-link" data-scroll-target="#data-set">Data set</a></li>
+  <li><a href="#basic-statistics-of-the-features" id="toc-basic-statistics-of-the-features" class="nav-link" data-scroll-target="#basic-statistics-of-the-features">Basic statistics of the features</a></li>
+  <li><a href="#boxplots-by-output-labelsclasses" id="toc-boxplots-by-output-labelsclasses" class="nav-link" data-scroll-target="#boxplots-by-output-labelsclasses">Boxplots by output labels/classes</a></li>
+  <li><a href="#are-the-features-independent-plot-co-variance-matrix" id="toc-are-the-features-independent-plot-co-variance-matrix" class="nav-link" data-scroll-target="#are-the-features-independent-plot-co-variance-matrix">Are the features independent? Plot co-variance matrix</a></li>
+  </ul></li>
+  <li><a href="#naive-bayes-classification" id="toc-naive-bayes-classification" class="nav-link" data-scroll-target="#naive-bayes-classification">Naive Bayes Classification</a>
+  <ul class="collapse">
+  <li><a href="#testtrain-split" id="toc-testtrain-split" class="nav-link" data-scroll-target="#testtrain-split">Test/train split</a></li>
+  <li><a href="#classification-using-gaussiannb" id="toc-classification-using-gaussiannb" class="nav-link" data-scroll-target="#classification-using-gaussiannb">Classification using GaussianNB</a></li>
+  <li><a href="#prediction-classification-report-and-confusion-matrix" id="toc-prediction-classification-report-and-confusion-matrix" class="nav-link" data-scroll-target="#prediction-classification-report-and-confusion-matrix">Prediction, classification report, and confusion matrix</a></li>
+  </ul></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -350,8 +442,1225 @@ Chapter # 06 (Part A) <br> Naive Bayes</center></h1>
 </header>
 
 
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<p>The <a href="http://dataaspirant.com/2017/02/06/naive-bayes-classifier-machine-learning/">Naive Bayes Classifier</a> technique is based on the so-called Bayesian theorem and is particularly suited when the dimensionality of the inputs is high. Despite its simplicity, Naive Bayes can often outperform more sophisticated classification methods.</p>
+</section>
+<section id="bayes-theorem" class="level2">
+<h2 class="anchored" data-anchor-id="bayes-theorem">Bayes’ Theorem</h2>
+<p>The algorithm is based on the famous <a href="https://en.wikipedia.org/wiki/Bayes%27_theorem"><strong><em>Bayes theorem</em></strong></a> named after Rev.&nbsp;Thomas Bayes. It works on conditional probability. <a href="https://en.wikipedia.org/wiki/Conditional_probability">Conditional probability</a> is the probability that something will happen, given that something else has already occurred. Using the conditional probability, we can calculate the probability of an event using its prior knowledge.</p>
+<p>Bayes’ theorem is stated mathematically as the following equation:</p>
+<p><span class="math display">\[{\displaystyle P(A\mid B)={\frac {P(B\mid A)\,P(A)}{P(B)}},}\]</span> where <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are events and <span class="math inline">\(P(B)\neq{0}\)</span>.</p>
+<p><span class="math inline">\(P(A\mid B)\)</span> is a <a href="https://en.wikipedia.org/wiki/Conditional_probability">conditional probability</a>: the likelihood of event <span class="math inline">\(A\)</span> occurring given that <span class="math inline">\(B\)</span> is true.</p>
+<p><span class="math inline">\(P(B\mid A)\)</span> is also a conditional probability: the likelihood of event <span class="math inline">\(B\)</span> occurring given that <span class="math inline">\(A\)</span> is true.</p>
+<p><span class="math inline">\(P(A)\)</span> and <span class="math inline">\(P(B)\)</span> are the probabilities of observing <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> independently of each other; this is known as the <a href="https://en.wikipedia.org/wiki/Marginal_probability">marginal probability</a>.</p>
+</section>
+<section id="whats-naive-in-naive-bayes-and-why-is-it-a-superfast-algorithm" class="level2">
+<h2 class="anchored" data-anchor-id="whats-naive-in-naive-bayes-and-why-is-it-a-superfast-algorithm">What’s <em>Naive</em> in Naive Bayes and why is it a superfast algorithm?</h2>
+<p>It is called naive Bayes or idiot Bayes because the calculation of the probabilities for each hypothesis are simplified to make their calculation tractable. Rather than attempting to calculate the values of each attribute value, they are assumed to be conditionally independent given the target value.</p>
+<p>This is a very strong assumption that is most unlikely in real data, i.e.&nbsp;that the attributes do not interact. Nevertheless, the approach performs surprisingly well on data where this assumption does not hold.</p>
+<p>Training is fast because only the probability of each class and the probability of each class given different input values need to be calculated. <strong>No coefficients need to be fitted by optimization procedures.</strong></p>
+<p>The class probabilities are simply the frequency of instances that belong to each class divided by the total number of instances. The conditional probabilities are the frequency of each attribute value for a given class value divided by the frequency of instances with that class value.</p>
+</section>
+<section id="data-analyzed-in-this-notebook" class="level2">
+<h2 class="anchored" data-anchor-id="data-analyzed-in-this-notebook">Data analyzed in this notebook</h2>
+<p>In this notebook, we will show how to use Python scikit-learn’s Naive Bayes method to classify origin of wine based on physio-chemical analysis data. These data are the results of a chemical analysis of wines grown in the same region in Italy but derived from three different cultivars. The analysis determined the quantities of 13 constituents found in each of the three types of wines.</p>
+<p>Details can be <a href="http://archive.ics.uci.edu/ml/datasets/Wine"><strong>found here</strong></a>.</p>
+<div id="3332d841" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="read-in-the-data-and-perform-basic-exploratory-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="read-in-the-data-and-perform-basic-exploratory-analysis">Read in the data and perform basic exploratory analysis</h2>
+<section id="data-set" class="level3">
+<h3 class="anchored" data-anchor-id="data-set">Data set</h3>
+<div id="288db70a" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">'DATA/wine.data.csv'</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>df.head(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="2">
+<div>
 
 
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Wine</th>
+<th data-quarto-table-cell-role="th">Alcohol</th>
+<th data-quarto-table-cell-role="th">Malic.acid</th>
+<th data-quarto-table-cell-role="th">Ash</th>
+<th data-quarto-table-cell-role="th">Acl</th>
+<th data-quarto-table-cell-role="th">Mg</th>
+<th data-quarto-table-cell-role="th">Phenols</th>
+<th data-quarto-table-cell-role="th">Flavanoids</th>
+<th data-quarto-table-cell-role="th">Nonflavanoid.phenols</th>
+<th data-quarto-table-cell-role="th">Proanth</th>
+<th data-quarto-table-cell-role="th">Color.int</th>
+<th data-quarto-table-cell-role="th">Hue</th>
+<th data-quarto-table-cell-role="th">OD</th>
+<th data-quarto-table-cell-role="th">Proline</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>1</td>
+<td>14.23</td>
+<td>1.71</td>
+<td>2.43</td>
+<td>15.6</td>
+<td>127</td>
+<td>2.80</td>
+<td>3.06</td>
+<td>0.28</td>
+<td>2.29</td>
+<td>5.64</td>
+<td>1.04</td>
+<td>3.92</td>
+<td>1065</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>1</td>
+<td>13.20</td>
+<td>1.78</td>
+<td>2.14</td>
+<td>11.2</td>
+<td>100</td>
+<td>2.65</td>
+<td>2.76</td>
+<td>0.26</td>
+<td>1.28</td>
+<td>4.38</td>
+<td>1.05</td>
+<td>3.40</td>
+<td>1050</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>1</td>
+<td>13.16</td>
+<td>2.36</td>
+<td>2.67</td>
+<td>18.6</td>
+<td>101</td>
+<td>2.80</td>
+<td>3.24</td>
+<td>0.30</td>
+<td>2.81</td>
+<td>5.68</td>
+<td>1.03</td>
+<td>3.17</td>
+<td>1185</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>1</td>
+<td>14.37</td>
+<td>1.95</td>
+<td>2.50</td>
+<td>16.8</td>
+<td>113</td>
+<td>3.85</td>
+<td>3.49</td>
+<td>0.24</td>
+<td>2.18</td>
+<td>7.80</td>
+<td>0.86</td>
+<td>3.45</td>
+<td>1480</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>1</td>
+<td>13.24</td>
+<td>2.59</td>
+<td>2.87</td>
+<td>21.0</td>
+<td>118</td>
+<td>2.80</td>
+<td>2.69</td>
+<td>0.39</td>
+<td>1.82</td>
+<td>4.32</td>
+<td>1.04</td>
+<td>2.93</td>
+<td>735</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">5</td>
+<td>1</td>
+<td>14.20</td>
+<td>1.76</td>
+<td>2.45</td>
+<td>15.2</td>
+<td>112</td>
+<td>3.27</td>
+<td>3.39</td>
+<td>0.34</td>
+<td>1.97</td>
+<td>6.75</td>
+<td>1.05</td>
+<td>2.85</td>
+<td>1450</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">6</td>
+<td>1</td>
+<td>14.39</td>
+<td>1.87</td>
+<td>2.45</td>
+<td>14.6</td>
+<td>96</td>
+<td>2.50</td>
+<td>2.52</td>
+<td>0.30</td>
+<td>1.98</td>
+<td>5.25</td>
+<td>1.02</td>
+<td>3.58</td>
+<td>1290</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">7</td>
+<td>1</td>
+<td>14.06</td>
+<td>2.15</td>
+<td>2.61</td>
+<td>17.6</td>
+<td>121</td>
+<td>2.60</td>
+<td>2.51</td>
+<td>0.31</td>
+<td>1.25</td>
+<td>5.05</td>
+<td>1.06</td>
+<td>3.58</td>
+<td>1295</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">8</td>
+<td>1</td>
+<td>14.83</td>
+<td>1.64</td>
+<td>2.17</td>
+<td>14.0</td>
+<td>97</td>
+<td>2.80</td>
+<td>2.98</td>
+<td>0.29</td>
+<td>1.98</td>
+<td>5.20</td>
+<td>1.08</td>
+<td>2.85</td>
+<td>1045</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">9</td>
+<td>1</td>
+<td>13.86</td>
+<td>1.35</td>
+<td>2.27</td>
+<td>16.0</td>
+<td>98</td>
+<td>2.98</td>
+<td>3.15</td>
+<td>0.22</td>
+<td>1.85</td>
+<td>7.22</td>
+<td>1.01</td>
+<td>3.55</td>
+<td>1045</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</section>
+<section id="basic-statistics-of-the-features" class="level3">
+<h3 class="anchored" data-anchor-id="basic-statistics-of-the-features">Basic statistics of the features</h3>
+<div id="b3d58c36" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>df.iloc[:,<span class="dv">1</span>:].describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="3">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Alcohol</th>
+<th data-quarto-table-cell-role="th">Malic.acid</th>
+<th data-quarto-table-cell-role="th">Ash</th>
+<th data-quarto-table-cell-role="th">Acl</th>
+<th data-quarto-table-cell-role="th">Mg</th>
+<th data-quarto-table-cell-role="th">Phenols</th>
+<th data-quarto-table-cell-role="th">Flavanoids</th>
+<th data-quarto-table-cell-role="th">Nonflavanoid.phenols</th>
+<th data-quarto-table-cell-role="th">Proanth</th>
+<th data-quarto-table-cell-role="th">Color.int</th>
+<th data-quarto-table-cell-role="th">Hue</th>
+<th data-quarto-table-cell-role="th">OD</th>
+<th data-quarto-table-cell-role="th">Proline</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">count</td>
+<td>178.000000</td>
+<td>178.000000</td>
+<td>178.000000</td>
+<td>178.000000</td>
+<td>178.000000</td>
+<td>178.000000</td>
+<td>178.000000</td>
+<td>178.000000</td>
+<td>178.000000</td>
+<td>178.000000</td>
+<td>178.000000</td>
+<td>178.000000</td>
+<td>178.000000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">mean</td>
+<td>13.000618</td>
+<td>2.336348</td>
+<td>2.366517</td>
+<td>19.494944</td>
+<td>99.741573</td>
+<td>2.295112</td>
+<td>2.029270</td>
+<td>0.361854</td>
+<td>1.590899</td>
+<td>5.058090</td>
+<td>0.957449</td>
+<td>2.611685</td>
+<td>746.893258</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">std</td>
+<td>0.811827</td>
+<td>1.117146</td>
+<td>0.274344</td>
+<td>3.339564</td>
+<td>14.282484</td>
+<td>0.625851</td>
+<td>0.998859</td>
+<td>0.124453</td>
+<td>0.572359</td>
+<td>2.318286</td>
+<td>0.228572</td>
+<td>0.709990</td>
+<td>314.907474</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">min</td>
+<td>11.030000</td>
+<td>0.740000</td>
+<td>1.360000</td>
+<td>10.600000</td>
+<td>70.000000</td>
+<td>0.980000</td>
+<td>0.340000</td>
+<td>0.130000</td>
+<td>0.410000</td>
+<td>1.280000</td>
+<td>0.480000</td>
+<td>1.270000</td>
+<td>278.000000</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">25%</td>
+<td>12.362500</td>
+<td>1.602500</td>
+<td>2.210000</td>
+<td>17.200000</td>
+<td>88.000000</td>
+<td>1.742500</td>
+<td>1.205000</td>
+<td>0.270000</td>
+<td>1.250000</td>
+<td>3.220000</td>
+<td>0.782500</td>
+<td>1.937500</td>
+<td>500.500000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">50%</td>
+<td>13.050000</td>
+<td>1.865000</td>
+<td>2.360000</td>
+<td>19.500000</td>
+<td>98.000000</td>
+<td>2.355000</td>
+<td>2.135000</td>
+<td>0.340000</td>
+<td>1.555000</td>
+<td>4.690000</td>
+<td>0.965000</td>
+<td>2.780000</td>
+<td>673.500000</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">75%</td>
+<td>13.677500</td>
+<td>3.082500</td>
+<td>2.557500</td>
+<td>21.500000</td>
+<td>107.000000</td>
+<td>2.800000</td>
+<td>2.875000</td>
+<td>0.437500</td>
+<td>1.950000</td>
+<td>6.200000</td>
+<td>1.120000</td>
+<td>3.170000</td>
+<td>985.000000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">max</td>
+<td>14.830000</td>
+<td>5.800000</td>
+<td>3.230000</td>
+<td>30.000000</td>
+<td>162.000000</td>
+<td>3.880000</td>
+<td>5.080000</td>
+<td>0.660000</td>
+<td>3.580000</td>
+<td>13.000000</td>
+<td>1.710000</td>
+<td>4.000000</td>
+<td>1680.000000</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</section>
+<section id="boxplots-by-output-labelsclasses" class="level3">
+<h3 class="anchored" data-anchor-id="boxplots-by-output-labelsclasses">Boxplots by output labels/classes</h3>
+<div id="f9694328" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> c <span class="kw">in</span> df.columns[<span class="dv">1</span>:]:</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    df.boxplot(c,by<span class="op">=</span><span class="st">'Wine'</span>,figsize<span class="op">=</span>(<span class="dv">7</span>,<span class="dv">4</span>),fontsize<span class="op">=</span><span class="dv">14</span>)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    plt.title(<span class="st">"</span><span class="sc">{}</span><span class="ch">\n</span><span class="st">"</span>.<span class="bu">format</span>(c),fontsize<span class="op">=</span><span class="dv">16</span>)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    plt.xlabel(<span class="st">"Wine Class"</span>, fontsize<span class="op">=</span><span class="dv">16</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="chap06_naive_bayes_files/figure-html/cell-5-output-1.png" width="590" height="410" class="figure-img"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="chap06_naive_bayes_files/figure-html/cell-5-output-2.png" width="578" height="410" class="figure-img"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="chap06_naive_bayes_files/figure-html/cell-5-output-3.png" width="596" height="410" class="figure-img"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="chap06_naive_bayes_files/figure-html/cell-5-output-4.png" width="590" height="410" class="figure-img"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="chap06_naive_bayes_files/figure-html/cell-5-output-5.png" width="602" height="410" class="figure-img"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="chap06_naive_bayes_files/figure-html/cell-5-output-6.png" width="596" height="410" class="figure-img"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="chap06_naive_bayes_files/figure-html/cell-5-output-7.png" width="578" height="410" class="figure-img"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="chap06_naive_bayes_files/figure-html/cell-5-output-8.png" width="596" height="410" class="figure-img"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="chap06_naive_bayes_files/figure-html/cell-5-output-9.png" width="596" height="410" class="figure-img"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="chap06_naive_bayes_files/figure-html/cell-5-output-10.png" width="590" height="410" class="figure-img"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="chap06_naive_bayes_files/figure-html/cell-5-output-11.png" width="596" height="410" class="figure-img"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="chap06_naive_bayes_files/figure-html/cell-5-output-12.png" width="596" height="410" class="figure-img"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="chap06_naive_bayes_files/figure-html/cell-5-output-13.png" width="614" height="410" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>It can be seen that some features classify the wine labels pretty clearly.</strong> For example, Alcalinity, Total Phenols, or Flavonoids produce boxplots with well-separated medians, which are clearly indicative of wine classes.</p>
+<p>Below is an example of class seperation using two variables</p>
+<div id="b7e01e00" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>,<span class="dv">6</span>))</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>plt.scatter(df[<span class="st">'OD'</span>],df[<span class="st">'Flavanoids'</span>],c<span class="op">=</span>df[<span class="st">'Wine'</span>],edgecolors<span class="op">=</span><span class="st">'k'</span>,alpha<span class="op">=</span><span class="fl">0.8</span>,s<span class="op">=</span><span class="dv">100</span>)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>plt.grid(<span class="va">True</span>)</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Scatter plot of two features showing the correlation and class seperation"</span>,fontsize<span class="op">=</span><span class="dv">15</span>)</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"OD280/OD315 of diluted wines"</span>,fontsize<span class="op">=</span><span class="dv">15</span>)</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Flavanoids"</span>,fontsize<span class="op">=</span><span class="dv">15</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="5">
+<pre><code>Text(0, 0.5, 'Flavanoids')</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="chap06_naive_bayes_files/figure-html/cell-6-output-2.png" width="806" height="534" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="are-the-features-independent-plot-co-variance-matrix" class="level3">
+<h3 class="anchored" data-anchor-id="are-the-features-independent-plot-co-variance-matrix">Are the features independent? Plot co-variance matrix</h3>
+<p>It can be seen that there are some good amount of correlation between features i.e.&nbsp;they are not independent of each other, as assumed in Naive Bayes technique. However, we will still go ahead and apply yhe classifier to see its performance.</p>
+<div id="3ce8bddf" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> correlation_matrix(df):</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    <span class="im">from</span> matplotlib <span class="im">import</span> pyplot <span class="im">as</span> plt</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    <span class="im">from</span> matplotlib <span class="im">import</span> cm <span class="im">as</span> cm</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    fig <span class="op">=</span> plt.figure(figsize<span class="op">=</span>(<span class="dv">16</span>,<span class="dv">12</span>))</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    ax1 <span class="op">=</span> fig.add_subplot(<span class="dv">111</span>)</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>    cmap <span class="op">=</span> cm.get_cmap(<span class="st">'jet'</span>, <span class="dv">30</span>)</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>    cax <span class="op">=</span> ax1.imshow(df.corr(), interpolation<span class="op">=</span><span class="st">"nearest"</span>, cmap<span class="op">=</span>cmap)</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>    ax1.grid(<span class="va">True</span>)</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>    plt.title(<span class="st">'Wine data set features correlation'</span>,fontsize<span class="op">=</span><span class="dv">15</span>)</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>    labels<span class="op">=</span>df.columns</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>    ax1.set_xticklabels(labels,fontsize<span class="op">=</span><span class="dv">9</span>)</span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>    ax1.set_yticklabels(labels,fontsize<span class="op">=</span><span class="dv">9</span>)</span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Add colorbar, make sure to specify tick locations to match desired ticklabels</span></span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>    fig.colorbar(cax, ticks<span class="op">=</span>[<span class="fl">0.1</span><span class="op">*</span>i <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="op">-</span><span class="dv">11</span>,<span class="dv">11</span>)])</span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>    plt.show()</span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>correlation_matrix(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>C:\Users\mshar\AppData\Local\Temp\ipykernel_21364\3096039824.py:7: MatplotlibDeprecationWarning: The get_cmap function was deprecated in Matplotlib 3.7 and will be removed in 3.11. Use ``matplotlib.colormaps[name]`` or ``matplotlib.colormaps.get_cmap()`` or ``pyplot.get_cmap()`` instead.
+  cmap = cm.get_cmap('jet', 30)
+C:\Users\mshar\AppData\Local\Temp\ipykernel_21364\3096039824.py:12: UserWarning: set_ticklabels() should only be used with a fixed number of ticks, i.e. after set_ticks() or using a FixedLocator.
+  ax1.set_xticklabels(labels,fontsize=9)
+C:\Users\mshar\AppData\Local\Temp\ipykernel_21364\3096039824.py:13: UserWarning: set_ticklabels() should only be used with a fixed number of ticks, i.e. after set_ticks() or using a FixedLocator.
+  ax1.set_yticklabels(labels,fontsize=9)</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="chap06_naive_bayes_files/figure-html/cell-7-output-2.png" width="1125" height="951" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="naive-bayes-classification" class="level2">
+<h2 class="anchored" data-anchor-id="naive-bayes-classification">Naive Bayes Classification</h2>
+<section id="testtrain-split" class="level3">
+<h3 class="anchored" data-anchor-id="testtrain-split">Test/train split</h3>
+<div id="06c98f0e" class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> train_test_split</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>test_size<span class="op">=</span><span class="fl">0.3</span> <span class="co"># Test-set fraction</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="a0075a87" class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> df.drop(<span class="st">'Wine'</span>,axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> df[<span class="st">'Wine'</span>]</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>X_train, X_test, y_train, y_test <span class="op">=</span> train_test_split(X, y, test_size<span class="op">=</span>test_size)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="c54cf931" class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>X_train.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="9">
+<pre><code>(124, 13)</code></pre>
+</div>
+</div>
+<div id="c3965122" class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>X_train.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="10">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Alcohol</th>
+<th data-quarto-table-cell-role="th">Malic.acid</th>
+<th data-quarto-table-cell-role="th">Ash</th>
+<th data-quarto-table-cell-role="th">Acl</th>
+<th data-quarto-table-cell-role="th">Mg</th>
+<th data-quarto-table-cell-role="th">Phenols</th>
+<th data-quarto-table-cell-role="th">Flavanoids</th>
+<th data-quarto-table-cell-role="th">Nonflavanoid.phenols</th>
+<th data-quarto-table-cell-role="th">Proanth</th>
+<th data-quarto-table-cell-role="th">Color.int</th>
+<th data-quarto-table-cell-role="th">Hue</th>
+<th data-quarto-table-cell-role="th">OD</th>
+<th data-quarto-table-cell-role="th">Proline</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">23</td>
+<td>12.85</td>
+<td>1.60</td>
+<td>2.52</td>
+<td>17.8</td>
+<td>95</td>
+<td>2.48</td>
+<td>2.37</td>
+<td>0.26</td>
+<td>1.46</td>
+<td>3.93</td>
+<td>1.09</td>
+<td>3.63</td>
+<td>1015</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">156</td>
+<td>13.84</td>
+<td>4.12</td>
+<td>2.38</td>
+<td>19.5</td>
+<td>89</td>
+<td>1.80</td>
+<td>0.83</td>
+<td>0.48</td>
+<td>1.56</td>
+<td>9.01</td>
+<td>0.57</td>
+<td>1.64</td>
+<td>480</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">154</td>
+<td>12.58</td>
+<td>1.29</td>
+<td>2.10</td>
+<td>20.0</td>
+<td>103</td>
+<td>1.48</td>
+<td>0.58</td>
+<td>0.53</td>
+<td>1.40</td>
+<td>7.60</td>
+<td>0.58</td>
+<td>1.55</td>
+<td>640</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">63</td>
+<td>12.37</td>
+<td>1.13</td>
+<td>2.16</td>
+<td>19.0</td>
+<td>87</td>
+<td>3.50</td>
+<td>3.10</td>
+<td>0.19</td>
+<td>1.87</td>
+<td>4.45</td>
+<td>1.22</td>
+<td>2.87</td>
+<td>420</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">109</td>
+<td>11.61</td>
+<td>1.35</td>
+<td>2.70</td>
+<td>20.0</td>
+<td>94</td>
+<td>2.74</td>
+<td>2.92</td>
+<td>0.29</td>
+<td>2.49</td>
+<td>2.65</td>
+<td>0.96</td>
+<td>3.26</td>
+<td>680</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</section>
+<section id="classification-using-gaussiannb" class="level3">
+<h3 class="anchored" data-anchor-id="classification-using-gaussiannb">Classification using GaussianNB</h3>
+<p>Given a class variable <span class="math inline">\(y\)</span> and a dependent feature vector <span class="math inline">\(x_1\)</span> through <span class="math inline">\(x_n\)</span>, Bayes’ theorem states the following relationship:</p>
+<p><span class="math display">\[P(y \mid x_1, \dots, x_n) = \frac{P(y) P(x_1, \dots x_n \mid y)} {P(x_1, \dots, x_n)}\]</span> Using the naive independence assumption that <span class="math display">\[P(x_i | y, x_1, \dots, x_{i-1}, x_{i+1}, \dots, x_n) = P(x_i | y),\]</span> for all <span class="math inline">\(i\)</span>, this relationship is simplified to <span class="math display">\[P(y \mid x_1, \dots, x_n) = \frac{P(y) \prod_{i=1}^{n} P(x_i \mid y)} {P(x_1, \dots, x_n)}\]</span></p>
+<p>Since <span class="math inline">\(P(x_1, \dots, x_n)\)</span> is constant given the input, we can use the following classification rule: <span class="math display">\[P(y \mid x_1, \dots, x_n) \propto P(y) \prod_{i=1}^{n} P(x_i \mid y)\]</span> <span class="math display">\[\Downarrow\]</span> <span class="math display">\[\hat{y} = \arg\max_y P(y) \prod_{i=1}^{n} P(x_i \mid y),\]</span></p>
+<p>and we can use <a href="https://en.wikipedia.org/wiki/Maximum_a_posteriori_estimation"><strong>Maximum A Posteriori</strong></a> (MAP) estimation to estimate <span class="math inline">\(P(y)\)</span> and <span class="math inline">\(P(x_i \mid y)\)</span>; the former is then the relative frequency of class <span class="math inline">\(y\)</span> in the training set.</p>
+<p><strong><em>GaussianNB ()</em></strong> implements the Gaussian Naive Bayes algorithm for classification. <strong>The likelihood of the features is assumed to be Gaussian</strong>:</p>
+<p><span class="math display">\[ P(x_i \mid y) = \frac{1}{\sqrt{2\pi\sigma^2_y}} \exp(-\frac{(x_i - \mu_y)^2}{2\sigma^2_y}) \]</span></p>
+<p>The parameters <span class="math inline">\(\sigma_y\)</span> and <span class="math inline">\(\mu_y\)</span> are estimated using maximum likelihood.</p>
+<div id="5a81cd95" class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.naive_bayes <span class="im">import</span> GaussianNB</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="aa355d61" class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>nbc <span class="op">=</span> GaussianNB()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="54dc437e" class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>nbc.fit(X_train,y_train)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="13">
+<style>#sk-container-id-1 {
+  /* Definition of color scheme common for light and dark mode */
+  --sklearn-color-text: #000;
+  --sklearn-color-text-muted: #666;
+  --sklearn-color-line: gray;
+  /* Definition of color scheme for unfitted estimators */
+  --sklearn-color-unfitted-level-0: #fff5e6;
+  --sklearn-color-unfitted-level-1: #f6e4d2;
+  --sklearn-color-unfitted-level-2: #ffe0b3;
+  --sklearn-color-unfitted-level-3: chocolate;
+  /* Definition of color scheme for fitted estimators */
+  --sklearn-color-fitted-level-0: #f0f8ff;
+  --sklearn-color-fitted-level-1: #d4ebff;
+  --sklearn-color-fitted-level-2: #b3dbfd;
+  --sklearn-color-fitted-level-3: cornflowerblue;
+
+  /* Specific color for light theme */
+  --sklearn-color-text-on-default-background: var(--sg-text-color, var(--theme-code-foreground, var(--jp-content-font-color1, black)));
+  --sklearn-color-background: var(--sg-background-color, var(--theme-background, var(--jp-layout-color0, white)));
+  --sklearn-color-border-box: var(--sg-text-color, var(--theme-code-foreground, var(--jp-content-font-color1, black)));
+  --sklearn-color-icon: #696969;
+
+  @media (prefers-color-scheme: dark) {
+    /* Redefinition of color scheme for dark theme */
+    --sklearn-color-text-on-default-background: var(--sg-text-color, var(--theme-code-foreground, var(--jp-content-font-color1, white)));
+    --sklearn-color-background: var(--sg-background-color, var(--theme-background, var(--jp-layout-color0, #111)));
+    --sklearn-color-border-box: var(--sg-text-color, var(--theme-code-foreground, var(--jp-content-font-color1, white)));
+    --sklearn-color-icon: #878787;
+  }
+}
+
+#sk-container-id-1 {
+  color: var(--sklearn-color-text);
+}
+
+#sk-container-id-1 pre {
+  padding: 0;
+}
+
+#sk-container-id-1 input.sk-hidden--visually {
+  border: 0;
+  clip: rect(1px 1px 1px 1px);
+  clip: rect(1px, 1px, 1px, 1px);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+#sk-container-id-1 div.sk-dashed-wrapped {
+  border: 1px dashed var(--sklearn-color-line);
+  margin: 0 0.4em 0.5em 0.4em;
+  box-sizing: border-box;
+  padding-bottom: 0.4em;
+  background-color: var(--sklearn-color-background);
+}
+
+#sk-container-id-1 div.sk-container {
+  /* jupyter's `normalize.less` sets `[hidden] { display: none; }`
+     but bootstrap.min.css set `[hidden] { display: none !important; }`
+     so we also need the `!important` here to be able to override the
+     default hidden behavior on the sphinx rendered scikit-learn.org.
+     See: https://github.com/scikit-learn/scikit-learn/issues/21755 */
+  display: inline-block !important;
+  position: relative;
+}
+
+#sk-container-id-1 div.sk-text-repr-fallback {
+  display: none;
+}
+
+div.sk-parallel-item,
+div.sk-serial,
+div.sk-item {
+  /* draw centered vertical line to link estimators */
+  background-image: linear-gradient(var(--sklearn-color-text-on-default-background), var(--sklearn-color-text-on-default-background));
+  background-size: 2px 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+/* Parallel-specific style estimator block */
+
+#sk-container-id-1 div.sk-parallel-item::after {
+  content: "";
+  width: 100%;
+  border-bottom: 2px solid var(--sklearn-color-text-on-default-background);
+  flex-grow: 1;
+}
+
+#sk-container-id-1 div.sk-parallel {
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  background-color: var(--sklearn-color-background);
+  position: relative;
+}
+
+#sk-container-id-1 div.sk-parallel-item {
+  display: flex;
+  flex-direction: column;
+}
+
+#sk-container-id-1 div.sk-parallel-item:first-child::after {
+  align-self: flex-end;
+  width: 50%;
+}
+
+#sk-container-id-1 div.sk-parallel-item:last-child::after {
+  align-self: flex-start;
+  width: 50%;
+}
+
+#sk-container-id-1 div.sk-parallel-item:only-child::after {
+  width: 0;
+}
+
+/* Serial-specific style estimator block */
+
+#sk-container-id-1 div.sk-serial {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--sklearn-color-background);
+  padding-right: 1em;
+  padding-left: 1em;
+}
+
+
+/* Toggleable style: style used for estimator/Pipeline/ColumnTransformer box that is
+clickable and can be expanded/collapsed.
+- Pipeline and ColumnTransformer use this feature and define the default style
+- Estimators will overwrite some part of the style using the `sk-estimator` class
+*/
+
+/* Pipeline and ColumnTransformer style (default) */
+
+#sk-container-id-1 div.sk-toggleable {
+  /* Default theme specific background. It is overwritten whether we have a
+  specific estimator or a Pipeline/ColumnTransformer */
+  background-color: var(--sklearn-color-background);
+}
+
+/* Toggleable label */
+#sk-container-id-1 label.sk-toggleable__label {
+  cursor: pointer;
+  display: flex;
+  width: 100%;
+  margin-bottom: 0;
+  padding: 0.5em;
+  box-sizing: border-box;
+  text-align: center;
+  align-items: start;
+  justify-content: space-between;
+  gap: 0.5em;
+}
+
+#sk-container-id-1 label.sk-toggleable__label .caption {
+  font-size: 0.6rem;
+  font-weight: lighter;
+  color: var(--sklearn-color-text-muted);
+}
+
+#sk-container-id-1 label.sk-toggleable__label-arrow:before {
+  /* Arrow on the left of the label */
+  content: "▸";
+  float: left;
+  margin-right: 0.25em;
+  color: var(--sklearn-color-icon);
+}
+
+#sk-container-id-1 label.sk-toggleable__label-arrow:hover:before {
+  color: var(--sklearn-color-text);
+}
+
+/* Toggleable content - dropdown */
+
+#sk-container-id-1 div.sk-toggleable__content {
+  max-height: 0;
+  max-width: 0;
+  overflow: hidden;
+  text-align: left;
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-0);
+}
+
+#sk-container-id-1 div.sk-toggleable__content.fitted {
+  /* fitted */
+  background-color: var(--sklearn-color-fitted-level-0);
+}
+
+#sk-container-id-1 div.sk-toggleable__content pre {
+  margin: 0.2em;
+  border-radius: 0.25em;
+  color: var(--sklearn-color-text);
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-0);
+}
+
+#sk-container-id-1 div.sk-toggleable__content.fitted pre {
+  /* unfitted */
+  background-color: var(--sklearn-color-fitted-level-0);
+}
+
+#sk-container-id-1 input.sk-toggleable__control:checked~div.sk-toggleable__content {
+  /* Expand drop-down */
+  max-height: 200px;
+  max-width: 100%;
+  overflow: auto;
+}
+
+#sk-container-id-1 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {
+  content: "▾";
+}
+
+/* Pipeline/ColumnTransformer-specific style */
+
+#sk-container-id-1 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {
+  color: var(--sklearn-color-text);
+  background-color: var(--sklearn-color-unfitted-level-2);
+}
+
+#sk-container-id-1 div.sk-label.fitted input.sk-toggleable__control:checked~label.sk-toggleable__label {
+  background-color: var(--sklearn-color-fitted-level-2);
+}
+
+/* Estimator-specific style */
+
+/* Colorize estimator box */
+#sk-container-id-1 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-2);
+}
+
+#sk-container-id-1 div.sk-estimator.fitted input.sk-toggleable__control:checked~label.sk-toggleable__label {
+  /* fitted */
+  background-color: var(--sklearn-color-fitted-level-2);
+}
+
+#sk-container-id-1 div.sk-label label.sk-toggleable__label,
+#sk-container-id-1 div.sk-label label {
+  /* The background is the default theme color */
+  color: var(--sklearn-color-text-on-default-background);
+}
+
+/* On hover, darken the color of the background */
+#sk-container-id-1 div.sk-label:hover label.sk-toggleable__label {
+  color: var(--sklearn-color-text);
+  background-color: var(--sklearn-color-unfitted-level-2);
+}
+
+/* Label box, darken color on hover, fitted */
+#sk-container-id-1 div.sk-label.fitted:hover label.sk-toggleable__label.fitted {
+  color: var(--sklearn-color-text);
+  background-color: var(--sklearn-color-fitted-level-2);
+}
+
+/* Estimator label */
+
+#sk-container-id-1 div.sk-label label {
+  font-family: monospace;
+  font-weight: bold;
+  display: inline-block;
+  line-height: 1.2em;
+}
+
+#sk-container-id-1 div.sk-label-container {
+  text-align: center;
+}
+
+/* Estimator-specific */
+#sk-container-id-1 div.sk-estimator {
+  font-family: monospace;
+  border: 1px dotted var(--sklearn-color-border-box);
+  border-radius: 0.25em;
+  box-sizing: border-box;
+  margin-bottom: 0.5em;
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-0);
+}
+
+#sk-container-id-1 div.sk-estimator.fitted {
+  /* fitted */
+  background-color: var(--sklearn-color-fitted-level-0);
+}
+
+/* on hover */
+#sk-container-id-1 div.sk-estimator:hover {
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-2);
+}
+
+#sk-container-id-1 div.sk-estimator.fitted:hover {
+  /* fitted */
+  background-color: var(--sklearn-color-fitted-level-2);
+}
+
+/* Specification for estimator info (e.g. "i" and "?") */
+
+/* Common style for "i" and "?" */
+
+.sk-estimator-doc-link,
+a:link.sk-estimator-doc-link,
+a:visited.sk-estimator-doc-link {
+  float: right;
+  font-size: smaller;
+  line-height: 1em;
+  font-family: monospace;
+  background-color: var(--sklearn-color-background);
+  border-radius: 1em;
+  height: 1em;
+  width: 1em;
+  text-decoration: none !important;
+  margin-left: 0.5em;
+  text-align: center;
+  /* unfitted */
+  border: var(--sklearn-color-unfitted-level-1) 1pt solid;
+  color: var(--sklearn-color-unfitted-level-1);
+}
+
+.sk-estimator-doc-link.fitted,
+a:link.sk-estimator-doc-link.fitted,
+a:visited.sk-estimator-doc-link.fitted {
+  /* fitted */
+  border: var(--sklearn-color-fitted-level-1) 1pt solid;
+  color: var(--sklearn-color-fitted-level-1);
+}
+
+/* On hover */
+div.sk-estimator:hover .sk-estimator-doc-link:hover,
+.sk-estimator-doc-link:hover,
+div.sk-label-container:hover .sk-estimator-doc-link:hover,
+.sk-estimator-doc-link:hover {
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-3);
+  color: var(--sklearn-color-background);
+  text-decoration: none;
+}
+
+div.sk-estimator.fitted:hover .sk-estimator-doc-link.fitted:hover,
+.sk-estimator-doc-link.fitted:hover,
+div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
+.sk-estimator-doc-link.fitted:hover {
+  /* fitted */
+  background-color: var(--sklearn-color-fitted-level-3);
+  color: var(--sklearn-color-background);
+  text-decoration: none;
+}
+
+/* Span, style for the box shown on hovering the info icon */
+.sk-estimator-doc-link span {
+  display: none;
+  z-index: 9999;
+  position: relative;
+  font-weight: normal;
+  right: .2ex;
+  padding: .5ex;
+  margin: .5ex;
+  width: min-content;
+  min-width: 20ex;
+  max-width: 50ex;
+  color: var(--sklearn-color-text);
+  box-shadow: 2pt 2pt 4pt #999;
+  /* unfitted */
+  background: var(--sklearn-color-unfitted-level-0);
+  border: .5pt solid var(--sklearn-color-unfitted-level-3);
+}
+
+.sk-estimator-doc-link.fitted span {
+  /* fitted */
+  background: var(--sklearn-color-fitted-level-0);
+  border: var(--sklearn-color-fitted-level-3);
+}
+
+.sk-estimator-doc-link:hover span {
+  display: block;
+}
+
+/* "?"-specific style due to the `<a>` HTML tag */
+
+#sk-container-id-1 a.estimator_doc_link {
+  float: right;
+  font-size: 1rem;
+  line-height: 1em;
+  font-family: monospace;
+  background-color: var(--sklearn-color-background);
+  border-radius: 1rem;
+  height: 1rem;
+  width: 1rem;
+  text-decoration: none;
+  /* unfitted */
+  color: var(--sklearn-color-unfitted-level-1);
+  border: var(--sklearn-color-unfitted-level-1) 1pt solid;
+}
+
+#sk-container-id-1 a.estimator_doc_link.fitted {
+  /* fitted */
+  border: var(--sklearn-color-fitted-level-1) 1pt solid;
+  color: var(--sklearn-color-fitted-level-1);
+}
+
+/* On hover */
+#sk-container-id-1 a.estimator_doc_link:hover {
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-3);
+  color: var(--sklearn-color-background);
+  text-decoration: none;
+}
+
+#sk-container-id-1 a.estimator_doc_link.fitted:hover {
+  /* fitted */
+  background-color: var(--sklearn-color-fitted-level-3);
+}
+</a></style><div id="sk-container-id-1" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>GaussianNB()</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br>On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden=""><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-1" type="checkbox" checked=""><label for="sk-estimator-id-1" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>GaussianNB</div></div><div><a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.6/modules/generated/sklearn.naive_bayes.GaussianNB.html">?<span>Documentation for GaussianNB</span></a><span class="sk-estimator-doc-link fitted">i<span>Fitted</span></span></div></label><div class="sk-toggleable__content fitted"><pre>GaussianNB()</pre></div> </div></div></div></div>
+</div>
+</div>
+</section>
+<section id="prediction-classification-report-and-confusion-matrix" class="level3">
+<h3 class="anchored" data-anchor-id="prediction-classification-report-and-confusion-matrix">Prediction, classification report, and confusion matrix</h3>
+<div id="58b52073" class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>y_pred <span class="op">=</span> nbc.predict(X_test)</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>mislabel <span class="op">=</span> np.<span class="bu">sum</span>((y_test<span class="op">!=</span>y_pred))</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Total number of mislabelled data points from </span><span class="sc">{}</span><span class="st"> test samples is </span><span class="sc">{}</span><span class="st">"</span>.<span class="bu">format</span>(<span class="bu">len</span>(y_test),mislabel))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Total number of mislabelled data points from 54 test samples is 3</code></pre>
+</div>
+</div>
+<div id="578f3567" class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> classification_report</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="ec4eba9a" class="cell" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The classification report is as follows..."</span>)</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(classification_report(y_pred,y_test))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>The classification report is as follows...
+              precision    recall  f1-score   support
+
+           1       0.88      1.00      0.93        14
+           2       0.95      0.91      0.93        22
+           3       1.00      0.94      0.97        18
+
+    accuracy                           0.94        54
+   macro avg       0.94      0.95      0.94        54
+weighted avg       0.95      0.94      0.94        54
+</code></pre>
+</div>
+</div>
+<div id="c1921002" class="cell" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> confusion_matrix</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="2f17ee38" class="cell" data-execution_count="18">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>cm <span class="op">=</span> (confusion_matrix(y_test,y_pred))</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>cmdf <span class="op">=</span> pd.DataFrame(cm,index<span class="op">=</span>[<span class="st">'Class 1'</span>,<span class="st">'Class 2'</span>,<span class="st">' Class 3'</span>], columns<span class="op">=</span>[<span class="st">'Class 1'</span>,<span class="st">'Class 2'</span>,<span class="st">' Class 3'</span>])</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The confusion matrix looks like following..."</span>)</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>cmdf</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>The confusion matrix looks like following...</code></pre>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="18">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Class 1</th>
+<th data-quarto-table-cell-role="th">Class 2</th>
+<th data-quarto-table-cell-role="th">Class 3</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">Class 1</td>
+<td>14</td>
+<td>2</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">Class 2</td>
+<td>0</td>
+<td>20</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">Class 3</td>
+<td>0</td>
+<td>0</td>
+<td>17</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>This showed that even in the presence of correlation among features, the Naive Bayes algorithm performed quite well and could separate the classes easily</p>
+</section>
+</section>
+<section id="conclusion" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
+
+
+</section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
