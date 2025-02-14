@@ -1,0 +1,55 @@
+---
+title: "<center> Chapter # 04 <br> Logistic Regression"
+format:
+    revealjs: 
+        theme: beige
+        controls: true
+        navigation-mode: vertical
+        self-contained: true
+        slide-number: true
+        slide-tone: true
+        css: styles.css
+---
+
+## Introduction 
+![](images/chap04-1.jpg)
+
+## Introduction (Cont'd)
+![](images/chap04-2.jpg)
+
+## What is LOGISTIC REGRESSION?
+![](images/chap04-3.jpg)
+
+## How Does Logistic Regression Learn? 
+![](images/chap04-4.jpg)
+
+## How Does Logistic Regression Learn? (Cont'd)
+![](images/chap04-5.jpg)
+
+## How Does Logistic Regression Learn? (Cont'd)
+![](images/chap04-6.jpg)
+
+## How Does Logistic Regression Learn? (Cont'd)
+![](images/chap04-7.jpg)
+
+## How Does Logistic Regression Learn? (Cont'd)
+![](images/chap04-8.jpg)
+
+## How Does Logistic Regression Learn? (Cont'd) 
+![](images/chap04-9.jpg)
+
+## How Does Logistic Regression Learn? (Cont'd) 
+![](images/chap04-10.jpg)
+
+
+## Questions or Queries {style="text-align:center;"}
+
+::: columns
+::: {.column width="50%" style="text-align:center;"}
+![Questions](images/question1.jpeg){fig-align="center"}
+:::
+
+::: {.column width="50%" style="text-align:center;"}
+![Queries](images/question2.jpeg){fig-align="center"}
+:::
+:::

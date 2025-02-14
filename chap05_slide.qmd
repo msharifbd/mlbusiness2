@@ -1,0 +1,76 @@
+---
+title: "<center> Chapter # 05 <br> Discriminant Analysis (DA)"
+format:
+    revealjs: 
+        theme: beige
+        controls: true
+        navigation-mode: vertical
+        self-contained: true
+        slide-number: true
+        slide-tone: true
+        css: styles.css
+---
+
+## Introduction 
+![](images/chap05-1.jpg)
+
+## Introduction (Cont'd)
+![](images/chap05-2.jpg)
+
+## When DA is Used?
+![](images/chap05-3.jpg)
+
+## What is DA? 
+![](images/chap05-4.jpg)
+
+## What is DA (Cont'd)?
+![](images/chap05-5.jpg)
+
+## The Curse of Dimensionality?
+![](images/chap05-6.jpg)
+
+## What Problem Does Curse of Dimensionality Cause?
+![](images/chap05-7.jpg)
+
+## Linear Discriminant Analysis (LDA) 
+![](images/chap05-8.jpg)
+
+## Linear Discriminant Analysis (LDA) (Cont'd) 
+![](images/chap05-9.jpg)
+
+## Linear Discriminant Analysis (LDA) (Cont'd) 
+![](images/chap05-10.jpg)
+
+## Linear Discriminant Analysis (LDA) (Cont'd) 
+![](images/chap05-11.jpg)
+
+## Linear Discriminant Analysis (LDA) (Cont'd) 
+![](images/chap05-12.jpg)
+
+## Quadratic Discriminant Analysis (QDA) 
+![](images/chap05-13.jpg)
+
+## How Do LDA and QDA Make Predictions?  
+![](images/chap05-14.jpg)
+
+## How Do LDA and QDA Make Predictions (Cont'd)? 
+![](images/chap05-15.jpg)
+
+## Strength and Weakness of LDA and QDA 
+![](images/chap05-16.jpg)
+
+## Strength and Weakness of LDA and QDA (Cont'd) 
+![](images/chap05-17.jpg)
+
+
+## Questions or Queries {style="text-align:center;"}
+
+::: columns
+::: {.column width="50%" style="text-align:center;"}
+![Questions](images/question1.jpeg){fig-align="center"}
+:::
+
+::: {.column width="50%" style="text-align:center;"}
+![Queries](images/question2.jpeg){fig-align="center"}
+:::
+:::

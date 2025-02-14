@@ -2148,5 +2148,353 @@
       "Appendix",
       "<center> Exploratory Data Analysis in R"
     ]
+  },
+  {
+    "objectID": "chap04_slide.html#introduction",
+    "href": "chap04_slide.html#introduction",
+    "title": "\nChapter # 04  Logistic Regression",
+    "section": "Introduction",
+    "text": "Introduction",
+    "crumbs": [
+      "Modules & Slides",
+      "Slides",
+      "<center> Chapter # 04 <br> Logistic Regression"
+    ]
+  },
+  {
+    "objectID": "chap04_slide.html#introduction-contd",
+    "href": "chap04_slide.html#introduction-contd",
+    "title": "\nChapter # 04  Logistic Regression",
+    "section": "Introduction (Cont’d)",
+    "text": "Introduction (Cont’d)",
+    "crumbs": [
+      "Modules & Slides",
+      "Slides",
+      "<center> Chapter # 04 <br> Logistic Regression"
+    ]
+  },
+  {
+    "objectID": "chap04_slide.html#what-is-logistic-regression",
+    "href": "chap04_slide.html#what-is-logistic-regression",
+    "title": "\nChapter # 04  Logistic Regression",
+    "section": "What is LOGISTIC REGRESSION?",
+    "text": "What is LOGISTIC REGRESSION?",
+    "crumbs": [
+      "Modules & Slides",
+      "Slides",
+      "<center> Chapter # 04 <br> Logistic Regression"
+    ]
+  },
+  {
+    "objectID": "chap04_slide.html#how-does-logistic-regression-learn",
+    "href": "chap04_slide.html#how-does-logistic-regression-learn",
+    "title": "\nChapter # 04  Logistic Regression",
+    "section": "How Does Logistic Regression Learn?",
+    "text": "How Does Logistic Regression Learn?",
+    "crumbs": [
+      "Modules & Slides",
+      "Slides",
+      "<center> Chapter # 04 <br> Logistic Regression"
+    ]
+  },
+  {
+    "objectID": "chap04_slide.html#how-does-logistic-regression-learn-contd",
+    "href": "chap04_slide.html#how-does-logistic-regression-learn-contd",
+    "title": "\nChapter # 04  Logistic Regression",
+    "section": "How Does Logistic Regression Learn? (Cont’d)",
+    "text": "How Does Logistic Regression Learn? (Cont’d)",
+    "crumbs": [
+      "Modules & Slides",
+      "Slides",
+      "<center> Chapter # 04 <br> Logistic Regression"
+    ]
+  },
+  {
+    "objectID": "chap04_slide.html#how-does-logistic-regression-learn-contd-1",
+    "href": "chap04_slide.html#how-does-logistic-regression-learn-contd-1",
+    "title": "\nChapter # 04  Logistic Regression",
+    "section": "How Does Logistic Regression Learn? (Cont’d)",
+    "text": "How Does Logistic Regression Learn? (Cont’d)",
+    "crumbs": [
+      "Modules & Slides",
+      "Slides",
+      "<center> Chapter # 04 <br> Logistic Regression"
+    ]
+  },
+  {
+    "objectID": "chap04_slide.html#how-does-logistic-regression-learn-contd-2",
+    "href": "chap04_slide.html#how-does-logistic-regression-learn-contd-2",
+    "title": "\nChapter # 04  Logistic Regression",
+    "section": "How Does Logistic Regression Learn? (Cont’d)",
+    "text": "How Does Logistic Regression Learn? (Cont’d)",
+    "crumbs": [
+      "Modules & Slides",
+      "Slides",
+      "<center> Chapter # 04 <br> Logistic Regression"
+    ]
+  },
+  {
+    "objectID": "chap04_slide.html#how-does-logistic-regression-learn-contd-3",
+    "href": "chap04_slide.html#how-does-logistic-regression-learn-contd-3",
+    "title": "\nChapter # 04  Logistic Regression",
+    "section": "How Does Logistic Regression Learn? (Cont’d)",
+    "text": "How Does Logistic Regression Learn? (Cont’d)",
+    "crumbs": [
+      "Modules & Slides",
+      "Slides",
+      "<center> Chapter # 04 <br> Logistic Regression"
+    ]
+  },
+  {
+    "objectID": "chap04_slide.html#how-does-logistic-regression-learn-contd-4",
+    "href": "chap04_slide.html#how-does-logistic-regression-learn-contd-4",
+    "title": "\nChapter # 04  Logistic Regression",
+    "section": "How Does Logistic Regression Learn? (Cont’d)",
+    "text": "How Does Logistic Regression Learn? (Cont’d)",
+    "crumbs": [
+      "Modules & Slides",
+      "Slides",
+      "<center> Chapter # 04 <br> Logistic Regression"
+    ]
+  },
+  {
+    "objectID": "chap04_slide.html#how-does-logistic-regression-learn-contd-5",
+    "href": "chap04_slide.html#how-does-logistic-regression-learn-contd-5",
+    "title": "\nChapter # 04  Logistic Regression",
+    "section": "How Does Logistic Regression Learn? (Cont’d)",
+    "text": "How Does Logistic Regression Learn? (Cont’d)",
+    "crumbs": [
+      "Modules & Slides",
+      "Slides",
+      "<center> Chapter # 04 <br> Logistic Regression"
+    ]
+  },
+  {
+    "objectID": "chap04_slide.html#questions-or-queries",
+    "href": "chap04_slide.html#questions-or-queries",
+    "title": "\nChapter # 04  Logistic Regression",
+    "section": "Questions or Queries",
+    "text": "Questions or Queries\n\n\n\n\n\nQuestions\n\n\n\n\n\n\nQueries",
+    "crumbs": [
+      "Modules & Slides",
+      "Slides",
+      "<center> Chapter # 04 <br> Logistic Regression"
+    ]
+  },
+  {
+    "objectID": "chap05_slide.html#introduction-contd",
+    "href": "chap05_slide.html#introduction-contd",
+    "title": "\nChapter # 05  Discriminant Analysis (DA)",
+    "section": "Introduction (Cont’d)",
+    "text": "Introduction (Cont’d)",
+    "crumbs": [
+      "Modules & Slides",
+      "Slides",
+      "<center> Chapter # 05 <br> Discriminant Analysis (DA)"
+    ]
+  },
+  {
+    "objectID": "chap05_slide.html#when-da-is-used",
+    "href": "chap05_slide.html#when-da-is-used",
+    "title": "\nChapter # 05  Discriminant Analysis (DA)",
+    "section": "When DA is Used?",
+    "text": "When DA is Used?",
+    "crumbs": [
+      "Modules & Slides",
+      "Slides",
+      "<center> Chapter # 05 <br> Discriminant Analysis (DA)"
+    ]
+  },
+  {
+    "objectID": "chap05_slide.html#what-is-da",
+    "href": "chap05_slide.html#what-is-da",
+    "title": "\nChapter # 05  Discriminant Analysis (DA)",
+    "section": "What is DA?",
+    "text": "What is DA?",
+    "crumbs": [
+      "Modules & Slides",
+      "Slides",
+      "<center> Chapter # 05 <br> Discriminant Analysis (DA)"
+    ]
+  },
+  {
+    "objectID": "chap05_slide.html#what-is-da-contd",
+    "href": "chap05_slide.html#what-is-da-contd",
+    "title": "\nChapter # 05  Discriminant Analysis (DA)",
+    "section": "What is DA (Cont’d)?",
+    "text": "What is DA (Cont’d)?",
+    "crumbs": [
+      "Modules & Slides",
+      "Slides",
+      "<center> Chapter # 05 <br> Discriminant Analysis (DA)"
+    ]
+  },
+  {
+    "objectID": "chap05_slide.html#the-curse-of-dimensionality",
+    "href": "chap05_slide.html#the-curse-of-dimensionality",
+    "title": "\nChapter # 05  Discriminant Analysis (DA)",
+    "section": "The Curse of Dimensionality?",
+    "text": "The Curse of Dimensionality?",
+    "crumbs": [
+      "Modules & Slides",
+      "Slides",
+      "<center> Chapter # 05 <br> Discriminant Analysis (DA)"
+    ]
+  },
+  {
+    "objectID": "chap05_slide.html#what-problem-does-curse-of-dimensionality-cause",
+    "href": "chap05_slide.html#what-problem-does-curse-of-dimensionality-cause",
+    "title": "\nChapter # 05  Discriminant Analysis (DA)",
+    "section": "What Problem Does Curse of Dimensionality Cause?",
+    "text": "What Problem Does Curse of Dimensionality Cause?",
+    "crumbs": [
+      "Modules & Slides",
+      "Slides",
+      "<center> Chapter # 05 <br> Discriminant Analysis (DA)"
+    ]
+  },
+  {
+    "objectID": "chap05_slide.html#linear-discriminant-analysis-lda",
+    "href": "chap05_slide.html#linear-discriminant-analysis-lda",
+    "title": "\nChapter # 05  Discriminant Analysis (DA)",
+    "section": "Linear Discriminant Analysis (LDA)",
+    "text": "Linear Discriminant Analysis (LDA)",
+    "crumbs": [
+      "Modules & Slides",
+      "Slides",
+      "<center> Chapter # 05 <br> Discriminant Analysis (DA)"
+    ]
+  },
+  {
+    "objectID": "chap05_slide.html#linear-discriminant-analysis-lda-contd",
+    "href": "chap05_slide.html#linear-discriminant-analysis-lda-contd",
+    "title": "\nChapter # 05  Discriminant Analysis (DA)",
+    "section": "Linear Discriminant Analysis (LDA) (Cont’d)",
+    "text": "Linear Discriminant Analysis (LDA) (Cont’d)",
+    "crumbs": [
+      "Modules & Slides",
+      "Slides",
+      "<center> Chapter # 05 <br> Discriminant Analysis (DA)"
+    ]
+  },
+  {
+    "objectID": "chap05_slide.html#linear-discriminant-analysis-lda-contd-1",
+    "href": "chap05_slide.html#linear-discriminant-analysis-lda-contd-1",
+    "title": "\nChapter # 05  Discriminant Analysis (DA)",
+    "section": "Linear Discriminant Analysis (LDA) (Cont’d)",
+    "text": "Linear Discriminant Analysis (LDA) (Cont’d)",
+    "crumbs": [
+      "Modules & Slides",
+      "Slides",
+      "<center> Chapter # 05 <br> Discriminant Analysis (DA)"
+    ]
+  },
+  {
+    "objectID": "chap05_slide.html#linear-discriminant-analysis-lda-contd-2",
+    "href": "chap05_slide.html#linear-discriminant-analysis-lda-contd-2",
+    "title": "\nChapter # 05  Discriminant Analysis (DA)",
+    "section": "Linear Discriminant Analysis (LDA) (Cont’d)",
+    "text": "Linear Discriminant Analysis (LDA) (Cont’d)",
+    "crumbs": [
+      "Modules & Slides",
+      "Slides",
+      "<center> Chapter # 05 <br> Discriminant Analysis (DA)"
+    ]
+  },
+  {
+    "objectID": "chap05_slide.html#linear-discriminant-analysis-lda-contd-3",
+    "href": "chap05_slide.html#linear-discriminant-analysis-lda-contd-3",
+    "title": "\nChapter # 05  Discriminant Analysis (DA)",
+    "section": "Linear Discriminant Analysis (LDA) (Cont’d)",
+    "text": "Linear Discriminant Analysis (LDA) (Cont’d)",
+    "crumbs": [
+      "Modules & Slides",
+      "Slides",
+      "<center> Chapter # 05 <br> Discriminant Analysis (DA)"
+    ]
+  },
+  {
+    "objectID": "chap05_slide.html#quadratic-discriminant-analysis-qda",
+    "href": "chap05_slide.html#quadratic-discriminant-analysis-qda",
+    "title": "\nChapter # 05  Discriminant Analysis (DA)",
+    "section": "Quadratic Discriminant Analysis (QDA)",
+    "text": "Quadratic Discriminant Analysis (QDA)",
+    "crumbs": [
+      "Modules & Slides",
+      "Slides",
+      "<center> Chapter # 05 <br> Discriminant Analysis (DA)"
+    ]
+  },
+  {
+    "objectID": "chap05_slide.html#how-do-lda-and-qda-make-predictions",
+    "href": "chap05_slide.html#how-do-lda-and-qda-make-predictions",
+    "title": "\nChapter # 05  Discriminant Analysis (DA)",
+    "section": "How Do LDA and QDA Make Predictions?",
+    "text": "How Do LDA and QDA Make Predictions?",
+    "crumbs": [
+      "Modules & Slides",
+      "Slides",
+      "<center> Chapter # 05 <br> Discriminant Analysis (DA)"
+    ]
+  },
+  {
+    "objectID": "chap05_slide.html#how-do-lda-and-qda-make-predictions-contd",
+    "href": "chap05_slide.html#how-do-lda-and-qda-make-predictions-contd",
+    "title": "\nChapter # 05  Discriminant Analysis (DA)",
+    "section": "How Do LDA and QDA Make Predictions (Cont’d)?",
+    "text": "How Do LDA and QDA Make Predictions (Cont’d)?",
+    "crumbs": [
+      "Modules & Slides",
+      "Slides",
+      "<center> Chapter # 05 <br> Discriminant Analysis (DA)"
+    ]
+  },
+  {
+    "objectID": "chap05_slide.html#strength-and-weakness-of-lda-and-qda",
+    "href": "chap05_slide.html#strength-and-weakness-of-lda-and-qda",
+    "title": "\nChapter # 05  Discriminant Analysis (DA)",
+    "section": "Strength and Weakness of LDA and QDA",
+    "text": "Strength and Weakness of LDA and QDA",
+    "crumbs": [
+      "Modules & Slides",
+      "Slides",
+      "<center> Chapter # 05 <br> Discriminant Analysis (DA)"
+    ]
+  },
+  {
+    "objectID": "chap05_slide.html#strength-and-weakness-of-lda-and-qda-contd",
+    "href": "chap05_slide.html#strength-and-weakness-of-lda-and-qda-contd",
+    "title": "\nChapter # 05  Discriminant Analysis (DA)",
+    "section": "Strength and Weakness of LDA and QDA (Cont’d)",
+    "text": "Strength and Weakness of LDA and QDA (Cont’d)",
+    "crumbs": [
+      "Modules & Slides",
+      "Slides",
+      "<center> Chapter # 05 <br> Discriminant Analysis (DA)"
+    ]
+  },
+  {
+    "objectID": "chap05_slide.html#questions-or-queries",
+    "href": "chap05_slide.html#questions-or-queries",
+    "title": "\nChapter # 05  Discriminant Analysis (DA)",
+    "section": "Questions or Queries",
+    "text": "Questions or Queries\n\n\n\n\n\nQuestions\n\n\n\n\n\n\nQueries",
+    "crumbs": [
+      "Modules & Slides",
+      "Slides",
+      "<center> Chapter # 05 <br> Discriminant Analysis (DA)"
+    ]
+  },
+  {
+    "objectID": "chap05_slide.html#introduction",
+    "href": "chap05_slide.html#introduction",
+    "title": "\nChapter # 05  Discriminant Analysis (DA)",
+    "section": "Introduction",
+    "text": "Introduction",
+    "crumbs": [
+      "Modules & Slides",
+      "Slides",
+      "<center> Chapter # 05 <br> Discriminant Analysis (DA)"
+    ]
   }
 ]
