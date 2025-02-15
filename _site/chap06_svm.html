@@ -698,7 +698,7 @@ Chapter # 06 (Part B) <br> Support Vector Machine (SVM)</center></h1>
 <section id="import-libraries" class="level1">
 <h1>Import libraries</h1>
 <p>We will start off by importing the required Python libraries.</p>
-<div id="96def84a" class="cell" data-execution_count="1">
+<div id="3b1211f7" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Checking/Setting Working Directory</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>os.getcwd()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -706,7 +706,7 @@ Chapter # 06 (Part B) <br> Support Vector Machine (SVM)</center></h1>
 <pre><code>'C:\\Users\\mshar\\OneDrive - Southern Illinois University\\BSAN405_MLINBUSINESS_WEBSITE'</code></pre>
 </div>
 </div>
-<div id="e207363f" class="cell" data-execution_count="2">
+<div id="43ddeea8" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># This Python 3 environment comes with many helpful analytics libraries installed</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"># It is defined by the kaggle/python docker image: https://github.com/kaggle/docker-python</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># For example, here's several helpful packages to load in </span></span>
@@ -716,7 +716,7 @@ Chapter # 06 (Part B) <br> Support Vector Machine (SVM)</center></h1>
 <span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt <span class="co"># for data visualization</span></span>
 <span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns <span class="co"># for statistical data visualization</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="2c446505" class="cell" data-execution_count="3">
+<div id="cee6976e" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># To ignore warnings </span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> warnings</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>warnings.filterwarnings(<span class="st">'ignore'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -724,7 +724,7 @@ Chapter # 06 (Part B) <br> Support Vector Machine (SVM)</center></h1>
 </section>
 <section id="import-dataset" class="level1">
 <h1>Import dataset</h1>
-<div id="bc611cde" class="cell" data-execution_count="4">
+<div id="32b2c06f" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Importing Dataset</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> <span class="st">'https://raw.githubusercontent.com/alexandrehsd/Predicting-Pulsar-Stars/master/pulsar_stars.csv'</span></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -733,7 +733,7 @@ Chapter # 06 (Part B) <br> Support Vector Machine (SVM)</center></h1>
 <section id="exploratory-data-analysis" class="level1">
 <h1>Exploratory data analysis</h1>
 <p>Now, we will explore the data to gain insights about the data.</p>
-<div id="04628215" class="cell" data-execution_count="5">
+<div id="768299ad" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># view dimensions of dataset</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>df.shape</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>df.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -757,7 +757,7 @@ memory usage: 1.2 MB</code></pre>
 </div>
 </div>
 <p>We can see that there are 17,898 instances and 9 variables in the data set.</p>
-<div id="11c07f6e" class="cell" data-execution_count="6">
+<div id="6f00f07d" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># let's preview the dataset</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="6">
@@ -848,7 +848,7 @@ memory usage: 1.2 MB</code></pre>
 </div>
 <p>We can see that there are 9 variables in the dataset. 8 are continuous variables and 1 is discrete variable. The discrete variable is <code>target_class</code> variable. It is also the target variable.</p>
 <p>Now, we will view the column names to check for leading and trailing spaces.</p>
-<div id="abe16aca" class="cell" data-execution_count="7">
+<div id="660ecb5a" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># view the column names of the dataframe</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>col_names <span class="op">=</span> df.columns</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>col_names</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -864,12 +864,12 @@ memory usage: 1.2 MB</code></pre>
 </div>
 </div>
 <p>We can see that there are leading spaces (spaces at the start of the string name) in the dataframe. So, I will remove these leading spaces.</p>
-<div id="90ef19b2" class="cell" data-execution_count="8">
+<div id="df9ef235" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># remove leading spaces from column names</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>df.columns <span class="op">=</span> df.columns.<span class="bu">str</span>.strip()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>I have removed the leading spaces from the column names. Let’s again view the column names to confirm the same.</p>
-<div id="9d0201b9" class="cell" data-execution_count="9">
+<div id="f47731b3" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># view column names again</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>df.columns</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="9">
@@ -884,12 +884,12 @@ memory usage: 1.2 MB</code></pre>
 </div>
 </div>
 <p>We can see that the leading spaces are removed from the column name. But the column names are very long. So, I will make them short by renaming them.</p>
-<div id="0f35be9c" class="cell" data-execution_count="10">
+<div id="e71ee97b" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># rename column names</span></span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>df.columns <span class="op">=</span> [<span class="st">'IP Mean'</span>, <span class="st">'IP Sd'</span>, <span class="st">'IP Kurtosis'</span>, <span class="st">'IP Skewness'</span>, </span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>              <span class="st">'DM-SNR Mean'</span>, <span class="st">'DM-SNR Sd'</span>, <span class="st">'DM-SNR Kurtosis'</span>, <span class="st">'DM-SNR Skewness'</span>, <span class="st">'target_class'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="210fb827" class="cell" data-execution_count="11">
+<div id="b08cf5bb" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># view the renamed column names</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>df.columns</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="11">
@@ -900,7 +900,7 @@ memory usage: 1.2 MB</code></pre>
 </div>
 <p>We can see that the column names are shortened. IP stands for <code>integrated profile</code> and DM-SNR stands for <code>delta modulation and signal to noise ratio</code>. Now, it is much more easy to work with the columns.</p>
 <p>Our target variable is the <code>target_class</code> column. So, we will check its distribution.</p>
-<div id="70d97a0a" class="cell" data-execution_count="12">
+<div id="47fe9652" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># check distribution of target_class column</span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'target_class'</span>].value_counts()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="12">
@@ -910,7 +910,7 @@ memory usage: 1.2 MB</code></pre>
 Name: count, dtype: int64</code></pre>
 </div>
 </div>
-<div id="8896cf01" class="cell" data-execution_count="13">
+<div id="7f06cf43" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># view the percentage distribution of target_class column</span></span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'target_class'</span>].value_counts()<span class="op">/</span>(<span class="bu">len</span>(df))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="13">
@@ -921,7 +921,7 @@ Name: count, dtype: float64</code></pre>
 </div>
 </div>
 <p>We can see that percentage of observations of the class label <code>0</code> and <code>1</code> is 90.84% and 9.16%. So, this is a class imbalanced problem. I will deal with that in later section.</p>
-<div id="cfe41c7d" class="cell" data-execution_count="14">
+<div id="68f24805" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># view summary of dataset</span></span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>df.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -946,7 +946,7 @@ memory usage: 1.2 MB</code></pre>
 <p>We can see that there are no missing values in the dataset and all the variables are numerical variables.</p>
 <section id="explore-missing-values-in-variables" class="level2">
 <h2 class="anchored" data-anchor-id="explore-missing-values-in-variables">Explore missing values in variables</h2>
-<div id="60c572d1" class="cell" data-execution_count="15">
+<div id="fa15f0fa" class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># check for missing values in variables</span></span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>df.isnull().<span class="bu">sum</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="15">
@@ -975,7 +975,7 @@ dtype: int64</code></pre>
 </section>
 <section id="outliers-in-numerical-variables" class="level2">
 <h2 class="anchored" data-anchor-id="outliers-in-numerical-variables">Outliers in numerical variables</h2>
-<div id="83f2d3cc" class="cell" data-execution_count="16">
+<div id="95738920" class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># view summary statistics in numerical variables</span></span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="bu">round</span>(df.describe().transpose(),<span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="16">
@@ -1104,7 +1104,7 @@ dtype: int64</code></pre>
 </div>
 <p>On closer inspection, we can suspect that all the continuous variables may contain outliers.</p>
 <p>We will draw boxplots to visualise outliers in the above variables.</p>
-<div id="86d3b50f" class="cell" data-execution_count="17">
+<div id="953fad2f" class="cell" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># draw boxplots to visualize outliers</span></span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">24</span>,<span class="dv">20</span>))</span>
 <span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1178,7 +1178,7 @@ dtype: int64</code></pre>
 <section id="check-the-distribution-of-variables" class="level2">
 <h2 class="anchored" data-anchor-id="check-the-distribution-of-variables">Check the distribution of variables</h2>
 <p>Now, We will plot the histograms to check distributions to find out if they are normal or skewed.</p>
-<div id="aaf81ab1" class="cell" data-execution_count="18">
+<div id="0c9d651b" class="cell" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># plot histogram to check distribution</span></span>
 <span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">24</span>,<span class="dv">20</span>))</span>
 <span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1249,19 +1249,19 @@ dtype: int64</code></pre>
 </section>
 <section id="declare-feature-vector-and-target-variable" class="level1">
 <h1>Declare feature vector and target variable</h1>
-<div id="2e650a26" class="cell" data-execution_count="19">
+<div id="355cb682" class="cell" data-execution_count="19">
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> df.drop([<span class="st">'target_class'</span>], axis<span class="op">=</span><span class="dv">1</span>)</span>
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> df[<span class="st">'target_class'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="split-data-into-separate-training-and-test-set" class="level1">
 <h1>Split data into separate training and test set</h1>
-<div id="a3994eb1" class="cell" data-execution_count="20">
+<div id="641f936d" class="cell" data-execution_count="20">
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># split X and y into training and testing sets</span></span>
 <span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> train_test_split</span>
 <span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>X_train, X_test, y_train, y_test <span class="op">=</span> train_test_split(X, y, test_size <span class="op">=</span> <span class="fl">0.2</span>, random_state <span class="op">=</span> <span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="26c9e185" class="cell" data-execution_count="21">
+<div id="3a13ce90" class="cell" data-execution_count="21">
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># check the shape of X_train and X_test</span></span>
 <span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>X_train.shape, X_test.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="21">
@@ -1271,10 +1271,10 @@ dtype: int64</code></pre>
 </section>
 <section id="feature-scaling" class="level1">
 <h1>Feature Scaling</h1>
-<div id="852a1371" class="cell" data-execution_count="22">
+<div id="5bd6c4fb" class="cell" data-execution_count="22">
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>cols <span class="op">=</span> X.columns</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="b1673d92" class="cell" data-execution_count="23">
+<div id="3860acbf" class="cell" data-execution_count="23">
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>cols</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="23">
 <pre><code>Index(['IP Mean', 'IP Sd', 'IP Kurtosis', 'IP Skewness', 'DM-SNR Mean',
@@ -1282,19 +1282,19 @@ dtype: int64</code></pre>
       dtype='object')</code></pre>
 </div>
 </div>
-<div id="da60c93f" class="cell" data-execution_count="24">
+<div id="ec8f722e" class="cell" data-execution_count="24">
 <div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.preprocessing <span class="im">import</span> StandardScaler</span>
 <span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>scaler <span class="op">=</span> StandardScaler()</span>
 <span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>X_train <span class="op">=</span> scaler.fit_transform(X_train)</span>
 <span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>X_test <span class="op">=</span> scaler.transform(X_test)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="0a12004f" class="cell" data-execution_count="25">
+<div id="9a4cb157" class="cell" data-execution_count="25">
 <div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>X_train <span class="op">=</span> pd.DataFrame(X_train, columns<span class="op">=</span>[cols])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="4812038b" class="cell" data-execution_count="26">
+<div id="433590ca" class="cell" data-execution_count="26">
 <div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>X_test <span class="op">=</span> pd.DataFrame(X_test, columns<span class="op">=</span>[cols])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="170f77dc" class="cell" data-execution_count="27">
+<div id="9bd59de8" class="cell" data-execution_count="27">
 <div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>X_train.describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="27">
 <div>
@@ -1414,7 +1414,7 @@ dtype: int64</code></pre>
 <section id="run-svm-with-default-hyperparameters" class="level1">
 <h1>Run SVM with default hyperparameters</h1>
 <p>Default hyperparameter means C=1.0, kernel=<code>rbf</code> and gamma=<code>auto</code> among other parameters.</p>
-<div id="81fe8cd9" class="cell" data-execution_count="28">
+<div id="3bc78971" class="cell" data-execution_count="28">
 <div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="co"># import SVC classifier</span></span>
 <span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.svm <span class="im">import</span> SVC</span>
 <span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1444,7 +1444,7 @@ dtype: int64</code></pre>
 <section id="run-svm-with-rbf-kernel-and-c100.0" class="level2">
 <h2 class="anchored" data-anchor-id="run-svm-with-rbf-kernel-and-c100.0">Run SVM with rbf kernel and C=100.0</h2>
 <p>We have seen that there are outliers in our dataset. So, we should increase the value of C as higher C means fewer outliers. So, we will run SVM with kernel=<code>rbf</code> and C=100.0.</p>
-<div id="440a4958" class="cell" data-execution_count="29">
+<div id="32ed0b23" class="cell" data-execution_count="29">
 <div class="sourceCode cell-code" id="cb43"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="co"># instantiate classifier with rbf kernel and C=100</span></span>
 <span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>svc<span class="op">=</span>SVC(C<span class="op">=</span><span class="fl">100.0</span>) </span>
 <span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1468,7 +1468,7 @@ dtype: int64</code></pre>
 </section>
 <section id="run-svm-with-rbf-kernel-and-c1000.0" class="level2">
 <h2 class="anchored" data-anchor-id="run-svm-with-rbf-kernel-and-c1000.0">Run SVM with rbf kernel and C=1000.0</h2>
-<div id="958a5826" class="cell" data-execution_count="30">
+<div id="aa793991" class="cell" data-execution_count="30">
 <div class="sourceCode cell-code" id="cb45"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="co"># instantiate classifier with rbf kernel and C=1000</span></span>
 <span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>svc<span class="op">=</span>SVC(C<span class="op">=</span><span class="fl">1000.0</span>) </span>
 <span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1494,7 +1494,7 @@ dtype: int64</code></pre>
 <h1>Run SVM with linear kernel</h1>
 <section id="run-svm-with-linear-kernel-and-c1.0" class="level2">
 <h2 class="anchored" data-anchor-id="run-svm-with-linear-kernel-and-c1.0">Run SVM with linear kernel and C=1.0</h2>
-<div id="f8b70a34" class="cell" data-execution_count="31">
+<div id="da02ce1f" class="cell" data-execution_count="31">
 <div class="sourceCode cell-code" id="cb47"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="co"># instantiate classifier with linear kernel and C=1.0</span></span>
 <span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>linear_svc<span class="op">=</span>SVC(kernel<span class="op">=</span><span class="st">'linear'</span>, C<span class="op">=</span><span class="fl">1.0</span>) </span>
 <span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1516,7 +1516,7 @@ dtype: int64</code></pre>
 </section>
 <section id="run-svm-with-linear-kernel-and-c100.0" class="level2">
 <h2 class="anchored" data-anchor-id="run-svm-with-linear-kernel-and-c100.0">Run SVM with linear kernel and C=100.0</h2>
-<div id="267fd2df" class="cell" data-execution_count="32">
+<div id="46bcb826" class="cell" data-execution_count="32">
 <div class="sourceCode cell-code" id="cb49"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="co"># instantiate classifier with linear kernel and C=100.0</span></span>
 <span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a>linear_svc100<span class="op">=</span>SVC(kernel<span class="op">=</span><span class="st">'linear'</span>, C<span class="op">=</span><span class="fl">100.0</span>) </span>
 <span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1538,7 +1538,7 @@ dtype: int64</code></pre>
 </section>
 <section id="run-svm-with-linear-kernel-and-c1000.0" class="level2">
 <h2 class="anchored" data-anchor-id="run-svm-with-linear-kernel-and-c1000.0">Run SVM with linear kernel and C=1000.0</h2>
-<div id="ecd7023c" class="cell" data-execution_count="33">
+<div id="797900e3" class="cell" data-execution_count="33">
 <div class="sourceCode cell-code" id="cb51"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="co"># instantiate classifier with linear kernel and C=1000.0</span></span>
 <span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a>linear_svc1000<span class="op">=</span>SVC(kernel<span class="op">=</span><span class="st">'linear'</span>, C<span class="op">=</span><span class="fl">1000.0</span>) </span>
 <span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1562,7 +1562,7 @@ dtype: int64</code></pre>
 <section id="compare-the-train-set-and-test-set-accuracy" class="level3">
 <h3 class="anchored" data-anchor-id="compare-the-train-set-and-test-set-accuracy">Compare the train-set and test-set accuracy</h3>
 <p>Now, I will compare the train-set and test-set accuracy to check for overfitting.</p>
-<div id="7cbc0239" class="cell" data-execution_count="34">
+<div id="2d97e654" class="cell" data-execution_count="34">
 <div class="sourceCode cell-code" id="cb53"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a>y_pred_train <span class="op">=</span> linear_svc.predict(X_train)</span>
 <span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb53-3"><a href="#cb53-3" aria-hidden="true" tabindex="-1"></a>y_pred_train</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1570,7 +1570,7 @@ dtype: int64</code></pre>
 <pre><code>array([0, 0, 1, ..., 0, 0, 0], shape=(14318,))</code></pre>
 </div>
 </div>
-<div id="3830f076" class="cell" data-execution_count="35">
+<div id="b9f54eef" class="cell" data-execution_count="35">
 <div class="sourceCode cell-code" id="cb55"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Training-set accuracy score: </span><span class="sc">{0:0.4f}</span><span class="st">'</span>. <span class="bu">format</span>(accuracy_score(y_train, y_pred_train)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Training-set accuracy score: 0.9783</code></pre>
@@ -1580,7 +1580,7 @@ dtype: int64</code></pre>
 </section>
 <section id="check-for-overfitting-and-underfitting" class="level3">
 <h3 class="anchored" data-anchor-id="check-for-overfitting-and-underfitting">Check for overfitting and underfitting</h3>
-<div id="c9a3d816" class="cell" data-execution_count="36">
+<div id="0ca4801d" class="cell" data-execution_count="36">
 <div class="sourceCode cell-code" id="cb57"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="co"># print the scores on training and test set</span></span>
 <span id="cb57-2"><a href="#cb57-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb57-3"><a href="#cb57-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Training set score: </span><span class="sc">{:.4f}</span><span class="st">'</span>.<span class="bu">format</span>(linear_svc.score(X_train, y_train)))</span>
@@ -1597,7 +1597,7 @@ Test set score: 0.9830</code></pre>
 <h3 class="anchored" data-anchor-id="compare-model-accuracy-with-null-accuracy">Compare model accuracy with null accuracy</h3>
 <p>So, the model accuracy is 0.9832. But, we cannot say that our model is very good based on the above accuracy. We must compare it with the <strong>null accuracy</strong>. Null accuracy is the accuracy that could be achieved by always predicting the most frequent class.</p>
 <p>So, we should first check the class distribution in the test set.</p>
-<div id="1443306c" class="cell" data-execution_count="37">
+<div id="12709696" class="cell" data-execution_count="37">
 <div class="sourceCode cell-code" id="cb59"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="co"># check class distribution in test set</span></span>
 <span id="cb59-2"><a href="#cb59-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb59-3"><a href="#cb59-3" aria-hidden="true" tabindex="-1"></a>y_test.value_counts()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1609,7 +1609,7 @@ Name: count, dtype: int64</code></pre>
 </div>
 </div>
 <p>We can see that the occurences of most frequent class <code>0</code> is 3306. So, we can calculate null accuracy by dividing 3306 by total number of occurences.</p>
-<div id="63104c71" class="cell" data-execution_count="38">
+<div id="a5809823" class="cell" data-execution_count="38">
 <div class="sourceCode cell-code" id="cb61"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a><span class="co"># check null accuracy score</span></span>
 <span id="cb61-2"><a href="#cb61-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb61-3"><a href="#cb61-3" aria-hidden="true" tabindex="-1"></a>null_accuracy <span class="op">=</span> (<span class="dv">3306</span><span class="op">/</span>(<span class="dv">3306</span><span class="op">+</span><span class="dv">274</span>))</span>
@@ -1627,7 +1627,7 @@ Name: count, dtype: int64</code></pre>
 <h1>Run SVM with polynomial kernel</h1>
 <section id="run-svm-with-polynomial-kernel-and-c1.0" class="level2">
 <h2 class="anchored" data-anchor-id="run-svm-with-polynomial-kernel-and-c1.0">Run SVM with polynomial kernel and C=1.0</h2>
-<div id="c222a438" class="cell" data-execution_count="39">
+<div id="ad1cfd0f" class="cell" data-execution_count="39">
 <div class="sourceCode cell-code" id="cb63"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="co"># instantiate classifier with polynomial kernel and C=1.0</span></span>
 <span id="cb63-2"><a href="#cb63-2" aria-hidden="true" tabindex="-1"></a>poly_svc<span class="op">=</span>SVC(kernel<span class="op">=</span><span class="st">'poly'</span>, C<span class="op">=</span><span class="fl">1.0</span>) </span>
 <span id="cb63-3"><a href="#cb63-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1647,7 +1647,7 @@ Name: count, dtype: int64</code></pre>
 </div>
 </div>
 <p>### Run SVM with polynomial kernel and C=100.0</p>
-<div id="011a03f9" class="cell" data-execution_count="40">
+<div id="268378f9" class="cell" data-execution_count="40">
 <div class="sourceCode cell-code" id="cb65"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a><span class="co"># instantiate classifier with polynomial kernel and C=100.0</span></span>
 <span id="cb65-2"><a href="#cb65-2" aria-hidden="true" tabindex="-1"></a>poly_svc100<span class="op">=</span>SVC(kernel<span class="op">=</span><span class="st">'poly'</span>, C<span class="op">=</span><span class="fl">100.0</span>) </span>
 <span id="cb65-3"><a href="#cb65-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1673,7 +1673,7 @@ Name: count, dtype: int64</code></pre>
 <h1>Run SVM with sigmoid kernel</h1>
 <section id="run-svm-with-sigmoid-kernel-and-c1.0" class="level2">
 <h2 class="anchored" data-anchor-id="run-svm-with-sigmoid-kernel-and-c1.0">Run SVM with sigmoid kernel and C=1.0</h2>
-<div id="f1fdc8de" class="cell" data-execution_count="41">
+<div id="a17f4232" class="cell" data-execution_count="41">
 <div class="sourceCode cell-code" id="cb67"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a><span class="co"># instantiate classifier with sigmoid kernel and C=1.0</span></span>
 <span id="cb67-2"><a href="#cb67-2" aria-hidden="true" tabindex="-1"></a>sigmoid_svc<span class="op">=</span>SVC(kernel<span class="op">=</span><span class="st">'sigmoid'</span>, C<span class="op">=</span><span class="fl">1.0</span>) </span>
 <span id="cb67-3"><a href="#cb67-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1695,7 +1695,7 @@ Name: count, dtype: int64</code></pre>
 </section>
 <section id="run-svm-with-sigmoid-kernel-and-c100.0" class="level2">
 <h2 class="anchored" data-anchor-id="run-svm-with-sigmoid-kernel-and-c100.0">Run SVM with sigmoid kernel and C=100.0</h2>
-<div id="8eacc847" class="cell" data-execution_count="42">
+<div id="398d2fd0" class="cell" data-execution_count="42">
 <div class="sourceCode cell-code" id="cb69"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb69-1"><a href="#cb69-1" aria-hidden="true" tabindex="-1"></a><span class="co"># instantiate classifier with sigmoid kernel and C=100.0</span></span>
 <span id="cb69-2"><a href="#cb69-2" aria-hidden="true" tabindex="-1"></a>sigmoid_svc100<span class="op">=</span>SVC(kernel<span class="op">=</span><span class="st">'sigmoid'</span>, C<span class="op">=</span><span class="fl">100.0</span>) </span>
 <span id="cb69-3"><a href="#cb69-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1733,7 +1733,7 @@ Name: count, dtype: int64</code></pre>
 <p><strong>False Positives (FP)</strong> – False Positives occur when we predict an observation belongs to a certain class but the observation actually does not belong to that class. This type of error is called <strong>Type I error.</strong></p>
 <p><strong>False Negatives (FN)</strong> – False Negatives occur when we predict an observation does not belong to a certain class but the observation actually belongs to that class. This is a very serious error and it is called <strong>Type II error.</strong></p>
 <p>These four outcomes are summarized in a confusion matrix given below.</p>
-<div id="fab92cb8" class="cell" data-execution_count="43">
+<div id="c9095d5e" class="cell" data-execution_count="43">
 <div class="sourceCode cell-code" id="cb71"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb71-1"><a href="#cb71-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the Confusion Matrix and slice it into four pieces</span></span>
 <span id="cb71-2"><a href="#cb71-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb71-3"><a href="#cb71-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> confusion_matrix</span>
@@ -1772,7 +1772,7 @@ False Negatives(FN) =  44</code></pre>
 <li><p><code>False Positives</code> (Actual Negative:0 but Predict Positive:1) - 17 <code>(Type I error)</code></p></li>
 <li><p><code>False Negatives</code> (Actual Positive:1 but Predict Negative:0) - 44 <code>(Type II error)</code></p></li>
 </ul>
-<div id="a267ac06" class="cell" data-execution_count="44">
+<div id="8915e102" class="cell" data-execution_count="44">
 <div class="sourceCode cell-code" id="cb73"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb73-1"><a href="#cb73-1" aria-hidden="true" tabindex="-1"></a><span class="co"># visualize confusion matrix with seaborn heatmap</span></span>
 <span id="cb73-2"><a href="#cb73-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb73-3"><a href="#cb73-3" aria-hidden="true" tabindex="-1"></a>cm_matrix <span class="op">=</span> pd.DataFrame(data<span class="op">=</span>cm, columns<span class="op">=</span>[<span class="st">'Actual Positive:1'</span>, <span class="st">'Actual Negative:0'</span>], </span>
@@ -1794,7 +1794,7 @@ False Negatives(FN) =  44</code></pre>
 <h2 class="anchored" data-anchor-id="classification-report">Classification Report</h2>
 <p><strong>Classification report</strong> is another way to evaluate the classification model performance. It displays the <strong>precision</strong>, <strong>recall</strong>, <strong>f1</strong> and <strong>support</strong> scores for the model. We have described these terms in later.</p>
 <p>We can print a classification report as follows:-</p>
-<div id="0cdcb89d" class="cell" data-execution_count="45">
+<div id="3339023f" class="cell" data-execution_count="45">
 <div class="sourceCode cell-code" id="cb74"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb74-1"><a href="#cb74-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> classification_report</span>
 <span id="cb74-2"><a href="#cb74-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb74-3"><a href="#cb74-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(classification_report(y_test, y_pred_test))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1812,13 +1812,13 @@ weighted avg       0.98      0.98      0.98      3580
 </div>
 <section id="classification-accuracy" class="level3">
 <h3 class="anchored" data-anchor-id="classification-accuracy">Classification accuracy</h3>
-<div id="20bbb6a7" class="cell" data-execution_count="46">
+<div id="ef9a1b50" class="cell" data-execution_count="46">
 <div class="sourceCode cell-code" id="cb76"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb76-1"><a href="#cb76-1" aria-hidden="true" tabindex="-1"></a>TP <span class="op">=</span> cm[<span class="dv">0</span>,<span class="dv">0</span>]</span>
 <span id="cb76-2"><a href="#cb76-2" aria-hidden="true" tabindex="-1"></a>TN <span class="op">=</span> cm[<span class="dv">1</span>,<span class="dv">1</span>]</span>
 <span id="cb76-3"><a href="#cb76-3" aria-hidden="true" tabindex="-1"></a>FP <span class="op">=</span> cm[<span class="dv">0</span>,<span class="dv">1</span>]</span>
 <span id="cb76-4"><a href="#cb76-4" aria-hidden="true" tabindex="-1"></a>FN <span class="op">=</span> cm[<span class="dv">1</span>,<span class="dv">0</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="cf90bb3d" class="cell" data-execution_count="47">
+<div id="5c257e9c" class="cell" data-execution_count="47">
 <div class="sourceCode cell-code" id="cb77"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb77-1"><a href="#cb77-1" aria-hidden="true" tabindex="-1"></a><span class="co"># print classification accuracy</span></span>
 <span id="cb77-2"><a href="#cb77-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb77-3"><a href="#cb77-3" aria-hidden="true" tabindex="-1"></a>classification_accuracy <span class="op">=</span> (TP <span class="op">+</span> TN) <span class="op">/</span> <span class="bu">float</span>(TP <span class="op">+</span> TN <span class="op">+</span> FP <span class="op">+</span> FN)</span>
@@ -1831,7 +1831,7 @@ weighted avg       0.98      0.98      0.98      3580
 </section>
 <section id="classification-error" class="level3">
 <h3 class="anchored" data-anchor-id="classification-error">Classification error</h3>
-<div id="16ce9135" class="cell" data-execution_count="48">
+<div id="0aef9b4b" class="cell" data-execution_count="48">
 <div class="sourceCode cell-code" id="cb79"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb79-1"><a href="#cb79-1" aria-hidden="true" tabindex="-1"></a><span class="co"># print classification error</span></span>
 <span id="cb79-2"><a href="#cb79-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb79-3"><a href="#cb79-3" aria-hidden="true" tabindex="-1"></a>classification_error <span class="op">=</span> (FP <span class="op">+</span> FN) <span class="op">/</span> <span class="bu">float</span>(TP <span class="op">+</span> TN <span class="op">+</span> FP <span class="op">+</span> FN)</span>
@@ -1847,7 +1847,7 @@ weighted avg       0.98      0.98      0.98      3580
 <p><strong>Precision</strong> can be defined as the percentage of correctly predicted positive outcomes out of all the predicted positive outcomes. It can be given as the ratio of true positives (TP) to the sum of true and false positives (TP + FP).</p>
 <p>So, <strong>Precision</strong> identifies the proportion of correctly predicted positive outcome. It is more concerned with the positive class than the negative class.</p>
 <p>Mathematically, precision can be defined as the ratio of <code>TP to (TP + FP)</code>.</p>
-<div id="169f6214" class="cell" data-execution_count="49">
+<div id="06d5f3de" class="cell" data-execution_count="49">
 <div class="sourceCode cell-code" id="cb81"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb81-1"><a href="#cb81-1" aria-hidden="true" tabindex="-1"></a><span class="co"># print precision score</span></span>
 <span id="cb81-2"><a href="#cb81-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb81-3"><a href="#cb81-3" aria-hidden="true" tabindex="-1"></a>precision <span class="op">=</span> TP <span class="op">/</span> <span class="bu">float</span>(TP <span class="op">+</span> FP)</span>
@@ -1864,7 +1864,7 @@ weighted avg       0.98      0.98      0.98      3580
 <p>Recall can be defined as the percentage of correctly predicted positive outcomes out of all the actual positive outcomes. It can be given as the ratio of true positives (TP) to the sum of true positives and false negatives (TP + FN). <strong>Recall</strong> is also called <strong>Sensitivity</strong>.</p>
 <p><strong>Recall</strong> identifies the proportion of correctly predicted actual positives.</p>
 <p>Mathematically, <strong>recall</strong> can be defined as the ratio of <code>TP to (TP + FN)</code>.</p>
-<div id="ab2fe4d8" class="cell" data-execution_count="50">
+<div id="54a232c6" class="cell" data-execution_count="50">
 <div class="sourceCode cell-code" id="cb83"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb83-1"><a href="#cb83-1" aria-hidden="true" tabindex="-1"></a>recall <span class="op">=</span> TP <span class="op">/</span> <span class="bu">float</span>(TP <span class="op">+</span> FN)</span>
 <span id="cb83-2"><a href="#cb83-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb83-3"><a href="#cb83-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Recall or Sensitivity : </span><span class="sc">{0:0.4f}</span><span class="st">'</span>.<span class="bu">format</span>(recall))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1876,7 +1876,7 @@ weighted avg       0.98      0.98      0.98      3580
 <section id="true-positive-rate" class="level3">
 <h3 class="anchored" data-anchor-id="true-positive-rate">True Positive Rate</h3>
 <p><strong>True Positive Rate</strong> is synonymous with <strong>Recall</strong>.</p>
-<div id="5c338df4" class="cell" data-execution_count="51">
+<div id="642b2f7c" class="cell" data-execution_count="51">
 <div class="sourceCode cell-code" id="cb85"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb85-1"><a href="#cb85-1" aria-hidden="true" tabindex="-1"></a>true_positive_rate <span class="op">=</span> TP <span class="op">/</span> <span class="bu">float</span>(TP <span class="op">+</span> FN)</span>
 <span id="cb85-2"><a href="#cb85-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb85-3"><a href="#cb85-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1888,7 +1888,7 @@ weighted avg       0.98      0.98      0.98      3580
 </section>
 <section id="false-positive-rate" class="level3">
 <h3 class="anchored" data-anchor-id="false-positive-rate">False Positive Rate</h3>
-<div id="1283c13d" class="cell" data-execution_count="52">
+<div id="d9833bec" class="cell" data-execution_count="52">
 <div class="sourceCode cell-code" id="cb87"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb87-1"><a href="#cb87-1" aria-hidden="true" tabindex="-1"></a>false_positive_rate <span class="op">=</span> FP <span class="op">/</span> <span class="bu">float</span>(FP <span class="op">+</span> TN)</span>
 <span id="cb87-2"><a href="#cb87-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb87-3"><a href="#cb87-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1900,7 +1900,7 @@ weighted avg       0.98      0.98      0.98      3580
 </section>
 <section id="specificity" class="level3">
 <h3 class="anchored" data-anchor-id="specificity">Specificity</h3>
-<div id="225b30ff" class="cell" data-execution_count="53">
+<div id="6cda15c9" class="cell" data-execution_count="53">
 <div class="sourceCode cell-code" id="cb89"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb89-1"><a href="#cb89-1" aria-hidden="true" tabindex="-1"></a>specificity <span class="op">=</span> TN <span class="op">/</span> (TN <span class="op">+</span> FP)</span>
 <span id="cb89-2"><a href="#cb89-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb89-3"><a href="#cb89-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Specificity : </span><span class="sc">{0:0.4f}</span><span class="st">'</span>.<span class="bu">format</span>(specificity))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1928,7 +1928,7 @@ weighted avg       0.98      0.98      0.98      3580
 <p><strong>True Positive Rate (TPR)</strong> is also called <strong>Recall</strong>. It is defined as the ratio of <code>TP to (TP + FN)</code>.</p>
 <p><strong>False Positive Rate (FPR)</strong> is defined as the ratio of <code>FP to (FP + TN)</code>.</p>
 <p>In the ROC Curve, we will focus on the TPR (True Positive Rate) and FPR (False Positive Rate) of a single point. This will give us the general performance of the ROC curve which consists of the TPR and FPR at various threshold levels. So, an ROC Curve plots TPR vs FPR at different classification threshold levels. If we lower the threshold levels, it may result in more items being classified as positve. It will increase both True Positives (TP) and False Positives (FP).</p>
-<div id="a5b651c8" class="cell" data-execution_count="54">
+<div id="c65b2c5b" class="cell" data-execution_count="54">
 <div class="sourceCode cell-code" id="cb91"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb91-1"><a href="#cb91-1" aria-hidden="true" tabindex="-1"></a><span class="co"># plot ROC Curve</span></span>
 <span id="cb91-2"><a href="#cb91-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb91-3"><a href="#cb91-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> roc_curve</span>
@@ -1964,7 +1964,7 @@ weighted avg       0.98      0.98      0.98      3580
 <h3 class="anchored" data-anchor-id="roc-auc">ROC AUC</h3>
 <p><strong>ROC AUC</strong> stands for <strong>Receiver Operating Characteristic - Area Under Curve</strong>. It is a technique to compare classifier performance. In this technique, we measure the <code>area under the curve (AUC)</code>. A perfect classifier will have a ROC AUC equal to 1, whereas a purely random classifier will have a ROC AUC equal to 0.5.</p>
 <p>So, <strong>ROC AUC</strong> is the percentage of the ROC plot that is underneath the curve.</p>
-<div id="d0188eaa" class="cell" data-execution_count="55">
+<div id="c8db3b80" class="cell" data-execution_count="55">
 <div class="sourceCode cell-code" id="cb92"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb92-1"><a href="#cb92-1" aria-hidden="true" tabindex="-1"></a><span class="co"># compute ROC AUC</span></span>
 <span id="cb92-2"><a href="#cb92-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb92-3"><a href="#cb92-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> roc_auc_score</span>
@@ -1983,7 +1983,7 @@ weighted avg       0.98      0.98      0.98      3580
 <li><p>ROC AUC is a single number summary of classifier performance. The higher the value, the better the classifier.</p></li>
 <li><p>ROC AUC of our model approaches towards 1. So, we can conclude that our classifier does a good job in classifying the pulsar star.</p></li>
 </ul>
-<div id="5414b524" class="cell" data-execution_count="56">
+<div id="14ecf5eb" class="cell" data-execution_count="56">
 <div class="sourceCode cell-code" id="cb94"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb94-1"><a href="#cb94-1" aria-hidden="true" tabindex="-1"></a><span class="co"># calculate cross-validated ROC AUC </span></span>
 <span id="cb94-2"><a href="#cb94-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb94-3"><a href="#cb94-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> cross_val_score</span>
@@ -2004,7 +2004,7 @@ weighted avg       0.98      0.98      0.98      3580
 <p>Moreover, I will shuffle the data before splitting because shuffling yields much better result.</p>
 <section id="stratified-k-fold-cross-validation-with-shuffle-split-with-linear-kernel" class="level2">
 <h2 class="anchored" data-anchor-id="stratified-k-fold-cross-validation-with-shuffle-split-with-linear-kernel">Stratified k-Fold Cross Validation with shuffle split with linear kernel</h2>
-<div id="fd41a07b" class="cell" data-execution_count="57">
+<div id="25576530" class="cell" data-execution_count="57">
 <div class="sourceCode cell-code" id="cb96"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb96-1"><a href="#cb96-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> KFold</span>
 <span id="cb96-2"><a href="#cb96-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb96-3"><a href="#cb96-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -2016,7 +2016,7 @@ weighted avg       0.98      0.98      0.98      3580
 <span id="cb96-9"><a href="#cb96-9" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb96-10"><a href="#cb96-10" aria-hidden="true" tabindex="-1"></a>linear_scores <span class="op">=</span> cross_val_score(linear_svc, X, y, cv<span class="op">=</span>kfold)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="79b5f833" class="cell" data-execution_count="58">
+<div id="e7bdb005" class="cell" data-execution_count="58">
 <div class="sourceCode cell-code" id="cb97"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb97-1"><a href="#cb97-1" aria-hidden="true" tabindex="-1"></a><span class="co"># print cross-validation scores with linear kernel</span></span>
 <span id="cb97-2"><a href="#cb97-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb97-3"><a href="#cb97-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Stratified cross-validation scores with linear kernel:</span><span class="sc">{}</span><span class="st">'</span>.<span class="bu">format</span>(linear_scores))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -2024,7 +2024,7 @@ weighted avg       0.98      0.98      0.98      3580
 <pre><code>Stratified cross-validation scores with linear kernel:[0.98296089 0.97458101 0.97988827 0.97876502 0.97848561]</code></pre>
 </div>
 </div>
-<div id="4518c8fb" class="cell" data-execution_count="59">
+<div id="7c4dfb1b" class="cell" data-execution_count="59">
 <div class="sourceCode cell-code" id="cb99"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb99-1"><a href="#cb99-1" aria-hidden="true" tabindex="-1"></a><span class="co"># print average cross-validation score with linear kernel</span></span>
 <span id="cb99-2"><a href="#cb99-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb99-3"><a href="#cb99-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Average stratified cross-validation score with linear kernel:</span><span class="sc">{:.4f}</span><span class="st">'</span>.<span class="bu">format</span>(linear_scores.mean()))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -2035,13 +2035,13 @@ weighted avg       0.98      0.98      0.98      3580
 </section>
 <section id="stratified-k-fold-cross-validation-with-shuffle-split-with-rbf-kernel" class="level2">
 <h2 class="anchored" data-anchor-id="stratified-k-fold-cross-validation-with-shuffle-split-with-rbf-kernel">Stratified k-Fold Cross Validation with shuffle split with rbf kernel</h2>
-<div id="2c733057" class="cell" data-execution_count="60">
+<div id="6be45559" class="cell" data-execution_count="60">
 <div class="sourceCode cell-code" id="cb101"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb101-1"><a href="#cb101-1" aria-hidden="true" tabindex="-1"></a>rbf_svc<span class="op">=</span>SVC(kernel<span class="op">=</span><span class="st">'rbf'</span>)</span>
 <span id="cb101-2"><a href="#cb101-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb101-3"><a href="#cb101-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb101-4"><a href="#cb101-4" aria-hidden="true" tabindex="-1"></a>rbf_scores <span class="op">=</span> cross_val_score(rbf_svc, X, y, cv<span class="op">=</span>kfold)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="f674d855" class="cell" data-execution_count="61">
+<div id="fdc4eadf" class="cell" data-execution_count="61">
 <div class="sourceCode cell-code" id="cb102"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb102-1"><a href="#cb102-1" aria-hidden="true" tabindex="-1"></a><span class="co"># print cross-validation scores with rbf kernel</span></span>
 <span id="cb102-2"><a href="#cb102-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb102-3"><a href="#cb102-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Stratified Cross-validation scores with rbf kernel:</span><span class="sc">{}</span><span class="st">'</span>.<span class="bu">format</span>(rbf_scores))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -2049,7 +2049,7 @@ weighted avg       0.98      0.98      0.98      3580
 <pre><code>Stratified Cross-validation scores with rbf kernel:[0.97849162 0.97011173 0.97318436 0.9709416  0.96982397]</code></pre>
 </div>
 </div>
-<div id="5044ad97" class="cell" data-execution_count="62">
+<div id="00e0257c" class="cell" data-execution_count="62">
 <div class="sourceCode cell-code" id="cb104"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb104-1"><a href="#cb104-1" aria-hidden="true" tabindex="-1"></a><span class="co"># print average cross-validation score with rbf kernel</span></span>
 <span id="cb104-2"><a href="#cb104-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb104-3"><a href="#cb104-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Average stratified cross-validation score with rbf kernel:</span><span class="sc">{:.4f}</span><span class="st">'</span>.<span class="bu">format</span>(rbf_scores.mean()))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -2065,7 +2065,7 @@ weighted avg       0.98      0.98      0.98      3580
 </section>
 <section id="hyperparameter-optimization-using-gridsearch-cv" class="level1">
 <h1>Hyperparameter Optimization using GridSearch CV</h1>
-<div id="e7f01f5c" class="cell" data-execution_count="63">
+<div id="3d900161" class="cell" data-execution_count="63">
 <div class="sourceCode cell-code" id="cb106"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb106-1"><a href="#cb106-1" aria-hidden="true" tabindex="-1"></a><span class="co"># import GridSearchCV</span></span>
 <span id="cb106-2"><a href="#cb106-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> GridSearchCV</span>
 <span id="cb106-3"><a href="#cb106-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -2533,7 +2533,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
              scoring='accuracy')</pre></div> </div></div><div class="sk-parallel"><div class="sk-parallel-item"><div class="sk-item"><div class="sk-label-container"><div class="sk-label fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-2" type="checkbox"><label for="sk-estimator-id-2" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>best_estimator_: SVC</div></div></label><div class="sk-toggleable__content fitted"><pre>SVC(C=10, gamma=0.3)</pre></div> </div></div><div class="sk-serial"><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-3" type="checkbox"><label for="sk-estimator-id-3" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>SVC</div></div><div><a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.6/modules/generated/sklearn.svm.SVC.html">?<span>Documentation for SVC</span></a></div></label><div class="sk-toggleable__content fitted"><pre>SVC(C=10, gamma=0.3)</pre></div> </div></div></div></div></div></div></div></div></div>
 </div>
 </div>
-<div id="f02981cd" class="cell" data-execution_count="64">
+<div id="7b0d254a" class="cell" data-execution_count="64">
 <div class="sourceCode cell-code" id="cb107"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb107-1"><a href="#cb107-1" aria-hidden="true" tabindex="-1"></a><span class="co"># examine the best model</span></span>
 <span id="cb107-2"><a href="#cb107-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb107-3"><a href="#cb107-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -2553,7 +2553,7 @@ Parameters that give the best results : {'C': 10, 'gamma': 0.3, 'kernel': 'rbf'}
 Estimator that was chosen by the search : SVC(C=10, gamma=0.3)</code></pre>
 </div>
 </div>
-<div id="deb3e80a" class="cell" data-execution_count="65">
+<div id="ce57178f" class="cell" data-execution_count="65">
 <div class="sourceCode cell-code" id="cb109"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb109-1"><a href="#cb109-1" aria-hidden="true" tabindex="-1"></a><span class="co"># calculate GridSearch CV score on test set</span></span>
 <span id="cb109-2"><a href="#cb109-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb109-3"><a href="#cb109-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'GridSearch CV score on test set: </span><span class="sc">{0:0.4f}</span><span class="st">'</span>.<span class="bu">format</span>(grid_search.score(X_test, y_test)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
