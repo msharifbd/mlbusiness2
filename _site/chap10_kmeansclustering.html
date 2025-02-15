@@ -20,10 +20,44 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="site_libs/quarto-nav/headroom.min.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
 <script src="site_libs/quarto-search/autocomplete.umd.js"></script>
@@ -68,7 +102,42 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
 
+
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -234,7 +303,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chap08_decision_tree.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"></span></a><center><a href="./chap08_decision_tree.html" class="sidebar-item-text sidebar-link"> Chapter # 08 <br> Decision Tree</a>
+ <span class="menu-text"></span></a><center><a href="./chap08_decision_tree.html" class="sidebar-item-text sidebar-link"> Chapter # 08 <br> Decision Tree for Classification &amp; Regression</a>
   </center></div>
 </li>
       </ul>
@@ -317,6 +386,18 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text"></span></a><center><a href="./chap03_slide.html" class="sidebar-item-text sidebar-link"> Chapter # 03 <br> K Nearest Neighbor (KNN)</a>
   </center></div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chap04_slide.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"></span></a><center><a href="./chap04_slide.html" class="sidebar-item-text sidebar-link"> Chapter # 04 <br> Logistic Regression</a>
+  </center></div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chap05_slide.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"></span></a><center><a href="./chap05_slide.html" class="sidebar-item-text sidebar-link"> Chapter # 05 <br> Discriminant Analysis (DA)</a>
+  </center></div>
+</li>
       </ul>
   </li>
     </ul>
@@ -324,8 +405,42 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#application-of-clustering-in-real-world" id="toc-application-of-clustering-in-real-world" class="nav-link" data-scroll-target="#application-of-clustering-in-real-world">Application of Clustering in Real World</a></li>
+  <li><a href="#k-means-clustering" id="toc-k-means-clustering" class="nav-link" data-scroll-target="#k-means-clustering">K-means Clustering</a></li>
+  <li><a href="#steps-in-k-means-algorithm" id="toc-steps-in-k-means-algorithm" class="nav-link" data-scroll-target="#steps-in-k-means-algorithm">Steps in K-Means Algorithm</a></li>
+  <li><a href="#how-to-choose-the-value-of-k" id="toc-how-to-choose-the-value-of-k" class="nav-link" data-scroll-target="#how-to-choose-the-value-of-k">How to Choose the Value of K?</a>
+  <ul class="collapse">
+  <li><a href="#elbow-method" id="toc-elbow-method" class="nav-link" data-scroll-target="#elbow-method">Elbow Method</a></li>
+  <li><a href="#silhouette-score" id="toc-silhouette-score" class="nav-link" data-scroll-target="#silhouette-score">Silhouette Score</a></li>
+  </ul></li>
+  <li><a href="#when-will-k-means-clustering-fail" id="toc-when-will-k-means-clustering-fail" class="nav-link" data-scroll-target="#when-will-k-means-clustering-fail">When will K-means Clustering Fail?</a></li>
+  <li><a href="#importing-python-libraries" id="toc-importing-python-libraries" class="nav-link" data-scroll-target="#importing-python-libraries">Importing Python Libraries</a></li>
+  <li><a href="#an-example-of-clustering-using-a-simulated-dataset" id="toc-an-example-of-clustering-using-a-simulated-dataset" class="nav-link" data-scroll-target="#an-example-of-clustering-using-a-simulated-dataset">An Example of Clustering Using a Simulated Dataset</a>
+  <ul class="collapse">
+  <li><a href="#clustered-data-points-for-different-k-values" id="toc-clustered-data-points-for-different-k-values" class="nav-link" data-scroll-target="#clustered-data-points-for-different-k-values">Clustered Data Points For Different K Values</a></li>
+  </ul></li>
+  <li><a href="#loading-dataset" id="toc-loading-dataset" class="nav-link" data-scroll-target="#loading-dataset">Loading Dataset</a>
+  <ul class="collapse">
+  <li><a href="#metadata-of-the-dataset" id="toc-metadata-of-the-dataset" class="nav-link" data-scroll-target="#metadata-of-the-dataset">Metadata of the Dataset</a></li>
+  </ul></li>
+  <li><a href="#exploratory-analysis" id="toc-exploratory-analysis" class="nav-link" data-scroll-target="#exploratory-analysis">Exploratory Analysis</a></li>
+  <li><a href="#clustering-based-on-age-and-spending-score" id="toc-clustering-based-on-age-and-spending-score" class="nav-link" data-scroll-target="#clustering-based-on-age-and-spending-score">Clustering Based on Age and Spending Score</a>
+  <ul class="collapse">
+  <li><a href="#deciding-k-value" id="toc-deciding-k-value" class="nav-link" data-scroll-target="#deciding-k-value">Deciding <code>K</code> Value</a></li>
+  <li><a href="#applying-kmeans-for-k-4" id="toc-applying-kmeans-for-k-4" class="nav-link" data-scroll-target="#applying-kmeans-for-k-4">Applying KMeans for <code>K = 4</code></a></li>
+  <li><a href="#applying-kmeans-for-k-5" id="toc-applying-kmeans-for-k-5" class="nav-link" data-scroll-target="#applying-kmeans-for-k-5">Applying KMeans for <code>K = 5</code></a></li>
+  </ul></li>
+  <li><a href="#clustering-based-on-annual-income-and-spending-score" id="toc-clustering-based-on-annual-income-and-spending-score" class="nav-link" data-scroll-target="#clustering-based-on-annual-income-and-spending-score">Clustering Based on Annual Income and Spending Score</a></li>
+  <li><a href="#clustering-age-annual-income-and-spending-score" id="toc-clustering-age-annual-income-and-spending-score" class="nav-link" data-scroll-target="#clustering-age-annual-income-and-spending-score">Clustering Age, Annual Income, and Spending Score</a></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -350,8 +465,1008 @@ Chapter # 10 <br> K-means Clustering</center></h1>
 </header>
 
 
+<section id="introduction" class="level1">
+<h1>Introduction</h1>
+<p>Clustering is the task of dividing the population or data points into a number of groups such that data points in the same groups are more similar to other data points in the same group than those in other groups. In simple words, the aim is to segregate groups with similar traits and assign them into clusters.</p>
+</section>
+<section id="application-of-clustering-in-real-world" class="level1">
+<h1>Application of Clustering in Real World</h1>
+<p>Clustering is a widely used technique in the industry. It is being used in almost every domain, from banking and recommendation engines to document clustering and image segmentation.</p>
+<ul>
+<li><strong>Customer Segmentation</strong> -</li>
+</ul>
+<p>One of the most common applications of clustering is customer segmentation. And it isn’t just limited to banking. This strategy is across functions, including telecom, e-commerce, sports, advertising, sales, etc.</p>
+<ul>
+<li><strong>Document Clustering</strong> -</li>
+</ul>
+<p>Another common application of clustering. Let’s say you have multiple documents and you need to cluster similar documents together. Clustering helps us group these documents such that similar documents are in the same clusters.</p>
+<ul>
+<li><strong>Image Segmentation</strong> -</li>
+</ul>
+<p>We can also use clustering to perform image segmentation. In image segmentation, we try to club similar pixels in the image together. We can apply clustering to create clusters having similar pixels in the same group.</p>
+<ul>
+<li><strong>Recommendation Engines</strong> -</li>
+</ul>
+<p>Clustering can also be used in recommendation engines. Let’s say you want to recommend songs to your friends. You can look at the songs liked by that person and then use clustering to find similar songs and finally recommend the most similar songs.</p>
+</section>
+<section id="k-means-clustering" class="level1">
+<h1>K-means Clustering</h1>
+<p>K-means clustering is one of the simplest and popular unsupervised machine learning algorithms. You’ll define a target number k, which refers to the number of centroids you need in the dataset. A centroid is the imaginary or real location representing the center of the cluster. Every data point is allocated to each of the clusters through reducing the in-cluster sum of squares. In other words, the K-means algorithm identifies k number of centroids, and then allocates every data point to the nearest cluster, while keeping the centroids as small as possible. The ‘means’ in the K-means refers to averaging of the data; that is, finding the centroid. Please see <a href="#fig-kmeanscluster" class="quarto-xref">Figure&nbsp;1</a> to get an idea about K-means clustering.</p>
+<div id="fig-kmeanscluster" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-kmeanscluster-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="https://static.javatpoint.com/tutorial/machine-learning/images/k-means-clustering-algorithm-in-machine-learning.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-kmeanscluster-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: An Example of K-means Clustering
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="steps-in-k-means-algorithm" class="level1">
+<h1>Steps in K-Means Algorithm</h1>
+<ol type="1">
+<li>Choose the number of clusters K.</li>
+<li>Select at random K points, the centroids(not necessarily from your dataset).</li>
+<li>Assign each data point to the closest centroid → that forms K clusters.</li>
+<li>Compute the mean of data points within a cluster and place the new centroid of each cluster.</li>
+<li>Reassign each data point to the new closest centroid. If any reassignment took place, go to step 4, otherwise, the model is ready.</li>
+</ol>
+</section>
+<section id="how-to-choose-the-value-of-k" class="level1">
+<h1>How to Choose the Value of K?</h1>
+<p>There are different techniques available to find the optimal value of K. The most common technique is the <strong>elbow method.</strong></p>
+<section id="elbow-method" class="level2">
+<h2 class="anchored" data-anchor-id="elbow-method">Elbow Method</h2>
+<p>The elbow method is used to determine the optimal number of clusters in K-means clustering. The elbow method plots the value of the Within cluster sum of square of the data points(WCSS) produced by different values of K. <a href="#fig-elbowmethod" class="quarto-xref">Figure&nbsp;2</a> shows how the elbow method works.</p>
+<p><strong>Distortion</strong>: It is calculated as the average of the squared distances from the cluster centers of the respective clusters to each data point. Typically, the Euclidean distance metric is used.</p>
+<p><span class="math display">\[
+Distortion = 1/n * \sum(distance(point, centroid)^2)
+\]</span></p>
+<p><strong>Inertia</strong>: It is the sum of the squared distances of samples to their closest cluster center.</p>
+<p><span class="math display">\[
+Inertia = \sum(distance(point, centroid)^2)
+\]</span></p>
+<div id="fig-elbowmethod" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-elbowmethod-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="elbowmethod.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-elbowmethod-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: Elbow Method for Optimal K
+</figcaption>
+</figure>
+</div>
+<p>We can see that if K increases, average distortion will decrease. We should choose that k where the distortion decline drastically. From the above diagram the best value of k will be 3.</p>
+</section>
+<section id="silhouette-score" class="level2">
+<h2 class="anchored" data-anchor-id="silhouette-score">Silhouette Score</h2>
+<p>Another method to find the optimal value of K is <strong>silhouette score</strong>. The silhouette score and plot are used to evaluate the quality of a clustering solution produced by the k-means algorithm. The silhouette score measures -</p>
+<ol type="a">
+<li><p>How close the data point is to other points in the cluster</p></li>
+<li><p>How far away the data point is from points in other clusters</p></li>
+</ol>
+<p>Silhouette coefficient values range between -1 and 1. Larger numbers indicate that samples are closer to their clusters than they are to other clusters. A silhouette score close to 0 suggests overlapping clusters, and a negative score suggests poor clustering solutions.</p>
+</section>
+</section>
+<section id="when-will-k-means-clustering-fail" class="level1">
+<h1>When will K-means Clustering Fail?</h1>
+<p>K-means clustering performs best on data that are spherical. Spherical data are data that group in space in close proximity to each other either. This can be visualized in 2 or 3 dimensional space more easily. Data that aren’t spherical or should not be spherical do not work well with k-means clustering. For example, k-means clustering would not do well on the below data (<a href="#fig-kmeansNOT" class="quarto-xref">Figure&nbsp;3</a>) as we would not be able to find distinct centroids to cluster the two circles or arcs differently, despite them clearly visually being two distinct circles and arcs that should be labeled as such.</p>
+<div id="fig-kmeansNOT" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-kmeansNOT-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="kmeansNOTworking.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-kmeansNOT-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3: When K means is not working
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="importing-python-libraries" class="level1">
+<h1>Importing Python Libraries</h1>
+<div id="35553e5e" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.cluster <span class="im">import</span> KMeans</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.spatial.distance <span class="im">import</span> cdist</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn <span class="im">import</span> metrics</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> warnings </span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>warnings.filterwarnings(<span class="st">'ignore'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="an-example-of-clustering-using-a-simulated-dataset" class="level1">
+<h1>An Example of Clustering Using a Simulated Dataset</h1>
+<div id="9befcbde" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Creating the data</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>x1 <span class="op">=</span> np.array([<span class="dv">3</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">6</span>, <span class="dv">6</span>, <span class="dv">6</span>, <span class="dv">5</span>, <span class="dv">6</span>,<span class="op">\</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>               <span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>, <span class="dv">8</span>, <span class="dv">9</span>, <span class="dv">9</span>, <span class="dv">8</span>, <span class="dv">4</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">4</span>])</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>x2 <span class="op">=</span> np.array([<span class="dv">5</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">5</span>, <span class="dv">8</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="op">\</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>               <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">9</span>, <span class="dv">10</span>, <span class="dv">9</span>, <span class="dv">10</span>])</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> np.array(<span class="bu">list</span>(<span class="bu">zip</span>(x1, x2))).reshape(<span class="bu">len</span>(x1), <span class="dv">2</span>)</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualizing the data</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>sns.set_style(<span class="st">'whitegrid'</span>)</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>plt.plot()</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>plt.xlim([<span class="dv">0</span>, <span class="dv">12</span>])</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>plt.ylim([<span class="dv">0</span>, <span class="dv">12</span>])</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="co">#plt.title('Dataset')</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>plt.scatter(x1, x2)</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="chap10_kmeansclustering_files/figure-html/cell-3-output-1.png" width="572" height="415" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div id="af993690" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>distortions <span class="op">=</span> []</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>inertias <span class="op">=</span> []</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>mapping1 <span class="op">=</span> {}</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>mapping2 <span class="op">=</span> {}</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>K <span class="op">=</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">10</span>)</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> k <span class="kw">in</span> K:</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Building and fitting the model</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    kmeanModel <span class="op">=</span> KMeans(n_clusters<span class="op">=</span>k).fit(X)</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    kmeanModel.fit(X)</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    distortions.append(<span class="bu">sum</span>(np.<span class="bu">min</span>(cdist(X, kmeanModel.cluster_centers_,</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>                                        <span class="st">'euclidean'</span>), axis<span class="op">=</span><span class="dv">1</span>)) <span class="op">/</span> X.shape[<span class="dv">0</span>])</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>    inertias.append(kmeanModel.inertia_)</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>    mapping1[k] <span class="op">=</span> <span class="bu">sum</span>(np.<span class="bu">min</span>(cdist(X, kmeanModel.cluster_centers_,</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>                                   <span class="st">'euclidean'</span>), axis<span class="op">=</span><span class="dv">1</span>)) <span class="op">/</span> X.shape[<span class="dv">0</span>]</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>    mapping2[k] <span class="op">=</span> kmeanModel.inertia_</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Please see <a href="#fig-ditortion" class="quarto-xref">Figure&nbsp;4</a> to see elbow method using distortion</p>
+<div id="cell-fig-ditortion" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>sns.set_style(<span class="st">'whitegrid'</span>)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>plt.plot(K, distortions, <span class="st">'bx-'</span>)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Values of K'</span>)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Distortion'</span>)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co">#plt.title('The Elbow Method using Distortion')</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div id="fig-ditortion" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ditortion-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="chap10_kmeansclustering_files/figure-html/fig-ditortion-output-1.png" width="585" height="427" class="figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ditortion-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4: The Elbow Method using Distortion
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Please see <a href="#fig-inertia" class="quarto-xref">Figure&nbsp;5</a> to see elbow method using inertia</p>
+<div id="cell-fig-inertia" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>sns.set_style(<span class="st">'whitegrid'</span>)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>plt.plot(K, inertias, <span class="st">'bx-'</span>)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Values of K'</span>)</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Inertia'</span>)</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co">#plt.title('The Elbow Method using Inertia')</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div id="fig-inertia" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-inertia-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="chap10_kmeansclustering_files/figure-html/fig-inertia-output-1.png" width="589" height="427" class="figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-inertia-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;5: The Elbow Method using Inertia
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Please see <a href="#fig-silhouette" class="quarto-xref">Figure&nbsp;6</a> for Silhouette Score.</p>
+<div id="2063e722" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a> <span class="co"># A list holds the silhouette coefficients for each k</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>kmeans_kwargs <span class="op">=</span> {</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>        <span class="st">"init"</span>: <span class="st">"random"</span>,</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>        <span class="st">"n_init"</span>: <span class="dv">10</span>,</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>        <span class="st">"max_iter"</span>: <span class="dv">300</span>,</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>        <span class="st">"random_state"</span>: <span class="dv">42</span>,</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>   </span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>silhouette_coefficients <span class="op">=</span> []</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Notice you start at 2 clusters for silhouette coefficient</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> silhouette_score</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> k <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">2</span>, <span class="dv">11</span>):</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>   kmeans <span class="op">=</span> KMeans(n_clusters<span class="op">=</span>k,<span class="op">**</span>kmeans_kwargs)</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>   kmeans.fit(X)</span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>   score <span class="op">=</span> silhouette_score(X, kmeans.labels_)</span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>   silhouette_coefficients.append(score)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cell-fig-silhouette" class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>plt.style.use(<span class="st">"fivethirtyeight"</span>)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>plt.plot(<span class="bu">range</span>(<span class="dv">2</span>, <span class="dv">11</span>), silhouette_coefficients)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>plt.xticks(<span class="bu">range</span>(<span class="dv">2</span>, <span class="dv">11</span>))</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Number of Clusters"</span>)</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Silhouette Coefficient"</span>)</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div id="fig-silhouette" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-silhouette-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="chap10_kmeansclustering_files/figure-html/fig-silhouette-output-1.png" width="671" height="455" class="figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-silhouette-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;6: The Silhouette Score for Optimal K
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<section id="clustered-data-points-for-different-k-values" class="level2">
+<h2 class="anchored" data-anchor-id="clustered-data-points-for-different-k-values">Clustered Data Points For Different K Values</h2>
+<p>Please see <a href="#fig-differentk" class="quarto-xref">Figure&nbsp;7</a> for different clusters based on different values of K</p>
+<div class="cell" data-layout-nrows="4" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a range of values for k</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>k_range <span class="op">=</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">5</span>)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Initialize an empty list to </span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="co"># store the inertia values for each k</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>inertia_values <span class="op">=</span> []</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Fit and plot the data for each k value</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> k <span class="kw">in</span> k_range:</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>    kmeans <span class="op">=</span> KMeans(n_clusters<span class="op">=</span>k, <span class="op">\</span></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>                    init<span class="op">=</span><span class="st">'k-means++'</span>, random_state<span class="op">=</span><span class="dv">42</span>)</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>    y_kmeans <span class="op">=</span> kmeans.fit_predict(X)</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>    inertia_values.append(kmeans.inertia_)</span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>    plt.scatter(X[:, <span class="dv">0</span>], X[:, <span class="dv">1</span>], c<span class="op">=</span>y_kmeans)</span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>    plt.scatter(kmeans.cluster_centers_[:, <span class="dv">0</span>],<span class="op">\</span></span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>                kmeans.cluster_centers_[:, <span class="dv">1</span>], <span class="op">\</span></span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>                s<span class="op">=</span><span class="dv">100</span>, c<span class="op">=</span><span class="st">'red'</span>)</span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>    <span class="co">#plt.title('K-means clustering (k={})'.format(k))</span></span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>    plt.xlabel(<span class="st">'Feature 1'</span>)</span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>    plt.ylabel(<span class="st">'Feature 2'</span>)</span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a>    plt.show()</span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the inertia values for each k</span></span>
+<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a>plt.plot(k_range, inertia_values, <span class="st">'bo-'</span>)</span>
+<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a><span class="co">#plt.title('Elbow Method')</span></span>
+<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Number of clusters (k)'</span>)</span>
+<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Inertia'</span>)</span>
+<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="fig-differentk" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-layout-nrows="4" data-execution_count="8">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-differentk-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output cell-output-display">
+<div id="fig-differentk-1" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-differentk-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="chap10_kmeansclustering_files/figure-html/fig-differentk-output-1.png" data-ref-parent="fig-differentk" width="655" height="455" class="figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-differentk-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(a) Number of Cluster K = 1
+</figcaption>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div id="fig-differentk-2" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-differentk-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="chap10_kmeansclustering_files/figure-html/fig-differentk-output-2.png" data-ref-parent="fig-differentk" width="655" height="455" class="figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-differentk-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(b) Number of Cluster K = 2
+</figcaption>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div id="fig-differentk-3" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-differentk-3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="chap10_kmeansclustering_files/figure-html/fig-differentk-output-3.png" data-ref-parent="fig-differentk" width="655" height="455" class="figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-differentk-3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(c) Number of Cluster K = 3
+</figcaption>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div id="fig-differentk-4" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-differentk-4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="chap10_kmeansclustering_files/figure-html/fig-differentk-output-4.png" data-ref-parent="fig-differentk" width="655" height="455" class="figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-differentk-4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(d) Number of Cluster K = 4
+</figcaption>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div id="fig-differentk-5" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-differentk-5-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="chap10_kmeansclustering_files/figure-html/fig-differentk-output-5.png" data-ref-parent="fig-differentk" width="666" height="456" class="figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-differentk-5-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(e) Elbow Method
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-differentk-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;7: Clustering Using Different K Values
+</figcaption>
+</figure>
+</div>
+</div>
+</section>
+</section>
+<section id="loading-dataset" class="level1">
+<h1>Loading Dataset</h1>
+<div id="e1b81f53" class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">'DATA/Mall_Customers.csv'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="metadata-of-the-dataset" class="level2">
+<h2 class="anchored" data-anchor-id="metadata-of-the-dataset">Metadata of the Dataset</h2>
+<div id="9d50dd28" class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># first few rows</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="10">
+<div>
 
 
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">CustomerID</th>
+<th data-quarto-table-cell-role="th">Gender</th>
+<th data-quarto-table-cell-role="th">Age</th>
+<th data-quarto-table-cell-role="th">Annual Income (k$)</th>
+<th data-quarto-table-cell-role="th">Spending Score (1-100)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>1</td>
+<td>Male</td>
+<td>19</td>
+<td>15</td>
+<td>39</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>2</td>
+<td>Male</td>
+<td>21</td>
+<td>15</td>
+<td>81</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>3</td>
+<td>Female</td>
+<td>20</td>
+<td>16</td>
+<td>6</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>4</td>
+<td>Female</td>
+<td>23</td>
+<td>16</td>
+<td>77</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>5</td>
+<td>Female</td>
+<td>31</td>
+<td>17</td>
+<td>40</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div id="2e2c9d4e" class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># size of datset</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>df.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="11">
+<pre><code>(200, 5)</code></pre>
+</div>
+</div>
+<div id="b9591427" class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># summary about dataset</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>df.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
+RangeIndex: 200 entries, 0 to 199
+Data columns (total 5 columns):
+ #   Column                  Non-Null Count  Dtype 
+---  ------                  --------------  ----- 
+ 0   CustomerID              200 non-null    int64 
+ 1   Gender                  200 non-null    object
+ 2   Age                     200 non-null    int64 
+ 3   Annual Income (k$)      200 non-null    int64 
+ 4   Spending Score (1-100)  200 non-null    int64 
+dtypes: int64(4), object(1)
+memory usage: 7.9+ KB</code></pre>
+</div>
+</div>
+<div id="04481011" class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>df.isnull().<span class="bu">sum</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="13">
+<pre><code>CustomerID                0
+Gender                    0
+Age                       0
+Annual Income (k$)        0
+Spending Score (1-100)    0
+dtype: int64</code></pre>
+</div>
+</div>
+<div id="e6e02d26" class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>df.describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="14">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">CustomerID</th>
+<th data-quarto-table-cell-role="th">Age</th>
+<th data-quarto-table-cell-role="th">Annual Income (k$)</th>
+<th data-quarto-table-cell-role="th">Spending Score (1-100)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">count</td>
+<td>200.000000</td>
+<td>200.000000</td>
+<td>200.000000</td>
+<td>200.000000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">mean</td>
+<td>100.500000</td>
+<td>38.850000</td>
+<td>60.560000</td>
+<td>50.200000</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">std</td>
+<td>57.879185</td>
+<td>13.969007</td>
+<td>26.264721</td>
+<td>25.823522</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">min</td>
+<td>1.000000</td>
+<td>18.000000</td>
+<td>15.000000</td>
+<td>1.000000</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">25%</td>
+<td>50.750000</td>
+<td>28.750000</td>
+<td>41.500000</td>
+<td>34.750000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">50%</td>
+<td>100.500000</td>
+<td>36.000000</td>
+<td>61.500000</td>
+<td>50.000000</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">75%</td>
+<td>150.250000</td>
+<td>49.000000</td>
+<td>78.000000</td>
+<td>73.000000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">max</td>
+<td>200.000000</td>
+<td>70.000000</td>
+<td>137.000000</td>
+<td>99.000000</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div id="e54b7a05" class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>df.describe().T</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="15">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">count</th>
+<th data-quarto-table-cell-role="th">mean</th>
+<th data-quarto-table-cell-role="th">std</th>
+<th data-quarto-table-cell-role="th">min</th>
+<th data-quarto-table-cell-role="th">25%</th>
+<th data-quarto-table-cell-role="th">50%</th>
+<th data-quarto-table-cell-role="th">75%</th>
+<th data-quarto-table-cell-role="th">max</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">CustomerID</td>
+<td>200.0</td>
+<td>100.50</td>
+<td>57.879185</td>
+<td>1.0</td>
+<td>50.75</td>
+<td>100.5</td>
+<td>150.25</td>
+<td>200.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">Age</td>
+<td>200.0</td>
+<td>38.85</td>
+<td>13.969007</td>
+<td>18.0</td>
+<td>28.75</td>
+<td>36.0</td>
+<td>49.00</td>
+<td>70.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">Annual Income (k$)</td>
+<td>200.0</td>
+<td>60.56</td>
+<td>26.264721</td>
+<td>15.0</td>
+<td>41.50</td>
+<td>61.5</td>
+<td>78.00</td>
+<td>137.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">Spending Score (1-100)</td>
+<td>200.0</td>
+<td>50.20</td>
+<td>25.823522</td>
+<td>1.0</td>
+<td>34.75</td>
+<td>50.0</td>
+<td>73.00</td>
+<td>99.0</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="exploratory-analysis" class="level1">
+<h1>Exploratory Analysis</h1>
+<div id="93e8f64f" class="cell" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>plt.figure(<span class="dv">1</span> , figsize <span class="op">=</span> (<span class="dv">15</span> , <span class="dv">6</span>))</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> <span class="dv">0</span> </span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> x <span class="kw">in</span> [<span class="st">'Age'</span> , <span class="st">'Annual Income (k$)'</span> , <span class="st">'Spending Score (1-100)'</span>]:</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>    n <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>    plt.subplot(<span class="dv">1</span> , <span class="dv">3</span> , n)</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>    plt.subplots_adjust(hspace <span class="op">=</span> <span class="fl">0.5</span> , wspace <span class="op">=</span> <span class="fl">0.5</span>)</span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>    sns.distplot(df[x] , bins <span class="op">=</span> <span class="dv">15</span>)</span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>    plt.title(<span class="st">'Distplot of </span><span class="sc">{}</span><span class="st">'</span>.<span class="bu">format</span>(x))</span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="chap10_kmeansclustering_files/figure-html/cell-17-output-1.png" width="1399" height="565" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div id="5311e812" class="cell" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>sns.pairplot(df, <span class="bu">vars</span> <span class="op">=</span> [<span class="st">'Spending Score (1-100)'</span>, <span class="st">'Annual Income (k$)'</span>, <span class="st">'Age'</span>], hue <span class="op">=</span> <span class="st">"Gender"</span>)</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="chap10_kmeansclustering_files/figure-html/cell-18-output-1.png" width="842" height="706" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="clustering-based-on-age-and-spending-score" class="level1">
+<h1>Clustering Based on Age and Spending Score</h1>
+<div id="ecd10afd" class="cell" data-execution_count="18">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>sns.set_style(<span class="st">'whitegrid'</span>)</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>plt.figure(<span class="dv">1</span> , figsize <span class="op">=</span> (<span class="dv">10</span> , <span class="dv">5</span>))</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Scatter plot of Age v/s Spending Score'</span>, fontsize <span class="op">=</span> <span class="dv">20</span>)</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Age'</span>)</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Spending Score'</span>)</span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>plt.scatter( x <span class="op">=</span> <span class="st">'Age'</span>, y <span class="op">=</span> <span class="st">'Spending Score (1-100)'</span>, data <span class="op">=</span> df, s <span class="op">=</span> <span class="dv">100</span>)</span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="chap10_kmeansclustering_files/figure-html/cell-19-output-1.png" width="917" height="483" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<section id="deciding-k-value" class="level2">
+<h2 class="anchored" data-anchor-id="deciding-k-value">Deciding <code>K</code> Value</h2>
+<div id="f625c925" class="cell" data-execution_count="19">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>X1 <span class="op">=</span> df[[<span class="st">'Age'</span> , <span class="st">'Spending Score (1-100)'</span>]].iloc[: , :].values</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>inertia <span class="op">=</span> []</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> n <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span> , <span class="dv">15</span>):</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>    algorithm <span class="op">=</span> (KMeans(n_clusters <span class="op">=</span> n ,init<span class="op">=</span><span class="st">'k-means++'</span>, n_init <span class="op">=</span> <span class="dv">10</span> ,max_iter<span class="op">=</span><span class="dv">300</span>, </span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>                        tol<span class="op">=</span><span class="fl">0.0001</span>,  random_state<span class="op">=</span> <span class="dv">111</span>  , algorithm<span class="op">=</span><span class="st">'elkan'</span>) )</span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>    algorithm.fit(X1)</span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>    inertia.append(algorithm.inertia_)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="af9fc006" class="cell" data-execution_count="20">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>plt.figure(<span class="dv">1</span> , figsize <span class="op">=</span> (<span class="dv">10</span>,<span class="dv">5</span>))</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>plt.plot(np.arange(<span class="dv">1</span> , <span class="dv">15</span>) , inertia , <span class="st">'o'</span>)</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>plt.plot(np.arange(<span class="dv">1</span> , <span class="dv">15</span>) , inertia , <span class="st">'-'</span> , alpha <span class="op">=</span> <span class="fl">0.5</span>)</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Number of Clusters'</span>) , plt.ylabel(<span class="st">'Inertia'</span>)</span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="chap10_kmeansclustering_files/figure-html/cell-21-output-1.png" width="947" height="455" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<ul>
+<li><p>The KMeans algorithm clusters data by trying to separate samples in n groups of equal variances, minimizing a criterion known as <code>inertia</code>, or <code>within-cluster sum-of-squares Inertia</code>, or the <code>within-cluster sum of squares criterion</code>, can be recognized as a measure of how internally coherent clusters are.</p></li>
+<li><p>The k-means algorithm divides a set of <code>N</code> samples into <code>K</code> disjoint clusters <code>C</code>, each described by the mean <code>j</code> of the samples in the cluster. The means are commonly called the cluster centroids.</p></li>
+<li><p>The K-means algorithm aims to choose centroids that <strong>minimize</strong> the inertia, or within-cluster sum of squared criterion.</p></li>
+</ul>
+</section>
+<section id="applying-kmeans-for-k-4" class="level2">
+<h2 class="anchored" data-anchor-id="applying-kmeans-for-k-4">Applying KMeans for <code>K = 4</code></h2>
+<div id="08af8a83" class="cell" data-execution_count="21">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>algorithm <span class="op">=</span> (KMeans(n_clusters <span class="op">=</span> <span class="dv">4</span> ,init<span class="op">=</span><span class="st">'k-means++'</span>, n_init <span class="op">=</span> <span class="dv">10</span> ,max_iter<span class="op">=</span><span class="dv">300</span>, </span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>                        tol<span class="op">=</span><span class="fl">0.0001</span>,  random_state<span class="op">=</span> <span class="dv">111</span>  , algorithm<span class="op">=</span><span class="st">'elkan'</span>) )</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>algorithm.fit(X1)</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>labels1 <span class="op">=</span> algorithm.labels_</span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>centroids1 <span class="op">=</span> algorithm.cluster_centers_</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="a3f41c30" class="cell" data-execution_count="22">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>h <span class="op">=</span> <span class="fl">0.02</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>x_min, x_max <span class="op">=</span> X1[:, <span class="dv">0</span>].<span class="bu">min</span>() <span class="op">-</span> <span class="dv">1</span>, X1[:, <span class="dv">0</span>].<span class="bu">max</span>() <span class="op">+</span> <span class="dv">1</span></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>y_min, y_max <span class="op">=</span> X1[:, <span class="dv">1</span>].<span class="bu">min</span>() <span class="op">-</span> <span class="dv">1</span>, X1[:, <span class="dv">1</span>].<span class="bu">max</span>() <span class="op">+</span> <span class="dv">1</span></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>xx, yy <span class="op">=</span> np.meshgrid(np.arange(x_min, x_max, h), np.arange(y_min, y_max, h))</span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>Z <span class="op">=</span> algorithm.predict(np.c_[xx.ravel(), yy.ravel()]) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="6f654970" class="cell" data-execution_count="23">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>plt.figure(<span class="dv">1</span> , figsize <span class="op">=</span> (<span class="dv">15</span> , <span class="dv">7</span>) )</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>plt.clf()</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>Z <span class="op">=</span> Z.reshape(xx.shape)</span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>plt.imshow(Z , interpolation<span class="op">=</span><span class="st">'nearest'</span>, </span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>           extent<span class="op">=</span>(xx.<span class="bu">min</span>(), xx.<span class="bu">max</span>(), yy.<span class="bu">min</span>(), yy.<span class="bu">max</span>()),</span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>           cmap <span class="op">=</span> plt.cm.Pastel2, aspect <span class="op">=</span> <span class="st">'auto'</span>, origin<span class="op">=</span><span class="st">'lower'</span>)</span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>plt.scatter( x <span class="op">=</span> <span class="st">'Age'</span>, y <span class="op">=</span> <span class="st">'Spending Score (1-100)'</span>, data <span class="op">=</span> df, c <span class="op">=</span> labels1, s <span class="op">=</span> <span class="dv">100</span>)</span>
+<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a>plt.scatter(x <span class="op">=</span> centroids1[: , <span class="dv">0</span>] , y <span class="op">=</span>  centroids1[: , <span class="dv">1</span>] , s <span class="op">=</span> <span class="dv">300</span> , c <span class="op">=</span> <span class="st">'red'</span> , alpha <span class="op">=</span> <span class="fl">0.5</span>)</span>
+<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Spending Score (1-100)'</span>) , plt.xlabel(<span class="st">'Age'</span>)</span>
+<span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="chap10_kmeansclustering_files/figure-html/cell-24-output-1.png" width="1324" height="611" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="applying-kmeans-for-k-5" class="level2">
+<h2 class="anchored" data-anchor-id="applying-kmeans-for-k-5">Applying KMeans for <code>K = 5</code></h2>
+<div id="01c92d76" class="cell" data-execution_count="24">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>algorithm <span class="op">=</span> (KMeans(n_clusters <span class="op">=</span> <span class="dv">5</span>, init<span class="op">=</span><span class="st">'k-means++'</span>, n_init <span class="op">=</span> <span class="dv">10</span>, max_iter<span class="op">=</span><span class="dv">300</span>, </span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>                        tol<span class="op">=</span><span class="fl">0.0001</span>, random_state<span class="op">=</span> <span class="dv">111</span> , algorithm<span class="op">=</span><span class="st">'elkan'</span>))</span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>algorithm.fit(X1)</span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>labels1 <span class="op">=</span> algorithm.labels_</span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>centroids1 <span class="op">=</span> algorithm.cluster_centers_</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="0602c8e3" class="cell" data-execution_count="25">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>h <span class="op">=</span> <span class="fl">0.02</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>x_min, x_max <span class="op">=</span> X1[:, <span class="dv">0</span>].<span class="bu">min</span>() <span class="op">-</span> <span class="dv">1</span>, X1[:, <span class="dv">0</span>].<span class="bu">max</span>() <span class="op">+</span> <span class="dv">1</span></span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>y_min, y_max <span class="op">=</span> X1[:, <span class="dv">1</span>].<span class="bu">min</span>() <span class="op">-</span> <span class="dv">1</span>, X1[:, <span class="dv">1</span>].<span class="bu">max</span>() <span class="op">+</span> <span class="dv">1</span></span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>xx, yy <span class="op">=</span> np.meshgrid(np.arange(x_min, x_max, h), np.arange(y_min, y_max, h))</span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>Z <span class="op">=</span> algorithm.predict(np.c_[xx.ravel(), yy.ravel()]) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="9414a77e" class="cell" data-execution_count="26">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>plt.figure(<span class="dv">1</span> , figsize <span class="op">=</span> (<span class="dv">15</span> , <span class="dv">7</span>) )</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>plt.clf()</span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>Z <span class="op">=</span> Z.reshape(xx.shape)</span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>plt.imshow(Z , interpolation<span class="op">=</span><span class="st">'nearest'</span>, </span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>           extent<span class="op">=</span>(xx.<span class="bu">min</span>(), xx.<span class="bu">max</span>(), yy.<span class="bu">min</span>(), yy.<span class="bu">max</span>()),</span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a>           cmap <span class="op">=</span> plt.cm.Pastel2, aspect <span class="op">=</span> <span class="st">'auto'</span>, origin<span class="op">=</span><span class="st">'lower'</span>)</span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a>plt.scatter( x <span class="op">=</span> <span class="st">'Age'</span>, y <span class="op">=</span> <span class="st">'Spending Score (1-100)'</span>, data <span class="op">=</span> df, c <span class="op">=</span> labels1, s <span class="op">=</span> <span class="dv">100</span>)</span>
+<span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a>plt.scatter(x <span class="op">=</span> centroids1[: , <span class="dv">0</span>] , y <span class="op">=</span>  centroids1[: , <span class="dv">1</span>] , s <span class="op">=</span> <span class="dv">300</span> , c <span class="op">=</span> <span class="st">'red'</span> , alpha <span class="op">=</span> <span class="fl">0.5</span>)</span>
+<span id="cb29-10"><a href="#cb29-10" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Spending Score (1-100)'</span>) , plt.xlabel(<span class="st">'Age'</span>)</span>
+<span id="cb29-11"><a href="#cb29-11" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="chap10_kmeansclustering_files/figure-html/cell-27-output-1.png" width="1324" height="611" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="clustering-based-on-annual-income-and-spending-score" class="level1">
+<h1>Clustering Based on Annual Income and Spending Score</h1>
+<div id="d65ad53a" class="cell" data-execution_count="27">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>X2 <span class="op">=</span> df[[<span class="st">'Annual Income (k$)'</span> , <span class="st">'Spending Score (1-100)'</span>]].iloc[: , :].values</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>inertia <span class="op">=</span> []</span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> n <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span> , <span class="dv">11</span>):</span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>    algorithm <span class="op">=</span> (KMeans(n_clusters <span class="op">=</span> n ,init<span class="op">=</span><span class="st">'k-means++'</span>, n_init <span class="op">=</span> <span class="dv">10</span> ,max_iter<span class="op">=</span><span class="dv">300</span>, </span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>                        tol<span class="op">=</span><span class="fl">0.0001</span>,  random_state<span class="op">=</span> <span class="dv">111</span>  , algorithm<span class="op">=</span><span class="st">'elkan'</span>) )</span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>    algorithm.fit(X2)</span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a>    inertia.append(algorithm.inertia_)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="d0dc3d8c" class="cell" data-execution_count="28">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>plt.figure(<span class="dv">1</span> , figsize <span class="op">=</span> (<span class="dv">10</span>,<span class="dv">5</span>))</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>plt.plot(np.arange(<span class="dv">1</span> , <span class="dv">11</span>) , inertia , <span class="st">'o'</span>)</span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>plt.plot(np.arange(<span class="dv">1</span> , <span class="dv">11</span>) , inertia , <span class="st">'-'</span> , alpha <span class="op">=</span> <span class="fl">0.5</span>)</span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Number of Clusters'</span>) , plt.ylabel(<span class="st">'Inertia'</span>)</span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="chap10_kmeansclustering_files/figure-html/cell-29-output-1.png" width="947" height="455" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div id="ed60acb9" class="cell" data-execution_count="29">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>algorithm <span class="op">=</span> (KMeans(n_clusters <span class="op">=</span> <span class="dv">5</span> ,init<span class="op">=</span><span class="st">'k-means++'</span>, n_init <span class="op">=</span> <span class="dv">10</span> ,max_iter<span class="op">=</span><span class="dv">300</span>, </span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>                        tol<span class="op">=</span><span class="fl">0.0001</span>,  random_state<span class="op">=</span> <span class="dv">111</span>  , algorithm<span class="op">=</span><span class="st">'elkan'</span>) )</span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>algorithm.fit(X2)</span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>labels2 <span class="op">=</span> algorithm.labels_</span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>centroids2 <span class="op">=</span> algorithm.cluster_centers_</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="722e6627" class="cell" data-execution_count="30">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>h <span class="op">=</span> <span class="fl">0.02</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>x_min, x_max <span class="op">=</span> X2[:, <span class="dv">0</span>].<span class="bu">min</span>() <span class="op">-</span> <span class="dv">1</span>, X2[:, <span class="dv">0</span>].<span class="bu">max</span>() <span class="op">+</span> <span class="dv">1</span></span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>y_min, y_max <span class="op">=</span> X2[:, <span class="dv">1</span>].<span class="bu">min</span>() <span class="op">-</span> <span class="dv">1</span>, X2[:, <span class="dv">1</span>].<span class="bu">max</span>() <span class="op">+</span> <span class="dv">1</span></span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>xx, yy <span class="op">=</span> np.meshgrid(np.arange(x_min, x_max, h), np.arange(y_min, y_max, h))</span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>Z2 <span class="op">=</span> algorithm.predict(np.c_[xx.ravel(), yy.ravel()]) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="d9715055" class="cell" data-execution_count="31">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>plt.figure(<span class="dv">1</span> , figsize <span class="op">=</span> (<span class="dv">15</span> , <span class="dv">7</span>) )</span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>plt.clf()</span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>Z2 <span class="op">=</span> Z2.reshape(xx.shape)</span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>plt.imshow(Z2 , interpolation<span class="op">=</span><span class="st">'nearest'</span>, </span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a>           extent<span class="op">=</span>(xx.<span class="bu">min</span>(), xx.<span class="bu">max</span>(), yy.<span class="bu">min</span>(), yy.<span class="bu">max</span>()),</span>
+<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a>           cmap <span class="op">=</span> plt.cm.Pastel2, aspect <span class="op">=</span> <span class="st">'auto'</span>, origin<span class="op">=</span><span class="st">'lower'</span>)</span>
+<span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-8"><a href="#cb34-8" aria-hidden="true" tabindex="-1"></a>plt.scatter( x <span class="op">=</span> <span class="st">'Annual Income (k$)'</span> ,y <span class="op">=</span> <span class="st">'Spending Score (1-100)'</span> , data <span class="op">=</span> df , c <span class="op">=</span> labels2 , </span>
+<span id="cb34-9"><a href="#cb34-9" aria-hidden="true" tabindex="-1"></a>            s <span class="op">=</span> <span class="dv">100</span> )</span>
+<span id="cb34-10"><a href="#cb34-10" aria-hidden="true" tabindex="-1"></a>plt.scatter(x <span class="op">=</span> centroids2[: , <span class="dv">0</span>] , y <span class="op">=</span>  centroids2[: , <span class="dv">1</span>] , s <span class="op">=</span> <span class="dv">300</span> , c <span class="op">=</span> <span class="st">'red'</span> , alpha <span class="op">=</span> <span class="fl">0.5</span>)</span>
+<span id="cb34-11"><a href="#cb34-11" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Spending Score (1-100)'</span>) , plt.xlabel(<span class="st">'Annual Income (k$)'</span>)</span>
+<span id="cb34-12"><a href="#cb34-12" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="chap10_kmeansclustering_files/figure-html/cell-32-output-1.png" width="1324" height="613" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="clustering-age-annual-income-and-spending-score" class="level1">
+<h1>Clustering Age, Annual Income, and Spending Score</h1>
+<div id="1c0bb7c2" class="cell" data-execution_count="32">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>X3 <span class="op">=</span> df[[<span class="st">'Age'</span> , <span class="st">'Annual Income (k$)'</span> ,<span class="st">'Spending Score (1-100)'</span>]].iloc[: , :].values</span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>inertia <span class="op">=</span> []</span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> n <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span> , <span class="dv">11</span>):</span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>    algorithm <span class="op">=</span> (KMeans(n_clusters <span class="op">=</span> n, init<span class="op">=</span><span class="st">'k-means++'</span>, n_init <span class="op">=</span> <span class="dv">10</span>, max_iter<span class="op">=</span><span class="dv">300</span>, </span>
+<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a>                        tol<span class="op">=</span><span class="fl">0.0001</span>, random_state<span class="op">=</span> <span class="dv">111</span>, algorithm<span class="op">=</span><span class="st">'elkan'</span>))</span>
+<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a>    algorithm.fit(X3)</span>
+<span id="cb35-7"><a href="#cb35-7" aria-hidden="true" tabindex="-1"></a>    inertia.append(algorithm.inertia_)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="8673fcb8" class="cell" data-execution_count="33">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>plt.figure(<span class="dv">1</span> , figsize <span class="op">=</span> (<span class="dv">10</span>,<span class="dv">5</span>))</span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>plt.plot(np.arange(<span class="dv">1</span> , <span class="dv">11</span>) , inertia , <span class="st">'o'</span>)</span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>plt.plot(np.arange(<span class="dv">1</span> , <span class="dv">11</span>) , inertia , <span class="st">'-'</span> , alpha <span class="op">=</span> <span class="fl">0.5</span>)</span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Number of Clusters'</span>) , plt.ylabel(<span class="st">'Inertia'</span>)</span>
+<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="chap10_kmeansclustering_files/figure-html/cell-34-output-1.png" width="947" height="455" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div id="a8b51b66" class="cell" data-execution_count="34">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>algorithm <span class="op">=</span> (KMeans(n_clusters <span class="op">=</span> <span class="dv">6</span> ,init<span class="op">=</span><span class="st">'k-means++'</span>, n_init <span class="op">=</span> <span class="dv">10</span> ,max_iter<span class="op">=</span><span class="dv">300</span>, </span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>                        tol<span class="op">=</span><span class="fl">0.0001</span>,  random_state<span class="op">=</span> <span class="dv">111</span>  , algorithm<span class="op">=</span><span class="st">'elkan'</span>) )</span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>algorithm.fit(X3)</span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>labels3 <span class="op">=</span> algorithm.labels_</span>
+<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a>centroids3 <span class="op">=</span> algorithm.cluster_centers_</span>
+<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-7"><a href="#cb37-7" aria-hidden="true" tabindex="-1"></a>y_kmeans <span class="op">=</span> algorithm.fit_predict(X3)</span>
+<span id="cb37-8"><a href="#cb37-8" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'cluster'</span>] <span class="op">=</span> pd.DataFrame(y_kmeans)</span>
+<span id="cb37-9"><a href="#cb37-9" aria-hidden="true" tabindex="-1"></a>df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="34">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">CustomerID</th>
+<th data-quarto-table-cell-role="th">Gender</th>
+<th data-quarto-table-cell-role="th">Age</th>
+<th data-quarto-table-cell-role="th">Annual Income (k$)</th>
+<th data-quarto-table-cell-role="th">Spending Score (1-100)</th>
+<th data-quarto-table-cell-role="th">cluster</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>1</td>
+<td>Male</td>
+<td>19</td>
+<td>15</td>
+<td>39</td>
+<td>4</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>2</td>
+<td>Male</td>
+<td>21</td>
+<td>15</td>
+<td>81</td>
+<td>5</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>3</td>
+<td>Female</td>
+<td>20</td>
+<td>16</td>
+<td>6</td>
+<td>4</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>4</td>
+<td>Female</td>
+<td>23</td>
+<td>16</td>
+<td>77</td>
+<td>5</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>5</td>
+<td>Female</td>
+<td>31</td>
+<td>17</td>
+<td>40</td>
+<td>4</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div id="ddef7c5e" class="cell" data-execution_count="35">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> plotly <span class="im">as</span> py</span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> plotly.graph_objs <span class="im">as</span> go</span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>trace1 <span class="op">=</span> go.Scatter3d(</span>
+<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span> df[<span class="st">'Age'</span>],</span>
+<span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a>    y<span class="op">=</span> df[<span class="st">'Spending Score (1-100)'</span>],</span>
+<span id="cb38-7"><a href="#cb38-7" aria-hidden="true" tabindex="-1"></a>    z<span class="op">=</span> df[<span class="st">'Annual Income (k$)'</span>],</span>
+<span id="cb38-8"><a href="#cb38-8" aria-hidden="true" tabindex="-1"></a>    mode<span class="op">=</span><span class="st">'markers'</span>,</span>
+<span id="cb38-9"><a href="#cb38-9" aria-hidden="true" tabindex="-1"></a>     marker<span class="op">=</span><span class="bu">dict</span>(</span>
+<span id="cb38-10"><a href="#cb38-10" aria-hidden="true" tabindex="-1"></a>        color <span class="op">=</span> df[<span class="st">'cluster'</span>], </span>
+<span id="cb38-11"><a href="#cb38-11" aria-hidden="true" tabindex="-1"></a>        size<span class="op">=</span> <span class="dv">10</span>,</span>
+<span id="cb38-12"><a href="#cb38-12" aria-hidden="true" tabindex="-1"></a>        line<span class="op">=</span><span class="bu">dict</span>(</span>
+<span id="cb38-13"><a href="#cb38-13" aria-hidden="true" tabindex="-1"></a>            color<span class="op">=</span> df[<span class="st">'cluster'</span>],</span>
+<span id="cb38-14"><a href="#cb38-14" aria-hidden="true" tabindex="-1"></a>            width<span class="op">=</span> <span class="dv">12</span></span>
+<span id="cb38-15"><a href="#cb38-15" aria-hidden="true" tabindex="-1"></a>        ),</span>
+<span id="cb38-16"><a href="#cb38-16" aria-hidden="true" tabindex="-1"></a>        opacity<span class="op">=</span><span class="fl">0.8</span></span>
+<span id="cb38-17"><a href="#cb38-17" aria-hidden="true" tabindex="-1"></a>     )</span>
+<span id="cb38-18"><a href="#cb38-18" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb38-19"><a href="#cb38-19" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> [trace1]</span>
+<span id="cb38-20"><a href="#cb38-20" aria-hidden="true" tabindex="-1"></a>layout <span class="op">=</span> go.Layout(</span>
+<span id="cb38-21"><a href="#cb38-21" aria-hidden="true" tabindex="-1"></a>    title<span class="op">=</span> <span class="st">'Clusters wrt Age, Income and Spending Scores'</span>,</span>
+<span id="cb38-22"><a href="#cb38-22" aria-hidden="true" tabindex="-1"></a>    scene <span class="op">=</span> <span class="bu">dict</span>(</span>
+<span id="cb38-23"><a href="#cb38-23" aria-hidden="true" tabindex="-1"></a>            xaxis <span class="op">=</span> <span class="bu">dict</span>(title  <span class="op">=</span> <span class="st">'Age'</span>),</span>
+<span id="cb38-24"><a href="#cb38-24" aria-hidden="true" tabindex="-1"></a>            yaxis <span class="op">=</span> <span class="bu">dict</span>(title  <span class="op">=</span> <span class="st">'Spending Score'</span>),</span>
+<span id="cb38-25"><a href="#cb38-25" aria-hidden="true" tabindex="-1"></a>            zaxis <span class="op">=</span> <span class="bu">dict</span>(title  <span class="op">=</span> <span class="st">'Annual Income'</span>)</span>
+<span id="cb38-26"><a href="#cb38-26" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb38-27"><a href="#cb38-27" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb38-28"><a href="#cb38-28" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> go.Figure(data<span class="op">=</span>data, layout<span class="op">=</span>layout)</span>
+<span id="cb38-29"><a href="#cb38-29" aria-hidden="true" tabindex="-1"></a>py.offline.iplot(fig)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+        <script type="text/javascript">
+        window.PlotlyConfig = {MathJaxConfig: 'local'};
+        if (window.MathJax && window.MathJax.Hub && window.MathJax.Hub.Config) {window.MathJax.Hub.Config({SVG: {font: "STIX-Web"}});}
+        </script>
+        <script type="module">import "https://cdn.plot.ly/plotly-3.0.0.min"</script>
+        
+</div>
+<div class="cell-output cell-output-display">
+<div>            <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_SVG"></script><script type="text/javascript">if (window.MathJax && window.MathJax.Hub && window.MathJax.Hub.Config) {window.MathJax.Hub.Config({SVG: {font: "STIX-Web"}});}</script>                <script type="text/javascript">window.PlotlyConfig = {MathJaxConfig: 'local'};</script>
+        <script charset="utf-8" src="https://cdn.plot.ly/plotly-3.0.0.min.js"></script>                <div id="680c1844-4d5d-4493-9557-e360b4ffec63" class="plotly-graph-div" style="height:525px; width:100%;"></div>            <script type="text/javascript">                window.PLOTLYENV=window.PLOTLYENV || {};                                if (document.getElementById("680c1844-4d5d-4493-9557-e360b4ffec63")) {                    Plotly.newPlot(                        "680c1844-4d5d-4493-9557-e360b4ffec63",                        [{"marker":{"color":{"dtype":"i4","bdata":"BAAAAAUAAAAEAAAABQAAAAQAAAAFAAAABAAAAAUAAAAEAAAABQAAAAQAAAAFAAAABAAAAAUAAAAEAAAABQAAAAQAAAAFAAAABAAAAAUAAAAEAAAABQAAAAQAAAAFAAAABAAAAAUAAAAEAAAABQAAAAQAAAAFAAAABAAAAAUAAAAEAAAABQAAAAQAAAAFAAAABAAAAAUAAAAEAAAABQAAAAEAAAAFAAAAAQAAAAMAAAAEAAAABQAAAAEAAAADAAAAAwAAAAMAAAABAAAAAwAAAAMAAAABAAAAAQAAAAEAAAABAAAAAQAAAAMAAAABAAAAAQAAAAMAAAABAAAAAQAAAAEAAAADAAAAAQAAAAEAAAADAAAAAwAAAAEAAAABAAAAAQAAAAEAAAABAAAAAwAAAAEAAAADAAAAAwAAAAEAAAABAAAAAwAAAAEAAAABAAAAAwAAAAEAAAABAAAAAwAAAAMAAAABAAAAAQAAAAMAAAABAAAAAwAAAAMAAAADAAAAAQAAAAMAAAABAAAAAwAAAAMAAAABAAAAAQAAAAMAAAABAAAAAwAAAAEAAAABAAAAAQAAAAEAAAABAAAAAwAAAAMAAAADAAAAAwAAAAMAAAABAAAAAQAAAAEAAAABAAAAAwAAAAMAAAADAAAAAgAAAAMAAAACAAAAAAAAAAIAAAAAAAAAAgAAAAAAAAACAAAAAwAAAAIAAAAAAAAAAgAAAAAAAAACAAAAAAAAAAIAAAAAAAAAAgAAAAMAAAACAAAAAAAAAAIAAAAAAAAAAgAAAAAAAAACAAAAAAAAAAIAAAAAAAAAAgAAAAAAAAACAAAAAAAAAAIAAAAAAAAAAgAAAAAAAAACAAAAAAAAAAIAAAAAAAAAAgAAAAAAAAACAAAAAAAAAAIAAAAAAAAAAgAAAAAAAAACAAAAAAAAAAIAAAAAAAAAAgAAAAAAAAACAAAAAAAAAAIAAAAAAAAAAgAAAAAAAAACAAAAAAAAAAIAAAAAAAAAAgAAAAAAAAACAAAAAAAAAAIAAAAAAAAAAgAAAAAAAAACAAAAAAAAAAIAAAA="},"line":{"color":{"dtype":"i4","bdata":"BAAAAAUAAAAEAAAABQAAAAQAAAAFAAAABAAAAAUAAAAEAAAABQAAAAQAAAAFAAAABAAAAAUAAAAEAAAABQAAAAQAAAAFAAAABAAAAAUAAAAEAAAABQAAAAQAAAAFAAAABAAAAAUAAAAEAAAABQAAAAQAAAAFAAAABAAAAAUAAAAEAAAABQAAAAQAAAAFAAAABAAAAAUAAAAEAAAABQAAAAEAAAAFAAAAAQAAAAMAAAAEAAAABQAAAAEAAAADAAAAAwAAAAMAAAABAAAAAwAAAAMAAAABAAAAAQAAAAEAAAABAAAAAQAAAAMAAAABAAAAAQAAAAMAAAABAAAAAQAAAAEAAAADAAAAAQAAAAEAAAADAAAAAwAAAAEAAAABAAAAAQAAAAEAAAABAAAAAwAAAAEAAAADAAAAAwAAAAEAAAABAAAAAwAAAAEAAAABAAAAAwAAAAEAAAABAAAAAwAAAAMAAAABAAAAAQAAAAMAAAABAAAAAwAAAAMAAAADAAAAAQAAAAMAAAABAAAAAwAAAAMAAAABAAAAAQAAAAMAAAABAAAAAwAAAAEAAAABAAAAAQAAAAEAAAABAAAAAwAAAAMAAAADAAAAAwAAAAMAAAABAAAAAQAAAAEAAAABAAAAAwAAAAMAAAADAAAAAgAAAAMAAAACAAAAAAAAAAIAAAAAAAAAAgAAAAAAAAACAAAAAwAAAAIAAAAAAAAAAgAAAAAAAAACAAAAAAAAAAIAAAAAAAAAAgAAAAMAAAACAAAAAAAAAAIAAAAAAAAAAgAAAAAAAAACAAAAAAAAAAIAAAAAAAAAAgAAAAAAAAACAAAAAAAAAAIAAAAAAAAAAgAAAAAAAAACAAAAAAAAAAIAAAAAAAAAAgAAAAAAAAACAAAAAAAAAAIAAAAAAAAAAgAAAAAAAAACAAAAAAAAAAIAAAAAAAAAAgAAAAAAAAACAAAAAAAAAAIAAAAAAAAAAgAAAAAAAAACAAAAAAAAAAIAAAAAAAAAAgAAAAAAAAACAAAAAAAAAAIAAAAAAAAAAgAAAAAAAAACAAAAAAAAAAIAAAA="},"width":12},"opacity":0.8,"size":10},"mode":"markers","x":{"dtype":"i1","bdata":"ExUUFx8WIxdAHkMjOhglFiMUNCMjGS4fNh0tIygXPBU1EjEVKh4kFEEYMB8xGDIbHR8xIR87Mi8zRRs1RhNDNj8SK0QTIEYvPDw7Gi0oFzE5JkMuFTA3FiIyRBIwKCAYLxswFBcxQxoxFUI2REJBEyYTEhM\u002fMTMyGyYoJxcfKyg7Ji8nGR8UHSwgEyM5IBwgGRwwICIiKycsJi8bJR4iHjgdEx8yJCohJCAoHCQkNB46GzsjJSAuHSkeNhwpJCIgISYvIy0gIB4="},"y":{"dtype":"i1","bdata":"J1EGTShMBl4DSA5jD00NTyNCHWIjSQVJDlIgPR9XBEkEXA5REUkaSyNcJD0cQTcvKio0PDY8LSkyLjMuODc0OzM7MjA7LzcqMTgvNjUwNCozNyksOS46NzwuNykxKCo0LzIqMSkwOzc4KjIuKzA0NiouMDIrOys5OCg6Wx1NI18LSwlLIkcFWAdJCkgFXShXDGEkShZaEVgUTBBZAU4BSSNTBV0aSxRfGz8NSwpcDVYPRQ5aIFYPWCdhGEQRVRdFCFsQTxxKElM="},"z":{"dtype":"i2","bdata":"DwAPABAAEAARABEAEgASABMAEwATABMAFAAUABQAFAAVABUAFwAXABgAGAAZABkAHAAcABwAHAAdAB0AHgAeACEAIQAhACEAIgAiACUAJQAmACYAJwAnACcAJwAoACgAKAAoACoAKgArACsAKwArACwALAAuAC4ALgAuAC8ALwAwADAAMAAwADAAMAAxADEAMgAyADYANgA2ADYANgA2ADYANgA2ADYANgA2ADkAOQA6ADoAOwA7ADwAPAA8ADwAPAA8AD0APQA+AD4APgA+AD4APgA\u002fAD8APwA\u002fAD8APwBAAEAAQQBBAEEAQQBDAEMAQwBDAEUARQBGAEYARwBHAEcARwBHAEcASABIAEkASQBJAEkASgBKAEsASwBMAEwATQBNAE0ATQBOAE4ATgBOAE4ATgBOAE4ATgBOAE4ATgBPAE8AUQBRAFUAVQBWAFYAVwBXAFcAVwBXAFcAWABYAFgAWABdAF0AYQBhAGIAYgBjAGMAZQBlAGcAZwBnAGcAcQBxAHgAeAB+AH4AiQCJAA=="},"type":"scatter3d"}],                        {"scene":{"xaxis":{"title":{"text":"Age"}},"yaxis":{"title":{"text":"Spending Score"}},"zaxis":{"title":{"text":"Annual Income"}}},"template":{"data":{"barpolar":[{"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"type":"carpet"}],"choropleth":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"choropleth"}],"contourcarpet":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"contourcarpet"}],"contour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"contour"}],"heatmap":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"heatmap"}],"histogram2dcontour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2dcontour"}],"histogram2d":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2d"}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"mesh3d":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"mesh3d"}],"parcoords":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"parcoords"}],"pie":[{"automargin":true,"type":"pie"}],"scatter3d":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatter3d"}],"scattercarpet":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattercarpet"}],"scattergeo":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattergeo"}],"scattergl":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattergl"}],"scattermapbox":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattermapbox"}],"scattermap":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattermap"}],"scatterpolargl":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolargl"}],"scatterpolar":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolar"}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"scatterternary":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterternary"}],"surface":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"surface"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}]},"layout":{"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"autotypenumbers":"strict","coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]],"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]},"colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"geo":{"bgcolor":"white","lakecolor":"white","landcolor":"#E5ECF6","showlakes":true,"showland":true,"subunitcolor":"white"},"hoverlabel":{"align":"left"},"hovermode":"closest","mapbox":{"style":"light"},"margin":{"b":0,"l":0,"r":0,"t":30},"paper_bgcolor":"white","plot_bgcolor":"#E5ECF6","polar":{"angularaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"bgcolor":"#E5ECF6","radialaxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"scene":{"xaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","gridwidth":2,"linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white"},"yaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","gridwidth":2,"linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white"},"zaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","gridwidth":2,"linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white"}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"ternary":{"aaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"baxis":{"gridcolor":"white","linecolor":"white","ticks":""},"bgcolor":"#E5ECF6","caxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"title":{"x":0.05},"xaxis":{"automargin":true,"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","zerolinewidth":2},"yaxis":{"automargin":true,"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","zerolinewidth":2}}},"title":{"text":"Clusters wrt Age, Income and Spending Scores"}},                        {"responsive": true}                    ).then(function(){
+                            
+var gd = document.getElementById('680c1844-4d5d-4493-9557-e360b4ffec63');
+var x = new MutationObserver(function (mutations, observer) {{
+        var display = window.getComputedStyle(gd).display;
+        if (!display || display === 'none') {{
+            console.log([gd, 'removed!']);
+            Plotly.purge(gd);
+            observer.disconnect();
+        }}
+}});
+
+// Listen for the removal of the full notebook cells
+var notebookContainer = gd.closest('#notebook-container');
+if (notebookContainer) {{
+    x.observe(notebookContainer, {childList: true});
+}}
+
+// Listen for the clearing of the current output cell
+var outputEl = gd.closest('.output');
+if (outputEl) {{
+    x.observe(outputEl, {childList: true});
+}}
+
+                        })                };            </script>        </div>
+</div>
+</div>
+</section>
+<section id="conclusion" class="level1">
+<h1>Conclusion</h1>
+
+
+</section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

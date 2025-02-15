@@ -1,5 +1,344 @@
 ---
-title: "<center> Chapter # 08 <br> Decision Tree"
+title: "<center> Chapter # 08 <br> Decision Tree for Classification & Regression"
 format: html
 ---
 
+
+
+## Introduction
+Decision Tree (DT) is a supervised Machine Learning (ML) algorithm; however, it is not an individual algorithm, rather it refers to a set of algorirthms that use decision tree structure. The DT can solve both classification and regression tasks, handle continuous and categorical predictors, and are suited to sloving multi-class classification problems. Decision tree forms a flow chart like structure that's why they are very easy to interpret and understand. It is one of the few ML algorithms where it is very easy to visualize and analyze the internal working of algorithm. The decision tree is a distribution-free or non-parametric method, which does not depend upon probability distribution assumptions. Decision trees can handle high dimensional data with good accuracy. Moreover, Its training time is faster compared to the neural network algorithm. The time complexity of decision trees is a function of the number of records and number of attributes in the given data.
+
+The basic premise of *all*  tree-based *classification* algorithms is that they learn a sequence of questions that separates cases into different classes. Each question has a binary answer, and cases will be sent down the left or right branch depending on which criteria they meet. There can be branches within branches; and once the model is learned, it can be graphically represented as a tree.  
+
+![Structure of a Decision Tree](images/Decision_Tree.png){#fig-decisiontree}
+
+Just like flowchart, decision tree contains different types of nodes and branches. @fig-decisiontree shows the basic structure of decision tree algorithm. Every decision node represent the test on feature and based on the test result it will either form another branch or the leaf node.
+
+```{python}
+#| include: false
+#| eval: false
+# Link - https://www.kaggle.com/code/satishgunjal/tutorial-decision-tree
+# Link - https://www.kaggle.com/code/alirezahasannejad/decision-tree-classifier-tutorial
+```
+
+## Decision Tree Algorithm Terminology 
+
+There are several terms in DT. Understanding of the those terms is important. Some of the terms are elaborated below - 
+
+* `Root Node` - The question parts of the tree are called nodes, and the very
+ first question/node is called the root node. Nodes have one branch leading to them
+ and two branches leading away from them
+
+* `Splitting` - It is a process of dividing a node into two or more sub-nodes
+
+* `Decision Node` - When a sub-node splits into further sub-nodes, then it is called a decision node
+
+* `Leaf/Terminal Node` - Nodes that do not split are called Leaf or Terminal nodes. Leaf nodes have a single branch leading to them but no branches leading away from them
+
+* `Pruning` - When we remove sub-nodes of a decision node, this process is called pruning. It is the opposite process of splitting
+
+* `Branch/Sub Tree`  - A sub-section of an entire tree is called a branch or sub-tree
+
+* `Parent and Child Node` - A node, which is divided into sub-nodes is called the parent node of sub-nodes where sub-nodes are the children of a parent node 
+
+## How Does Decision Tree Work?
+
+At each stage of the tree-building process, the decision tree algorithm considers all of the predictor variables and selects the predictor that does the best job of discriminating the classes. It starts at the root and then, at each branch, looks again for the next feature that will best discriminate the classes of the cases that took that branch.
+
+To sum up, the steps decision tree follows are given below. @fig-howdtworks shows how decision tree works. 
+
+1. Select the best attribute using Attribute Selection Measures (ASM) to split the cases
+
+2. Make that attribute a decision node and breaks the dataset into smaller subsets 
+
+3. Start tree builiding by repeating this process recursively for each child until one of the following conditions matches - 
+
+* All the data points (or tuples) in a particular node of the tree have the same value for a specific attribute. This typically happens when the node is a leaf node, indicating that the data points have been perfectly classified according to the target attribute. In other words, there's no further need to split the node because it already represents a homogeneous group with respect to the target attribute. For example, if you're classifying animals and you reach a node where all the animals are "mammals," then all the tuples in that node belong to the same attribute value "mammal." This means the decision tree has successfully classified this subset of data.
+
+* There are no more remaining attributes 
+
+* There are no more instances 
+
+![How Decision Tree Works](images/how-dt-works.webp){#fig-howdtworks}
+
+### Attribute Selection Measures (ASM)
+
+The objective of decision tree is to split the data in such a way that at the end we have different groups of data which has more similarity (Homogeneousness) and less randomness/impurity^[Impurity is a measure of how heterogenous the classes are within a node. *Entropy* and *gini index* are two ways of measuring *impurity*] (Heterogenousness). In order to achieve this, every split in decision tree must reduce the randomness. Decision tree uses *entropy* (Information Gain) or *gini index* (Gini Gain) selection criteria to split the categorical outcome variable (classification), but uses *mse*, *friedman_mse* and *mae* continuous outcome variable (regression).
+
+#### Entropy (Information Gain)
+
+In order to find the best feature which will reduce the randomness after a split, we can compare the randomness before and after the split for every feature. In the end we choose the feature which will provide the highest reduction in randomness. Formally randomness in data is known as `Entropy` and difference between the `Entropy` before and after split is known as `Information Gain`. Since decision trees will have multiple branches, information gain formula is -  
+
+$$Information Gain = Entropy (Parent Decision Node) - (Average Entropy (Child Nodes))$$
+
+The formula for Entropy is - 
+
+$$Entropy = \sum_i - P_i log_2 P_i$$
+
+Above, the subscript *i* indicates the classes in target variable. 
+
+#### Gini Index (Gini Gain)
+
+In case of gini impurity, we pick a random data point in our dataset. Then randomly classify it according to the class distribution in the dataset. So it becomes very important to know the accuracy of this random classification. Gini impurity gives us the probability of incorrect classification. We’ll determine the quality of the split by weighting the impurity of each branch by how many elements it has. Resulting value is called as 'Gini Gain' or 'Gini Index'. This is what’s used to pick the best split in a decision tree. The Higher the gini gain, the better the split. 
+
+$$ Gini = 1 - \sum_iP^2_i$$
+
+@fig-giniindex shows gini index for a subtree (parent and child node) - 
+
+![Calculation of Gini Index](images/gini-index.png){#fig-giniindex}
+
+$$ Gini index_{split} = p(left)\times Gini Index_{left} + p(right)\times Gini index_{right}$$
+$$ Gini index_{split} = {14 \over 20}\times 0.34 + {6\over 20}\times 0.28 = 0.32$$
+
+$$Gini Gain = 0.48 - 0.32 = 0.16$$
+
+## Hyperparameter in Decision Tree 
+
+Decision tree algorithms are described as *greedy*. By greedy, we mean they search for the split that will perform best at the *current node*, rather than the one that will produce the best result *globally*. For example, a particular split might discriminate the classes best at the current node but result in poor separation further down that branch. Conversely, a split that results in poor separation at the current node may yield better separation further down the tree. Decision tree algorithms would never pick this second split because they **only look at** *locally optimal* splits, instead of *globally optimal* ones. Therefore, there are three issues with the approach - 
+
+1. The algorithm isn’t guaranteed to learn a globally optimal model.
+
+2. If left unchecked, the tree will continue to grow deeper until all the leaves are pure (of only one class).
+
+3. For large datasets, growing extremely deep trees becomes *computationally expensive*. 
+
+## Overfitting in Decision Tree Algorithm 
+
+While it’s true that decision tree algorithm isn’t guaranteed to learn a globally optimal model, the depth of the tree is of greater concern to us. Besides the computational cost, growing a full-depth tree until all the leaves are pure is very likely to overfit the training set and create a model with high variance. This is because as the feature space is split up into smaller and smaller pieces, we’re much more likely to start modeling the noise in the data.
+
+How do we guard against such extravagant tree building? There are two ways of doing it:
+
+* Grow a full tree, and then *prune* it (Post-pruning)
+
+* Employ *stopping criteria* (Pre-pruning)
+
+In the first approach, we allow the greedy algorithm to grow its full, overfit tree, and then we get out our garden shears and remove leaves that don’t meet certain criteria. This process is imaginatively named *pruning*, because we end up removing branches and leaves from our tree. This is sometimes called *bottom-up* pruning because we start from the leaves and prune up toward the root.
+
+In the second approach, we include conditions during tree building that will force splitting to stop if certain criteria aren’t met. This is sometimes called *top-down* pruning because we are pruning the tree as it grows down from the root.
+
+Both approaches may yield comparable results in practice, but there is a slight computational edge to top-down pruning because we don’t need to grow full trees and then prune them back. For this reason, we will use the stopping criteria approach.
+
+The stopping criteria we can apply at each stage of the tree-building process are as follows:
+
+* Minimum number of cases in a node before splitting (`min_samples_split` argument in scikit learn) - This parameter specifies the minimum number of samples required to split an internal node. By setting this parameter, you can control the minimum number of cases (or samples) that must be present in a node before it can be split into smaller nodes.
+
+* Maximum depth of the tree (`max_depth`) - This parameter controls the maximum number of levels in the tree. By setting this parameter, you can limit the depth of the tree to prevent overfitting.
+
+* Minimum improvement in performance for a split (`min_impurity_decrease`) - This parameter specifies the minimum decrease in impurity required for a node to be split. By setting this parameter, you can control the minimum improvement in performance needed to justify a split.
+
+* Minimum number of cases in a leaf (`min_samples_leaf`) - This parameter specifies the minimum number of samples required to be at a leaf node. By setting this parameter, you can control the minimum number of cases (or samples) that must be present in a leaf node.
+
+@fig-hyperparameter shows some of these stopping criteria - 
+
+![Pruning (Hyperparameter) in Decision Tree](images/hyper-parameter.png){#fig-hyperparameter}
+
+## Pros and Cons of Decision Tree Algorithm 
+There are many advantages of using decision tree. However, it also involves some cons. Some pros and cons are discussed below - 
+
+**Advantages** - 
+
+1. Simple to understand and to interpret. Trees can be visualized.
+
+2. Requires little data preparation. Other techniques often require data normalization, dummy variables need to be created and blank values to be removed. Note however that this algorithm does not support missing values.
+
+3. Able to handle both numerical and categorical data.
+
+4. Able to handle multi-output problems.
+
+4. Uses a white box model. Results are easy to interpret.
+
+5. Possible to validate a model using statistical tests. That makes it possible to account for the reliability of the model.
+
+6. The decision tree has no assumptions about distribution because of the non-parametric nature of the algorithm.
+
+7. It can be used for feature engineering such as predicting missing values, suitable for variable selection.
+
+8. It can easily capture Non-linear patterns.
+
+**Disadvantages** - 
+
+1. Decision-tree learners can create over-complex trees that do not generalize the data well. This is called overfitting. Mechanisms such as pruning, setting the minimum number of samples required at a leaf node or setting the maximum depth of the tree are necessary to avoid this problem.
+
+2. Decision trees can be unstable because small variations in the data might result in a completely different tree being generated. This problem is mitigated by using decision trees within an ensemble.
+
+3. Decision tree learners create biased trees if some classes dominate. It is therefore recommended to balance the dataset prior to fitting with the decision tree.
+
+
+## Building Decision Tree Model in `scikit learn`
+
+```{python}
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt 
+import seaborn as sns
+zoo = pd.read_csv("https://raw.githubusercontent.com/selva86/datasets/refs/heads/master/Zoo.csv")
+```
+
+```{python}
+zoo.info()
+```
+
+```{python}
+zoo.isna().sum()
+```
+
+```{python}
+import sklearn 
+```
+
+```{python}
+# Declare feature vector and target variable 
+X = zoo.drop(columns = ['type'], axis = 1)
+y = zoo['type'] 
+```
+
+```{python}
+# Split Data into Training and Testing 
+from sklearn.model_selection import train_test_split
+X_train, X_test, y_train, y_test = train_test_split(X,y, test_size = 0.20,
+random_state = 2025)
+```
+
+### Decision Tree using `gini`
+
+```{python}
+from sklearn.tree import DecisionTreeClassifier 
+from sklearn.metrics import accuracy_score, confusion_matrix
+#####################################
+# Decision Tree using Gini Index
+#####################################
+
+tree_gini = DecisionTreeClassifier(criterion = "gini")
+tree_gini.fit(X_train, y_train)
+
+y_pred = tree_gini.predict(X_test)
+
+accuracy = accuracy_score(y_test, y_pred)
+print(f"Accuracy: {accuracy}")
+```
+
+```{python}
+#| warning: false 
+#| message: false 
+# Plotting Decision Tree 
+plt.figure(figsize=(12,8))
+from sklearn import tree
+tree.plot_tree(tree_gini.fit(X_train, y_train))
+```
+
+
+```{python}
+# Compare Train and Test set Accuracy 
+y_pred_train_gini = tree_gini.predict(X_train)
+print('Training-set accuracy score: {0:0.4f}'. format(accuracy_score(y_train, y_pred_train_gini)))
+
+# Check for overfitting and underfitting
+print('Training set score: {:.4f}'.format(tree_gini.score(X_train, y_train)))
+print('Test set score: {:.4f}'.format(tree_gini.score(X_test, y_test)))
+```
+
+### Decision Tree using `entropy` 
+
+```{python}
+#####################################
+# Decision Tree using entropy (Information Gain) 
+#####################################
+tree_entropy = DecisionTreeClassifier(criterion = "entropy")
+
+tree_entropy.fit(X_train, y_train)
+
+y_pred = tree_entropy.predict(X_test)
+
+accuracy = accuracy_score(y_test, y_pred)
+print(f"Accuracy: {accuracy}")
+```
+
+```{python}
+# Plotting Decision Tree 
+plt.figure(figsize=(12,8))
+tree.plot_tree(tree_entropy.fit(X_train, y_train))
+```
+
+```{python}
+# Compare Train and Test set Accuracy 
+y_pred_train_entropy = tree_entropy.predict(X_train)
+print('Training-set accuracy score: {0:0.4f}'. format(accuracy_score(y_train, y_pred_train_entropy)))
+
+# Check for overfitting and underfitting
+print('Training set score: {:.4f}'.format(tree_entropy.score(X_train, y_train)))
+print('Test set score: {:.4f}'.format(tree_entropy.score(X_test, y_test)))
+
+```
+
+### Hyperparameter Tuning with Cross Validation 
+
+```{python}
+####################################################
+# Hyperparameter Tuning
+####################################################
+from sklearn.model_selection import GridSearchCV, StratifiedKFold
+
+tree_hyp = DecisionTreeClassifier(random_state=420)
+tree_hyp.fit(X_train, y_train)
+param = {
+    'min_samples_split': np.arange(5,21),
+    'min_samples_leaf': np.arange(3,11),
+    'max_depth': np.arange(3,11), 
+    'ccp_alpha': np.arange (0.01, 0.10)
+
+}
+
+Kfold = StratifiedKFold(n_splits=5, shuffle=True, random_state=19)
+```
+
+```{python}
+# Creating the grid 
+
+best = GridSearchCV(estimator = tree_hyp,param_grid=param, cv = Kfold, n_jobs = -1, verbose = 1)
+best.fit(X_train, y_train)
+best.best_params_ # Best set of parameters 
+```
+
+```{python}
+best.best_estimator_ # best estimator
+```
+
+```{python}
+y_pred_hyp = best.predict(X_test)
+accuracy_score(y_pred_hyp, y_test)
+```
+
+```{python}
+pd.DataFrame(best.cv_results_).head()
+```
+
+```{python}
+## Running the model using best hyperparameter 
+tree_best = best.best_estimator_
+```
+
+
+```{python}
+# predicting using the hyperparameter
+accuracy_score(y_train,tree_best.predict(X_train))
+```
+
+```{python}
+# confusion matrix
+confusion_matrix (y_train, tree_best.predict(X_train))
+```
+
+```{python}
+ 
+```
+
+```{python}
+
+```
+
+```{python}
+
+```
+
+
+## Conclusion

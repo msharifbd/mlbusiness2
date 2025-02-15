@@ -3,3 +3,310 @@ title: "<center> Chapter # 09 <br> Dimension Reduction & PCA"
 format: html
 ---
 
+
+# Introduction 
+
+This document is prepared using `Quarto` in `RStudio`. The `Quarto` file (`.qmd`) can be converted to notebook (`.ipynb`) by running the code - `quarto convert filename.qmd` - in the terminal of `RStudio`. Similarly a Python `notebook` file (`.ipynb`) can be converted into `Quarto` (`.qmd`) by running the code - `quarto convert filename.ipynb` in the terminal of `RStudio`. More about the conversion can be found [here](!https://quarto.org/docs/tools/jupyter-lab.html).
+
+
+Useful Youtube video link for [PCA](https://www.youtube.com/watch?v=S51bTyIwxFs)
+
+# What is Principal Component Analysis (PCA)?
+
+
+
+# Working Directory
+
+```{python}
+#| eval: false
+import os
+os.getcwd()
+for files in os.listdir():
+  print(files)
+
+# Ignore Warnings 
+import warnings 
+warnings.filterwarnings('ignore')
+```
+
+# Loading Necessary `Python` Packages
+
+```{python}
+# For Data Manipulation & Analysis
+import pandas as pd
+import numpy as np
+# For visualization 
+import matplotlib.pyplot as plt 
+import seaborn as sns
+# For Machine Learning 
+import sklearn 
+```
+
+# Loading Dataset
+
+```{python}
+from sklearn import datasets
+cancer = datasets.load_breast_cancer()
+dir(cancer)
+cancer.keys()
+```
+
+```{python}
+df = pd.DataFrame(cancer.data, columns = cancer.feature_names)
+df.head()
+```
+
+
+```{python}
+df.shape
+print ("The number of rows and columns in the dataset is {} and {} respectively".format(df.shape[0], df.shape[1]))
+```
+## Metadata of the Dataset 
+
+```{python}
+df.info()
+```
+
+```{python}
+df.isnull().sum()
+```
+
+
+# Correlation of the variables 
+
+```{python}
+correlation = df.corr()
+plt.figure(figsize=(20,17))
+sns.heatmap(correlation, vmax=1, square=True,annot=True,cmap='cubehelix')
+plt.title('Correlation between different features')
+plt.show()
+```
+
+# Preprocessing of the Dataset
+
+```{python}
+from sklearn.preprocessing import StandardScaler
+scaler = StandardScaler()
+scaled_data = scaler.fit_transform(df)
+scaled_df = pd.DataFrame(scaled_data, columns = cancer.feature_names)
+scaled_df.sample(5)
+```
+
+```{python}
+print('The mean and standard deviation of  \
+the variable "mean radius" are {} and {} \
+respectively.'.format(round(scaled_df['mean radius'].mean(),4), round(scaled_df['mean radius'].std(),4)))
+```
+
+
+# Covariance Matrix
+
+
+```{python}
+mean_vec = np.mean(scaled_data, axis=0)
+cov_mat = (scaled_data - mean_vec).T.dot((scaled_data - mean_vec)) / (scaled_data.shape[0]-1)
+print('Covariance matrix \n%s' %cov_mat)
+```
+
+# Eigenvalues and Eigenvectors
+
+```{python}
+eig_vals, eig_vecs = np.linalg.eig(cov_mat)
+
+print('\nEigenvalues \n%s' %eig_vals)
+```
+
+```{python}
+eig_val_df = pd.DataFrame(eig_vals, columns=['Eigenvalue'])
+eig_val_df
+```
+
+
+```{python}
+print('Eigenvectors \n%s' %eig_vecs)
+```
+
+# PCA Visualization 
+
+```{python}
+# importing PCA module 
+from sklearn.decomposition import PCA
+pca = PCA (n_components=6)
+pca.fit(scaled_data)
+x_pca = pca.transform(scaled_data)
+```
+
+
+## Scree Plot 
+
+```{python}
+sns.set_style ('whitegrid')
+PC_values = np.arange(pca.n_components_) + 1
+plt.plot(PC_values, pca.explained_variance_ratio_, 'o-', linewidth=2, color='green')
+plt.title('Scree Plot')
+plt.xlim(0,7)
+plt.xlabel('Principal Component')
+plt.ylabel('Variance Explained')
+plt.xticks(ticks=range(1, 8, 1))  # Set the x-ticks with an interval of 1
+plt.show()
+```
+
+## Cumulative Variance Plot 
+
+```{python}
+sns.set_style('whitegrid')
+# Plot the cumulative variance for each component
+plt.figure(figsize = (8, 4))
+components = np.arange(1, 7, step=1)
+variance = np.cumsum(pca.explained_variance_ratio_)
+plt.ylim(0.0,1.1)
+plt.plot(components, variance, marker='o', color='green')
+# plt.plot(components, variance, marker='o', linestyle='--', color='green')
+
+plt.xlabel('Number of Components')
+plt.ylabel('Cumulative variance (%)')
+plt.title('The number of components needed to explain variance')
+plt.show()
+```
+
+
+```{python}
+pca.explained_variance_ratio_.sum()
+```
+
+
+```{python}
+pca.get_covariance()
+```
+
+```{python}
+x_pca.shape
+```
+
+
+```{python}
+x_pca
+```
+
+
+```{python}
+# Convert to dataframe
+component_names = [f"PC{i+1}" for i in range(x_pca.shape[1])]
+x_pca_df = pd.DataFrame(x_pca, columns=component_names)
+```
+
+```{python}
+x_pca_df.head()
+```
+
+
+```{python}
+loadings = pd.DataFrame(
+    pca.components_.T,  # transpose the matrix of loadings
+    columns=component_names,  # so the columns are the principal components
+    index=cancer.feature_names,  # and the rows are the original features
+)
+```
+
+```{python}
+loadings
+```
+
+
+```{python}
+sns.set_style('whitegrid')
+plt.figure(figsize=(12,8))
+plt.scatter(x_pca[:,0], x_pca[:,1],
+            c = cancer['target'], cmap='plasma')
+plt.xlabel('PCA1')
+plt.ylabel('PCA2')
+plt.show()
+```
+
+# Using Principal Component Scores for Other Machine Learning Algorithm
+
+```{python}
+x_pca_df2 = x_pca_df.copy()
+x_pca_df2['target'] = cancer.target # Adding the target variable with the PCA values 
+```
+
+```{python}
+x_pca_df2.sample(5)
+```
+
+
+```{python}
+x_pca_df2['target'].value_counts()
+```
+
+```{python}
+final_df = x_pca_df2.copy()
+```
+
+
+```{python}
+from sklearn.linear_model import LogisticRegression
+from sklearn.model_selection import train_test_split
+logreg = LogisticRegression()
+```
+
+
+```{python}
+# Feature and Target Vectors 
+Xlog = final_df.drop(['target'], axis=1)
+ylog = final_df['target']
+```
+
+```{python}
+# Training and Testing Split 
+Xlog_train, Xlog_test, ylog_train, ylog_test = train_test_split(Xlog, ylog, test_size=0.20, random_state=420)
+```
+
+
+```{python}
+logreg.fit(Xlog_train, ylog_train)
+```
+
+
+```{python}
+ylog_predict = logreg.predict(Xlog_test)
+```
+
+
+```{python}
+from sklearn.metrics import accuracy_score
+accuracy_score(ylog_test, ylog_predict)
+```
+
+## Logistic Regression with Original Dataset
+
+```{python}
+# For original dataset 
+Xorg = cancer['data']
+yorg = cancer['target']
+
+
+# for original dataset 
+Xorg_train, Xorg_test, yorg_train, yorg_test = train_test_split(Xorg, yorg, test_size=0.20, random_state=500) # for original dataset 
+
+
+# for original dataset 
+logreg.fit(Xorg_train, yorg_train)
+
+
+# for original dataset 
+yorg_predict = logreg.predict(Xorg_test)
+```
+
+
+```{python}
+# for original dataset 
+accuracy_score(yorg_test, yorg_predict)
+```
+
+
+The accuracy score in original dataset is about 95%, which is less than principal component score result where accuracy is about 98%.
+
+# Conclusion 
+
+

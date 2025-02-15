@@ -1,1 +1,1 @@
-{"headings":[],"entries":[]}
+{"headings":["introduction","what-is-principal-component-analysis-pca","working-directory","loading-necessary-python-packages","loading-dataset","metadata-of-the-dataset","correlation-of-the-variables","preprocessing-of-the-dataset","covariance-matrix","eigenvalues-and-eigenvectors","pca-visualization","scree-plot","cumulative-variance-plot","using-principal-component-scores-for-other-machine-learning-algorithm","logistic-regression-with-original-dataset","conclusion"],"entries":[]}
