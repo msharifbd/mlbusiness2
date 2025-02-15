@@ -35,6 +35,6 @@ The book is available on [`Amazon`](https://www.amazon.com/Hands-Machine-Learnin
 
 ![](images/thumbnail_large.jpg){width="30%" height="30%" fig-align="center"}
 
+04. To learn about how to deploy Machine Learning Models into Production, `Machine Learning in Production: From Models to Products` by  `Christian Kästner` can be used. The book is not needed to purchase. An [`online version`](https://mlip-cmu.github.io/book/index.html) of the book is available. A github repository for the course is also available [here](https://ckaestne.github.io/seai/) and [here](https://mlip-cmu.github.io/).
 
-
-
+![](images/ml_in_production.avif){width="30%" height="30%" fig-align="center"}
