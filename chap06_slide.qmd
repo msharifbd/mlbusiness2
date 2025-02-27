@@ -1,0 +1,97 @@
+---
+title: "<center> Chapter # 06 <br> Naive Bayes Theorem & Support Vector Machine (SVM)"
+format:
+    revealjs: 
+        theme: beige
+        controls: true
+        navigation-mode: vertical
+        self-contained: true
+        slide-number: true
+        slide-tone: true
+        css: styles.css
+---
+
+## Introduction 
+![](images/chap06-1.jpg)
+
+## Naive Bayes Theorem
+![](images/chap06-2.jpg)
+
+## What is Naive Bayes Algorithm?
+![](images/chap06-3.jpg)
+
+## Naive Bayes Theorem (Cont'd) 
+![](images/chap06-4.jpg)
+
+## Naive Bayes Theorem (Cont'd)
+![](images/chap06-5.jpg)
+
+## Naive Bayes Theorem (Cont'd)
+![](images/chap06-6.jpg)
+
+## Naive Bayes Theorem (Cont'd)
+![](images/chap06-7.jpg)
+
+## Strengths and Weankesses of Naive Bayes 
+![](images/chap06-8.jpg)
+
+## Strengths and Weankesses of Naive Bayes (Cont'd) 
+![](images/chap06-9.jpg)
+
+## Support Vector Machines (SVM)  
+![](images/chap06-10.jpg)
+
+## Support Vector Machines (SVM) (Cont'd) 
+![](images/chap06-11.jpg)
+
+## Support Vector Machines (SVM) (Cont'd) 
+![](images/chap06-12.jpg)
+
+## Support Vector Machines (SVM) (Cont'd)
+![](images/chap06-13.jpg)
+
+## What If the Classes are Not Fully Separable?  
+![](images/chap06-14.jpg)
+
+## SVM for Non-linearly Separable Data  
+![](images/chap06-15.jpg)
+
+## SVM for Non-linearly Separable Data (Cont'd)  
+![](images/chap06-16.jpg)
+
+## Hyperparameters of SVM Algorithm 
+![](images/chap06-17.jpg)
+
+## Hyperparameters of SVM Algorithm (Cont'd) 
+![](images/chap06-18.jpg)
+
+## Hyperparameters of SVM Algorithm (Cont'd) 
+![](images/chap06-19.jpg)
+
+## More than Two (02) Classes 
+![](images/chap06-20.jpg)
+
+## More than Two (02) Classes (Cont'd)
+![](images/chap06-21.jpg)
+
+## More than Two (02) Classes (Cont'd)
+![](images/chap06-22.jpg)
+
+## More than Two (02) Classes (Cont'd)
+![](images/chap06-23.jpg)
+
+## Strengths and Weakness of SVM
+![](images/chap06-24.jpg)
+
+
+## Questions or Queries {style="text-align:center;"}
+
+::: columns
+::: {.column width="50%" style="text-align:center;"}
+![Questions](images/question1.jpeg){fig-align="center"}
+:::
+
+::: {.column width="50%" style="text-align:center;"}
+![Queries](images/question2.jpeg){fig-align="center"}
+:::
+:::

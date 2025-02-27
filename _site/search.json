@@ -2923,5 +2923,305 @@
     "title": "Machine Learning in Business",
     "section": "",
     "text": "MIT License\nCopyright (c) 2024, Marco Gorelli\nPermission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:\nThe above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.\nTHE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.\n\n\n\n Back to top"
+  },
+  {
+    "objectID": "chap06_slide.html#introduction",
+    "href": "chap06_slide.html#introduction",
+    "title": "\nChapter # 06  Naive Bayes Theorem & Support Vector Machine (SVM)",
+    "section": "Introduction",
+    "text": "Introduction",
+    "crumbs": [
+      "Modules & Slides",
+      "Slides",
+      "<center> Chapter # 06 <br> Naive Bayes Theorem & Support Vector Machine (SVM)"
+    ]
+  },
+  {
+    "objectID": "chap06_slide.html#naive-bayes-theorem",
+    "href": "chap06_slide.html#naive-bayes-theorem",
+    "title": "\nChapter # 06  Naive Bayes Theorem & Support Vector Machine (SVM)",
+    "section": "Naive Bayes Theorem",
+    "text": "Naive Bayes Theorem",
+    "crumbs": [
+      "Modules & Slides",
+      "Slides",
+      "<center> Chapter # 06 <br> Naive Bayes Theorem & Support Vector Machine (SVM)"
+    ]
+  },
+  {
+    "objectID": "chap06_slide.html#what-is-naive-bayes-algorithm",
+    "href": "chap06_slide.html#what-is-naive-bayes-algorithm",
+    "title": "\nChapter # 06  Naive Bayes Theorem & Support Vector Machine (SVM)",
+    "section": "What is Naive Bayes Algorithm?",
+    "text": "What is Naive Bayes Algorithm?",
+    "crumbs": [
+      "Modules & Slides",
+      "Slides",
+      "<center> Chapter # 06 <br> Naive Bayes Theorem & Support Vector Machine (SVM)"
+    ]
+  },
+  {
+    "objectID": "chap06_slide.html#naive-bayes-theorem-contd",
+    "href": "chap06_slide.html#naive-bayes-theorem-contd",
+    "title": "\nChapter # 06  Naive Bayes Theorem & Support Vector Machine (SVM)",
+    "section": "Naive Bayes Theorem (Cont’d)",
+    "text": "Naive Bayes Theorem (Cont’d)",
+    "crumbs": [
+      "Modules & Slides",
+      "Slides",
+      "<center> Chapter # 06 <br> Naive Bayes Theorem & Support Vector Machine (SVM)"
+    ]
+  },
+  {
+    "objectID": "chap06_slide.html#naive-bayes-theorem-contd-1",
+    "href": "chap06_slide.html#naive-bayes-theorem-contd-1",
+    "title": "\nChapter # 06  Naive Bayes Theorem & Support Vector Machine (SVM)",
+    "section": "Naive Bayes Theorem (Cont’d)",
+    "text": "Naive Bayes Theorem (Cont’d)",
+    "crumbs": [
+      "Modules & Slides",
+      "Slides",
+      "<center> Chapter # 06 <br> Naive Bayes Theorem & Support Vector Machine (SVM)"
+    ]
+  },
+  {
+    "objectID": "chap06_slide.html#naive-bayes-theorem-contd-2",
+    "href": "chap06_slide.html#naive-bayes-theorem-contd-2",
+    "title": "\nChapter # 06  Naive Bayes Theorem & Support Vector Machine (SVM)",
+    "section": "Naive Bayes Theorem (Cont’d)",
+    "text": "Naive Bayes Theorem (Cont’d)",
+    "crumbs": [
+      "Modules & Slides",
+      "Slides",
+      "<center> Chapter # 06 <br> Naive Bayes Theorem & Support Vector Machine (SVM)"
+    ]
+  },
+  {
+    "objectID": "chap06_slide.html#naive-bayes-theorem-contd-3",
+    "href": "chap06_slide.html#naive-bayes-theorem-contd-3",
+    "title": "\nChapter # 06  Naive Bayes Theorem & Support Vector Machine (SVM)",
+    "section": "Naive Bayes Theorem (Cont’d)",
+    "text": "Naive Bayes Theorem (Cont’d)",
+    "crumbs": [
+      "Modules & Slides",
+      "Slides",
+      "<center> Chapter # 06 <br> Naive Bayes Theorem & Support Vector Machine (SVM)"
+    ]
+  },
+  {
+    "objectID": "chap06_slide.html#strengths-and-weankesses-of-naive-bayes",
+    "href": "chap06_slide.html#strengths-and-weankesses-of-naive-bayes",
+    "title": "\nChapter # 06  Naive Bayes Theorem & Support Vector Machine (SVM)",
+    "section": "Strengths and Weankesses of Naive Bayes",
+    "text": "Strengths and Weankesses of Naive Bayes",
+    "crumbs": [
+      "Modules & Slides",
+      "Slides",
+      "<center> Chapter # 06 <br> Naive Bayes Theorem & Support Vector Machine (SVM)"
+    ]
+  },
+  {
+    "objectID": "chap06_slide.html#strengths-and-weankesses-of-naive-bayes-contd",
+    "href": "chap06_slide.html#strengths-and-weankesses-of-naive-bayes-contd",
+    "title": "\nChapter # 06  Naive Bayes Theorem & Support Vector Machine (SVM)",
+    "section": "Strengths and Weankesses of Naive Bayes (Cont’d)",
+    "text": "Strengths and Weankesses of Naive Bayes (Cont’d)",
+    "crumbs": [
+      "Modules & Slides",
+      "Slides",
+      "<center> Chapter # 06 <br> Naive Bayes Theorem & Support Vector Machine (SVM)"
+    ]
+  },
+  {
+    "objectID": "chap06_slide.html#support-vector-machines-svm",
+    "href": "chap06_slide.html#support-vector-machines-svm",
+    "title": "\nChapter # 06  Naive Bayes Theorem & Support Vector Machine (SVM)",
+    "section": "Support Vector Machines (SVM)",
+    "text": "Support Vector Machines (SVM)",
+    "crumbs": [
+      "Modules & Slides",
+      "Slides",
+      "<center> Chapter # 06 <br> Naive Bayes Theorem & Support Vector Machine (SVM)"
+    ]
+  },
+  {
+    "objectID": "chap06_slide.html#support-vector-machines-svm-contd",
+    "href": "chap06_slide.html#support-vector-machines-svm-contd",
+    "title": "\nChapter # 06  Naive Bayes Theorem & Support Vector Machine (SVM)",
+    "section": "Support Vector Machines (SVM) (Cont’d)",
+    "text": "Support Vector Machines (SVM) (Cont’d)",
+    "crumbs": [
+      "Modules & Slides",
+      "Slides",
+      "<center> Chapter # 06 <br> Naive Bayes Theorem & Support Vector Machine (SVM)"
+    ]
+  },
+  {
+    "objectID": "chap06_slide.html#support-vector-machines-svm-contd-1",
+    "href": "chap06_slide.html#support-vector-machines-svm-contd-1",
+    "title": "\nChapter # 06  Naive Bayes Theorem & Support Vector Machine (SVM)",
+    "section": "Support Vector Machines (SVM) (Cont’d)",
+    "text": "Support Vector Machines (SVM) (Cont’d)",
+    "crumbs": [
+      "Modules & Slides",
+      "Slides",
+      "<center> Chapter # 06 <br> Naive Bayes Theorem & Support Vector Machine (SVM)"
+    ]
+  },
+  {
+    "objectID": "chap06_slide.html#support-vector-machines-svm-contd-2",
+    "href": "chap06_slide.html#support-vector-machines-svm-contd-2",
+    "title": "\nChapter # 06  Naive Bayes Theorem & Support Vector Machine (SVM)",
+    "section": "Support Vector Machines (SVM) (Cont’d)",
+    "text": "Support Vector Machines (SVM) (Cont’d)",
+    "crumbs": [
+      "Modules & Slides",
+      "Slides",
+      "<center> Chapter # 06 <br> Naive Bayes Theorem & Support Vector Machine (SVM)"
+    ]
+  },
+  {
+    "objectID": "chap06_slide.html#what-if-the-classes-are-not-fully-separable",
+    "href": "chap06_slide.html#what-if-the-classes-are-not-fully-separable",
+    "title": "\nChapter # 06  Naive Bayes Theorem & Support Vector Machine (SVM)",
+    "section": "What If the Classes are Not Fully Separable?",
+    "text": "What If the Classes are Not Fully Separable?",
+    "crumbs": [
+      "Modules & Slides",
+      "Slides",
+      "<center> Chapter # 06 <br> Naive Bayes Theorem & Support Vector Machine (SVM)"
+    ]
+  },
+  {
+    "objectID": "chap06_slide.html#svm-for-non-linearly-separable-data",
+    "href": "chap06_slide.html#svm-for-non-linearly-separable-data",
+    "title": "\nChapter # 06  Naive Bayes Theorem & Support Vector Machine (SVM)",
+    "section": "SVM for Non-linearly Separable Data",
+    "text": "SVM for Non-linearly Separable Data",
+    "crumbs": [
+      "Modules & Slides",
+      "Slides",
+      "<center> Chapter # 06 <br> Naive Bayes Theorem & Support Vector Machine (SVM)"
+    ]
+  },
+  {
+    "objectID": "chap06_slide.html#svm-for-non-linearly-separable-data-contd",
+    "href": "chap06_slide.html#svm-for-non-linearly-separable-data-contd",
+    "title": "\nChapter # 06  Naive Bayes Theorem & Support Vector Machine (SVM)",
+    "section": "SVM for Non-linearly Separable Data (Cont’d)",
+    "text": "SVM for Non-linearly Separable Data (Cont’d)",
+    "crumbs": [
+      "Modules & Slides",
+      "Slides",
+      "<center> Chapter # 06 <br> Naive Bayes Theorem & Support Vector Machine (SVM)"
+    ]
+  },
+  {
+    "objectID": "chap06_slide.html#hyperparameters-of-svm-algorithm",
+    "href": "chap06_slide.html#hyperparameters-of-svm-algorithm",
+    "title": "\nChapter # 06  Naive Bayes Theorem & Support Vector Machine (SVM)",
+    "section": "Hyperparameters of SVM Algorithm",
+    "text": "Hyperparameters of SVM Algorithm",
+    "crumbs": [
+      "Modules & Slides",
+      "Slides",
+      "<center> Chapter # 06 <br> Naive Bayes Theorem & Support Vector Machine (SVM)"
+    ]
+  },
+  {
+    "objectID": "chap06_slide.html#hyperparameters-of-svm-algorithm-contd",
+    "href": "chap06_slide.html#hyperparameters-of-svm-algorithm-contd",
+    "title": "\nChapter # 06  Naive Bayes Theorem & Support Vector Machine (SVM)",
+    "section": "Hyperparameters of SVM Algorithm (Cont’d)",
+    "text": "Hyperparameters of SVM Algorithm (Cont’d)",
+    "crumbs": [
+      "Modules & Slides",
+      "Slides",
+      "<center> Chapter # 06 <br> Naive Bayes Theorem & Support Vector Machine (SVM)"
+    ]
+  },
+  {
+    "objectID": "chap06_slide.html#hyperparameters-of-svm-algorithm-contd-1",
+    "href": "chap06_slide.html#hyperparameters-of-svm-algorithm-contd-1",
+    "title": "\nChapter # 06  Naive Bayes Theorem & Support Vector Machine (SVM)",
+    "section": "Hyperparameters of SVM Algorithm (Cont’d)",
+    "text": "Hyperparameters of SVM Algorithm (Cont’d)",
+    "crumbs": [
+      "Modules & Slides",
+      "Slides",
+      "<center> Chapter # 06 <br> Naive Bayes Theorem & Support Vector Machine (SVM)"
+    ]
+  },
+  {
+    "objectID": "chap06_slide.html#more-than-two-02-classes",
+    "href": "chap06_slide.html#more-than-two-02-classes",
+    "title": "\nChapter # 06  Naive Bayes Theorem & Support Vector Machine (SVM)",
+    "section": "More than Two (02) Classes",
+    "text": "More than Two (02) Classes",
+    "crumbs": [
+      "Modules & Slides",
+      "Slides",
+      "<center> Chapter # 06 <br> Naive Bayes Theorem & Support Vector Machine (SVM)"
+    ]
+  },
+  {
+    "objectID": "chap06_slide.html#more-than-two-02-classes-contd",
+    "href": "chap06_slide.html#more-than-two-02-classes-contd",
+    "title": "\nChapter # 06  Naive Bayes Theorem & Support Vector Machine (SVM)",
+    "section": "More than Two (02) Classes (Cont’d)",
+    "text": "More than Two (02) Classes (Cont’d)",
+    "crumbs": [
+      "Modules & Slides",
+      "Slides",
+      "<center> Chapter # 06 <br> Naive Bayes Theorem & Support Vector Machine (SVM)"
+    ]
+  },
+  {
+    "objectID": "chap06_slide.html#more-than-two-02-classes-contd-1",
+    "href": "chap06_slide.html#more-than-two-02-classes-contd-1",
+    "title": "\nChapter # 06  Naive Bayes Theorem & Support Vector Machine (SVM)",
+    "section": "More than Two (02) Classes (Cont’d)",
+    "text": "More than Two (02) Classes (Cont’d)",
+    "crumbs": [
+      "Modules & Slides",
+      "Slides",
+      "<center> Chapter # 06 <br> Naive Bayes Theorem & Support Vector Machine (SVM)"
+    ]
+  },
+  {
+    "objectID": "chap06_slide.html#more-than-two-02-classes-contd-2",
+    "href": "chap06_slide.html#more-than-two-02-classes-contd-2",
+    "title": "\nChapter # 06  Naive Bayes Theorem & Support Vector Machine (SVM)",
+    "section": "More than Two (02) Classes (Cont’d)",
+    "text": "More than Two (02) Classes (Cont’d)",
+    "crumbs": [
+      "Modules & Slides",
+      "Slides",
+      "<center> Chapter # 06 <br> Naive Bayes Theorem & Support Vector Machine (SVM)"
+    ]
+  },
+  {
+    "objectID": "chap06_slide.html#strengths-and-weakness-of-svm",
+    "href": "chap06_slide.html#strengths-and-weakness-of-svm",
+    "title": "\nChapter # 06  Naive Bayes Theorem & Support Vector Machine (SVM)",
+    "section": "Strengths and Weakness of SVM",
+    "text": "Strengths and Weakness of SVM",
+    "crumbs": [
+      "Modules & Slides",
+      "Slides",
+      "<center> Chapter # 06 <br> Naive Bayes Theorem & Support Vector Machine (SVM)"
+    ]
+  },
+  {
+    "objectID": "chap06_slide.html#questions-or-queries",
+    "href": "chap06_slide.html#questions-or-queries",
+    "title": "\nChapter # 06  Naive Bayes Theorem & Support Vector Machine (SVM)",
+    "section": "Questions or Queries",
+    "text": "Questions or Queries\n\n\n\n\n\nQuestions\n\n\n\n\n\n\nQueries",
+    "crumbs": [
+      "Modules & Slides",
+      "Slides",
+      "<center> Chapter # 06 <br> Naive Bayes Theorem & Support Vector Machine (SVM)"
+    ]
   }
 ]
