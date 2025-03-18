@@ -57,7 +57,7 @@ format:
 ![](images/chap07-14.jpeg)
 
 ## Feature Selection (Cont'd)  
-![](images/chap06-15.jpeg)
+![](images/chap07-15.jpeg)
 
 ## Filter Method for Feature Selection
 ![](images/chap07-16.jpeg)
