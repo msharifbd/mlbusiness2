@@ -1,0 +1,88 @@
+---
+title: "<center> Chapter # 07 <br> Linear Regression"
+format:
+    revealjs: 
+        theme: beige
+        controls: true
+        navigation-mode: vertical
+        self-contained: true
+        slide-number: true
+        slide-tone: true
+        css: styles.css
+---
+
+ 
+![](images/chap07-0.jpeg)
+
+## Introduction
+![](images/chap07-1.jpeg)
+
+## What is Linear Regression?
+![](images/chap07-2.jpeg)
+
+## What is Linear Regression (Cont'd) 
+![](images/chap07-3.jpeg)
+
+## What If We have Multiple Predictors?
+![](images/chap07-4.jpeg)
+
+## Some Assumptions of Linear Regression
+![](images/chap07-5.jpeg)
+
+## What If Our Predictors are Categorical?
+![](images/chap07-6.jpeg)
+
+## What If Our Predictors are Categorical (Cont'd)?
+![](images/chap07-7.jpeg)
+
+## What If Our Predictors are Categorical (Cont'd)?
+![](images/chap07-8.jpeg)
+
+## Imputing Missing Value 
+![](images/chap07-9.jpeg)
+
+## Imputing Missing Value (Cont'd) 
+![](images/chap07-10.jpeg)
+
+## Imputing Missing Value (Cont'd) 
+![](images/chap07-11.jpeg)
+
+## Imputing Missing Value (Cont'd)
+![](images/chap07-12.jpeg)
+
+## Imputing Missing Value (Cont'd)  
+![](images/chap07-13.jpeg)
+
+## Feature Selection 
+![](images/chap07-14.jpeg)
+
+## Feature Selection (Cont'd)  
+![](images/chap06-15.jpeg)
+
+## Filter Method for Feature Selection
+![](images/chap07-16.jpeg)
+
+## Wrapper Method for Feature Selection
+![](images/chap07-17.jpeg)
+
+## Wrapper Method for Feature Selection (Cont'd) 
+![](images/chap07-18.jpeg)
+
+## Wrapper Method for Feature Selection (Cont'd) 
+![](images/chap07-19.jpeg)
+
+## Strengths and Weakness of Linear Regression
+![](images/chap07-20.jpeg)
+
+
+## Questions or Queries {style="text-align:center;"}
+
+::: columns
+::: {.column width="50%" style="text-align:center;"}
+![Questions](images/question1.jpeg){fig-align="center"}
+:::
+
+::: {.column width="50%" style="text-align:center;"}
+![Queries](images/question2.jpeg){fig-align="center"}
+:::
+:::

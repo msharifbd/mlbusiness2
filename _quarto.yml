@@ -75,6 +75,7 @@ website:
               - chap04_slide.qmd 
               - chap05_slide.qmd
               - chap06_slide.qmd 
+              - chap07_slide.qmd 
 
 format:
   html:

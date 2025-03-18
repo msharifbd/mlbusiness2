@@ -3223,5 +3223,257 @@
       "Slides",
       "<center> Chapter # 06 <br> Naive Bayes Theorem & Support Vector Machine (SVM)"
     ]
+  },
+  {
+    "objectID": "chap07_slide.html#introduction",
+    "href": "chap07_slide.html#introduction",
+    "title": "\nChapter # 07  Linear Regression",
+    "section": "Introduction",
+    "text": "Introduction",
+    "crumbs": [
+      "Modules & Slides",
+      "Slides",
+      "<center> Chapter # 07 <br> Linear Regression"
+    ]
+  },
+  {
+    "objectID": "chap07_slide.html#what-is-linear-regression",
+    "href": "chap07_slide.html#what-is-linear-regression",
+    "title": "\nChapter # 07  Linear Regression",
+    "section": "What is Linear Regression?",
+    "text": "What is Linear Regression?",
+    "crumbs": [
+      "Modules & Slides",
+      "Slides",
+      "<center> Chapter # 07 <br> Linear Regression"
+    ]
+  },
+  {
+    "objectID": "chap07_slide.html#what-is-linear-regression-contd",
+    "href": "chap07_slide.html#what-is-linear-regression-contd",
+    "title": "\nChapter # 07  Linear Regression",
+    "section": "What is Linear Regression (Cont’d)",
+    "text": "What is Linear Regression (Cont’d)",
+    "crumbs": [
+      "Modules & Slides",
+      "Slides",
+      "<center> Chapter # 07 <br> Linear Regression"
+    ]
+  },
+  {
+    "objectID": "chap07_slide.html#what-if-we-have-multiple-predictors",
+    "href": "chap07_slide.html#what-if-we-have-multiple-predictors",
+    "title": "\nChapter # 07  Linear Regression",
+    "section": "What If We have Multiple Predictors?",
+    "text": "What If We have Multiple Predictors?",
+    "crumbs": [
+      "Modules & Slides",
+      "Slides",
+      "<center> Chapter # 07 <br> Linear Regression"
+    ]
+  },
+  {
+    "objectID": "chap07_slide.html#some-assumptions-of-linear-regression",
+    "href": "chap07_slide.html#some-assumptions-of-linear-regression",
+    "title": "\nChapter # 07  Linear Regression",
+    "section": "Some Assumptions of Linear Regression",
+    "text": "Some Assumptions of Linear Regression",
+    "crumbs": [
+      "Modules & Slides",
+      "Slides",
+      "<center> Chapter # 07 <br> Linear Regression"
+    ]
+  },
+  {
+    "objectID": "chap07_slide.html#what-if-our-predictors-are-categorical",
+    "href": "chap07_slide.html#what-if-our-predictors-are-categorical",
+    "title": "\nChapter # 07  Linear Regression",
+    "section": "What If Our Predictors are Categorical?",
+    "text": "What If Our Predictors are Categorical?",
+    "crumbs": [
+      "Modules & Slides",
+      "Slides",
+      "<center> Chapter # 07 <br> Linear Regression"
+    ]
+  },
+  {
+    "objectID": "chap07_slide.html#what-if-our-predictors-are-categorical-contd",
+    "href": "chap07_slide.html#what-if-our-predictors-are-categorical-contd",
+    "title": "\nChapter # 07  Linear Regression",
+    "section": "What If Our Predictors are Categorical (Cont’d)?",
+    "text": "What If Our Predictors are Categorical (Cont’d)?",
+    "crumbs": [
+      "Modules & Slides",
+      "Slides",
+      "<center> Chapter # 07 <br> Linear Regression"
+    ]
+  },
+  {
+    "objectID": "chap07_slide.html#what-if-our-predictors-are-categorical-contd-1",
+    "href": "chap07_slide.html#what-if-our-predictors-are-categorical-contd-1",
+    "title": "\nChapter # 07  Linear Regression",
+    "section": "What If Our Predictors are Categorical (Cont’d)?",
+    "text": "What If Our Predictors are Categorical (Cont’d)?",
+    "crumbs": [
+      "Modules & Slides",
+      "Slides",
+      "<center> Chapter # 07 <br> Linear Regression"
+    ]
+  },
+  {
+    "objectID": "chap07_slide.html#imputing-missing-value",
+    "href": "chap07_slide.html#imputing-missing-value",
+    "title": "\nChapter # 07  Linear Regression",
+    "section": "Imputing Missing Value",
+    "text": "Imputing Missing Value",
+    "crumbs": [
+      "Modules & Slides",
+      "Slides",
+      "<center> Chapter # 07 <br> Linear Regression"
+    ]
+  },
+  {
+    "objectID": "chap07_slide.html#imputing-missing-value-contd",
+    "href": "chap07_slide.html#imputing-missing-value-contd",
+    "title": "\nChapter # 07  Linear Regression",
+    "section": "Imputing Missing Value (Cont’d)",
+    "text": "Imputing Missing Value (Cont’d)",
+    "crumbs": [
+      "Modules & Slides",
+      "Slides",
+      "<center> Chapter # 07 <br> Linear Regression"
+    ]
+  },
+  {
+    "objectID": "chap07_slide.html#imputing-missing-value-contd-1",
+    "href": "chap07_slide.html#imputing-missing-value-contd-1",
+    "title": "\nChapter # 07  Linear Regression",
+    "section": "Imputing Missing Value (Cont’d)",
+    "text": "Imputing Missing Value (Cont’d)",
+    "crumbs": [
+      "Modules & Slides",
+      "Slides",
+      "<center> Chapter # 07 <br> Linear Regression"
+    ]
+  },
+  {
+    "objectID": "chap07_slide.html#imputing-missing-value-contd-2",
+    "href": "chap07_slide.html#imputing-missing-value-contd-2",
+    "title": "\nChapter # 07  Linear Regression",
+    "section": "Imputing Missing Value (Cont’d)",
+    "text": "Imputing Missing Value (Cont’d)",
+    "crumbs": [
+      "Modules & Slides",
+      "Slides",
+      "<center> Chapter # 07 <br> Linear Regression"
+    ]
+  },
+  {
+    "objectID": "chap07_slide.html#imputing-missing-value-contd-3",
+    "href": "chap07_slide.html#imputing-missing-value-contd-3",
+    "title": "\nChapter # 07  Linear Regression",
+    "section": "Imputing Missing Value (Cont’d)",
+    "text": "Imputing Missing Value (Cont’d)",
+    "crumbs": [
+      "Modules & Slides",
+      "Slides",
+      "<center> Chapter # 07 <br> Linear Regression"
+    ]
+  },
+  {
+    "objectID": "chap07_slide.html#feature-selection",
+    "href": "chap07_slide.html#feature-selection",
+    "title": "\nChapter # 07  Linear Regression",
+    "section": "Feature Selection",
+    "text": "Feature Selection",
+    "crumbs": [
+      "Modules & Slides",
+      "Slides",
+      "<center> Chapter # 07 <br> Linear Regression"
+    ]
+  },
+  {
+    "objectID": "chap07_slide.html#feature-selection-contd",
+    "href": "chap07_slide.html#feature-selection-contd",
+    "title": "\nChapter # 07  Linear Regression",
+    "section": "Feature Selection (Cont’d)",
+    "text": "Feature Selection (Cont’d)",
+    "crumbs": [
+      "Modules & Slides",
+      "Slides",
+      "<center> Chapter # 07 <br> Linear Regression"
+    ]
+  },
+  {
+    "objectID": "chap07_slide.html#filter-method-for-feature-selection",
+    "href": "chap07_slide.html#filter-method-for-feature-selection",
+    "title": "\nChapter # 07  Linear Regression",
+    "section": "Filter Method for Feature Selection",
+    "text": "Filter Method for Feature Selection",
+    "crumbs": [
+      "Modules & Slides",
+      "Slides",
+      "<center> Chapter # 07 <br> Linear Regression"
+    ]
+  },
+  {
+    "objectID": "chap07_slide.html#wrapper-method-for-feature-selection",
+    "href": "chap07_slide.html#wrapper-method-for-feature-selection",
+    "title": "\nChapter # 07  Linear Regression",
+    "section": "Wrapper Method for Feature Selection",
+    "text": "Wrapper Method for Feature Selection",
+    "crumbs": [
+      "Modules & Slides",
+      "Slides",
+      "<center> Chapter # 07 <br> Linear Regression"
+    ]
+  },
+  {
+    "objectID": "chap07_slide.html#wrapper-method-for-feature-selection-contd",
+    "href": "chap07_slide.html#wrapper-method-for-feature-selection-contd",
+    "title": "\nChapter # 07  Linear Regression",
+    "section": "Wrapper Method for Feature Selection (Cont’d)",
+    "text": "Wrapper Method for Feature Selection (Cont’d)",
+    "crumbs": [
+      "Modules & Slides",
+      "Slides",
+      "<center> Chapter # 07 <br> Linear Regression"
+    ]
+  },
+  {
+    "objectID": "chap07_slide.html#wrapper-method-for-feature-selection-contd-1",
+    "href": "chap07_slide.html#wrapper-method-for-feature-selection-contd-1",
+    "title": "\nChapter # 07  Linear Regression",
+    "section": "Wrapper Method for Feature Selection (Cont’d)",
+    "text": "Wrapper Method for Feature Selection (Cont’d)",
+    "crumbs": [
+      "Modules & Slides",
+      "Slides",
+      "<center> Chapter # 07 <br> Linear Regression"
+    ]
+  },
+  {
+    "objectID": "chap07_slide.html#strengths-and-weakness-of-linear-regression",
+    "href": "chap07_slide.html#strengths-and-weakness-of-linear-regression",
+    "title": "\nChapter # 07  Linear Regression",
+    "section": "Strengths and Weakness of Linear Regression",
+    "text": "Strengths and Weakness of Linear Regression",
+    "crumbs": [
+      "Modules & Slides",
+      "Slides",
+      "<center> Chapter # 07 <br> Linear Regression"
+    ]
+  },
+  {
+    "objectID": "chap07_slide.html#questions-or-queries",
+    "href": "chap07_slide.html#questions-or-queries",
+    "title": "\nChapter # 07  Linear Regression",
+    "section": "Questions or Queries",
+    "text": "Questions or Queries\n\n\n\n\n\nQuestions\n\n\n\n\n\n\nQueries",
+    "crumbs": [
+      "Modules & Slides",
+      "Slides",
+      "<center> Chapter # 07 <br> Linear Regression"
+    ]
   }
 ]
