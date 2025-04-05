@@ -3475,5 +3475,306 @@
       "Slides",
       "<center> Chapter # 07 <br> Linear Regression"
     ]
+  },
+  {
+    "objectID": "chap09_slide.html#introduction",
+    "href": "chap09_slide.html#introduction",
+    "title": "\nChapter # 09  Principal Component Analysis (PCA)",
+    "section": "Introduction",
+    "text": "Introduction"
+  },
+  {
+    "objectID": "chap09_slide.html#introduction-contd",
+    "href": "chap09_slide.html#introduction-contd",
+    "title": "\nChapter # 09  Principal Component Analysis (PCA)",
+    "section": "Introduction (Cont’d)",
+    "text": "Introduction (Cont’d)"
+  },
+  {
+    "objectID": "chap09_slide.html#why-dimension-reduction",
+    "href": "chap09_slide.html#why-dimension-reduction",
+    "title": "\nChapter # 09  Principal Component Analysis (PCA)",
+    "section": "Why Dimension Reduction?",
+    "text": "Why Dimension Reduction?"
+  },
+  {
+    "objectID": "chap09_slide.html#visualizing-high-dimensional-data",
+    "href": "chap09_slide.html#visualizing-high-dimensional-data",
+    "title": "\nChapter # 09  Principal Component Analysis (PCA)",
+    "section": "Visualizing High Dimensional Data",
+    "text": "Visualizing High Dimensional Data"
+  },
+  {
+    "objectID": "chap09_slide.html#curse-of-dimensionality",
+    "href": "chap09_slide.html#curse-of-dimensionality",
+    "title": "\nChapter # 09  Principal Component Analysis (PCA)",
+    "section": "Curse of Dimensionality",
+    "text": "Curse of Dimensionality"
+  },
+  {
+    "objectID": "chap09_slide.html#curse-of-dimensionality-contd",
+    "href": "chap09_slide.html#curse-of-dimensionality-contd",
+    "title": "\nChapter # 09  Principal Component Analysis (PCA)",
+    "section": "Curse of Dimensionality (Cont’d)",
+    "text": "Curse of Dimensionality (Cont’d)"
+  },
+  {
+    "objectID": "chap09_slide.html#curse-of-dimensionality-contd-1",
+    "href": "chap09_slide.html#curse-of-dimensionality-contd-1",
+    "title": "\nChapter # 09  Principal Component Analysis (PCA)",
+    "section": "Curse of Dimensionality (Cont’d)?",
+    "text": "Curse of Dimensionality (Cont’d)?"
+  },
+  {
+    "objectID": "chap09_slide.html#collinearity",
+    "href": "chap09_slide.html#collinearity",
+    "title": "\nChapter # 09  Principal Component Analysis (PCA)",
+    "section": "Collinearity?",
+    "text": "Collinearity?"
+  },
+  {
+    "objectID": "chap09_slide.html#collinearity-contd",
+    "href": "chap09_slide.html#collinearity-contd",
+    "title": "\nChapter # 09  Principal Component Analysis (PCA)",
+    "section": "Collinearity (Cont’d)",
+    "text": "Collinearity (Cont’d)"
+  },
+  {
+    "objectID": "chap09_slide.html#collinearity-contd-1",
+    "href": "chap09_slide.html#collinearity-contd-1",
+    "title": "\nChapter # 09  Principal Component Analysis (PCA)",
+    "section": "Collinearity (Cont’d)",
+    "text": "Collinearity (Cont’d)"
+  },
+  {
+    "objectID": "chap09_slide.html#mitigating-the-curse-of-dimensionality-and-collinearity-by-dimension-reduction",
+    "href": "chap09_slide.html#mitigating-the-curse-of-dimensionality-and-collinearity-by-dimension-reduction",
+    "title": "\nChapter # 09  Principal Component Analysis (PCA)",
+    "section": "Mitigating the Curse of Dimensionality and Collinearity by Dimension Reduction",
+    "text": "Mitigating the Curse of Dimensionality and Collinearity by Dimension Reduction"
+  },
+  {
+    "objectID": "chap09_slide.html#what-is-principal-component-analysis-pca",
+    "href": "chap09_slide.html#what-is-principal-component-analysis-pca",
+    "title": "\nChapter # 09  Principal Component Analysis (PCA)",
+    "section": "What is Principal Component Analysis (PCA)?",
+    "text": "What is Principal Component Analysis (PCA)?"
+  },
+  {
+    "objectID": "chap09_slide.html#what-is-principal-component-analysis-pca-contd",
+    "href": "chap09_slide.html#what-is-principal-component-analysis-pca-contd",
+    "title": "\nChapter # 09  Principal Component Analysis (PCA)",
+    "section": "What is Principal Component Analysis (PCA) (Cont’d)",
+    "text": "What is Principal Component Analysis (PCA) (Cont’d)"
+  },
+  {
+    "objectID": "chap09_slide.html#what-is-principal-component-analysis-pca-contd-1",
+    "href": "chap09_slide.html#what-is-principal-component-analysis-pca-contd-1",
+    "title": "\nChapter # 09  Principal Component Analysis (PCA)",
+    "section": "What is Principal Component Analysis (PCA) (Cont’d)",
+    "text": "What is Principal Component Analysis (PCA) (Cont’d)"
+  },
+  {
+    "objectID": "chap09_slide.html#what-is-principal-component-analysis-pca-contd-2",
+    "href": "chap09_slide.html#what-is-principal-component-analysis-pca-contd-2",
+    "title": "\nChapter # 09  Principal Component Analysis (PCA)",
+    "section": "What is Principal Component Analysis (PCA) (Cont’d)",
+    "text": "What is Principal Component Analysis (PCA) (Cont’d)"
+  },
+  {
+    "objectID": "chap09_slide.html#what-is-principal-component-analysis-pca-contd-3",
+    "href": "chap09_slide.html#what-is-principal-component-analysis-pca-contd-3",
+    "title": "\nChapter # 09  Principal Component Analysis (PCA)",
+    "section": "What is Principal Component Analysis (PCA) (Cont’d)",
+    "text": "What is Principal Component Analysis (PCA) (Cont’d)"
+  },
+  {
+    "objectID": "chap09_slide.html#what-is-principal-component-analysis-pca-contd-4",
+    "href": "chap09_slide.html#what-is-principal-component-analysis-pca-contd-4",
+    "title": "\nChapter # 09  Principal Component Analysis (PCA)",
+    "section": "What is Principal Component Analysis (PCA) (Cont’d)",
+    "text": "What is Principal Component Analysis (PCA) (Cont’d)"
+  },
+  {
+    "objectID": "chap09_slide.html#strength-and-weakness-of-pca",
+    "href": "chap09_slide.html#strength-and-weakness-of-pca",
+    "title": "\nChapter # 09  Principal Component Analysis (PCA)",
+    "section": "Strength and Weakness of PCA",
+    "text": "Strength and Weakness of PCA"
+  },
+  {
+    "objectID": "chap09_slide.html#questions-or-queries",
+    "href": "chap09_slide.html#questions-or-queries",
+    "title": "\nChapter # 09  Principal Component Analysis (PCA)",
+    "section": "Questions or Queries",
+    "text": "Questions or Queries\n\n\n\n\n\nQuestions\n\n\n\n\n\n\nQueries"
+  },
+  {
+    "objectID": "chap10_slide.html#introduction",
+    "href": "chap10_slide.html#introduction",
+    "title": "\nChapter # 10  Clustering by Finding Centers with K-means",
+    "section": "Introduction",
+    "text": "Introduction"
+  },
+  {
+    "objectID": "chap10_slide.html#what-is-k-means-clustering",
+    "href": "chap10_slide.html#what-is-k-means-clustering",
+    "title": "\nChapter # 10  Clustering by Finding Centers with K-means",
+    "section": "What is K-means Clustering?",
+    "text": "What is K-means Clustering?"
+  },
+  {
+    "objectID": "chap10_slide.html#what-is-k-means-clustering-contd",
+    "href": "chap10_slide.html#what-is-k-means-clustering-contd",
+    "title": "\nChapter # 10  Clustering by Finding Centers with K-means",
+    "section": "What is K-means Clustering (Cont’d)?",
+    "text": "What is K-means Clustering (Cont’d)?"
+  },
+  {
+    "objectID": "chap10_slide.html#lloyds-algorithm",
+    "href": "chap10_slide.html#lloyds-algorithm",
+    "title": "\nChapter # 10  Clustering by Finding Centers with K-means",
+    "section": "Lloyd’s Algorithm",
+    "text": "Lloyd’s Algorithm"
+  },
+  {
+    "objectID": "chap10_slide.html#lloyds-algorithm-contd",
+    "href": "chap10_slide.html#lloyds-algorithm-contd",
+    "title": "\nChapter # 10  Clustering by Finding Centers with K-means",
+    "section": "Lloyd’s Algorithm (Cont’d)",
+    "text": "Lloyd’s Algorithm (Cont’d)"
+  },
+  {
+    "objectID": "chap10_slide.html#lloyds-algorithm-contd-1",
+    "href": "chap10_slide.html#lloyds-algorithm-contd-1",
+    "title": "\nChapter # 10  Clustering by Finding Centers with K-means",
+    "section": "Lloyd’s Algorithm (Cont’d)",
+    "text": "Lloyd’s Algorithm (Cont’d)"
+  },
+  {
+    "objectID": "chap10_slide.html#macqueens-algorithm",
+    "href": "chap10_slide.html#macqueens-algorithm",
+    "title": "\nChapter # 10  Clustering by Finding Centers with K-means",
+    "section": "MacQueen’s Algorithm",
+    "text": "MacQueen’s Algorithm"
+  },
+  {
+    "objectID": "chap10_slide.html#macqueens-algorithm-contd",
+    "href": "chap10_slide.html#macqueens-algorithm-contd",
+    "title": "\nChapter # 10  Clustering by Finding Centers with K-means",
+    "section": "MacQueen’s Algorithm (Cont’d)",
+    "text": "MacQueen’s Algorithm (Cont’d)"
+  },
+  {
+    "objectID": "chap10_slide.html#macqueens-algorithm-contd-1",
+    "href": "chap10_slide.html#macqueens-algorithm-contd-1",
+    "title": "\nChapter # 10  Clustering by Finding Centers with K-means",
+    "section": "MacQueen’s Algorithm (Cont’d)",
+    "text": "MacQueen’s Algorithm (Cont’d)"
+  },
+  {
+    "objectID": "chap10_slide.html#hartigan-wong-algorithm",
+    "href": "chap10_slide.html#hartigan-wong-algorithm",
+    "title": "\nChapter # 10  Clustering by Finding Centers with K-means",
+    "section": "Hartigan-Wong Algorithm",
+    "text": "Hartigan-Wong Algorithm"
+  },
+  {
+    "objectID": "chap10_slide.html#hartigan-wong-algorithm-contd",
+    "href": "chap10_slide.html#hartigan-wong-algorithm-contd",
+    "title": "\nChapter # 10  Clustering by Finding Centers with K-means",
+    "section": "Hartigan-Wong Algorithm (Cont’d)",
+    "text": "Hartigan-Wong Algorithm (Cont’d)"
+  },
+  {
+    "objectID": "chap10_slide.html#hartigan-wong-algorithm-contd-1",
+    "href": "chap10_slide.html#hartigan-wong-algorithm-contd-1",
+    "title": "\nChapter # 10  Clustering by Finding Centers with K-means",
+    "section": "Hartigan-Wong Algorithm (Cont’d)",
+    "text": "Hartigan-Wong Algorithm (Cont’d)"
+  },
+  {
+    "objectID": "chap10_slide.html#hartigan-wong-algorithm-contd-2",
+    "href": "chap10_slide.html#hartigan-wong-algorithm-contd-2",
+    "title": "\nChapter # 10  Clustering by Finding Centers with K-means",
+    "section": "Hartigan-Wong Algorithm (Cont’d)",
+    "text": "Hartigan-Wong Algorithm (Cont’d)"
+  },
+  {
+    "objectID": "chap10_slide.html#choosing-k-in-k-means-clustering",
+    "href": "chap10_slide.html#choosing-k-in-k-means-clustering",
+    "title": "\nChapter # 10  Clustering by Finding Centers with K-means",
+    "section": "Choosing K in K-means Clustering",
+    "text": "Choosing K in K-means Clustering"
+  },
+  {
+    "objectID": "chap10_slide.html#choosing-k-in-k-means-clustering-contd",
+    "href": "chap10_slide.html#choosing-k-in-k-means-clustering-contd",
+    "title": "\nChapter # 10  Clustering by Finding Centers with K-means",
+    "section": "Choosing K in K-means Clustering (Cont’d)",
+    "text": "Choosing K in K-means Clustering (Cont’d)"
+  },
+  {
+    "objectID": "chap10_slide.html#choosing-k-in-k-means-clustering-contd-1",
+    "href": "chap10_slide.html#choosing-k-in-k-means-clustering-contd-1",
+    "title": "\nChapter # 10  Clustering by Finding Centers with K-means",
+    "section": "Choosing K in K-means Clustering (Cont’d)",
+    "text": "Choosing K in K-means Clustering (Cont’d)"
+  },
+  {
+    "objectID": "chap10_slide.html#davies---bouldin-index",
+    "href": "chap10_slide.html#davies---bouldin-index",
+    "title": "\nChapter # 10  Clustering by Finding Centers with K-means",
+    "section": "Davies - Bouldin Index",
+    "text": "Davies - Bouldin Index"
+  },
+  {
+    "objectID": "chap10_slide.html#dunn-index",
+    "href": "chap10_slide.html#dunn-index",
+    "title": "\nChapter # 10  Clustering by Finding Centers with K-means",
+    "section": "Dunn Index",
+    "text": "Dunn Index"
+  },
+  {
+    "objectID": "chap10_slide.html#pseudo-f-statistic",
+    "href": "chap10_slide.html#pseudo-f-statistic",
+    "title": "\nChapter # 10  Clustering by Finding Centers with K-means",
+    "section": "Pseudo F Statistic",
+    "text": "Pseudo F Statistic"
+  },
+  {
+    "objectID": "chap10_slide.html#pseudo-f-statistic-contd",
+    "href": "chap10_slide.html#pseudo-f-statistic-contd",
+    "title": "\nChapter # 10  Clustering by Finding Centers with K-means",
+    "section": "Pseudo F Statistic (Cont’d)",
+    "text": "Pseudo F Statistic (Cont’d)"
+  },
+  {
+    "objectID": "chap10_slide.html#caveat-with-choosing-k",
+    "href": "chap10_slide.html#caveat-with-choosing-k",
+    "title": "\nChapter # 10  Clustering by Finding Centers with K-means",
+    "section": "Caveat with Choosing K",
+    "text": "Caveat with Choosing K"
+  },
+  {
+    "objectID": "chap10_slide.html#caveat-with-choosing-k-contd",
+    "href": "chap10_slide.html#caveat-with-choosing-k-contd",
+    "title": "\nChapter # 10  Clustering by Finding Centers with K-means",
+    "section": "Caveat with Choosing K (Cont’d)",
+    "text": "Caveat with Choosing K (Cont’d)"
+  },
+  {
+    "objectID": "chap10_slide.html#strength-and-weakness-of-k-means-clustering",
+    "href": "chap10_slide.html#strength-and-weakness-of-k-means-clustering",
+    "title": "\nChapter # 10  Clustering by Finding Centers with K-means",
+    "section": "Strength and Weakness of K means Clustering",
+    "text": "Strength and Weakness of K means Clustering"
+  },
+  {
+    "objectID": "chap10_slide.html#questions-or-queries",
+    "href": "chap10_slide.html#questions-or-queries",
+    "title": "\nChapter # 10  Clustering by Finding Centers with K-means",
+    "section": "Questions or Queries",
+    "text": "Questions or Queries\n\n\n\n\n\nQuestions\n\n\n\n\n\n\nQueries"
   }
 ]

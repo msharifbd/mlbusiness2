@@ -1,0 +1,82 @@
+---
+title: "<center> Chapter # 09 <br> Principal Component Analysis (PCA)"
+format:
+    revealjs: 
+        theme: beige
+        controls: true
+        navigation-mode: vertical
+        self-contained: true
+        slide-number: true
+        slide-tone: true
+        css: styles.css
+---
+
+ 
+![](images/13_Maximizing Variance with PCA-1.jpg)
+
+## Introduction
+![](images/13_Maximizing Variance with PCA-2.jpg)
+
+## Introduction (Cont'd)
+![](images/13_Maximizing Variance with PCA-3.jpg)
+
+## Why Dimension Reduction? 
+![](images/13_Maximizing Variance with PCA-4.jpg)
+
+## Visualizing High Dimensional Data
+![](images/13_Maximizing Variance with PCA-5.jpg)
+
+## Curse of Dimensionality
+![](images/13_Maximizing Variance with PCA-6.jpg)
+
+## Curse of Dimensionality (Cont'd)
+![](images/13_Maximizing Variance with PCA-7.jpg)
+
+## Curse of Dimensionality (Cont'd)?
+![](images/13_Maximizing Variance with PCA-8.jpg)
+
+## Collinearity?
+![](images/13_Maximizing Variance with PCA-9.jpg)
+
+## Collinearity (Cont'd)
+![](images/13_Maximizing Variance with PCA-10.jpg)
+
+## Collinearity (Cont'd) 
+![](images/13_Maximizing Variance with PCA-11.jpg)
+
+## Mitigating the Curse of Dimensionality and Collinearity by Dimension Reduction 
+![](images/13_Maximizing Variance with PCA-12.jpg)
+
+## What is Principal Component Analysis (PCA)?
+![](images/13_Maximizing Variance with PCA-13.jpg)
+
+## What is Principal Component Analysis (PCA) (Cont'd) 
+![](images/13_Maximizing Variance with PCA-14.jpg)
+
+## What is Principal Component Analysis (PCA) (Cont'd) 
+![](images/13_Maximizing Variance with PCA-15.jpg)
+
+## What is Principal Component Analysis (PCA) (Cont'd)  
+![](images/13_Maximizing Variance with PCA-16.jpg)
+
+## What is Principal Component Analysis (PCA) (Cont'd)
+![](images/13_Maximizing Variance with PCA-17.jpg)
+
+## What is Principal Component Analysis (PCA) (Cont'd)
+![](images/13_Maximizing Variance with PCA-18.jpg)
+
+## Strength and Weakness of PCA 
+![](images/13_Maximizing Variance with PCA-19.jpg)
+
+
+## Questions or Queries {style="text-align:center;"}
+
+::: columns
+::: {.column width="50%" style="text-align:center;"}
+![Questions](images/question1.jpeg){fig-align="center"}
+:::
+
+::: {.column width="50%" style="text-align:center;"}
+![Queries](images/question2.jpeg){fig-align="center"}
+:::
+:::

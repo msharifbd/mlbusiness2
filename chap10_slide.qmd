@@ -1,0 +1,97 @@
+---
+title: "<center> Chapter # 10 <br> Clustering by Finding Centers with K-means"
+format:
+    revealjs: 
+        theme: beige
+        controls: true
+        navigation-mode: vertical
+        self-contained: true
+        slide-number: true
+        slide-tone: true
+        css: styles.css
+---
+
+ 
+![](images/CHAPTER 16_CLUSTERING by FINDING CENTERS with K-MEANS_00001.jpg)
+
+## Introduction
+![](images/CHAPTER 16_CLUSTERING by FINDING CENTERS with K-MEANS_00002.jpg)
+
+## What is K-means Clustering?
+![](images/CHAPTER 16_CLUSTERING by FINDING CENTERS with K-MEANS_00003.jpg)
+
+## What is K-means Clustering (Cont'd)? 
+![](images/CHAPTER 16_CLUSTERING by FINDING CENTERS with K-MEANS_00004.jpg)
+
+## Lloyd's Algorithm
+![](images/CHAPTER 16_CLUSTERING by FINDING CENTERS with K-MEANS_00005.jpg)
+
+## Lloyd's Algorithm (Cont'd)
+![](images/CHAPTER 16_CLUSTERING by FINDING CENTERS with K-MEANS_00006.jpg)
+
+## Lloyd's Algorithm (Cont'd)
+![](images/CHAPTER 16_CLUSTERING by FINDING CENTERS with K-MEANS_00007.jpg)
+
+## MacQueen's Algorithm
+![](images/CHAPTER 16_CLUSTERING by FINDING CENTERS with K-MEANS_00008.jpg)
+
+## MacQueen's Algorithm (Cont'd)
+![](images/CHAPTER 16_CLUSTERING by FINDING CENTERS with K-MEANS_00009.jpg)
+
+## MacQueen's Algorithm (Cont'd)
+![](images/CHAPTER 16_CLUSTERING by FINDING CENTERS with K-MEANS_00010.jpg)
+
+## Hartigan-Wong Algorithm
+![](images/CHAPTER 16_CLUSTERING by FINDING CENTERS with K-MEANS_00011.jpg)
+
+## Hartigan-Wong Algorithm (Cont'd) 
+![](images/CHAPTER 16_CLUSTERING by FINDING CENTERS with K-MEANS_00012.jpg)
+
+## Hartigan-Wong Algorithm (Cont'd)
+![](images/CHAPTER 16_CLUSTERING by FINDING CENTERS with K-MEANS_00013.jpg)
+
+## Hartigan-Wong Algorithm (Cont'd) 
+![](images/CHAPTER 16_CLUSTERING by FINDING CENTERS with K-MEANS_00014.jpg)
+
+## Choosing K in K-means Clustering
+![](images/CHAPTER 16_CLUSTERING by FINDING CENTERS with K-MEANS_00015.jpg)
+
+## Choosing K in K-means Clustering (Cont'd)  
+![](images/CHAPTER 16_CLUSTERING by FINDING CENTERS with K-MEANS_00016.jpg)
+
+## Choosing K in K-means Clustering (Cont'd)
+![](images/CHAPTER 16_CLUSTERING by FINDING CENTERS with K-MEANS_00017.jpg)
+
+## Davies - Bouldin Index
+![](images/CHAPTER 16_CLUSTERING by FINDING CENTERS with K-MEANS_00018.jpg)
+
+## Dunn Index
+![](images/CHAPTER 16_CLUSTERING by FINDING CENTERS with K-MEANS_00019.jpg)
+
+## Pseudo F Statistic 
+![](images/CHAPTER 16_CLUSTERING by FINDING CENTERS with K-MEANS_00020.jpg)
+
+## Pseudo F Statistic (Cont'd) 
+![](images/CHAPTER 16_CLUSTERING by FINDING CENTERS with K-MEANS_00021.jpg)
+
+## Caveat with Choosing K 
+![](images/CHAPTER 16_CLUSTERING by FINDING CENTERS with K-MEANS_00022.jpg)
+
+## Caveat with Choosing K (Cont'd)
+![](images/CHAPTER 16_CLUSTERING by FINDING CENTERS with K-MEANS_00023.jpg)
+
+## Strength and Weakness of K means Clustering  
+![](images/CHAPTER 16_CLUSTERING by FINDING CENTERS with K-MEANS_00024.jpg)
+
+
+## Questions or Queries {style="text-align:center;"}
+
+::: columns
+::: {.column width="50%" style="text-align:center;"}
+![Questions](images/question1.jpeg){fig-align="center"}
+:::
+
+::: {.column width="50%" style="text-align:center;"}
+![Queries](images/question2.jpeg){fig-align="center"}
+:::
+:::
