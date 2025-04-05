@@ -1,0 +1,281 @@
+---
+title: "<center> Chapter # 08 <br> Decision Tree"
+engine: python3
+format:
+    revealjs: 
+        theme: beige
+        controls: true
+        navigation-mode: vertical
+        self-contained: true
+        slide-number: true
+        slide-tone: true
+        css: styles.css
+---
+
+## What is Decision Tree?
+
+ - Definition: A supervised learning algorithm used for both classification and regression tasks.
+
+ - Structure: A tree-like structure where each internal node represents a test on an attribute, each branch represents the outcome of the test, and each leaf node represents a class label or a prediction.
+
+
+## Core Concepts - Nodes 
+
+ - Root Node: The starting point of the tree, representing the entire dataset.
+
+ - Internal Nodes (Decision Nodes): Represent tests on different attributes.
+
+ - Leaf Nodes (Terminal Nodes): Represent the final outcome or prediction.
+
+
+## Core Concepts - Branches 
+
+ - Represent the possible outcomes of the test at each internal node.
+
+ - Lead to either another internal node or a leaf node.
+
+## How Decision Trees Work - The Basic Idea
+
+- Divide and Conquer approach: Recursively split the dataset into smaller subsets based on the values of attributes.
+
+- Goal: To create subsets where all data points within each subset belong to the same class (for classification) or have similar values (for regression).
+
+## Decision Tree for Classification - Example {.scrollable}
+
+Imagine you're building a decision tree to classify animals. The dataset contains features like:
+
+Hair: Yes/No
+
+Feathers: Yes/No
+
+Milk: Yes/No
+
+Eggs: Yes/No
+
+Type: Mammal, Bird, Reptile, etc. (target variable)
+
+__Steps to build the tree__:
+
+*Start at the root node*: Evaluate the feature that most effectively splits the dataset into homogeneous classes using measures like Information Gain (Entropy) or Gini Impurity.
+
+For example, the root node might split based on the Hair feature.
+
+*Branch out*: Create sub-nodes for each possible outcome of the root node split. Repeat the process by choosing the best feature to split further.
+
+If Hair = Yes, the next decision might be based on Milk.
+
+If Hair = No, the decision might consider Feathers.
+
+*Stop splitting*: Continue until:
+
+Nodes are pure (contain a single class).
+
+No features remain to split.
+
+The stopping criteria (like maximum depth) is met.
+
+*Leaf nodes*: These are the terminal nodes where classification outcomes are assigned.
+
+
+## Decision Tree for Regression - Example {.scrollable}
+
+We use the famous Boston Housing dataset, which contains information about housing prices in various neighborhoods. Features include:
+
+CRIM: Per capita crime rate.
+
+RM: Number of rooms per dwelling.
+
+AGE: Proportion of owner-occupied units built before 1940.
+
+PRICE: Median value of owner-occupied homes (target variable).
+
+```{python}
+#| eval: false
+#| include: true
+from sklearn.datasets import fetch_openml
+import pandas as pd
+
+# 1. Load dataset
+housing = fetch_openml(name='boston', version=1, as_frame=True)
+df = housing.frame
+df.head()
+
+# 2. Pre-processing
+from sklearn.model_selection import train_test_split
+
+X = df.drop(columns=['MEDV'])  # MEDV is the target variable (price).
+y = df['MEDV']
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=2025)
+
+# 3. Build the Decision Tree
+from sklearn.tree import DecisionTreeRegressor
+from sklearn.metrics import mean_squared_error, r2_score
+
+# Create and fit the model
+tree_regressor = DecisionTreeRegressor(criterion="mse", max_depth=5, random_state=2025)
+tree_regressor.fit(X_train, y_train)
+
+# Predict and evaluate
+y_pred = tree_regressor.predict(X_test)
+print(f"Mean Squared Error: {mean_squared_error(y_test, y_pred)}")
+print(f"R^2 Score: {r2_score(y_test, y_pred)}")
+
+# 4. Visualize the Tree
+from sklearn import tree
+import matplotlib.pyplot as plt
+
+plt.figure(figsize=(12, 8))
+tree.plot_tree(tree_regressor, filled=True, feature_names=X.columns)
+plt.show()
+
+# 5. Evaluate Performance 
+y_pred_train = tree_regressor.predict(X_train)
+print(f"Training MSE: {mean_squared_error(y_train, y_pred_train)}")
+print(f"Test MSE: {mean_squared_error(y_test, y_pred)}")
+
+# 6. Hyperparameter Tuning 
+from sklearn.model_selection import GridSearchCV
+
+param_grid = {
+    'max_depth': range(3, 10),
+    'min_samples_split': range(2, 10),
+    'min_samples_leaf': range(1, 10),
+}
+grid_search = GridSearchCV(DecisionTreeRegressor(), param_grid, cv=5, scoring='neg_mean_squared_error')
+grid_search.fit(X_train, y_train)
+print(grid_search.best_params_)
+
+```
+
+## The Goal of Learning a Decision Tree
+
+- To create a model that can predict the class or value of a new, unseen instance by traversing the tree based on its attributes.
+
+## Attribute Selection - The Key Challenge
+
+- How do we decide which attribute to test at each internal node?
+The choice of attribute significantly impacts the tree's structure and performance.
+
+## Common Attribute Selection Measures (for Classification)
+
+- Information Gain: Measures the reduction in entropy after splitting the dataset on an attribute.
+
+- Gini Impurity: Measures the degree of probability of misclassifying a randomly chosen element if it were randomly labeled according to the class distribution in the subset.   
+
+
+## Entropy (for Information Gain)
+
+Definition: A measure of the impurity or randomness of a dataset.
+Formula:
+$$
+Entropy = - \sum_{i} P(i) \log_2 P(i)
+$$
+
+This formula calculates the randomness or impurity in a dataset. Here:
+
+- 𝑃(𝑖) is the proportion of instances belonging to class 𝑖.
+- The summation is over all possible classes.
+
+
+## Information Gain Calculation {.scrollable}
+
+Definition: how much uncertainty (or entropy) is reduced after splitting data at a particular node. It's a key concept in building decision trees. 
+
+Formula:
+$$
+Information\ Gain = Entropy(Parent) - \sum_{i} \left( \frac{N_{i}}{N_{Total}} \times Entropy(Child_{i}) \right)
+$$
+
+Where:
+
+- 𝑁~𝑖~ is the number of samples in the 𝑖-th child node.
+
+- 𝑁~𝑇𝑜𝑡𝑎𝑙~ is the total number of samples in the parent node.
+
+- 𝐸𝑛𝑡𝑟𝑜𝑝𝑦 represents the entropy calculation for both parent and child nodes.
+
+## Gini Impurity Calculation 
+
+$$
+Gini\ Impurity = 1 - \sum_{i} P(i)^2
+$$
+
+Where:
+
+- 𝑃(𝑖) is the proportion of instances belonging to class 𝑖.
+
+- Gini Impurity measures how often a randomly chosen element would be incorrectly classified if it was randomly labeled according to the distribution of classes. It's another common metric for assessing splits in decision trees.
+
+## Attribute Selection Process
+
+- Calculate the chosen impurity measure (e.g., Information Gain or Gini Impurity) for each attribute.
+- Select the attribute that provides the highest gain (or lowest impurity after splitting).
+- This attribute becomes the test at the current internal node.
+
+## Splitting the Data
+
+- Based on the selected attribute, the dataset is split into subsets corresponding to each possible value of the attribute.
+- This process is repeated recursively for each subset until a stopping condition is met.
+
+
+## Stopping Conditions for Tree Growth
+
+- All instances in a subset belong to the same class.
+- No remaining attributes to split on.
+- The number of instances in a subset is below a certain threshold.
+
+
+## Overfitting in Decision Trees
+
+- Definition: A situation where the decision tree learns the training data too well, including noise and outliers.
+- Consequence: Poor performance on new, unseen data.
+- Trees that are too deep and have too many nodes are prone to overfitting.
+
+## Handling Overfitting - Pruning
+
+- Pruning: A technique to reduce the size of the decision tree by removing branches and nodes that do not provide significant predictive power.
+- Two main types:
+    * Pre-pruning: Stop growing the tree early.
+    * Post-pruning: Grow the full tree and then prune it back.
+
+## Advantages of Decision Tree Algorithm {.scrollable}
+
+- Simple to understand and to interpret. Trees can be visualized.
+
+- Requires little data preparation. Other techniques often require data normalization, dummy variables need to be created and blank values to be removed. Note however that this algorithm does not support missing values.
+
+- Able to handle both numerical and categorical data.
+
+- Able to handle multi-output problems.
+
+- Uses a white box model. Results are easy to interpret.
+
+- Possible to validate a model using statistical tests. That makes it possible to account for the reliability of the model.
+
+- The decision tree has no assumptions about distribution because of the non-parametric nature of the algorithm.
+
+- It can be used for feature engineering such as predicting missing values, suitable for variable selection.
+
+- It can easily capture Non-linear patterns.
+
+
+## Disadvantages of Decision Tree Algorithm {.scrollable}
+
+- Decision-tree learners can create over-complex trees that do not generalize the data well. This is called overfitting. Mechanisms such as pruning, setting the minimum number of samples required at a leaf node or setting the maximum depth of the tree are necessary to avoid this problem.
+
+- Decision trees can be unstable because small variations in the data might result in a completely different tree being generated. This problem is mitigated by using decision trees within an ensemble.
+
+- Decision tree learners create biased trees if some classes dominate. It is therefore recommended to balance the dataset prior to fitting with the decision tree.
+
+
+## Questions or Queries {style="text-align:center;"}
+
+::: columns
+::: {.column width="50%" style="text-align:center;"}
+![Questions](images/question1.jpeg){fig-align="center"}
+:::
+
+::: {.column width="50%" style="text-align:center;"}
+![Queries](images/question2.jpeg){fig-align="center"}
+:::
+:::

@@ -3776,5 +3776,245 @@
     "title": "\nChapter # 10  Clustering by Finding Centers with K-means",
     "section": "Questions or Queries",
     "text": "Questions or Queries\n\n\n\n\n\nQuestions\n\n\n\n\n\n\nQueries"
+  },
+  {
+    "objectID": "chap08_slide.html#what-is-decision-tree",
+    "href": "chap08_slide.html#what-is-decision-tree",
+    "title": "\nChapter # 08  Decision Tree",
+    "section": "What is Decision Tree?",
+    "text": "What is Decision Tree?\n\nDefinition: A supervised learning algorithm used for both classification and regression tasks.\nStructure: A tree-like structure where each internal node represents a test on an attribute, each branch represents the outcome of the test, and each leaf node represents a class label or a prediction.",
+    "crumbs": [
+      "Modules & Slides",
+      "Slides",
+      "<center> Chapter # 08 <br> Decision Tree"
+    ]
+  },
+  {
+    "objectID": "chap08_slide.html#core-concepts---nodes",
+    "href": "chap08_slide.html#core-concepts---nodes",
+    "title": "\nChapter # 08  Decision Tree",
+    "section": "Core Concepts - Nodes",
+    "text": "Core Concepts - Nodes\n\nRoot Node: The starting point of the tree, representing the entire dataset.\nInternal Nodes (Decision Nodes): Represent tests on different attributes.\nLeaf Nodes (Terminal Nodes): Represent the final outcome or prediction.",
+    "crumbs": [
+      "Modules & Slides",
+      "Slides",
+      "<center> Chapter # 08 <br> Decision Tree"
+    ]
+  },
+  {
+    "objectID": "chap08_slide.html#core-concepts---branches",
+    "href": "chap08_slide.html#core-concepts---branches",
+    "title": "\nChapter # 08  Decision Tree",
+    "section": "Core Concepts - Branches",
+    "text": "Core Concepts - Branches\n\nRepresent the possible outcomes of the test at each internal node.\nLead to either another internal node or a leaf node.",
+    "crumbs": [
+      "Modules & Slides",
+      "Slides",
+      "<center> Chapter # 08 <br> Decision Tree"
+    ]
+  },
+  {
+    "objectID": "chap08_slide.html#how-decision-trees-work---the-basic-idea",
+    "href": "chap08_slide.html#how-decision-trees-work---the-basic-idea",
+    "title": "\nChapter # 08  Decision Tree",
+    "section": "How Decision Trees Work - The Basic Idea",
+    "text": "How Decision Trees Work - The Basic Idea\n\nDivide and Conquer approach: Recursively split the dataset into smaller subsets based on the values of attributes.\nGoal: To create subsets where all data points within each subset belong to the same class (for classification) or have similar values (for regression).",
+    "crumbs": [
+      "Modules & Slides",
+      "Slides",
+      "<center> Chapter # 08 <br> Decision Tree"
+    ]
+  },
+  {
+    "objectID": "chap08_slide.html#decision-tree-for-classification---example",
+    "href": "chap08_slide.html#decision-tree-for-classification---example",
+    "title": "\nChapter # 08  Decision Tree",
+    "section": "Decision Tree for Classification - Example",
+    "text": "Decision Tree for Classification - Example\nImagine you’re building a decision tree to classify animals. The dataset contains features like:\nHair: Yes/No\nFeathers: Yes/No\nMilk: Yes/No\nEggs: Yes/No\nType: Mammal, Bird, Reptile, etc. (target variable)\nSteps to build the tree:\nStart at the root node: Evaluate the feature that most effectively splits the dataset into homogeneous classes using measures like Information Gain (Entropy) or Gini Impurity.\nFor example, the root node might split based on the Hair feature.\nBranch out: Create sub-nodes for each possible outcome of the root node split. Repeat the process by choosing the best feature to split further.\nIf Hair = Yes, the next decision might be based on Milk.\nIf Hair = No, the decision might consider Feathers.\nStop splitting: Continue until:\nNodes are pure (contain a single class).\nNo features remain to split.\nThe stopping criteria (like maximum depth) is met.\nLeaf nodes: These are the terminal nodes where classification outcomes are assigned.",
+    "crumbs": [
+      "Modules & Slides",
+      "Slides",
+      "<center> Chapter # 08 <br> Decision Tree"
+    ]
+  },
+  {
+    "objectID": "chap08_slide.html#decision-tree-for-regression---example",
+    "href": "chap08_slide.html#decision-tree-for-regression---example",
+    "title": "\nChapter # 08  Decision Tree",
+    "section": "Decision Tree for Regression - Example",
+    "text": "Decision Tree for Regression - Example\nWe use the famous Boston Housing dataset, which contains information about housing prices in various neighborhoods. Features include:\nCRIM: Per capita crime rate.\nRM: Number of rooms per dwelling.\nAGE: Proportion of owner-occupied units built before 1940.\nPRICE: Median value of owner-occupied homes (target variable).",
+    "crumbs": [
+      "Modules & Slides",
+      "Slides",
+      "<center> Chapter # 08 <br> Decision Tree"
+    ]
+  },
+  {
+    "objectID": "chap08_slide.html#the-goal-of-learning-a-decision-tree",
+    "href": "chap08_slide.html#the-goal-of-learning-a-decision-tree",
+    "title": "\nChapter # 08  Decision Tree",
+    "section": "The Goal of Learning a Decision Tree",
+    "text": "The Goal of Learning a Decision Tree\n\nTo create a model that can predict the class or value of a new, unseen instance by traversing the tree based on its attributes.",
+    "crumbs": [
+      "Modules & Slides",
+      "Slides",
+      "<center> Chapter # 08 <br> Decision Tree"
+    ]
+  },
+  {
+    "objectID": "chap08_slide.html#attribute-selection---the-key-challenge",
+    "href": "chap08_slide.html#attribute-selection---the-key-challenge",
+    "title": "\nChapter # 08  Decision Tree",
+    "section": "Attribute Selection - The Key Challenge",
+    "text": "Attribute Selection - The Key Challenge\n\nHow do we decide which attribute to test at each internal node? The choice of attribute significantly impacts the tree’s structure and performance.",
+    "crumbs": [
+      "Modules & Slides",
+      "Slides",
+      "<center> Chapter # 08 <br> Decision Tree"
+    ]
+  },
+  {
+    "objectID": "chap08_slide.html#common-attribute-selection-measures-for-classification",
+    "href": "chap08_slide.html#common-attribute-selection-measures-for-classification",
+    "title": "\nChapter # 08  Decision Tree",
+    "section": "Common Attribute Selection Measures (for Classification)",
+    "text": "Common Attribute Selection Measures (for Classification)\n\nInformation Gain: Measures the reduction in entropy after splitting the dataset on an attribute.\nGini Impurity: Measures the degree of probability of misclassifying a randomly chosen element if it were randomly labeled according to the class distribution in the subset.",
+    "crumbs": [
+      "Modules & Slides",
+      "Slides",
+      "<center> Chapter # 08 <br> Decision Tree"
+    ]
+  },
+  {
+    "objectID": "chap08_slide.html#entropy-for-information-gain",
+    "href": "chap08_slide.html#entropy-for-information-gain",
+    "title": "\nChapter # 08  Decision Tree",
+    "section": "Entropy (for Information Gain)",
+    "text": "Entropy (for Information Gain)\nDefinition: A measure of the impurity or randomness of a dataset. Formula: \\[\nEntropy = - \\sum_{i} P(i) \\log_2 P(i)\n\\]\nThis formula calculates the randomness or impurity in a dataset. Here:\n\n𝑃(𝑖) is the proportion of instances belonging to class 𝑖.\nThe summation is over all possible classes.",
+    "crumbs": [
+      "Modules & Slides",
+      "Slides",
+      "<center> Chapter # 08 <br> Decision Tree"
+    ]
+  },
+  {
+    "objectID": "chap08_slide.html#information-gain-calculation",
+    "href": "chap08_slide.html#information-gain-calculation",
+    "title": "\nChapter # 08  Decision Tree",
+    "section": "Information Gain Calculation",
+    "text": "Information Gain Calculation\nDefinition: how much uncertainty (or entropy) is reduced after splitting data at a particular node. It’s a key concept in building decision trees.\nFormula: \\[\nInformation\\ Gain = Entropy(Parent) - \\sum_{i} \\left( \\frac{N_{i}}{N_{Total}} \\times Entropy(Child_{i}) \\right)\n\\]\nWhere:\n\n𝑁𝑖 is the number of samples in the 𝑖-th child node.\n𝑁𝑇𝑜𝑡𝑎𝑙 is the total number of samples in the parent node.\n𝐸𝑛𝑡𝑟𝑜𝑝𝑦 represents the entropy calculation for both parent and child nodes.",
+    "crumbs": [
+      "Modules & Slides",
+      "Slides",
+      "<center> Chapter # 08 <br> Decision Tree"
+    ]
+  },
+  {
+    "objectID": "chap08_slide.html#gini-impurity-calculation",
+    "href": "chap08_slide.html#gini-impurity-calculation",
+    "title": "\nChapter # 08  Decision Tree",
+    "section": "Gini Impurity Calculation",
+    "text": "Gini Impurity Calculation\n\\[\nGini\\ Impurity = 1 - \\sum_{i} P(i)^2\n\\]\nWhere:\n\n𝑃(𝑖) is the proportion of instances belonging to class 𝑖.\nGini Impurity measures how often a randomly chosen element would be incorrectly classified if it was randomly labeled according to the distribution of classes. It’s another common metric for assessing splits in decision trees.",
+    "crumbs": [
+      "Modules & Slides",
+      "Slides",
+      "<center> Chapter # 08 <br> Decision Tree"
+    ]
+  },
+  {
+    "objectID": "chap08_slide.html#attribute-selection-process",
+    "href": "chap08_slide.html#attribute-selection-process",
+    "title": "\nChapter # 08  Decision Tree",
+    "section": "Attribute Selection Process",
+    "text": "Attribute Selection Process\n\nCalculate the chosen impurity measure (e.g., Information Gain or Gini Impurity) for each attribute.\nSelect the attribute that provides the highest gain (or lowest impurity after splitting).\nThis attribute becomes the test at the current internal node.",
+    "crumbs": [
+      "Modules & Slides",
+      "Slides",
+      "<center> Chapter # 08 <br> Decision Tree"
+    ]
+  },
+  {
+    "objectID": "chap08_slide.html#splitting-the-data",
+    "href": "chap08_slide.html#splitting-the-data",
+    "title": "\nChapter # 08  Decision Tree",
+    "section": "Splitting the Data",
+    "text": "Splitting the Data\n\nBased on the selected attribute, the dataset is split into subsets corresponding to each possible value of the attribute.\nThis process is repeated recursively for each subset until a stopping condition is met.",
+    "crumbs": [
+      "Modules & Slides",
+      "Slides",
+      "<center> Chapter # 08 <br> Decision Tree"
+    ]
+  },
+  {
+    "objectID": "chap08_slide.html#stopping-conditions-for-tree-growth",
+    "href": "chap08_slide.html#stopping-conditions-for-tree-growth",
+    "title": "\nChapter # 08  Decision Tree",
+    "section": "Stopping Conditions for Tree Growth",
+    "text": "Stopping Conditions for Tree Growth\n\nAll instances in a subset belong to the same class.\nNo remaining attributes to split on.\nThe number of instances in a subset is below a certain threshold.",
+    "crumbs": [
+      "Modules & Slides",
+      "Slides",
+      "<center> Chapter # 08 <br> Decision Tree"
+    ]
+  },
+  {
+    "objectID": "chap08_slide.html#overfitting-in-decision-trees",
+    "href": "chap08_slide.html#overfitting-in-decision-trees",
+    "title": "\nChapter # 08  Decision Tree",
+    "section": "Overfitting in Decision Trees",
+    "text": "Overfitting in Decision Trees\n\nDefinition: A situation where the decision tree learns the training data too well, including noise and outliers.\nConsequence: Poor performance on new, unseen data.\nTrees that are too deep and have too many nodes are prone to overfitting.",
+    "crumbs": [
+      "Modules & Slides",
+      "Slides",
+      "<center> Chapter # 08 <br> Decision Tree"
+    ]
+  },
+  {
+    "objectID": "chap08_slide.html#handling-overfitting---pruning",
+    "href": "chap08_slide.html#handling-overfitting---pruning",
+    "title": "\nChapter # 08  Decision Tree",
+    "section": "Handling Overfitting - Pruning",
+    "text": "Handling Overfitting - Pruning\n\nPruning: A technique to reduce the size of the decision tree by removing branches and nodes that do not provide significant predictive power.\nTwo main types:\n\nPre-pruning: Stop growing the tree early.\nPost-pruning: Grow the full tree and then prune it back.",
+    "crumbs": [
+      "Modules & Slides",
+      "Slides",
+      "<center> Chapter # 08 <br> Decision Tree"
+    ]
+  },
+  {
+    "objectID": "chap08_slide.html#advantages-of-decision-tree-algorithm",
+    "href": "chap08_slide.html#advantages-of-decision-tree-algorithm",
+    "title": "\nChapter # 08  Decision Tree",
+    "section": "Advantages of Decision Tree Algorithm",
+    "text": "Advantages of Decision Tree Algorithm\n\nSimple to understand and to interpret. Trees can be visualized.\nRequires little data preparation. Other techniques often require data normalization, dummy variables need to be created and blank values to be removed. Note however that this algorithm does not support missing values.\nAble to handle both numerical and categorical data.\nAble to handle multi-output problems.\nUses a white box model. Results are easy to interpret.\nPossible to validate a model using statistical tests. That makes it possible to account for the reliability of the model.\nThe decision tree has no assumptions about distribution because of the non-parametric nature of the algorithm.\nIt can be used for feature engineering such as predicting missing values, suitable for variable selection.\nIt can easily capture Non-linear patterns.",
+    "crumbs": [
+      "Modules & Slides",
+      "Slides",
+      "<center> Chapter # 08 <br> Decision Tree"
+    ]
+  },
+  {
+    "objectID": "chap08_slide.html#disadvantages-of-decision-tree-algorithm",
+    "href": "chap08_slide.html#disadvantages-of-decision-tree-algorithm",
+    "title": "\nChapter # 08  Decision Tree",
+    "section": "Disadvantages of Decision Tree Algorithm",
+    "text": "Disadvantages of Decision Tree Algorithm\n\nDecision-tree learners can create over-complex trees that do not generalize the data well. This is called overfitting. Mechanisms such as pruning, setting the minimum number of samples required at a leaf node or setting the maximum depth of the tree are necessary to avoid this problem.\nDecision trees can be unstable because small variations in the data might result in a completely different tree being generated. This problem is mitigated by using decision trees within an ensemble.\nDecision tree learners create biased trees if some classes dominate. It is therefore recommended to balance the dataset prior to fitting with the decision tree.",
+    "crumbs": [
+      "Modules & Slides",
+      "Slides",
+      "<center> Chapter # 08 <br> Decision Tree"
+    ]
+  },
+  {
+    "objectID": "chap08_slide.html#questions-or-queries",
+    "href": "chap08_slide.html#questions-or-queries",
+    "title": "\nChapter # 08  Decision Tree",
+    "section": "Questions or Queries",
+    "text": "Questions or Queries\n\n\n\n\n\nQuestions\n\n\n\n\n\n\nQueries",
+    "crumbs": [
+      "Modules & Slides",
+      "Slides",
+      "<center> Chapter # 08 <br> Decision Tree"
+    ]
   }
 ]
