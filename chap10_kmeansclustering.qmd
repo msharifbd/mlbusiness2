@@ -32,7 +32,7 @@ Clustering can also be used in recommendation engines. Let's say you want to rec
 K-means clustering is one of the simplest and popular unsupervised machine learning algorithms. You'll define a target number k, which refers to the number of centroids you need in the dataset. A centroid is the imaginary or real location representing the center of the cluster. Every data point is allocated to each of the clusters through reducing the in-cluster sum of squares. In other words, the K-means algorithm identifies k number of centroids, and then allocates every data point to the nearest cluster, while keeping the centroids as small as possible. The 'means' in the K-means refers to averaging of the data; that is, finding the centroid. Please see @fig-kmeanscluster to get an idea about K-means clustering.
 
 ::: {#fig-kmeanscluster}
-![](https://static.javatpoint.com/tutorial/machine-learning/images/k-means-clustering-algorithm-in-machine-learning.png)
+![](images/k-meansClustering.avif)
 
 An Example of K-means Clustering
 :::
@@ -66,10 +66,11 @@ Inertia = \sum(distance(point, centroid)^2)
 $$
 
 ::: {#fig-elbowmethod}
-![](elbowmethod.png)
+![](images/elbowmethod.png)
 
 Elbow Method for Optimal K
 :::
+
 
 We can see that if K increases, average distortion will decrease. We should choose that k where the distortion decline drastically. From the above diagram the best value of k will be 3.
 
@@ -88,7 +89,7 @@ Silhouette coefficient values range between -1 and 1. Larger numbers indicate th
 K-means clustering performs best on data that are spherical. Spherical data are data that group in space in close proximity to each other either. This can be visualized in 2 or 3 dimensional space more easily. Data that aren't spherical or should not be spherical do not work well with k-means clustering. For example, k-means clustering would not do well on the below data (@fig-kmeansNOT) as we would not be able to find distinct centroids to cluster the two circles or arcs differently, despite them clearly visually being two distinct circles and arcs that should be labeled as such.
 
 ::: {#fig-kmeansNOT}
-![](kmeansNOTworking.png)
+![](images/kmeansNOTworking.png)
 
 When K means is not working
 :::

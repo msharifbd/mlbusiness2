@@ -398,6 +398,36 @@ window.Quarto = {
  <span class="menu-text"></span></a><center><a href="./chap05_slide.html" class="sidebar-item-text sidebar-link"> Chapter # 05 <br> Discriminant Analysis (DA)</a>
   </center></div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chap06_slide.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"></span></a><center><a href="./chap06_slide.html" class="sidebar-item-text sidebar-link"> Chapter # 06 <br> Naive Bayes Theorem &amp; Support Vector Machine (SVM)</a>
+  </center></div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chap07_slide.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"></span></a><center><a href="./chap07_slide.html" class="sidebar-item-text sidebar-link"> Chapter # 07 <br> Linear Regression</a>
+  </center></div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chap08_slide.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"></span></a><center><a href="./chap08_slide.html" class="sidebar-item-text sidebar-link"> Chapter # 08 <br> Decision Tree</a>
+  </center></div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chap09_slide.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"></span></a><center><a href="./chap09_slide.html" class="sidebar-item-text sidebar-link"> Chapter # 09 <br> Principal Component Analysis (PCA)</a>
+  </center></div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chap10_slide.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"></span></a><center><a href="./chap10_slide.html" class="sidebar-item-text sidebar-link"> Chapter # 10 <br> Clustering by Finding Centers with K-means</a>
+  </center></div>
+</li>
       </ul>
   </li>
     </ul>
@@ -495,7 +525,7 @@ Chapter # 10 <br> K-means Clustering</center></h1>
 <div id="fig-kmeanscluster" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-kmeanscluster-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="https://static.javatpoint.com/tutorial/machine-learning/images/k-means-clustering-algorithm-in-machine-learning.png" class="img-fluid figure-img">
+<img src="images/k-meansClustering.avif" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-kmeanscluster-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;1: An Example of K-means Clustering
@@ -530,7 +560,7 @@ Inertia = \sum(distance(point, centroid)^2)
 <div id="fig-elbowmethod" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-elbowmethod-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="elbowmethod.png" class="img-fluid figure-img">
+<img src="images/elbowmethod.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-elbowmethod-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;2: Elbow Method for Optimal K
@@ -555,7 +585,7 @@ Figure&nbsp;2: Elbow Method for Optimal K
 <div id="fig-kmeansNOT" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-kmeansNOT-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="kmeansNOTworking.png" class="img-fluid figure-img">
+<img src="images/kmeansNOTworking.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-kmeansNOT-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;3: When K means is not working
@@ -565,7 +595,7 @@ Figure&nbsp;3: When K means is not working
 </section>
 <section id="importing-python-libraries" class="level1">
 <h1>Importing Python Libraries</h1>
-<div id="35553e5e" class="cell" data-execution_count="1">
+<div id="7642b4ea" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -583,7 +613,7 @@ Figure&nbsp;3: When K means is not working
 </section>
 <section id="an-example-of-clustering-using-a-simulated-dataset" class="level1">
 <h1>An Example of Clustering Using a Simulated Dataset</h1>
-<div id="9befcbde" class="cell" data-execution_count="2">
+<div id="6316af6e" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Creating the data</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>x1 <span class="op">=</span> np.array([<span class="dv">3</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">6</span>, <span class="dv">6</span>, <span class="dv">6</span>, <span class="dv">5</span>, <span class="dv">6</span>,<span class="op">\</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>               <span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>, <span class="dv">8</span>, <span class="dv">9</span>, <span class="dv">9</span>, <span class="dv">8</span>, <span class="dv">4</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">4</span>])</span>
@@ -607,7 +637,7 @@ Figure&nbsp;3: When K means is not working
 </div>
 </div>
 </div>
-<div id="af993690" class="cell" data-execution_count="3">
+<div id="3e011755" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>distortions <span class="op">=</span> []</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>inertias <span class="op">=</span> []</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>mapping1 <span class="op">=</span> {}</span>
@@ -670,7 +700,7 @@ Figure&nbsp;5: The Elbow Method using Inertia
 </div>
 </div>
 <p>Please see <a href="#fig-silhouette" class="quarto-xref">Figure&nbsp;6</a> for Silhouette Score.</p>
-<div id="2063e722" class="cell" data-execution_count="6">
+<div id="37c536a4" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a> <span class="co"># A list holds the silhouette coefficients for each k</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>kmeans_kwargs <span class="op">=</span> {</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>        <span class="st">"init"</span>: <span class="st">"random"</span>,</span>
@@ -742,7 +772,7 @@ Figure&nbsp;6: The Silhouette Score for Optimal K
 <span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Number of clusters (k)'</span>)</span>
 <span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Inertia'</span>)</span>
 <span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div id="fig-differentk" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-layout-nrows="4" data-execution_count="8">
+<div id="fig-differentk" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-execution_count="8" data-layout-nrows="4">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-differentk-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output cell-output-display">
@@ -816,12 +846,12 @@ Figure&nbsp;7: Clustering Using Different K Values
 </section>
 <section id="loading-dataset" class="level1">
 <h1>Loading Dataset</h1>
-<div id="e1b81f53" class="cell" data-execution_count="9">
+<div id="85d0e804" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">'DATA/Mall_Customers.csv'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <section id="metadata-of-the-dataset" class="level2">
 <h2 class="anchored" data-anchor-id="metadata-of-the-dataset">Metadata of the Dataset</h2>
-<div id="9d50dd28" class="cell" data-execution_count="10">
+<div id="ed912337" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># first few rows</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="10">
@@ -886,14 +916,14 @@ Figure&nbsp;7: Clustering Using Different K Values
 </div>
 </div>
 </div>
-<div id="2e2c9d4e" class="cell" data-execution_count="11">
+<div id="971f8bdf" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># size of datset</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>df.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="11">
 <pre><code>(200, 5)</code></pre>
 </div>
 </div>
-<div id="b9591427" class="cell" data-execution_count="12">
+<div id="65808574" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># summary about dataset</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>df.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -911,7 +941,7 @@ dtypes: int64(4), object(1)
 memory usage: 7.9+ KB</code></pre>
 </div>
 </div>
-<div id="04481011" class="cell" data-execution_count="13">
+<div id="a3c8d83c" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>df.isnull().<span class="bu">sum</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="13">
 <pre><code>CustomerID                0
@@ -922,7 +952,7 @@ Spending Score (1-100)    0
 dtype: int64</code></pre>
 </div>
 </div>
-<div id="e6e02d26" class="cell" data-execution_count="14">
+<div id="6db59559" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>df.describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="14">
 <div>
@@ -1001,7 +1031,7 @@ dtype: int64</code></pre>
 </div>
 </div>
 </div>
-<div id="e54b7a05" class="cell" data-execution_count="15">
+<div id="36e83498" class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>df.describe().T</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="15">
 <div>
@@ -1076,7 +1106,7 @@ dtype: int64</code></pre>
 </section>
 <section id="exploratory-analysis" class="level1">
 <h1>Exploratory Analysis</h1>
-<div id="93e8f64f" class="cell" data-execution_count="16">
+<div id="0fe25cf2" class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>plt.figure(<span class="dv">1</span> , figsize <span class="op">=</span> (<span class="dv">15</span> , <span class="dv">6</span>))</span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> <span class="dv">0</span> </span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> x <span class="kw">in</span> [<span class="st">'Age'</span> , <span class="st">'Annual Income (k$)'</span> , <span class="st">'Spending Score (1-100)'</span>]:</span>
@@ -1094,7 +1124,7 @@ dtype: int64</code></pre>
 </div>
 </div>
 </div>
-<div id="5311e812" class="cell" data-execution_count="17">
+<div id="8c95a51f" class="cell" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>sns.pairplot(df, <span class="bu">vars</span> <span class="op">=</span> [<span class="st">'Spending Score (1-100)'</span>, <span class="st">'Annual Income (k$)'</span>, <span class="st">'Age'</span>], hue <span class="op">=</span> <span class="st">"Gender"</span>)</span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
@@ -1108,7 +1138,7 @@ dtype: int64</code></pre>
 </section>
 <section id="clustering-based-on-age-and-spending-score" class="level1">
 <h1>Clustering Based on Age and Spending Score</h1>
-<div id="ecd10afd" class="cell" data-execution_count="18">
+<div id="ba18776e" class="cell" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>sns.set_style(<span class="st">'whitegrid'</span>)</span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>plt.figure(<span class="dv">1</span> , figsize <span class="op">=</span> (<span class="dv">10</span> , <span class="dv">5</span>))</span>
 <span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Scatter plot of Age v/s Spending Score'</span>, fontsize <span class="op">=</span> <span class="dv">20</span>)</span>
@@ -1126,7 +1156,7 @@ dtype: int64</code></pre>
 </div>
 <section id="deciding-k-value" class="level2">
 <h2 class="anchored" data-anchor-id="deciding-k-value">Deciding <code>K</code> Value</h2>
-<div id="f625c925" class="cell" data-execution_count="19">
+<div id="1d78f3cf" class="cell" data-execution_count="19">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>X1 <span class="op">=</span> df[[<span class="st">'Age'</span> , <span class="st">'Spending Score (1-100)'</span>]].iloc[: , :].values</span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>inertia <span class="op">=</span> []</span>
 <span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> n <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span> , <span class="dv">15</span>):</span>
@@ -1135,7 +1165,7 @@ dtype: int64</code></pre>
 <span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>    algorithm.fit(X1)</span>
 <span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>    inertia.append(algorithm.inertia_)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="af9fc006" class="cell" data-execution_count="20">
+<div id="89214e98" class="cell" data-execution_count="20">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>plt.figure(<span class="dv">1</span> , figsize <span class="op">=</span> (<span class="dv">10</span>,<span class="dv">5</span>))</span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>plt.plot(np.arange(<span class="dv">1</span> , <span class="dv">15</span>) , inertia , <span class="st">'o'</span>)</span>
 <span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>plt.plot(np.arange(<span class="dv">1</span> , <span class="dv">15</span>) , inertia , <span class="st">'-'</span> , alpha <span class="op">=</span> <span class="fl">0.5</span>)</span>
@@ -1157,21 +1187,21 @@ dtype: int64</code></pre>
 </section>
 <section id="applying-kmeans-for-k-4" class="level2">
 <h2 class="anchored" data-anchor-id="applying-kmeans-for-k-4">Applying KMeans for <code>K = 4</code></h2>
-<div id="08af8a83" class="cell" data-execution_count="21">
+<div id="536e7138" class="cell" data-execution_count="21">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>algorithm <span class="op">=</span> (KMeans(n_clusters <span class="op">=</span> <span class="dv">4</span> ,init<span class="op">=</span><span class="st">'k-means++'</span>, n_init <span class="op">=</span> <span class="dv">10</span> ,max_iter<span class="op">=</span><span class="dv">300</span>, </span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>                        tol<span class="op">=</span><span class="fl">0.0001</span>,  random_state<span class="op">=</span> <span class="dv">111</span>  , algorithm<span class="op">=</span><span class="st">'elkan'</span>) )</span>
 <span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>algorithm.fit(X1)</span>
 <span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>labels1 <span class="op">=</span> algorithm.labels_</span>
 <span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>centroids1 <span class="op">=</span> algorithm.cluster_centers_</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="a3f41c30" class="cell" data-execution_count="22">
+<div id="4caae318" class="cell" data-execution_count="22">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>h <span class="op">=</span> <span class="fl">0.02</span></span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>x_min, x_max <span class="op">=</span> X1[:, <span class="dv">0</span>].<span class="bu">min</span>() <span class="op">-</span> <span class="dv">1</span>, X1[:, <span class="dv">0</span>].<span class="bu">max</span>() <span class="op">+</span> <span class="dv">1</span></span>
 <span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>y_min, y_max <span class="op">=</span> X1[:, <span class="dv">1</span>].<span class="bu">min</span>() <span class="op">-</span> <span class="dv">1</span>, X1[:, <span class="dv">1</span>].<span class="bu">max</span>() <span class="op">+</span> <span class="dv">1</span></span>
 <span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>xx, yy <span class="op">=</span> np.meshgrid(np.arange(x_min, x_max, h), np.arange(y_min, y_max, h))</span>
 <span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>Z <span class="op">=</span> algorithm.predict(np.c_[xx.ravel(), yy.ravel()]) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="6f654970" class="cell" data-execution_count="23">
+<div id="37afa4c9" class="cell" data-execution_count="23">
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>plt.figure(<span class="dv">1</span> , figsize <span class="op">=</span> (<span class="dv">15</span> , <span class="dv">7</span>) )</span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>plt.clf()</span>
 <span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>Z <span class="op">=</span> Z.reshape(xx.shape)</span>
@@ -1194,21 +1224,21 @@ dtype: int64</code></pre>
 </section>
 <section id="applying-kmeans-for-k-5" class="level2">
 <h2 class="anchored" data-anchor-id="applying-kmeans-for-k-5">Applying KMeans for <code>K = 5</code></h2>
-<div id="01c92d76" class="cell" data-execution_count="24">
+<div id="c3439ab4" class="cell" data-execution_count="24">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>algorithm <span class="op">=</span> (KMeans(n_clusters <span class="op">=</span> <span class="dv">5</span>, init<span class="op">=</span><span class="st">'k-means++'</span>, n_init <span class="op">=</span> <span class="dv">10</span>, max_iter<span class="op">=</span><span class="dv">300</span>, </span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>                        tol<span class="op">=</span><span class="fl">0.0001</span>, random_state<span class="op">=</span> <span class="dv">111</span> , algorithm<span class="op">=</span><span class="st">'elkan'</span>))</span>
 <span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>algorithm.fit(X1)</span>
 <span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>labels1 <span class="op">=</span> algorithm.labels_</span>
 <span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>centroids1 <span class="op">=</span> algorithm.cluster_centers_</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="0602c8e3" class="cell" data-execution_count="25">
+<div id="3dbefd3e" class="cell" data-execution_count="25">
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>h <span class="op">=</span> <span class="fl">0.02</span></span>
 <span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>x_min, x_max <span class="op">=</span> X1[:, <span class="dv">0</span>].<span class="bu">min</span>() <span class="op">-</span> <span class="dv">1</span>, X1[:, <span class="dv">0</span>].<span class="bu">max</span>() <span class="op">+</span> <span class="dv">1</span></span>
 <span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>y_min, y_max <span class="op">=</span> X1[:, <span class="dv">1</span>].<span class="bu">min</span>() <span class="op">-</span> <span class="dv">1</span>, X1[:, <span class="dv">1</span>].<span class="bu">max</span>() <span class="op">+</span> <span class="dv">1</span></span>
 <span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>xx, yy <span class="op">=</span> np.meshgrid(np.arange(x_min, x_max, h), np.arange(y_min, y_max, h))</span>
 <span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>Z <span class="op">=</span> algorithm.predict(np.c_[xx.ravel(), yy.ravel()]) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="9414a77e" class="cell" data-execution_count="26">
+<div id="17a364bb" class="cell" data-execution_count="26">
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>plt.figure(<span class="dv">1</span> , figsize <span class="op">=</span> (<span class="dv">15</span> , <span class="dv">7</span>) )</span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>plt.clf()</span>
 <span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>Z <span class="op">=</span> Z.reshape(xx.shape)</span>
@@ -1232,7 +1262,7 @@ dtype: int64</code></pre>
 </section>
 <section id="clustering-based-on-annual-income-and-spending-score" class="level1">
 <h1>Clustering Based on Annual Income and Spending Score</h1>
-<div id="d65ad53a" class="cell" data-execution_count="27">
+<div id="3272e57c" class="cell" data-execution_count="27">
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>X2 <span class="op">=</span> df[[<span class="st">'Annual Income (k$)'</span> , <span class="st">'Spending Score (1-100)'</span>]].iloc[: , :].values</span>
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>inertia <span class="op">=</span> []</span>
 <span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> n <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span> , <span class="dv">11</span>):</span>
@@ -1241,7 +1271,7 @@ dtype: int64</code></pre>
 <span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>    algorithm.fit(X2)</span>
 <span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a>    inertia.append(algorithm.inertia_)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="d0dc3d8c" class="cell" data-execution_count="28">
+<div id="ed48dfea" class="cell" data-execution_count="28">
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>plt.figure(<span class="dv">1</span> , figsize <span class="op">=</span> (<span class="dv">10</span>,<span class="dv">5</span>))</span>
 <span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>plt.plot(np.arange(<span class="dv">1</span> , <span class="dv">11</span>) , inertia , <span class="st">'o'</span>)</span>
 <span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>plt.plot(np.arange(<span class="dv">1</span> , <span class="dv">11</span>) , inertia , <span class="st">'-'</span> , alpha <span class="op">=</span> <span class="fl">0.5</span>)</span>
@@ -1255,21 +1285,21 @@ dtype: int64</code></pre>
 </div>
 </div>
 </div>
-<div id="ed60acb9" class="cell" data-execution_count="29">
+<div id="6063fdb5" class="cell" data-execution_count="29">
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>algorithm <span class="op">=</span> (KMeans(n_clusters <span class="op">=</span> <span class="dv">5</span> ,init<span class="op">=</span><span class="st">'k-means++'</span>, n_init <span class="op">=</span> <span class="dv">10</span> ,max_iter<span class="op">=</span><span class="dv">300</span>, </span>
 <span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>                        tol<span class="op">=</span><span class="fl">0.0001</span>,  random_state<span class="op">=</span> <span class="dv">111</span>  , algorithm<span class="op">=</span><span class="st">'elkan'</span>) )</span>
 <span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>algorithm.fit(X2)</span>
 <span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>labels2 <span class="op">=</span> algorithm.labels_</span>
 <span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>centroids2 <span class="op">=</span> algorithm.cluster_centers_</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="722e6627" class="cell" data-execution_count="30">
+<div id="310cf30d" class="cell" data-execution_count="30">
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>h <span class="op">=</span> <span class="fl">0.02</span></span>
 <span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>x_min, x_max <span class="op">=</span> X2[:, <span class="dv">0</span>].<span class="bu">min</span>() <span class="op">-</span> <span class="dv">1</span>, X2[:, <span class="dv">0</span>].<span class="bu">max</span>() <span class="op">+</span> <span class="dv">1</span></span>
 <span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>y_min, y_max <span class="op">=</span> X2[:, <span class="dv">1</span>].<span class="bu">min</span>() <span class="op">-</span> <span class="dv">1</span>, X2[:, <span class="dv">1</span>].<span class="bu">max</span>() <span class="op">+</span> <span class="dv">1</span></span>
 <span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>xx, yy <span class="op">=</span> np.meshgrid(np.arange(x_min, x_max, h), np.arange(y_min, y_max, h))</span>
 <span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>Z2 <span class="op">=</span> algorithm.predict(np.c_[xx.ravel(), yy.ravel()]) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="d9715055" class="cell" data-execution_count="31">
+<div id="a3d2dc3f" class="cell" data-execution_count="31">
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>plt.figure(<span class="dv">1</span> , figsize <span class="op">=</span> (<span class="dv">15</span> , <span class="dv">7</span>) )</span>
 <span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>plt.clf()</span>
 <span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>Z2 <span class="op">=</span> Z2.reshape(xx.shape)</span>
@@ -1293,7 +1323,7 @@ dtype: int64</code></pre>
 </section>
 <section id="clustering-age-annual-income-and-spending-score" class="level1">
 <h1>Clustering Age, Annual Income, and Spending Score</h1>
-<div id="1c0bb7c2" class="cell" data-execution_count="32">
+<div id="1b08c8cd" class="cell" data-execution_count="32">
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>X3 <span class="op">=</span> df[[<span class="st">'Age'</span> , <span class="st">'Annual Income (k$)'</span> ,<span class="st">'Spending Score (1-100)'</span>]].iloc[: , :].values</span>
 <span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>inertia <span class="op">=</span> []</span>
 <span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> n <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span> , <span class="dv">11</span>):</span>
@@ -1302,7 +1332,7 @@ dtype: int64</code></pre>
 <span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a>    algorithm.fit(X3)</span>
 <span id="cb35-7"><a href="#cb35-7" aria-hidden="true" tabindex="-1"></a>    inertia.append(algorithm.inertia_)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="8673fcb8" class="cell" data-execution_count="33">
+<div id="ff0a23ae" class="cell" data-execution_count="33">
 <div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>plt.figure(<span class="dv">1</span> , figsize <span class="op">=</span> (<span class="dv">10</span>,<span class="dv">5</span>))</span>
 <span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>plt.plot(np.arange(<span class="dv">1</span> , <span class="dv">11</span>) , inertia , <span class="st">'o'</span>)</span>
 <span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>plt.plot(np.arange(<span class="dv">1</span> , <span class="dv">11</span>) , inertia , <span class="st">'-'</span> , alpha <span class="op">=</span> <span class="fl">0.5</span>)</span>
@@ -1316,7 +1346,7 @@ dtype: int64</code></pre>
 </div>
 </div>
 </div>
-<div id="a8b51b66" class="cell" data-execution_count="34">
+<div id="1035b97e" class="cell" data-execution_count="34">
 <div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>algorithm <span class="op">=</span> (KMeans(n_clusters <span class="op">=</span> <span class="dv">6</span> ,init<span class="op">=</span><span class="st">'k-means++'</span>, n_init <span class="op">=</span> <span class="dv">10</span> ,max_iter<span class="op">=</span><span class="dv">300</span>, </span>
 <span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>                        tol<span class="op">=</span><span class="fl">0.0001</span>,  random_state<span class="op">=</span> <span class="dv">111</span>  , algorithm<span class="op">=</span><span class="st">'elkan'</span>) )</span>
 <span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>algorithm.fit(X3)</span>
@@ -1394,7 +1424,7 @@ dtype: int64</code></pre>
 </div>
 </div>
 </div>
-<div id="ddef7c5e" class="cell" data-execution_count="35">
+<div id="5c679f2e" class="cell" data-execution_count="35">
 <div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> plotly <span class="im">as</span> py</span>
 <span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> plotly.graph_objs <span class="im">as</span> go</span>
 <span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1434,9 +1464,9 @@ dtype: int64</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <div>            <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_SVG"></script><script type="text/javascript">if (window.MathJax && window.MathJax.Hub && window.MathJax.Hub.Config) {window.MathJax.Hub.Config({SVG: {font: "STIX-Web"}});}</script>                <script type="text/javascript">window.PlotlyConfig = {MathJaxConfig: 'local'};</script>
-        <script charset="utf-8" src="https://cdn.plot.ly/plotly-3.0.0.min.js"></script>                <div id="680c1844-4d5d-4493-9557-e360b4ffec63" class="plotly-graph-div" style="height:525px; width:100%;"></div>            <script type="text/javascript">                window.PLOTLYENV=window.PLOTLYENV || {};                                if (document.getElementById("680c1844-4d5d-4493-9557-e360b4ffec63")) {                    Plotly.newPlot(                        "680c1844-4d5d-4493-9557-e360b4ffec63",                        [{"marker":{"color":{"dtype":"i4","bdata":"BAAAAAUAAAAEAAAABQAAAAQAAAAFAAAABAAAAAUAAAAEAAAABQAAAAQAAAAFAAAABAAAAAUAAAAEAAAABQAAAAQAAAAFAAAABAAAAAUAAAAEAAAABQAAAAQAAAAFAAAABAAAAAUAAAAEAAAABQAAAAQAAAAFAAAABAAAAAUAAAAEAAAABQAAAAQAAAAFAAAABAAAAAUAAAAEAAAABQAAAAEAAAAFAAAAAQAAAAMAAAAEAAAABQAAAAEAAAADAAAAAwAAAAMAAAABAAAAAwAAAAMAAAABAAAAAQAAAAEAAAABAAAAAQAAAAMAAAABAAAAAQAAAAMAAAABAAAAAQAAAAEAAAADAAAAAQAAAAEAAAADAAAAAwAAAAEAAAABAAAAAQAAAAEAAAABAAAAAwAAAAEAAAADAAAAAwAAAAEAAAABAAAAAwAAAAEAAAABAAAAAwAAAAEAAAABAAAAAwAAAAMAAAABAAAAAQAAAAMAAAABAAAAAwAAAAMAAAADAAAAAQAAAAMAAAABAAAAAwAAAAMAAAABAAAAAQAAAAMAAAABAAAAAwAAAAEAAAABAAAAAQAAAAEAAAABAAAAAwAAAAMAAAADAAAAAwAAAAMAAAABAAAAAQAAAAEAAAABAAAAAwAAAAMAAAADAAAAAgAAAAMAAAACAAAAAAAAAAIAAAAAAAAAAgAAAAAAAAACAAAAAwAAAAIAAAAAAAAAAgAAAAAAAAACAAAAAAAAAAIAAAAAAAAAAgAAAAMAAAACAAAAAAAAAAIAAAAAAAAAAgAAAAAAAAACAAAAAAAAAAIAAAAAAAAAAgAAAAAAAAACAAAAAAAAAAIAAAAAAAAAAgAAAAAAAAACAAAAAAAAAAIAAAAAAAAAAgAAAAAAAAACAAAAAAAAAAIAAAAAAAAAAgAAAAAAAAACAAAAAAAAAAIAAAAAAAAAAgAAAAAAAAACAAAAAAAAAAIAAAAAAAAAAgAAAAAAAAACAAAAAAAAAAIAAAAAAAAAAgAAAAAAAAACAAAAAAAAAAIAAAAAAAAAAgAAAAAAAAACAAAAAAAAAAIAAAA="},"line":{"color":{"dtype":"i4","bdata":"BAAAAAUAAAAEAAAABQAAAAQAAAAFAAAABAAAAAUAAAAEAAAABQAAAAQAAAAFAAAABAAAAAUAAAAEAAAABQAAAAQAAAAFAAAABAAAAAUAAAAEAAAABQAAAAQAAAAFAAAABAAAAAUAAAAEAAAABQAAAAQAAAAFAAAABAAAAAUAAAAEAAAABQAAAAQAAAAFAAAABAAAAAUAAAAEAAAABQAAAAEAAAAFAAAAAQAAAAMAAAAEAAAABQAAAAEAAAADAAAAAwAAAAMAAAABAAAAAwAAAAMAAAABAAAAAQAAAAEAAAABAAAAAQAAAAMAAAABAAAAAQAAAAMAAAABAAAAAQAAAAEAAAADAAAAAQAAAAEAAAADAAAAAwAAAAEAAAABAAAAAQAAAAEAAAABAAAAAwAAAAEAAAADAAAAAwAAAAEAAAABAAAAAwAAAAEAAAABAAAAAwAAAAEAAAABAAAAAwAAAAMAAAABAAAAAQAAAAMAAAABAAAAAwAAAAMAAAADAAAAAQAAAAMAAAABAAAAAwAAAAMAAAABAAAAAQAAAAMAAAABAAAAAwAAAAEAAAABAAAAAQAAAAEAAAABAAAAAwAAAAMAAAADAAAAAwAAAAMAAAABAAAAAQAAAAEAAAABAAAAAwAAAAMAAAADAAAAAgAAAAMAAAACAAAAAAAAAAIAAAAAAAAAAgAAAAAAAAACAAAAAwAAAAIAAAAAAAAAAgAAAAAAAAACAAAAAAAAAAIAAAAAAAAAAgAAAAMAAAACAAAAAAAAAAIAAAAAAAAAAgAAAAAAAAACAAAAAAAAAAIAAAAAAAAAAgAAAAAAAAACAAAAAAAAAAIAAAAAAAAAAgAAAAAAAAACAAAAAAAAAAIAAAAAAAAAAgAAAAAAAAACAAAAAAAAAAIAAAAAAAAAAgAAAAAAAAACAAAAAAAAAAIAAAAAAAAAAgAAAAAAAAACAAAAAAAAAAIAAAAAAAAAAgAAAAAAAAACAAAAAAAAAAIAAAAAAAAAAgAAAAAAAAACAAAAAAAAAAIAAAAAAAAAAgAAAAAAAAACAAAAAAAAAAIAAAA="},"width":12},"opacity":0.8,"size":10},"mode":"markers","x":{"dtype":"i1","bdata":"ExUUFx8WIxdAHkMjOhglFiMUNCMjGS4fNh0tIygXPBU1EjEVKh4kFEEYMB8xGDIbHR8xIR87Mi8zRRs1RhNDNj8SK0QTIEYvPDw7Gi0oFzE5JkMuFTA3FiIyRBIwKCAYLxswFBcxQxoxFUI2REJBEyYTEhM\u002fMTMyGyYoJxcfKyg7Ji8nGR8UHSwgEyM5IBwgGRwwICIiKycsJi8bJR4iHjgdEx8yJCohJCAoHCQkNB46GzsjJSAuHSkeNhwpJCIgISYvIy0gIB4="},"y":{"dtype":"i1","bdata":"J1EGTShMBl4DSA5jD00NTyNCHWIjSQVJDlIgPR9XBEkEXA5REUkaSyNcJD0cQTcvKio0PDY8LSkyLjMuODc0OzM7MjA7LzcqMTgvNjUwNCozNyksOS46NzwuNykxKCo0LzIqMSkwOzc4KjIuKzA0NiouMDIrOys5OCg6Wx1NI18LSwlLIkcFWAdJCkgFXShXDGEkShZaEVgUTBBZAU4BSSNTBV0aSxRfGz8NSwpcDVYPRQ5aIFYPWCdhGEQRVRdFCFsQTxxKElM="},"z":{"dtype":"i2","bdata":"DwAPABAAEAARABEAEgASABMAEwATABMAFAAUABQAFAAVABUAFwAXABgAGAAZABkAHAAcABwAHAAdAB0AHgAeACEAIQAhACEAIgAiACUAJQAmACYAJwAnACcAJwAoACgAKAAoACoAKgArACsAKwArACwALAAuAC4ALgAuAC8ALwAwADAAMAAwADAAMAAxADEAMgAyADYANgA2ADYANgA2ADYANgA2ADYANgA2ADkAOQA6ADoAOwA7ADwAPAA8ADwAPAA8AD0APQA+AD4APgA+AD4APgA\u002fAD8APwA\u002fAD8APwBAAEAAQQBBAEEAQQBDAEMAQwBDAEUARQBGAEYARwBHAEcARwBHAEcASABIAEkASQBJAEkASgBKAEsASwBMAEwATQBNAE0ATQBOAE4ATgBOAE4ATgBOAE4ATgBOAE4ATgBPAE8AUQBRAFUAVQBWAFYAVwBXAFcAVwBXAFcAWABYAFgAWABdAF0AYQBhAGIAYgBjAGMAZQBlAGcAZwBnAGcAcQBxAHgAeAB+AH4AiQCJAA=="},"type":"scatter3d"}],                        {"scene":{"xaxis":{"title":{"text":"Age"}},"yaxis":{"title":{"text":"Spending Score"}},"zaxis":{"title":{"text":"Annual Income"}}},"template":{"data":{"barpolar":[{"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"type":"carpet"}],"choropleth":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"choropleth"}],"contourcarpet":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"contourcarpet"}],"contour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"contour"}],"heatmap":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"heatmap"}],"histogram2dcontour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2dcontour"}],"histogram2d":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2d"}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"mesh3d":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"mesh3d"}],"parcoords":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"parcoords"}],"pie":[{"automargin":true,"type":"pie"}],"scatter3d":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatter3d"}],"scattercarpet":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattercarpet"}],"scattergeo":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattergeo"}],"scattergl":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattergl"}],"scattermapbox":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattermapbox"}],"scattermap":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattermap"}],"scatterpolargl":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolargl"}],"scatterpolar":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolar"}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"scatterternary":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterternary"}],"surface":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"surface"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}]},"layout":{"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"autotypenumbers":"strict","coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]],"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]},"colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"geo":{"bgcolor":"white","lakecolor":"white","landcolor":"#E5ECF6","showlakes":true,"showland":true,"subunitcolor":"white"},"hoverlabel":{"align":"left"},"hovermode":"closest","mapbox":{"style":"light"},"margin":{"b":0,"l":0,"r":0,"t":30},"paper_bgcolor":"white","plot_bgcolor":"#E5ECF6","polar":{"angularaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"bgcolor":"#E5ECF6","radialaxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"scene":{"xaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","gridwidth":2,"linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white"},"yaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","gridwidth":2,"linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white"},"zaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","gridwidth":2,"linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white"}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"ternary":{"aaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"baxis":{"gridcolor":"white","linecolor":"white","ticks":""},"bgcolor":"#E5ECF6","caxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"title":{"x":0.05},"xaxis":{"automargin":true,"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","zerolinewidth":2},"yaxis":{"automargin":true,"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","zerolinewidth":2}}},"title":{"text":"Clusters wrt Age, Income and Spending Scores"}},                        {"responsive": true}                    ).then(function(){
+        <script charset="utf-8" src="https://cdn.plot.ly/plotly-3.0.0.min.js"></script>                <div id="12ff7c8a-4e50-433d-b982-1e877615d733" class="plotly-graph-div" style="height:525px; width:100%;"></div>            <script type="text/javascript">                window.PLOTLYENV=window.PLOTLYENV || {};                                if (document.getElementById("12ff7c8a-4e50-433d-b982-1e877615d733")) {                    Plotly.newPlot(                        "12ff7c8a-4e50-433d-b982-1e877615d733",                        [{"marker":{"color":{"dtype":"i4","bdata":"BAAAAAUAAAAEAAAABQAAAAQAAAAFAAAABAAAAAUAAAAEAAAABQAAAAQAAAAFAAAABAAAAAUAAAAEAAAABQAAAAQAAAAFAAAABAAAAAUAAAAEAAAABQAAAAQAAAAFAAAABAAAAAUAAAAEAAAABQAAAAQAAAAFAAAABAAAAAUAAAAEAAAABQAAAAQAAAAFAAAABAAAAAUAAAAEAAAABQAAAAEAAAAFAAAAAQAAAAMAAAAEAAAABQAAAAEAAAADAAAAAwAAAAMAAAABAAAAAwAAAAMAAAABAAAAAQAAAAEAAAABAAAAAQAAAAMAAAABAAAAAQAAAAMAAAABAAAAAQAAAAEAAAADAAAAAQAAAAEAAAADAAAAAwAAAAEAAAABAAAAAQAAAAEAAAABAAAAAwAAAAEAAAADAAAAAwAAAAEAAAABAAAAAwAAAAEAAAABAAAAAwAAAAEAAAABAAAAAwAAAAMAAAABAAAAAQAAAAMAAAABAAAAAwAAAAMAAAADAAAAAQAAAAMAAAABAAAAAwAAAAMAAAABAAAAAQAAAAMAAAABAAAAAwAAAAEAAAABAAAAAQAAAAEAAAABAAAAAwAAAAMAAAADAAAAAwAAAAMAAAABAAAAAQAAAAEAAAABAAAAAwAAAAMAAAADAAAAAgAAAAMAAAACAAAAAAAAAAIAAAAAAAAAAgAAAAAAAAACAAAAAwAAAAIAAAAAAAAAAgAAAAAAAAACAAAAAAAAAAIAAAAAAAAAAgAAAAMAAAACAAAAAAAAAAIAAAAAAAAAAgAAAAAAAAACAAAAAAAAAAIAAAAAAAAAAgAAAAAAAAACAAAAAAAAAAIAAAAAAAAAAgAAAAAAAAACAAAAAAAAAAIAAAAAAAAAAgAAAAAAAAACAAAAAAAAAAIAAAAAAAAAAgAAAAAAAAACAAAAAAAAAAIAAAAAAAAAAgAAAAAAAAACAAAAAAAAAAIAAAAAAAAAAgAAAAAAAAACAAAAAAAAAAIAAAAAAAAAAgAAAAAAAAACAAAAAAAAAAIAAAAAAAAAAgAAAAAAAAACAAAAAAAAAAIAAAA="},"line":{"color":{"dtype":"i4","bdata":"BAAAAAUAAAAEAAAABQAAAAQAAAAFAAAABAAAAAUAAAAEAAAABQAAAAQAAAAFAAAABAAAAAUAAAAEAAAABQAAAAQAAAAFAAAABAAAAAUAAAAEAAAABQAAAAQAAAAFAAAABAAAAAUAAAAEAAAABQAAAAQAAAAFAAAABAAAAAUAAAAEAAAABQAAAAQAAAAFAAAABAAAAAUAAAAEAAAABQAAAAEAAAAFAAAAAQAAAAMAAAAEAAAABQAAAAEAAAADAAAAAwAAAAMAAAABAAAAAwAAAAMAAAABAAAAAQAAAAEAAAABAAAAAQAAAAMAAAABAAAAAQAAAAMAAAABAAAAAQAAAAEAAAADAAAAAQAAAAEAAAADAAAAAwAAAAEAAAABAAAAAQAAAAEAAAABAAAAAwAAAAEAAAADAAAAAwAAAAEAAAABAAAAAwAAAAEAAAABAAAAAwAAAAEAAAABAAAAAwAAAAMAAAABAAAAAQAAAAMAAAABAAAAAwAAAAMAAAADAAAAAQAAAAMAAAABAAAAAwAAAAMAAAABAAAAAQAAAAMAAAABAAAAAwAAAAEAAAABAAAAAQAAAAEAAAABAAAAAwAAAAMAAAADAAAAAwAAAAMAAAABAAAAAQAAAAEAAAABAAAAAwAAAAMAAAADAAAAAgAAAAMAAAACAAAAAAAAAAIAAAAAAAAAAgAAAAAAAAACAAAAAwAAAAIAAAAAAAAAAgAAAAAAAAACAAAAAAAAAAIAAAAAAAAAAgAAAAMAAAACAAAAAAAAAAIAAAAAAAAAAgAAAAAAAAACAAAAAAAAAAIAAAAAAAAAAgAAAAAAAAACAAAAAAAAAAIAAAAAAAAAAgAAAAAAAAACAAAAAAAAAAIAAAAAAAAAAgAAAAAAAAACAAAAAAAAAAIAAAAAAAAAAgAAAAAAAAACAAAAAAAAAAIAAAAAAAAAAgAAAAAAAAACAAAAAAAAAAIAAAAAAAAAAgAAAAAAAAACAAAAAAAAAAIAAAAAAAAAAgAAAAAAAAACAAAAAAAAAAIAAAAAAAAAAgAAAAAAAAACAAAAAAAAAAIAAAA="},"width":12},"opacity":0.8,"size":10},"mode":"markers","x":{"dtype":"i1","bdata":"ExUUFx8WIxdAHkMjOhglFiMUNCMjGS4fNh0tIygXPBU1EjEVKh4kFEEYMB8xGDIbHR8xIR87Mi8zRRs1RhNDNj8SK0QTIEYvPDw7Gi0oFzE5JkMuFTA3FiIyRBIwKCAYLxswFBcxQxoxFUI2REJBEyYTEhM\u002fMTMyGyYoJxcfKyg7Ji8nGR8UHSwgEyM5IBwgGRwwICIiKycsJi8bJR4iHjgdEx8yJCohJCAoHCQkNB46GzsjJSAuHSkeNhwpJCIgISYvIy0gIB4="},"y":{"dtype":"i1","bdata":"J1EGTShMBl4DSA5jD00NTyNCHWIjSQVJDlIgPR9XBEkEXA5REUkaSyNcJD0cQTcvKio0PDY8LSkyLjMuODc0OzM7MjA7LzcqMTgvNjUwNCozNyksOS46NzwuNykxKCo0LzIqMSkwOzc4KjIuKzA0NiouMDIrOys5OCg6Wx1NI18LSwlLIkcFWAdJCkgFXShXDGEkShZaEVgUTBBZAU4BSSNTBV0aSxRfGz8NSwpcDVYPRQ5aIFYPWCdhGEQRVRdFCFsQTxxKElM="},"z":{"dtype":"i2","bdata":"DwAPABAAEAARABEAEgASABMAEwATABMAFAAUABQAFAAVABUAFwAXABgAGAAZABkAHAAcABwAHAAdAB0AHgAeACEAIQAhACEAIgAiACUAJQAmACYAJwAnACcAJwAoACgAKAAoACoAKgArACsAKwArACwALAAuAC4ALgAuAC8ALwAwADAAMAAwADAAMAAxADEAMgAyADYANgA2ADYANgA2ADYANgA2ADYANgA2ADkAOQA6ADoAOwA7ADwAPAA8ADwAPAA8AD0APQA+AD4APgA+AD4APgA\u002fAD8APwA\u002fAD8APwBAAEAAQQBBAEEAQQBDAEMAQwBDAEUARQBGAEYARwBHAEcARwBHAEcASABIAEkASQBJAEkASgBKAEsASwBMAEwATQBNAE0ATQBOAE4ATgBOAE4ATgBOAE4ATgBOAE4ATgBPAE8AUQBRAFUAVQBWAFYAVwBXAFcAVwBXAFcAWABYAFgAWABdAF0AYQBhAGIAYgBjAGMAZQBlAGcAZwBnAGcAcQBxAHgAeAB+AH4AiQCJAA=="},"type":"scatter3d"}],                        {"scene":{"xaxis":{"title":{"text":"Age"}},"yaxis":{"title":{"text":"Spending Score"}},"zaxis":{"title":{"text":"Annual Income"}}},"template":{"data":{"barpolar":[{"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"type":"carpet"}],"choropleth":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"choropleth"}],"contourcarpet":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"contourcarpet"}],"contour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"contour"}],"heatmap":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"heatmap"}],"histogram2dcontour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2dcontour"}],"histogram2d":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2d"}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"mesh3d":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"mesh3d"}],"parcoords":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"parcoords"}],"pie":[{"automargin":true,"type":"pie"}],"scatter3d":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatter3d"}],"scattercarpet":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattercarpet"}],"scattergeo":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattergeo"}],"scattergl":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattergl"}],"scattermapbox":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattermapbox"}],"scattermap":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattermap"}],"scatterpolargl":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolargl"}],"scatterpolar":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolar"}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"scatterternary":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterternary"}],"surface":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"surface"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}]},"layout":{"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"autotypenumbers":"strict","coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]],"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]},"colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"geo":{"bgcolor":"white","lakecolor":"white","landcolor":"#E5ECF6","showlakes":true,"showland":true,"subunitcolor":"white"},"hoverlabel":{"align":"left"},"hovermode":"closest","mapbox":{"style":"light"},"margin":{"b":0,"l":0,"r":0,"t":30},"paper_bgcolor":"white","plot_bgcolor":"#E5ECF6","polar":{"angularaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"bgcolor":"#E5ECF6","radialaxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"scene":{"xaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","gridwidth":2,"linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white"},"yaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","gridwidth":2,"linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white"},"zaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","gridwidth":2,"linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white"}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"ternary":{"aaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"baxis":{"gridcolor":"white","linecolor":"white","ticks":""},"bgcolor":"#E5ECF6","caxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"title":{"x":0.05},"xaxis":{"automargin":true,"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","zerolinewidth":2},"yaxis":{"automargin":true,"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","zerolinewidth":2}}},"title":{"text":"Clusters wrt Age, Income and Spending Scores"}},                        {"responsive": true}                    ).then(function(){
                             
-var gd = document.getElementById('680c1844-4d5d-4493-9557-e360b4ffec63');
+var gd = document.getElementById('12ff7c8a-4e50-433d-b982-1e877615d733');
 var x = new MutationObserver(function (mutations, observer) {{
         var display = window.getComputedStyle(gd).display;
         if (!display || display === 'none') {{
