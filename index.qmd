@@ -1,6 +1,6 @@
 ---
 title: "<center>Machine Learning in Business"
-subtitle: "<center> Sharif Islam, DBA, CPA, CMA <br> Assistant Professor of Accountancy & Data Analytics <br> School of Accountancy <br> Southern Illinois University Carbondale"
+subtitle: "<center> **Sharif Islam, DBA, CPA, CMA** <br> Associate Professor of Accountancy & Data Analytics <br> School of Accountancy <br> Southern Illinois University Carbondale"
 title-block-style: plain
 toc: false
 image: images/images3.jpeg
