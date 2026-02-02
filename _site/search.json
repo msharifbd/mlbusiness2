@@ -2130,7 +2130,7 @@
     "href": "r_eda.html#relationship-between-shoe-size-and-price-in-different-gender-and-in-different-countries",
     "title": "\nExploratory Data Analysis in R",
     "section": "13.1 Relationship between Shoe Size and Price in Different Gender and in Different Countries",
-    "text": "13.1 Relationship between Shoe Size and Price in Different Gender and in Different Countries\n\nproduct %&gt;%\n  ggplot(\n    aes(x = as.numeric(SIZE_US), y = UNIT_PRICE, color = GENDER)\n  )+\n  geom_smooth(se = FALSE)+\n  xlab(\"SHOE SIZE (US)\")+\n  ylab(\"PRICE\")+\n  facet_wrap(~COUNTRY)+\n  theme(legend.title = element_blank())\n\n`geom_smooth()` using method = 'gam' and formula = 'y ~ s(x, bs = \"cs\")'\n\n\n\n\n\n\n\n\n\nQUESTIONS - 1. Do the Above Analyses for the Relationship between Shoe Size and Discount",
+    "text": "13.1 Relationship between Shoe Size and Price in Different Gender and in Different Countries\n\nproduct %&gt;%\n  ggplot(\n    aes(x = as.numeric(SIZE_US), y = UNIT_PRICE, color = GENDER)\n  )+\n  geom_smooth(se = FALSE)+\n  xlab(\"SHOE SIZE (US)\")+\n  ylab(\"PRICE\")+\n  facet_wrap(~COUNTRY)+\n  theme(legend.title = element_blank())\n\n\n\n\n\n\n\n\nQUESTIONS - 1. Do the Above Analyses for the Relationship between Shoe Size and Discount",
     "crumbs": [
       "Modules & Slides",
       "Appendix",

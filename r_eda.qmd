@@ -361,6 +361,7 @@ product %>%
 # Relationship between Shoe Size and Price 
 
 ```{r}
+#| warning: false
 product %>%
   ggplot(
     aes(x = as.numeric(SIZE_US), y = UNIT_PRICE)
@@ -409,6 +410,7 @@ product %>%
 ## Relationship between Shoe Size and Price in Different Gender and in Different Countries
 
 ```{r}
+#| warning: false
 product %>%
   ggplot(
     aes(x = as.numeric(SIZE_US), y = UNIT_PRICE, color = GENDER)
@@ -425,6 +427,7 @@ product %>%
 # Relationship between Sales and Month
 
 ```{r}
+#| warning: false
 product %>%
   count(MONTH) %>%
   ggplot(aes(x = reorder(MONTH,as.numeric(MONTH) ), y = n))+
