@@ -714,7 +714,7 @@ print('Classification error : {0:0.4f}'.format(classification_error))
 
 ## Precision
 
-`Precision` can be defined as the percentage of correctly predicted positive outcomes out of all the predicted positive outcomes. It can be given as the ratio of true positives (TP) to the sum of true and false positives `(TP + FP)`. **Precision is a metric that tells us about the quality of positive predictions.** So, `Precision` identifies the proportion of correctly predicted positive outcome. It is more concerned with the positive class than the negative class. Precision is a useful metric in cases where False Positive is a higher concern than False Negatives. Precision is important in music or video recommendation systems, e-commerce websites, etc. Wrong results could lead to customer churn and be harmful to the business.tt
+`Precision` can be defined as the percentage of correctly predicted positive outcomes out of all the **predicted** positive outcomes. It can be given as the ratio of true positives (TP) to the sum of true and false positives `(TP + FP)`. **Precision is a metric that tells us about the quality of positive predictions.** So, `Precision` identifies the proportion of correctly predicted positive outcome. It is more concerned with the positive class than the negative class. Precision is a useful metric in cases where False Positive is a higher concern than False Negatives. Precision is important in music or video recommendation systems, e-commerce websites, etc. Wrong results could lead to customer churn and be harmful to the business.
 
 Mathematically, precision can be defined as the ratio of `TP` to `(TP + FP)`.
 
@@ -729,7 +729,7 @@ print('Precision : {0:0.4f}'.format(precision))
 
 ## Recall
 
-`Recall` can be defined as the percentage of correctly predicted positive outcomes out of all the actual positive outcomes. It can be given as the ratio of true positives (TP) to the sum of true positives and false negatives `(TP + FN)`. **Recall tells us about how well the model identifies true positives.** Recall is also called `Sensitivity`. `Recall` identifies the proportion of correctly predicted actual positives. Mathematically, recall can be given as the ratio of `TP` to `(TP + FN)`. Recall is a useful metric in cases where False Negative triumphs over False Positive.
+`Recall` can be defined as the percentage of correctly predicted positive outcomes out of all the **actual** positive outcomes. It can be given as the ratio of true positives (TP) to the sum of true positives and false negatives `(TP + FN)`. **Recall tells us about how well the model identifies true positives.** Recall is also called `Sensitivity`. `Recall` identifies the proportion of correctly predicted actual positives. Mathematically, recall can be given as the ratio of `TP` to `(TP + FN)`. Recall is a useful metric in cases where False Negative triumphs over False Positive.
 Recall is important in medical cases where it doesn’t matter whether we raise a false alarm, but the actual positive cases should not go undetected!
 
 ```{python}
@@ -750,7 +750,7 @@ In practice, when we try to increase the precision of our model, the recall goes
 
             f1-score = 2/((1/Recall) + (1/Precision))
 
-`f1-score` is the weighted harmonic mean of precision and recall, and so it gives a combined idea about these two metrics. **It is maximum when Precision is equal to Recall.** The best possible f1-score would be 1.0 and the worst would be 0.0. f1-score is the harmonic mean of precision and recall. So, f1-score is always lower than accuracy measures as they embed precision and recall into their computation. The weighted average of f1-score should be used to compare classifier models, not global accuracy.
+`f1-score` is the weighted harmonic mean of precision and recall, and so it gives a combined idea about these two metrics. **It is maximum when Precision is equal to Recall.** The best possible f1-score would be 1.0 and the worst would be 0.0. f1-score is the harmonic mean of precision and recall. So, f1-score is always lower than accuracy measures as they embed precision and recall into their computation. The **weighted average of f1-score** should be *used* to *compare classifier models*, **not global accuracy**.
 
 ## Support
 
