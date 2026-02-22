@@ -1,0 +1,5 @@
+[build]
+  command = "pip install --upgrade pip && pip install --only-binary=:all: -r requirements.txt"
+
+[build.environment]
+  PYTHON_VERSION = "3.11"
