@@ -104,10 +104,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
 
-
-
 <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
-
 
 
 <link rel="stylesheet" href="styles.css">
@@ -274,7 +271,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chap08_decision_tree.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"></span></a><center><a href="./chap08_decision_tree.html" class="sidebar-item-text sidebar-link"> Chapter # 08 <br> Decision Tree</a>
+ <span class="menu-text"></span></a><center><a href="./chap08_decision_tree.html" class="sidebar-item-text sidebar-link"> Chapter # 08 <br> Decision Tree for Classification &amp; Regression</a>
   </center></div>
 </li>
       </ul>
@@ -367,6 +364,36 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <div class="sidebar-item-container"> 
   <a href="./chap05_slide.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"></span></a><center><a href="./chap05_slide.html" class="sidebar-item-text sidebar-link"> Chapter # 05 <br> Discriminant Analysis (DA)</a>
+  </center></div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chap06_slide.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"></span></a><center><a href="./chap06_slide.html" class="sidebar-item-text sidebar-link"> Chapter # 06 <br> Naive Bayes Theorem &amp; Support Vector Machine (SVM)</a>
+  </center></div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chap07_slide.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"></span></a><center><a href="./chap07_slide.html" class="sidebar-item-text sidebar-link"> Chapter # 07 <br> Linear Regression</a>
+  </center></div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chap08_slide.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"></span></a><center><a href="./chap08_slide.html" class="sidebar-item-text sidebar-link"> Chapter # 08 <br> Decision Tree</a>
+  </center></div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chap09_slide.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"></span></a><center><a href="./chap09_slide.html" class="sidebar-item-text sidebar-link"> Chapter # 09 <br> Principal Component Analysis (PCA)</a>
+  </center></div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chap10_slide.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"></span></a><center><a href="./chap10_slide.html" class="sidebar-item-text sidebar-link"> Chapter # 10 <br> Clustering by Finding Centers with K-means</a>
   </center></div>
 </li>
       </ul>
@@ -477,12 +504,12 @@ Chapter # 07 <br> Regression Analysis</center></h1>
 <p>Multiple linear regression is used to model the relationship between a continuous response variable and continuous or categorical explanatory variables. Multiple linear regression allows to evaluate the relationship between two variables, while controlling for the effect (i.e., removing the effect) of other variables.</p>
 <section id="working-directory" class="level2">
 <h2 class="anchored" data-anchor-id="working-directory">Working Directory</h2>
-<div id="c0998e7f" class="cell" data-execution_count="1">
+<div id="20d0286f" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Current Working Directory </span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>os.getcwd()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="45a274a7" class="cell" data-execution_count="2">
+<div id="9e03aa1f" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Files in Working Directory</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> <span class="bu">file</span> <span class="kw">in</span> os.listdir():</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(<span class="bu">file</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -491,7 +518,7 @@ Chapter # 07 <br> Regression Analysis</center></h1>
 </section>
 <section id="importing-necessary-python-packages" class="level1">
 <h1>Importing Necessary <code>Python</code> Packages</h1>
-<div id="47d12a00" class="cell" data-execution_count="3">
+<div id="2586c696" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np </span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt </span>
@@ -503,10 +530,10 @@ Chapter # 07 <br> Regression Analysis</center></h1>
 </section>
 <section id="importing-dataset" class="level1">
 <h1>Importing Dataset</h1>
-<div id="2abcbe0e" class="cell" data-execution_count="4">
+<div id="a0f037a7" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">'DATA/CAR DETAILS FROM CAR DEKHO.csv'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="18a8ddfc" class="cell" data-execution_count="5">
+<div id="d97988d9" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="3">
 <div>
@@ -590,7 +617,7 @@ Chapter # 07 <br> Regression Analysis</center></h1>
 </div>
 <section id="metadata-of-the-dataset" class="level2">
 <h2 class="anchored" data-anchor-id="metadata-of-the-dataset">Metadata of the Dataset</h2>
-<div id="3b9f7ae2" class="cell" data-execution_count="6">
+<div id="e70e9647" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>df.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
@@ -610,13 +637,13 @@ dtypes: int64(3), object(5)
 memory usage: 271.4+ KB</code></pre>
 </div>
 </div>
-<div id="efac0b8d" class="cell" data-execution_count="7">
+<div id="210d9fdf" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>df.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="5">
 <pre><code>(4340, 8)</code></pre>
 </div>
 </div>
-<div id="322c891d" class="cell" data-execution_count="8">
+<div id="42d2ee6e" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>df.isna().<span class="bu">sum</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="6">
 <pre><code>name             0
@@ -635,13 +662,13 @@ dtype: int64</code></pre>
 <section id="exploratory-data-analysis" class="level1">
 <h1>Exploratory Data Analysis</h1>
 <p>We have 1491 unique car names in our dataset. Clearly, it does not add any meaning to our dataset, since there are so many categories. Let’s drop that column.</p>
-<div id="78a4d48b" class="cell" data-execution_count="9">
+<div id="2681430c" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'name'</span>].nunique()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="7">
 <pre><code>1491</code></pre>
 </div>
 </div>
-<div id="07403ae1" class="cell" data-execution_count="10">
+<div id="6cfdad7e" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>df.drop(columns <span class="op">=</span> [<span class="st">'name'</span>], inplace <span class="op">=</span> <span class="va">True</span>)</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>df.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -662,7 +689,7 @@ memory usage: 237.5+ KB</code></pre>
 </div>
 </div>
 <p>The dataset has the column named “Year”. Ideally, we need the age of car over the year it was bought / sold. So, let’s convert that to “Age” and remove the “Year” column.</p>
-<div id="ac51dd94" class="cell" data-execution_count="11">
+<div id="d824d945" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>df.insert(<span class="dv">0</span>, <span class="st">"Age"</span>, df[<span class="st">"year"</span>].<span class="bu">max</span>()<span class="op">+</span><span class="dv">1</span><span class="op">-</span>df[<span class="st">"year"</span>] )</span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>df.drop(<span class="st">'year'</span>, axis<span class="op">=</span><span class="dv">1</span>, inplace<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>df.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -699,7 +726,7 @@ Figure&nbsp;1: How to Detect Outliers
 </div>
 <section id="outliers-for-numeric-variables" class="level3">
 <h3 class="anchored" data-anchor-id="outliers-for-numeric-variables">Outliers for Numeric Variables</h3>
-<div id="d22f8a0e" class="cell" data-execution_count="12">
+<div id="15d35e79" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> col <span class="kw">in</span> df.select_dtypes(exclude <span class="op">=</span> <span class="st">'object'</span>):</span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  sns.boxplot(data <span class="op">=</span> df, x <span class="op">=</span> col)</span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>  plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -728,7 +755,7 @@ Figure&nbsp;1: How to Detect Outliers
 </section>
 <section id="outliers-for-categorical-variables" class="level3">
 <h3 class="anchored" data-anchor-id="outliers-for-categorical-variables">Outliers for Categorical Variables</h3>
-<div id="097d8c68" class="cell" data-execution_count="13">
+<div id="060a2507" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> col <span class="kw">in</span> df.select_dtypes(include <span class="op">=</span> <span class="st">'object'</span>):</span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  sns.boxplot(data <span class="op">=</span> df, x <span class="op">=</span> col, y <span class="op">=</span> <span class="st">'selling_price'</span>)</span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -767,7 +794,7 @@ Figure&nbsp;1: How to Detect Outliers
 <p>This is based on the concept of quartiles, which divide a dataset into four equal parts. The IQR (InterQuartile Range rule) rule specifically focuses on the range of values within the middle 50% of the data and uses this range to identify potential outliers.</p>
 <p>We have to find the minimum and maximum quantile values for each unique value in the categorical columns and filter the outlier samples which do not fit into the 25th and 75th percentile of our target column (Selling Price).</p>
 <p>On the other hand, the outliers in numerical columns can be filtered by the 25th and 75th percentiles of the same column. We don’t need to filter out with respect to the target column.</p>
-<div id="62120023" class="cell" data-execution_count="14">
+<div id="9bcdf5dc" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>outliers_indexes <span class="op">=</span> []</span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>target <span class="op">=</span> <span class="st">'selling_price'</span></span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -804,7 +831,7 @@ Figure&nbsp;1: How to Detect Outliers
 </section>
 <section id="bivariate-analysis" class="level2">
 <h2 class="anchored" data-anchor-id="bivariate-analysis">Bivariate Analysis</h2>
-<div id="a8299277" class="cell" data-execution_count="15">
+<div id="e1989f34" class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>sns.scatterplot(data <span class="op">=</span> df, x <span class="op">=</span> <span class="st">'km_driven'</span>, y <span class="op">=</span> <span class="st">'selling_price'</span>)</span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
@@ -815,7 +842,7 @@ Figure&nbsp;1: How to Detect Outliers
 </div>
 </div>
 </div>
-<div id="f2e36bf2" class="cell" data-execution_count="16">
+<div id="f27dfbd9" class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>sns.scatterplot(data <span class="op">=</span> df, x <span class="op">=</span> <span class="st">'Age'</span>, y <span class="op">=</span> <span class="st">'selling_price'</span>)</span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
@@ -826,7 +853,7 @@ Figure&nbsp;1: How to Detect Outliers
 </div>
 </div>
 </div>
-<div id="b32d4d10" class="cell" data-execution_count="17">
+<div id="de89b088" class="cell" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>sns.scatterplot(data <span class="op">=</span> df, x <span class="op">=</span> <span class="st">'fuel'</span>, y <span class="op">=</span> <span class="st">'selling_price'</span>)</span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
@@ -851,7 +878,7 @@ Figure&nbsp;1: How to Detect Outliers
 <section id="dummy-variable-trap" class="level3">
 <h3 class="anchored" data-anchor-id="dummy-variable-trap">Dummy Variable Trap</h3>
 <p>The Dummy variable trap is a scenario where there are attributes that are highly correlated (Multicollinear) and one variable predicts the value of others. When we use <em>one-hot encoding</em> for handling the categorical data, then one dummy variable (attribute) can be predicted with the help of other dummy variables. Hence, one dummy variable is highly correlated with other dummy variables. Using all dummy variables for regression models leads to a dummy variable trap. So, the <strong>regression models should be designed to exclude one dummy variable</strong>.</p>
-<div id="9f986e33" class="cell" data-execution_count="18">
+<div id="0fe8340b" class="cell" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>cat_col <span class="op">=</span> df.select_dtypes(include <span class="op">=</span> <span class="st">'object'</span>).columns.values</span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>cat_col</span>
 <span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.get_dummies(df, cat_col, drop_first <span class="op">=</span> <span class="va">True</span>)</span>
@@ -884,7 +911,7 @@ memory usage: 148.5 KB</code></pre>
 </section>
 <section id="correlation-analysis" class="level2">
 <h2 class="anchored" data-anchor-id="correlation-analysis">Correlation Analysis</h2>
-<div id="bfc611d6" class="cell" data-execution_count="19">
+<div id="3490f0d1" class="cell" data-execution_count="19">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize <span class="op">=</span> (<span class="dv">12</span>,<span class="dv">6</span>))</span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>cmap <span class="op">=</span> sns.diverging_palette(<span class="dv">125</span>, <span class="dv">28</span>, s<span class="op">=</span><span class="dv">100</span>, l<span class="op">=</span><span class="dv">65</span>, sep<span class="op">=</span><span class="dv">50</span>, as_cmap<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>sns.heatmap(df.corr(), annot <span class="op">=</span> <span class="va">True</span>, cmap <span class="op">=</span> cmap)</span>
@@ -901,13 +928,13 @@ memory usage: 148.5 KB</code></pre>
 </section>
 <section id="multiple-linear-regression-model" class="level1">
 <h1>Multiple Linear Regression Model</h1>
-<div id="e6fec248" class="cell" data-execution_count="20">
+<div id="04512d07" class="cell" data-execution_count="20">
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> statsmodels.api <span class="im">as</span> sm</span>
 <span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Installing stargazer package</span></span>
 <span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a><span class="co">#!pip install stargazer</span></span>
 <span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> stargazer.stargazer <span class="im">import</span> Stargazer</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="601628b2" class="cell" data-execution_count="22">
+<div id="1ae2e640" class="cell" data-execution_count="22">
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>sel_price <span class="op">=</span> [<span class="st">'selling_price'</span>]</span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>next_col <span class="op">=</span> df.columns.difference(sel_price, sort <span class="op">=</span> <span class="va">False</span>).tolist()</span>
 <span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> df[sel_price <span class="op">+</span> next_col]</span>
@@ -1028,7 +1055,7 @@ memory usage: 148.5 KB</code></pre>
 </div>
 </div>
 </div>
-<div id="093a625e" class="cell" data-execution_count="23">
+<div id="4eadaea1" class="cell" data-execution_count="23">
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'selling_price'</span>] <span class="op">=</span> pd.to_numeric(df[<span class="st">'selling_price'</span>], errors <span class="op">=</span> <span class="st">'coerce'</span>)</span>
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>bool_cols <span class="op">=</span> df.select_dtypes(include <span class="op">=</span> <span class="st">"bool"</span>).columns</span>
@@ -1040,7 +1067,7 @@ memory usage: 148.5 KB</code></pre>
 <span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb30-10"><a href="#cb30-10" aria-hidden="true" tabindex="-1"></a>model_3 <span class="op">=</span> sm.OLS(endog<span class="op">=</span>df[<span class="st">'selling_price'</span>], exog <span class="op">=</span> sm.add_constant(df[[<span class="st">'Age'</span>,<span class="st">'km_driven'</span>, <span class="st">'fuel_Diesel'</span>,<span class="st">'seller_type_Individual'</span>,<span class="st">'seller_type_Trustmark Dealer'</span>,<span class="st">'transmission_Manual'</span>,<span class="st">'owner_Second Owner'</span>]])).fit()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="1667495d" class="cell" data-execution_count="24">
+<div id="4c3dba80" class="cell" data-execution_count="24">
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(model_1.summary())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>                            OLS Regression Results                            
@@ -1048,8 +1075,8 @@ memory usage: 148.5 KB</code></pre>
 Dep. Variable:          selling_price   R-squared:                       0.459
 Model:                            OLS   Adj. R-squared:                  0.458
 Method:                 Least Squares   F-statistic:                     282.6
-Date:                Fri, 14 Feb 2025   Prob (F-statistic):               0.00
-Time:                        15:55:12   Log-Likelihood:                -62408.
+Date:                Wed, 08 Apr 2026   Prob (F-statistic):               0.00
+Time:                        12:30:40   Log-Likelihood:                -62408.
 No. Observations:                4340   AIC:                         1.248e+05
 Df Residuals:                    4326   BIC:                         1.249e+05
 Df Model:                          13                                         
@@ -1084,11 +1111,11 @@ Notes:
 strong multicollinearity or other numerical problems.</code></pre>
 </div>
 </div>
-<div id="ca6be1ed" class="cell" data-execution_count="25">
+<div id="3c3d5743" class="cell" data-execution_count="25">
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>models <span class="op">=</span> Stargazer([model_1, model_2, model_3])</span>
 <span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>models.significant_digits(<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="f79d54fb" class="cell" data-execution_count="26">
+<div id="df660d1e" class="cell" data-execution_count="26">
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>models.render_html()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="24">
 <table style="text-align:center">
@@ -1605,19 +1632,19 @@ Note:
 </section>
 <section id="build-the-model-in-machine-learning" class="level1">
 <h1>Build the Model in Machine Learning</h1>
-<div id="0d0e85ab" class="cell" data-execution_count="27">
+<div id="c05dee5f" class="cell" data-execution_count="27">
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> df.drop(columns <span class="op">=</span> [<span class="st">'selling_price'</span>], axis <span class="op">=</span> <span class="dv">1</span>)</span>
 <span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> df[<span class="st">'selling_price'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="34b42667" class="cell" data-execution_count="28">
+<div id="429c260b" class="cell" data-execution_count="28">
 <div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> train_test_split</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="9fd69ea8" class="cell" data-execution_count="29">
+<div id="de654906" class="cell" data-execution_count="29">
 <div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>X_train, X_test, y_train, y_test <span class="op">=</span> train_test_split(X, y, test_size <span class="op">=</span> <span class="fl">0.30</span>, random_state <span class="op">=</span> <span class="dv">42</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <section id="standardize-normalize-the-data" class="level2">
 <h2 class="anchored" data-anchor-id="standardize-normalize-the-data">Standardize (Normalize) the Data</h2>
-<div id="0a55a722" class="cell" data-execution_count="30">
+<div id="446e2460" class="cell" data-execution_count="30">
 <div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.preprocessing <span class="im">import</span> StandardScaler</span>
 <span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>scaler <span class="op">=</span> StandardScaler()</span>
 <span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>scaler.fit(X_train)</span>
@@ -1626,7 +1653,7 @@ Note:
 </div>
 <section id="train-the-model" class="level3">
 <h3 class="anchored" data-anchor-id="train-the-model">Train the Model</h3>
-<div id="6e127d52" class="cell" data-execution_count="31">
+<div id="42c67012" class="cell" data-execution_count="31">
 <div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.linear_model <span class="im">import</span> LinearRegression</span>
 <span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>linear_reg <span class="op">=</span> LinearRegression()</span>
 <span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>linear_reg.fit(X_train_scaled, y_train)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -2049,7 +2076,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </a></style><div id="sk-container-id-1" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>LinearRegression()</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br>On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden=""><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-1" type="checkbox" checked=""><label for="sk-estimator-id-1" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>LinearRegression</div></div><div><a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.6/modules/generated/sklearn.linear_model.LinearRegression.html">?<span>Documentation for LinearRegression</span></a><span class="sk-estimator-doc-link fitted">i<span>Fitted</span></span></div></label><div class="sk-toggleable__content fitted"><pre>LinearRegression()</pre></div> </div></div></div></div>
 </div>
 </div>
-<div id="c2ab1661" class="cell" data-execution_count="32">
+<div id="61f1b1da" class="cell" data-execution_count="32">
 <div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>pd.DataFrame(data <span class="op">=</span> np.append(linear_reg.intercept_ , linear_reg.coef_), index <span class="op">=</span> [<span class="st">'Intercept'</span>]<span class="op">+</span>[col<span class="op">+</span><span class="st">" Coef."</span> <span class="cf">for</span> col <span class="kw">in</span> X.columns], columns<span class="op">=</span>[<span class="st">'Value'</span>]).sort_values(<span class="st">'Value'</span>, ascending<span class="op">=</span><span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="30">
 <div>
@@ -2165,10 +2192,10 @@ Figure&nbsp;4: Root Mean Squared Error (RMSE)
 </figure>
 </div>
 <p><strong>R Squared (R<sup>2</sup>)</strong>: R<sup>2</sup> is also called the coefficient of determination or goodness of fit score regression function. It measures how much irregularity in the dependent variable the model can explain. The R2 value is between 0 to 1, and a bigger value shows a better fit between prediction and actual value.</p>
-<div id="079cfce0" class="cell" data-execution_count="33">
+<div id="f6fa4893" class="cell" data-execution_count="33">
 <div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn <span class="im">import</span> metrics</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="dd3fda08" class="cell" data-execution_count="34">
+<div id="88591049" class="cell" data-execution_count="34">
 <div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> model_evaluation(model, X_test, y_test, model_name):</span>
 <span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>    y_pred <span class="op">=</span> model.predict(X_test)</span>
 <span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>    </span>
@@ -2243,13 +2270,13 @@ Figure&nbsp;6: This is What We Do Not Want to See
 </figcaption>
 </figure>
 </div>
-<div id="d9775461" class="cell" data-execution_count="35">
+<div id="aba3c9a8" class="cell" data-execution_count="35">
 <div class="sourceCode cell-code" id="cb43"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>regr <span class="op">=</span> LinearRegression()</span>
 <span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>regr.fit(X_train,y_train)</span>
 <span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>y_pred <span class="op">=</span> regr.predict(X_train)</span>
 <span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a>residuals <span class="op">=</span> y_train.values<span class="op">-</span>y_pred</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="6d5cf5ef" class="cell" data-execution_count="36">
+<div id="d81bec06" class="cell" data-execution_count="36">
 <div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>assum_df <span class="op">=</span> pd.DataFrame({<span class="st">'y_pred'</span>:y_pred, <span class="st">'residuals'</span>: residuals})</span>
 <span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize <span class="op">=</span> (<span class="dv">15</span>,<span class="dv">8</span>))</span>
 <span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -2276,7 +2303,7 @@ Figure&nbsp;6: This is What We Do Not Want to See
 <p>Checking heteroscedasticity : Using Goldfeld Quandt we test for heteroscedasticity.</p>
 <p><strong>Null Hypothesis</strong>: Error terms are homoscedastic</p>
 <p><strong>Alternative Hypothesis</strong>: Error terms are heteroscedastic.</p>
-<div id="e261f09d" class="cell" data-execution_count="37">
+<div id="be9922e0" class="cell" data-execution_count="37">
 <div class="sourceCode cell-code" id="cb45"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> statsmodels.stats.api <span class="im">as</span> sms</span>
 <span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> statsmodels.compat <span class="im">import</span> lzip</span>
 <span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>name <span class="op">=</span> [<span class="st">'F statistic'</span>, <span class="st">'p-value'</span>]</span>
@@ -2293,7 +2320,7 @@ Figure&nbsp;6: This is What We Do Not Want to See
 <section id="check-for-normality-of-error-termsresiduals" class="level2">
 <h2 class="anchored" data-anchor-id="check-for-normality-of-error-termsresiduals">Check for Normality of Error Terms/Residuals</h2>
 <p>Assumptions 01 - Linearity of the Data</p>
-<div id="d0dc3977" class="cell" data-execution_count="38">
+<div id="c4b97cff" class="cell" data-execution_count="38">
 <div class="sourceCode cell-code" id="cb47"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>p <span class="op">=</span> sns.distplot(residuals,kde<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>p <span class="op">=</span> plt.title(<span class="st">'Normality of error terms/residuals'</span>)</span>
 <span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -2312,7 +2339,7 @@ Figure&nbsp;6: This is What We Do Not Want to See
 <p>Assumptions 02 - Predictors (x) are Independent &amp; Observed with Negligible Error</p>
 <p>When the residuals are autocorrelated, it means that the current value is dependent of the previous (historic) values and that there is a definite unexplained pattern in the <code>Y</code> variable that shows up in the error terms. Though it is more evident in time series data.</p>
 <p>In plain terms autocorrelation takes place when there’s a pattern in the rows of the data. This is usual in time series data as there is a pattern of time for eg. Week of the day effect which is a very famous pattern seen in stock markets where people tend to buy stocks more towards the beginning of weekends and tend to sell more on Mondays. There’s been great study about this phenomenon and it is still a matter of research as to what actual factors cause this trend.</p>
-<div id="254fab01" class="cell" data-execution_count="39">
+<div id="55cf6034" class="cell" data-execution_count="39">
 <div class="sourceCode cell-code" id="cb48"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>,<span class="dv">5</span>))</span>
 <span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>p <span class="op">=</span> sns.lineplot(x <span class="op">=</span> y_pred,y <span class="op">=</span> residuals,marker<span class="op">=</span><span class="st">'o'</span>,color<span class="op">=</span><span class="st">'blue'</span>)</span>
 <span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'y_pred/predicted values'</span>)</span>
@@ -2330,7 +2357,7 @@ Figure&nbsp;6: This is What We Do Not Want to See
 </div>
 </div>
 </div>
-<div id="68116f96" class="cell" data-execution_count="40">
+<div id="0c30d9c9" class="cell" data-execution_count="40">
 <div class="sourceCode cell-code" id="cb49"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="co"># autocorrelation</span></span>
 <span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a>sm.graphics.tsa.plot_acf(residuals, lags<span class="op">=</span><span class="dv">40</span>)</span>
 <span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -2346,7 +2373,7 @@ Figure&nbsp;6: This is What We Do Not Want to See
 <section id="multicollinearity" class="level2">
 <h2 class="anchored" data-anchor-id="multicollinearity">Multicollinearity</h2>
 <p>In regression, multicollinearity refers to the extent to which independent variables are correlated. Multicollinearity affects the coefficients and p-values, but it does not influence the predictions, precision of the predictions, and the goodness-of-fit statistics. If your primary goal is to make predictions, and you don’t need to understand the role of each independent variable, you don’t need to reduce severe multicollinearity.</p>
-<div id="c5e316ac" class="cell" data-execution_count="42">
+<div id="720312f9" class="cell" data-execution_count="42">
 <div class="sourceCode cell-code" id="cb50"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> statsmodels.stats.outliers_influence <span class="im">import</span> variance_inflation_factor </span>
 <span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a><span class="co"># VIF dataframe </span></span>
@@ -2421,7 +2448,7 @@ Figure&nbsp;7: Feature Selection Methods
 </ol>
 <section id="forward-selection-using-user-defined-function" class="level3">
 <h3 class="anchored" data-anchor-id="forward-selection-using-user-defined-function">Forward Selection Using User Defined Function</h3>
-<div id="45f0769b" class="cell" data-execution_count="43">
+<div id="fa7b98f9" class="cell" data-execution_count="43">
 <div class="sourceCode cell-code" id="cb52"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> forward_selection(data, target, significance_level<span class="op">=</span><span class="fl">0.05</span>):</span>
 <span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a>    initial_features <span class="op">=</span> data.columns.tolist()</span>
 <span id="cb52-3"><a href="#cb52-3" aria-hidden="true" tabindex="-1"></a>    best_features <span class="op">=</span> []</span>
@@ -2438,7 +2465,7 @@ Figure&nbsp;7: Feature Selection Methods
 <span id="cb52-14"><a href="#cb52-14" aria-hidden="true" tabindex="-1"></a>            <span class="cf">break</span></span>
 <span id="cb52-15"><a href="#cb52-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> best_features</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="777c667c" class="cell" data-execution_count="44">
+<div id="b18ef0e7" class="cell" data-execution_count="44">
 <div class="sourceCode cell-code" id="cb53"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> forward_selection(X,y):</span>
 <span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span> (i)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -2454,11 +2481,11 @@ owner_Second Owner</code></pre>
 </section>
 <section id="forward-selection-using-built-in-functions-in-python" class="level3">
 <h3 class="anchored" data-anchor-id="forward-selection-using-built-in-functions-in-python">Forward Selection Using Built-in Functions in <code>Python</code></h3>
-<div id="188f8c9a" class="cell" data-execution_count="45">
+<div id="72e8906a" class="cell" data-execution_count="45">
 <div class="sourceCode cell-code" id="cb55"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="co">## Installing mlxtend package </span></span>
 <span id="cb55-2"><a href="#cb55-2" aria-hidden="true" tabindex="-1"></a><span class="co">#!pip install mlxtend</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="b56d95a2" class="cell" data-execution_count="46">
+<div id="39866cea" class="cell" data-execution_count="46">
 <div class="sourceCode cell-code" id="cb56"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> mlxtend.feature_selection <span class="im">import</span> SequentialFeatureSelector <span class="im">as</span> SFS</span>
 <span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.linear_model <span class="im">import</span> LinearRegression</span>
 <span id="cb56-3"><a href="#cb56-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Sequential Forward Selection(sfs)</span></span>
@@ -2477,7 +2504,7 @@ owner_Second Owner</code></pre>
 <li><p>The <code>scoring</code> argument specifies the evaluation criterion to be used. For regression problems, there is only r2 score in default implementation. Similarly for classification, it can be accuracy, precision, recall, f1-score, etc.</p></li>
 <li><p><code>cv</code> argument is for k-fold cross-validation.</p></li>
 </ul>
-<div id="1a727e08" class="cell" data-execution_count="47">
+<div id="60f5df3f" class="cell" data-execution_count="47">
 <div class="sourceCode cell-code" id="cb57"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a>sfs.fit(X,y)</span>
 <span id="cb57-2"><a href="#cb57-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> x <span class="kw">in</span> sfs.k_feature_names_:</span>
 <span id="cb57-3"><a href="#cb57-3" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span> (x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -2506,7 +2533,7 @@ owner_Second Owner</code></pre>
 </ul>
 <section id="backward-selection-using-user-defined-functions" class="level3">
 <h3 class="anchored" data-anchor-id="backward-selection-using-user-defined-functions">Backward Selection Using User Defined Functions</h3>
-<div id="058680f3" class="cell" data-execution_count="48">
+<div id="df9e9e40" class="cell" data-execution_count="48">
 <div class="sourceCode cell-code" id="cb59"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> backward_elimination(data, target,significance_level <span class="op">=</span> <span class="fl">0.05</span>):</span>
 <span id="cb59-2"><a href="#cb59-2" aria-hidden="true" tabindex="-1"></a>    features <span class="op">=</span> data.columns.tolist()</span>
 <span id="cb59-3"><a href="#cb59-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span>(<span class="bu">len</span>(features)<span class="op">&gt;</span><span class="dv">0</span>):</span>
@@ -2520,7 +2547,7 @@ owner_Second Owner</code></pre>
 <span id="cb59-11"><a href="#cb59-11" aria-hidden="true" tabindex="-1"></a>            <span class="cf">break</span> </span>
 <span id="cb59-12"><a href="#cb59-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> features</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="a397faba" class="cell" data-execution_count="49">
+<div id="f7218a24" class="cell" data-execution_count="49">
 <div class="sourceCode cell-code" id="cb60"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> x <span class="kw">in</span> backward_elimination(X,y):</span>
 <span id="cb60-2"><a href="#cb60-2" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span> (x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -2536,7 +2563,7 @@ owner_Second Owner</code></pre>
 </section>
 <section id="backward-selection-using-built-in-functions-in-python" class="level3">
 <h3 class="anchored" data-anchor-id="backward-selection-using-built-in-functions-in-python">Backward Selection Using Built-in Functions in <code>Python</code></h3>
-<div id="50630e89" class="cell" data-execution_count="50">
+<div id="f89c0457" class="cell" data-execution_count="50">
 <div class="sourceCode cell-code" id="cb62"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Sequential backward selection(sbs)</span></span>
 <span id="cb62-2"><a href="#cb62-2" aria-hidden="true" tabindex="-1"></a>sbs <span class="op">=</span> SFS(LinearRegression(),</span>
 <span id="cb62-3"><a href="#cb62-3" aria-hidden="true" tabindex="-1"></a>         k_features<span class="op">=</span><span class="dv">7</span>,</span>
@@ -2965,7 +2992,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
                           k_features=(7, 7), scoring='r2')</pre></div> </div></div><div class="sk-parallel"><div class="sk-parallel-item"><div class="sk-item"><div class="sk-label-container"><div class="sk-label fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-3" type="checkbox"><label for="sk-estimator-id-3" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>estimator: LinearRegression</div></div></label><div class="sk-toggleable__content fitted"><pre>LinearRegression()</pre></div> </div></div><div class="sk-serial"><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-4" type="checkbox"><label for="sk-estimator-id-4" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>LinearRegression</div></div><div><a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.6/modules/generated/sklearn.linear_model.LinearRegression.html">?<span>Documentation for LinearRegression</span></a></div></label><div class="sk-toggleable__content fitted"><pre>LinearRegression()</pre></div> </div></div></div></div></div></div></div></div></div>
 </div>
 </div>
-<div id="7456fdbf" class="cell" data-execution_count="51">
+<div id="64655f7f" class="cell" data-execution_count="51">
 <div class="sourceCode cell-code" id="cb63"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> x <span class="kw">in</span> sbs.k_feature_names_:</span>
 <span id="cb63-2"><a href="#cb63-2" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span> (x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -2993,7 +3020,7 @@ owner_Second Owner</code></pre>
 </ul>
 <section id="stepwise-selection-using-user-defined-functions" class="level3">
 <h3 class="anchored" data-anchor-id="stepwise-selection-using-user-defined-functions">Stepwise Selection Using User Defined Functions</h3>
-<div id="1f3bf6bc" class="cell" data-execution_count="52">
+<div id="075442ed" class="cell" data-execution_count="52">
 <div class="sourceCode cell-code" id="cb65"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> stepwise_selection(data, target,SL_in<span class="op">=</span><span class="fl">0.05</span>,SL_out <span class="op">=</span> <span class="fl">0.05</span>):</span>
 <span id="cb65-2"><a href="#cb65-2" aria-hidden="true" tabindex="-1"></a>    initial_features <span class="op">=</span> data.columns.tolist()</span>
 <span id="cb65-3"><a href="#cb65-3" aria-hidden="true" tabindex="-1"></a>    best_features <span class="op">=</span> []</span>
@@ -3019,7 +3046,7 @@ owner_Second Owner</code></pre>
 <span id="cb65-23"><a href="#cb65-23" aria-hidden="true" tabindex="-1"></a>            <span class="cf">break</span></span>
 <span id="cb65-24"><a href="#cb65-24" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> best_features</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="2535ce13" class="cell" data-execution_count="53">
+<div id="08f9de1e" class="cell" data-execution_count="53">
 <div class="sourceCode cell-code" id="cb66"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> x <span class="kw">in</span> stepwise_selection(X,y):</span>
 <span id="cb66-2"><a href="#cb66-2" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span> (x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -3035,7 +3062,7 @@ owner_Second Owner</code></pre>
 </section>
 <section id="stepwise-selection-using-built-in-functions-in-python" class="level3">
 <h3 class="anchored" data-anchor-id="stepwise-selection-using-built-in-functions-in-python">Stepwise Selection Using Built-in Functions in <code>Python</code></h3>
-<div id="5e336739" class="cell" data-execution_count="54">
+<div id="f50cc0cd" class="cell" data-execution_count="54">
 <div class="sourceCode cell-code" id="cb68"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Sequential Forward Floating Selection(sffs)</span></span>
 <span id="cb68-2"><a href="#cb68-2" aria-hidden="true" tabindex="-1"></a>sffs <span class="op">=</span> SFS(LinearRegression(),</span>
 <span id="cb68-3"><a href="#cb68-3" aria-hidden="true" tabindex="-1"></a>         k_features<span class="op">=</span>(<span class="dv">3</span>,<span class="dv">7</span>),</span>
@@ -3464,7 +3491,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
                           k_features=(3, 7), scoring='r2')</pre></div> </div></div><div class="sk-parallel"><div class="sk-parallel-item"><div class="sk-item"><div class="sk-label-container"><div class="sk-label fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-6" type="checkbox"><label for="sk-estimator-id-6" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>estimator: LinearRegression</div></div></label><div class="sk-toggleable__content fitted"><pre>LinearRegression()</pre></div> </div></div><div class="sk-serial"><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-7" type="checkbox"><label for="sk-estimator-id-7" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>LinearRegression</div></div><div><a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.6/modules/generated/sklearn.linear_model.LinearRegression.html">?<span>Documentation for LinearRegression</span></a></div></label><div class="sk-toggleable__content fitted"><pre>LinearRegression()</pre></div> </div></div></div></div></div></div></div></div></div>
 </div>
 </div>
-<div id="d17a0b93" class="cell" data-execution_count="55">
+<div id="cfe99918" class="cell" data-execution_count="55">
 <div class="sourceCode cell-code" id="cb69"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb69-1"><a href="#cb69-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> x <span class="kw">in</span> sffs.k_feature_names_:</span>
 <span id="cb69-2"><a href="#cb69-2" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -3480,7 +3507,7 @@ owner_Second Owner</code></pre>
 </section>
 <section id="visualization-of-feature-selection" class="level3">
 <h3 class="anchored" data-anchor-id="visualization-of-feature-selection">Visualization of Feature Selection</h3>
-<div id="6bbd2064" class="cell" data-execution_count="56">
+<div id="0794631f" class="cell" data-execution_count="56">
 <div class="sourceCode cell-code" id="cb71"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb71-1"><a href="#cb71-1" aria-hidden="true" tabindex="-1"></a>sfs1 <span class="op">=</span> SFS(LinearRegression(),</span>
 <span id="cb71-2"><a href="#cb71-2" aria-hidden="true" tabindex="-1"></a>         k_features<span class="op">=</span>(<span class="dv">3</span>,<span class="dv">11</span>),</span>
 <span id="cb71-3"><a href="#cb71-3" aria-hidden="true" tabindex="-1"></a>         forward<span class="op">=</span><span class="va">True</span>,</span>
@@ -3908,7 +3935,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
                           k_features=(3, 11), scoring='r2')</pre></div> </div></div><div class="sk-parallel"><div class="sk-parallel-item"><div class="sk-item"><div class="sk-label-container"><div class="sk-label fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-9" type="checkbox"><label for="sk-estimator-id-9" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>estimator: LinearRegression</div></div></label><div class="sk-toggleable__content fitted"><pre>LinearRegression()</pre></div> </div></div><div class="sk-serial"><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-10" type="checkbox"><label for="sk-estimator-id-10" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>LinearRegression</div></div><div><a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.6/modules/generated/sklearn.linear_model.LinearRegression.html">?<span>Documentation for LinearRegression</span></a></div></label><div class="sk-toggleable__content fitted"><pre>LinearRegression()</pre></div> </div></div></div></div></div></div></div></div></div>
 </div>
 </div>
-<div id="5c755920" class="cell" data-execution_count="57">
+<div id="5096320e" class="cell" data-execution_count="57">
 <div class="sourceCode cell-code" id="cb72"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> mlxtend.plotting <span class="im">import</span> plot_sequential_feature_selection <span class="im">as</span> plot_sfs</span>
 <span id="cb72-2"><a href="#cb72-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb72-3"><a href="#cb72-3" aria-hidden="true" tabindex="-1"></a>fig1 <span class="op">=</span> plot_sfs(sfs1.get_metric_dict(), kind<span class="op">=</span><span class="st">'std_dev'</span>)</span>
@@ -4361,8 +4388,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </center></div>
   <div class="nav-page nav-page-next">
-      <a href="./chap08_decision_tree.html" class="pagination-link" aria-label="<center> Chapter # 08 <br> Decision Tree">
-        <span class="nav-page-text"></span></a><center><a href="./chap08_decision_tree.html" class="pagination-link" aria-label="<center> Chapter # 08 <br> Decision Tree"> Chapter # 08 <br> Decision Tree <i class="bi bi-arrow-right-short"></i>
+      <a href="./chap08_decision_tree.html" class="pagination-link" aria-label="<center> Chapter # 08 <br> Decision Tree for Classification &amp; Regression">
+        <span class="nav-page-text"></span></a><center><a href="./chap08_decision_tree.html" class="pagination-link" aria-label="<center> Chapter # 08 <br> Decision Tree for Classification &amp; Regression"> Chapter # 08 <br> Decision Tree for Classification &amp; Regression <i class="bi bi-arrow-right-short"></i>
       </a>
   </center></div>
 </nav>
@@ -4375,7 +4402,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     <div class="nav-footer-center">
       <ul class="footer-items list-unstyled">
     <li class="nav-item">
- The world's most valuable resource is no longer oil, but data (The Economist, 2017) <br> Copyright@2025, Sharif Islam, DBA, CPA, CMA
+ The world's most valuable resource is no longer oil, but data (The Economist, 2017) <br> Copyright@2026, Sharif Islam, DBA, CPA, CMA
   </li>  
 </ul>
     </div>

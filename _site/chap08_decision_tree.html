@@ -398,6 +398,36 @@ window.Quarto = {
  <span class="menu-text"></span></a><center><a href="./chap05_slide.html" class="sidebar-item-text sidebar-link"> Chapter # 05 <br> Discriminant Analysis (DA)</a>
   </center></div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chap06_slide.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"></span></a><center><a href="./chap06_slide.html" class="sidebar-item-text sidebar-link"> Chapter # 06 <br> Naive Bayes Theorem &amp; Support Vector Machine (SVM)</a>
+  </center></div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chap07_slide.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"></span></a><center><a href="./chap07_slide.html" class="sidebar-item-text sidebar-link"> Chapter # 07 <br> Linear Regression</a>
+  </center></div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chap08_slide.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"></span></a><center><a href="./chap08_slide.html" class="sidebar-item-text sidebar-link"> Chapter # 08 <br> Decision Tree</a>
+  </center></div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chap09_slide.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"></span></a><center><a href="./chap09_slide.html" class="sidebar-item-text sidebar-link"> Chapter # 09 <br> Principal Component Analysis (PCA)</a>
+  </center></div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chap10_slide.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"></span></a><center><a href="./chap10_slide.html" class="sidebar-item-text sidebar-link"> Chapter # 10 <br> Clustering by Finding Centers with K-means</a>
+  </center></div>
+</li>
       </ul>
   </li>
     </ul>
@@ -599,14 +629,14 @@ Figure&nbsp;4: Pruning (Hyperparameter) in Decision Tree
 </section>
 <section id="building-decision-tree-model-in-scikit-learn" class="level2">
 <h2 class="anchored" data-anchor-id="building-decision-tree-model-in-scikit-learn">Building Decision Tree Model in <code>scikit learn</code></h2>
-<div id="9d71c571" class="cell" data-execution_count="2">
+<div id="129e0f1e" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt </span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>zoo <span class="op">=</span> pd.read_csv(<span class="st">"https://raw.githubusercontent.com/selva86/datasets/refs/heads/master/Zoo.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="c442727a" class="cell" data-execution_count="3">
+<div id="c2b938a8" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>zoo.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
@@ -635,7 +665,7 @@ dtypes: bool(15), int64(1), object(1)
 memory usage: 3.2+ KB</code></pre>
 </div>
 </div>
-<div id="d5e53602" class="cell" data-execution_count="4">
+<div id="0d024909" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>zoo.isna().<span class="bu">sum</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="3">
 <pre><code>hair        0
@@ -658,15 +688,15 @@ type        0
 dtype: int64</code></pre>
 </div>
 </div>
-<div id="81469650" class="cell" data-execution_count="5">
+<div id="130f0c30" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sklearn </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="76414311" class="cell" data-execution_count="6">
+<div id="302ba03a" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Declare feature vector and target variable </span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> zoo.drop(columns <span class="op">=</span> [<span class="st">'type'</span>], axis <span class="op">=</span> <span class="dv">1</span>)</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> zoo[<span class="st">'type'</span>] </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="0369fd6d" class="cell" data-execution_count="7">
+<div id="da672170" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Split Data into Training and Testing </span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> train_test_split</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>X_train, X_test, y_train, y_test <span class="op">=</span> train_test_split(X,y, test_size <span class="op">=</span> <span class="fl">0.20</span>,</span>
@@ -674,7 +704,7 @@ dtype: int64</code></pre>
 </div>
 <section id="decision-tree-using-gini" class="level3">
 <h3 class="anchored" data-anchor-id="decision-tree-using-gini">Decision Tree using <code>gini</code></h3>
-<div id="caad1442" class="cell" data-execution_count="8">
+<div id="352bcc43" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.tree <span class="im">import</span> DecisionTreeClassifier </span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> accuracy_score, confusion_matrix</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co">#####################################</span></span>
@@ -689,10 +719,10 @@ dtype: int64</code></pre>
 <span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>accuracy <span class="op">=</span> accuracy_score(y_test, y_pred)</span>
 <span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Accuracy: </span><span class="sc">{</span>accuracy<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Accuracy: 0.9047619047619048</code></pre>
+<pre><code>Accuracy: 1.0</code></pre>
 </div>
 </div>
-<div id="133bbe4f" class="cell" data-message="false" data-execution_count="9">
+<div id="511ed664" class="cell" data-message="false" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plotting Decision Tree </span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">12</span>,<span class="dv">8</span>))</span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn <span class="im">import</span> tree</span>
@@ -708,9 +738,9 @@ dtype: int64</code></pre>
  Text(0.3333333333333333, 0.21428571428571427, 'x[12] &lt;= 3.0\ngini = 0.32\nsamples = 10\nvalue = [0, 0, 0, 8, 0, 2, 0]'),
  Text(0.2222222222222222, 0.07142857142857142, 'gini = 0.0\nsamples = 2\nvalue = [0, 0, 0, 0, 0, 2, 0]'),
  Text(0.4444444444444444, 0.07142857142857142, 'gini = 0.0\nsamples = 8\nvalue = [0, 0, 0, 8, 0, 0, 0]'),
- Text(0.6666666666666666, 0.35714285714285715, 'x[5] &lt;= 0.5\ngini = 0.49\nsamples = 7\nvalue = [3, 0, 0, 0, 0, 0, 4]'),
+ Text(0.6666666666666666, 0.35714285714285715, 'x[12] &lt;= 2.0\ngini = 0.49\nsamples = 7\nvalue = [3, 0, 0, 0, 0, 0, 4]'),
  Text(0.5555555555555556, 0.21428571428571427, 'gini = 0.0\nsamples = 3\nvalue = [0, 0, 0, 0, 0, 0, 3]'),
- Text(0.7777777777777778, 0.21428571428571427, 'x[9] &lt;= 0.5\ngini = 0.375\nsamples = 4\nvalue = [3, 0, 0, 0, 0, 0, 1]'),
+ Text(0.7777777777777778, 0.21428571428571427, 'x[5] &lt;= 0.5\ngini = 0.375\nsamples = 4\nvalue = [3, 0, 0, 0, 0, 0, 1]'),
  Text(0.6666666666666666, 0.07142857142857142, 'gini = 0.0\nsamples = 1\nvalue = [0, 0, 0, 0, 0, 0, 1]'),
  Text(0.8888888888888888, 0.07142857142857142, 'gini = 0.0\nsamples = 3\nvalue = [3, 0, 0, 0, 0, 0, 0]'),
  Text(0.6666666666666666, 0.5, 'gini = 0.0\nsamples = 11\nvalue = [0, 0, 11, 0, 0, 0, 0]'),
@@ -726,7 +756,7 @@ dtype: int64</code></pre>
 </div>
 </div>
 </div>
-<div id="ec860212" class="cell" data-execution_count="10">
+<div id="e230d2f7" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Compare Train and Test set Accuracy </span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>y_pred_train_gini <span class="op">=</span> tree_gini.predict(X_train)</span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Training-set accuracy score: </span><span class="sc">{0:0.4f}</span><span class="st">'</span>. <span class="bu">format</span>(accuracy_score(y_train, y_pred_train_gini)))</span>
@@ -743,7 +773,7 @@ Test set score: 0.9048</code></pre>
 </section>
 <section id="decision-tree-using-entropy" class="level3">
 <h3 class="anchored" data-anchor-id="decision-tree-using-entropy">Decision Tree using <code>entropy</code></h3>
-<div id="96e66380" class="cell" data-execution_count="11">
+<div id="c8267c7a" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co">#####################################</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Decision Tree using entropy (Information Gain) </span></span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="co">#####################################</span></span>
@@ -759,30 +789,32 @@ Test set score: 0.9048</code></pre>
 <pre><code>Accuracy: 0.8571428571428571</code></pre>
 </div>
 </div>
-<div id="9726be4d" class="cell" data-execution_count="12">
+<div id="f72016e7" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plotting Decision Tree </span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">12</span>,<span class="dv">8</span>))</span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>tree.plot_tree(tree_entropy.fit(X_train, y_train))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="11">
-<pre><code>[Text(0.6666666666666666, 0.9166666666666666, 'x[3] &lt;= 0.5\nentropy = 2.421\nsamples = 80\nvalue = [3, 14, 11, 8, 32, 8, 4]'),
- Text(0.5555555555555556, 0.75, 'x[7] &lt;= 0.5\nentropy = 2.416\nsamples = 48\nvalue = [3, 14, 11, 8, 0, 8, 4]'),
- Text(0.6111111111111112, 0.8333333333333333, 'True  '),
- Text(0.3333333333333333, 0.5833333333333334, 'x[8] &lt;= 0.5\nentropy = 1.53\nsamples = 30\nvalue = [0, 14, 0, 8, 0, 8, 0]'),
- Text(0.2222222222222222, 0.4166666666666667, 'x[9] &lt;= 0.5\nentropy = 1.0\nsamples = 16\nvalue = [0, 0, 0, 8, 0, 8, 0]'),
- Text(0.1111111111111111, 0.25, 'entropy = 0.0\nsamples = 6\nvalue = [0, 0, 0, 0, 0, 6, 0]'),
- Text(0.3333333333333333, 0.25, 'x[12] &lt;= 3.0\nentropy = 0.722\nsamples = 10\nvalue = [0, 0, 0, 8, 0, 2, 0]'),
- Text(0.2222222222222222, 0.08333333333333333, 'entropy = 0.0\nsamples = 2\nvalue = [0, 0, 0, 0, 0, 2, 0]'),
- Text(0.4444444444444444, 0.08333333333333333, 'entropy = 0.0\nsamples = 8\nvalue = [0, 0, 0, 8, 0, 0, 0]'),
- Text(0.4444444444444444, 0.4166666666666667, 'entropy = 0.0\nsamples = 14\nvalue = [0, 14, 0, 0, 0, 0, 0]'),
- Text(0.7777777777777778, 0.5833333333333334, 'x[11] &lt;= 0.5\nentropy = 1.347\nsamples = 18\nvalue = [3, 0, 11, 0, 0, 0, 4]'),
- Text(0.6666666666666666, 0.4166666666666667, 'x[12] &lt;= 2.0\nentropy = 0.985\nsamples = 7\nvalue = [3, 0, 0, 0, 0, 0, 4]'),
- Text(0.5555555555555556, 0.25, 'entropy = 0.0\nsamples = 3\nvalue = [0, 0, 0, 0, 0, 0, 3]'),
- Text(0.7777777777777778, 0.25, 'x[5] &lt;= 0.5\nentropy = 0.811\nsamples = 4\nvalue = [3, 0, 0, 0, 0, 0, 1]'),
- Text(0.6666666666666666, 0.08333333333333333, 'entropy = 0.0\nsamples = 1\nvalue = [0, 0, 0, 0, 0, 0, 1]'),
- Text(0.8888888888888888, 0.08333333333333333, 'entropy = 0.0\nsamples = 3\nvalue = [3, 0, 0, 0, 0, 0, 0]'),
- Text(0.8888888888888888, 0.4166666666666667, 'entropy = 0.0\nsamples = 11\nvalue = [0, 0, 11, 0, 0, 0, 0]'),
- Text(0.7777777777777778, 0.75, 'entropy = 0.0\nsamples = 32\nvalue = [0, 0, 0, 0, 32, 0, 0]'),
- Text(0.7222222222222222, 0.8333333333333333, '  False')]</code></pre>
+<pre><code>[Text(0.7, 0.9285714285714286, 'x[3] &lt;= 0.5\nentropy = 2.421\nsamples = 80\nvalue = [3, 14, 11, 8, 32, 8, 4]'),
+ Text(0.6, 0.7857142857142857, 'x[7] &lt;= 0.5\nentropy = 2.416\nsamples = 48\nvalue = [3, 14, 11, 8, 0, 8, 4]'),
+ Text(0.6499999999999999, 0.8571428571428572, 'True  '),
+ Text(0.4, 0.6428571428571429, 'x[8] &lt;= 0.5\nentropy = 1.53\nsamples = 30\nvalue = [0, 14, 0, 8, 0, 8, 0]'),
+ Text(0.3, 0.5, 'x[4] &lt;= 0.5\nentropy = 1.0\nsamples = 16\nvalue = [0, 0, 0, 8, 0, 8, 0]'),
+ Text(0.2, 0.35714285714285715, 'x[9] &lt;= 0.5\nentropy = 0.722\nsamples = 10\nvalue = [0, 0, 0, 2, 0, 8, 0]'),
+ Text(0.1, 0.21428571428571427, 'entropy = 0.0\nsamples = 6\nvalue = [0, 0, 0, 0, 0, 6, 0]'),
+ Text(0.3, 0.21428571428571427, 'x[12] &lt;= 3.0\nentropy = 1.0\nsamples = 4\nvalue = [0, 0, 0, 2, 0, 2, 0]'),
+ Text(0.2, 0.07142857142857142, 'entropy = 0.0\nsamples = 2\nvalue = [0, 0, 0, 0, 0, 2, 0]'),
+ Text(0.4, 0.07142857142857142, 'entropy = 0.0\nsamples = 2\nvalue = [0, 0, 0, 2, 0, 0, 0]'),
+ Text(0.4, 0.35714285714285715, 'entropy = 0.0\nsamples = 6\nvalue = [0, 0, 0, 6, 0, 0, 0]'),
+ Text(0.5, 0.5, 'entropy = 0.0\nsamples = 14\nvalue = [0, 14, 0, 0, 0, 0, 0]'),
+ Text(0.8, 0.6428571428571429, 'x[11] &lt;= 0.5\nentropy = 1.347\nsamples = 18\nvalue = [3, 0, 11, 0, 0, 0, 4]'),
+ Text(0.7, 0.5, 'x[5] &lt;= 0.5\nentropy = 0.985\nsamples = 7\nvalue = [3, 0, 0, 0, 0, 0, 4]'),
+ Text(0.6, 0.35714285714285715, 'entropy = 0.0\nsamples = 3\nvalue = [0, 0, 0, 0, 0, 0, 3]'),
+ Text(0.8, 0.35714285714285715, 'x[9] &lt;= 0.5\nentropy = 0.811\nsamples = 4\nvalue = [3, 0, 0, 0, 0, 0, 1]'),
+ Text(0.7, 0.21428571428571427, 'entropy = 0.0\nsamples = 1\nvalue = [0, 0, 0, 0, 0, 0, 1]'),
+ Text(0.9, 0.21428571428571427, 'entropy = 0.0\nsamples = 3\nvalue = [3, 0, 0, 0, 0, 0, 0]'),
+ Text(0.9, 0.5, 'entropy = 0.0\nsamples = 11\nvalue = [0, 0, 11, 0, 0, 0, 0]'),
+ Text(0.8, 0.7857142857142857, 'entropy = 0.0\nsamples = 32\nvalue = [0, 0, 0, 0, 32, 0, 0]'),
+ Text(0.75, 0.8571428571428572, '  False')]</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <div>
@@ -792,7 +824,7 @@ Test set score: 0.9048</code></pre>
 </div>
 </div>
 </div>
-<div id="b8583c2e" class="cell" data-execution_count="13">
+<div id="3cce713e" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Compare Train and Test set Accuracy </span></span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>y_pred_train_entropy <span class="op">=</span> tree_entropy.predict(X_train)</span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Training-set accuracy score: </span><span class="sc">{0:0.4f}</span><span class="st">'</span>. <span class="bu">format</span>(accuracy_score(y_train, y_pred_train_entropy)))</span>
@@ -809,7 +841,7 @@ Test set score: 0.9048</code></pre>
 </section>
 <section id="hyperparameter-tuning-with-cross-validation" class="level3">
 <h3 class="anchored" data-anchor-id="hyperparameter-tuning-with-cross-validation">Hyperparameter Tuning with Cross Validation</h3>
-<div id="a7e5bfc1" class="cell" data-execution_count="14">
+<div id="af2b292e" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co">####################################################</span></span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Hyperparameter Tuning</span></span>
 <span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="co">####################################################</span></span>
@@ -827,7 +859,7 @@ Test set score: 0.9048</code></pre>
 <span id="cb21-15"><a href="#cb21-15" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb21-16"><a href="#cb21-16" aria-hidden="true" tabindex="-1"></a>Kfold <span class="op">=</span> StratifiedKFold(n_splits<span class="op">=</span><span class="dv">5</span>, shuffle<span class="op">=</span><span class="va">True</span>, random_state<span class="op">=</span><span class="dv">19</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="c4b8e0a6" class="cell" data-execution_count="15">
+<div id="afd99ca7" class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Creating the grid </span></span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>best <span class="op">=</span> GridSearchCV(estimator <span class="op">=</span> tree_hyp,param_grid<span class="op">=</span>param, cv <span class="op">=</span> Kfold, n_jobs <span class="op">=</span> <span class="op">-</span><span class="dv">1</span>, verbose <span class="op">=</span> <span class="dv">1</span>)</span>
@@ -837,8 +869,10 @@ Test set score: 0.9048</code></pre>
 <pre><code>Fitting 5 folds for each of 1024 candidates, totalling 5120 fits</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>c:\Users\mshar\OneDrive - Southern Illinois University\BSAN405_MLINBUSINESS_WEBSITE\mlbusiness2\Lib\site-packages\sklearn\model_selection\_split.py:805: UserWarning: The least populated class in y has only 3 members, which is less than n_splits=5.
-  warnings.warn(</code></pre>
+<pre><code>C:\Users\mshar\OneDrive - Southern Illinois University\BSAN405_MLINBUSINESS_WEBSITE\mlbusiness2\Lib\site-packages\sklearn\model_selection\_split.py:805: UserWarning:
+
+The least populated class in y has only 3 members, which is less than n_splits=5.
+</code></pre>
 </div>
 <div class="cell-output cell-output-display" data-execution_count="14">
 <pre><code>{'ccp_alpha': np.float64(0.01),
@@ -847,7 +881,7 @@ Test set score: 0.9048</code></pre>
  'min_samples_split': np.int64(5)}</code></pre>
 </div>
 </div>
-<div id="d43c0fda" class="cell" data-execution_count="16">
+<div id="7447d64d" class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>best.best_estimator_ <span class="co"># best estimator</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="15">
 <style>#sk-container-id-1 {
@@ -1272,14 +1306,14 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
                        min_samples_split=np.int64(5), random_state=420)</pre></div> </div></div></div></div>
 </div>
 </div>
-<div id="84ae4c5d" class="cell" data-execution_count="17">
+<div id="4e0b5d0b" class="cell" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>y_pred_hyp <span class="op">=</span> best.predict(X_test)</span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>accuracy_score(y_pred_hyp, y_test)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="16">
 <pre><code>0.9523809523809523</code></pre>
 </div>
 </div>
-<div id="a7fc5414" class="cell" data-execution_count="18">
+<div id="823bda9d" class="cell" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>pd.DataFrame(best.cv_results_).head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="17">
 <div>
@@ -1311,10 +1345,10 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <tbody>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">0</td>
-<td>0.004857</td>
-<td>0.000476</td>
-<td>0.002548</td>
-<td>0.000225</td>
+<td>0.004543</td>
+<td>0.000439</td>
+<td>0.002190</td>
+<td>0.000252</td>
 <td>0.01</td>
 <td>3</td>
 <td>3</td>
@@ -1331,10 +1365,10 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">1</td>
-<td>0.004898</td>
-<td>0.001681</td>
-<td>0.003669</td>
-<td>0.002014</td>
+<td>0.004004</td>
+<td>0.000359</td>
+<td>0.002222</td>
+<td>0.000500</td>
 <td>0.01</td>
 <td>3</td>
 <td>3</td>
@@ -1351,10 +1385,10 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">2</td>
-<td>0.003391</td>
-<td>0.000171</td>
-<td>0.002193</td>
-<td>0.000296</td>
+<td>0.003563</td>
+<td>0.000392</td>
+<td>0.002008</td>
+<td>0.000227</td>
 <td>0.01</td>
 <td>3</td>
 <td>3</td>
@@ -1371,10 +1405,10 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">3</td>
-<td>0.003478</td>
-<td>0.000256</td>
-<td>0.002116</td>
-<td>0.000108</td>
+<td>0.003041</td>
+<td>0.000348</td>
+<td>0.001935</td>
+<td>0.000375</td>
 <td>0.01</td>
 <td>3</td>
 <td>3</td>
@@ -1391,10 +1425,10 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">4</td>
-<td>0.003655</td>
-<td>0.000213</td>
-<td>0.003082</td>
-<td>0.001211</td>
+<td>0.002870</td>
+<td>0.000106</td>
+<td>0.001861</td>
+<td>0.000321</td>
 <td>0.01</td>
 <td>3</td>
 <td>3</td>
@@ -1415,18 +1449,18 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </div>
 </div>
 </div>
-<div id="72392d97" class="cell" data-execution_count="19">
+<div id="d4ab04f3" class="cell" data-execution_count="19">
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co">## Running the model using best hyperparameter </span></span>
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>tree_best <span class="op">=</span> best.best_estimator_</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="7ea7e868" class="cell" data-execution_count="20">
+<div id="e6baad70" class="cell" data-execution_count="20">
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># predicting using the hyperparameter</span></span>
 <span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>accuracy_score(y_train,tree_best.predict(X_train))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="19">
 <pre><code>0.9625</code></pre>
 </div>
 </div>
-<div id="799bfe4a" class="cell" data-execution_count="21">
+<div id="de751acb" class="cell" data-execution_count="21">
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># confusion matrix</span></span>
 <span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>confusion_matrix (y_train, tree_best.predict(X_train))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="20">
@@ -1895,7 +1929,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     <div class="nav-footer-center">
       <ul class="footer-items list-unstyled">
     <li class="nav-item">
- The world's most valuable resource is no longer oil, but data (The Economist, 2017) <br> Copyright@2025, Sharif Islam, DBA, CPA, CMA
+ The world's most valuable resource is no longer oil, but data (The Economist, 2017) <br> Copyright@2026, Sharif Islam, DBA, CPA, CMA
   </li>  
 </ul>
     </div>

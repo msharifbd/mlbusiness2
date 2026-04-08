@@ -104,10 +104,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
 
-
-
 <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
-
 
 
 <link rel="stylesheet" href="styles.css">
@@ -369,6 +366,36 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text"></span></a><center><a href="./chap05_slide.html" class="sidebar-item-text sidebar-link"> Chapter # 05 <br> Discriminant Analysis (DA)</a>
   </center></div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chap06_slide.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"></span></a><center><a href="./chap06_slide.html" class="sidebar-item-text sidebar-link"> Chapter # 06 <br> Naive Bayes Theorem &amp; Support Vector Machine (SVM)</a>
+  </center></div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chap07_slide.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"></span></a><center><a href="./chap07_slide.html" class="sidebar-item-text sidebar-link"> Chapter # 07 <br> Linear Regression</a>
+  </center></div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chap08_slide.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"></span></a><center><a href="./chap08_slide.html" class="sidebar-item-text sidebar-link"> Chapter # 08 <br> Decision Tree</a>
+  </center></div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chap09_slide.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"></span></a><center><a href="./chap09_slide.html" class="sidebar-item-text sidebar-link"> Chapter # 09 <br> Principal Component Analysis (PCA)</a>
+  </center></div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chap10_slide.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"></span></a><center><a href="./chap10_slide.html" class="sidebar-item-text sidebar-link"> Chapter # 10 <br> Clustering by Finding Centers with K-means</a>
+  </center></div>
+</li>
       </ul>
   </li>
     </ul>
@@ -439,7 +466,7 @@ Chapter # 09 <br> Dimension Reduction &amp; PCA</center></h1>
 </section>
 <section id="working-directory" class="level1">
 <h1>Working Directory</h1>
-<div id="4ad6308f" class="cell" data-execution_count="1">
+<div id="3a2d1e22" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>os.getcwd()</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> files <span class="kw">in</span> os.listdir():</span>
@@ -452,7 +479,7 @@ Chapter # 09 <br> Dimension Reduction &amp; PCA</center></h1>
 </section>
 <section id="loading-necessary-python-packages" class="level1">
 <h1>Loading Necessary <code>Python</code> Packages</h1>
-<div id="25872d3c" class="cell" data-execution_count="2">
+<div id="25c73bf3" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># For Data Manipulation &amp; Analysis</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -465,19 +492,19 @@ Chapter # 09 <br> Dimension Reduction &amp; PCA</center></h1>
 </section>
 <section id="loading-dataset" class="level1">
 <h1>Loading Dataset</h1>
-<div id="ffa209b7" class="cell" data-execution_count="3">
+<div id="a1d26cf3" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn <span class="im">import</span> datasets</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>cancer <span class="op">=</span> datasets.load_breast_cancer()</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="bu">dir</span>(cancer)</span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>cancer.keys()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="55">
+<div class="cell-output cell-output-display" data-execution_count="2">
 <pre><code>dict_keys(['data', 'target', 'frame', 'target_names', 'DESCR', 'feature_names', 'filename', 'data_module'])</code></pre>
 </div>
 </div>
-<div id="947a29e7" class="cell" data-execution_count="4">
+<div id="3b6613e7" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame(cancer.data, columns <span class="op">=</span> cancer.feature_names)</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="56">
+<div class="cell-output cell-output-display" data-execution_count="3">
 <div>
 
 
@@ -636,7 +663,7 @@ Chapter # 09 <br> Dimension Reduction &amp; PCA</center></h1>
 </div>
 </div>
 </div>
-<div id="dac58655" class="cell" data-execution_count="5">
+<div id="865b6b11" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>df.shape</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span> (<span class="st">"The number of rows and columns in the dataset is </span><span class="sc">{}</span><span class="st"> and </span><span class="sc">{}</span><span class="st"> respectively"</span>.<span class="bu">format</span>(df.shape[<span class="dv">0</span>], df.shape[<span class="dv">1</span>]))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -645,7 +672,7 @@ Chapter # 09 <br> Dimension Reduction &amp; PCA</center></h1>
 </div>
 <section id="metadata-of-the-dataset" class="level2">
 <h2 class="anchored" data-anchor-id="metadata-of-the-dataset">Metadata of the Dataset</h2>
-<div id="4d52c002" class="cell" data-execution_count="6">
+<div id="279087cf" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>df.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
@@ -687,9 +714,9 @@ dtypes: float64(30)
 memory usage: 133.5 KB</code></pre>
 </div>
 </div>
-<div id="3307fb28" class="cell" data-execution_count="7">
+<div id="fd3dabb6" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>df.isnull().<span class="bu">sum</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="59">
+<div class="cell-output cell-output-display" data-execution_count="6">
 <pre><code>mean radius                0
 mean texture               0
 mean perimeter             0
@@ -727,7 +754,7 @@ dtype: int64</code></pre>
 </section>
 <section id="correlation-of-the-variables" class="level1">
 <h1>Correlation of the variables</h1>
-<div id="013cd875" class="cell" data-execution_count="8">
+<div id="84c3aadb" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>correlation <span class="op">=</span> df.corr()</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">20</span>,<span class="dv">17</span>))</span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>sns.heatmap(correlation, vmax<span class="op">=</span><span class="dv">1</span>, square<span class="op">=</span><span class="va">True</span>,annot<span class="op">=</span><span class="va">True</span>,cmap<span class="op">=</span><span class="st">'cubehelix'</span>)</span>
@@ -736,7 +763,7 @@ dtype: int64</code></pre>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="chap09_pca_files/figure-html/cell-9-output-1.png" width="1530" height="1395" class="figure-img"></p>
+<p><img src="chap09_pca_files/figure-html/cell-9-output-1.png" width="1556" height="1415" class="figure-img"></p>
 </figure>
 </div>
 </div>
@@ -744,13 +771,13 @@ dtype: int64</code></pre>
 </section>
 <section id="preprocessing-of-the-dataset" class="level1">
 <h1>Preprocessing of the Dataset</h1>
-<div id="c9408612" class="cell" data-execution_count="9">
+<div id="1557141b" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.preprocessing <span class="im">import</span> StandardScaler</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>scaler <span class="op">=</span> StandardScaler()</span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>scaled_data <span class="op">=</span> scaler.fit_transform(df)</span>
 <span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>scaled_df <span class="op">=</span> pd.DataFrame(scaled_data, columns <span class="op">=</span> cancer.feature_names)</span>
 <span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>scaled_df.sample(<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="61">
+<div class="cell-output cell-output-display" data-execution_count="8">
 <div>
 
 
@@ -783,124 +810,124 @@ dtype: int64</code></pre>
 </thead>
 <tbody>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">51</td>
-<td>-0.138398</td>
-<td>-0.686403</td>
-<td>-0.196026</td>
-<td>-0.236314</td>
-<td>-1.388458</td>
-<td>-0.829146</td>
-<td>-0.881727</td>
-<td>-0.817389</td>
-<td>-1.674391</td>
-<td>-0.463218</td>
+<td data-quarto-table-cell-role="th">200</td>
+<td>-0.538858</td>
+<td>0.062913</td>
+<td>-0.553145</td>
+<td>-0.551441</td>
+<td>-0.035603</td>
+<td>-0.444810</td>
+<td>-0.589196</td>
+<td>-0.202461</td>
+<td>0.611100</td>
+<td>-0.378161</td>
 <td>...</td>
-<td>-0.331164</td>
-<td>-0.405029</td>
-<td>-0.333042</td>
-<td>-0.393567</td>
-<td>-1.028767</td>
-<td>-0.611108</td>
-<td>-0.802091</td>
-<td>-0.437707</td>
-<td>-0.897473</td>
-<td>-0.204807</td>
+<td>-0.378793</td>
+<td>0.436874</td>
+<td>-0.450100</td>
+<td>-0.425737</td>
+<td>0.461654</td>
+<td>-0.318484</td>
+<td>-0.645212</td>
+<td>-0.100590</td>
+<td>-0.376548</td>
+<td>-0.122237</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">445</td>
-<td>-0.607021</td>
-<td>1.303239</td>
-<td>-0.591451</td>
-<td>-0.607469</td>
-<td>0.472519</td>
-<td>-0.230469</td>
-<td>-0.431757</td>
-<td>-0.159385</td>
-<td>0.030600</td>
-<td>0.808373</td>
+<td data-quarto-table-cell-role="th">20</td>
+<td>-0.297446</td>
+<td>-0.833008</td>
+<td>-0.261106</td>
+<td>-0.383638</td>
+<td>0.792763</td>
+<td>0.429422</td>
+<td>-0.541362</td>
+<td>-0.459627</td>
+<td>0.567289</td>
+<td>0.753087</td>
 <td>...</td>
-<td>-0.681134</td>
-<td>0.762561</td>
-<td>-0.678558</td>
-<td>-0.644597</td>
-<td>-0.055610</td>
-<td>-0.458434</td>
-<td>-0.533909</td>
-<td>0.085174</td>
-<td>-0.488175</td>
-<td>-0.079567</td>
+<td>-0.366368</td>
+<td>-0.844707</td>
+<td>-0.332744</td>
+<td>-0.439624</td>
+<td>-0.051226</td>
+<td>0.148443</td>
+<td>-0.399099</td>
+<td>-0.636110</td>
+<td>0.458227</td>
+<td>-0.117250</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">434</td>
-<td>0.208100</td>
-<td>-0.546779</td>
-<td>0.120315</td>
-<td>0.053500</td>
-<td>-0.506718</td>
-<td>-0.636788</td>
-<td>-0.694784</td>
-<td>-0.519727</td>
-<td>-0.871183</td>
-<td>-0.817619</td>
+<td data-quarto-table-cell-role="th">105</td>
+<td>-0.288925</td>
+<td>-0.867914</td>
+<td>-0.196026</td>
+<td>-0.354629</td>
+<td>3.091407</td>
+<td>1.367520</td>
+<td>1.485262</td>
+<td>1.214661</td>
+<td>0.413949</td>
+<td>2.001996</td>
 <td>...</td>
 <td>0.008451</td>
-<td>-0.836565</td>
-<td>-0.147774</td>
-<td>-0.181211</td>
-<td>-0.463284</td>
-<td>-0.631464</td>
-<td>-0.720533</td>
-<td>-0.531351</td>
-<td>-0.607890</td>
-<td>-0.868688</td>
+<td>-0.533675</td>
+<td>-0.025652</td>
+<td>-0.093843</td>
+<td>2.359748</td>
+<td>0.990056</td>
+<td>1.753070</td>
+<td>1.278939</td>
+<td>0.398369</td>
+<td>3.133996</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">482</td>
-<td>-0.186680</td>
-<td>-1.216974</td>
-<td>-0.191495</td>
-<td>-0.308839</td>
-<td>0.764297</td>
-<td>0.211480</td>
-<td>-0.388442</td>
-<td>0.096492</td>
-<td>-0.119089</td>
-<td>0.509259</td>
+<td data-quarto-table-cell-role="th">290</td>
+<td>0.080293</td>
+<td>0.102473</td>
+<td>0.167272</td>
+<td>-0.011061</td>
+<td>-0.625564</td>
+<td>1.198852</td>
+<td>0.595114</td>
+<td>0.441099</td>
+<td>-0.356400</td>
+<td>1.293194</td>
 <td>...</td>
-<td>-0.298031</td>
-<td>-1.198078</td>
-<td>-0.366998</td>
-<td>-0.387414</td>
-<td>0.303844</td>
-<td>-0.027768</td>
-<td>-0.419248</td>
-<td>0.287688</td>
-<td>0.527792</td>
-<td>0.516153</td>
+<td>-0.103373</td>
+<td>-0.577643</td>
+<td>-0.165645</td>
+<td>-0.199142</td>
+<td>-1.426358</td>
+<td>-0.044944</td>
+<td>-0.240780</td>
+<td>-0.190427</td>
+<td>-1.017189</td>
+<td>0.224112</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">325</td>
-<td>-0.413892</td>
-<td>-0.463005</td>
-<td>-0.441519</td>
-<td>-0.469246</td>
-<td>0.458285</td>
-<td>-0.524975</td>
-<td>-0.713993</td>
-<td>-0.718340</td>
-<td>-0.381957</td>
-<td>-0.419272</td>
+<td data-quarto-table-cell-role="th">508</td>
+<td>0.617080</td>
+<td>-0.835335</td>
+<td>0.524391</td>
+<td>0.469024</td>
+<td>-0.148756</td>
+<td>-0.705393</td>
+<td>-0.421085</td>
+<td>-0.084840</td>
+<td>-0.367353</td>
+<td>-0.882828</td>
 <td>...</td>
-<td>-0.529963</td>
-<td>-0.745372</td>
-<td>-0.552861</td>
-<td>-0.538243</td>
-<td>0.264392</td>
-<td>-0.846480</td>
-<td>-0.816483</td>
-<td>-0.892069</td>
-<td>-0.344192</td>
-<td>-0.834885</td>
+<td>0.217604</td>
+<td>-1.289271</td>
+<td>0.075620</td>
+<td>0.083706</td>
+<td>0.132884</td>
+<td>-0.751695</td>
+<td>-0.371753</td>
+<td>0.321186</td>
+<td>-0.971891</td>
+<td>-0.645362</td>
 </tr>
 </tbody>
 </table>
@@ -909,7 +936,7 @@ dtype: int64</code></pre>
 </div>
 </div>
 </div>
-<div id="d0281f6b" class="cell" data-execution_count="10">
+<div id="9437e656" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'The mean and standard deviation of  </span><span class="ch">\</span></span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="st">the variable "mean radius" are </span><span class="sc">{}</span><span class="st"> and </span><span class="sc">{}</span><span class="st"> </span><span class="ch">\</span></span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="st">respectively.'</span>.<span class="bu">format</span>(<span class="bu">round</span>(scaled_df[<span class="st">'mean radius'</span>].mean(),<span class="dv">4</span>), <span class="bu">round</span>(scaled_df[<span class="st">'mean radius'</span>].std(),<span class="dv">4</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -920,7 +947,7 @@ dtype: int64</code></pre>
 </section>
 <section id="covariance-matrix" class="level1">
 <h1>Covariance Matrix</h1>
-<div id="879cba71" class="cell" data-execution_count="11">
+<div id="70cbcaa5" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>mean_vec <span class="op">=</span> np.mean(scaled_data, axis<span class="op">=</span><span class="dv">0</span>)</span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>cov_mat <span class="op">=</span> (scaled_data <span class="op">-</span> mean_vec).T.dot((scaled_data <span class="op">-</span> mean_vec)) <span class="op">/</span> (scaled_data.shape[<span class="dv">0</span>]<span class="op">-</span><span class="dv">1</span>)</span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Covariance matrix </span><span class="ch">\n</span><span class="sc">%s</span><span class="st">'</span> <span class="op">%</span>cov_mat)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1171,7 +1198,7 @@ dtype: int64</code></pre>
 </section>
 <section id="eigenvalues-and-eigenvectors" class="level1">
 <h1>Eigenvalues and Eigenvectors</h1>
-<div id="50a11e3e" class="cell" data-execution_count="12">
+<div id="2788f7b8" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>eig_vals, eig_vecs <span class="op">=</span> np.linalg.eig(cov_mat)</span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'</span><span class="ch">\n</span><span class="st">Eigenvalues </span><span class="ch">\n</span><span class="sc">%s</span><span class="st">'</span> <span class="op">%</span>eig_vals)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1188,10 +1215,10 @@ Eigenvalues
  3.12142606e-02 3.00256631e-02]</code></pre>
 </div>
 </div>
-<div id="8dcc9299" class="cell" data-execution_count="13">
+<div id="be25408a" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>eig_val_df <span class="op">=</span> pd.DataFrame(eig_vals, columns<span class="op">=</span>[<span class="st">'Eigenvalue'</span>])</span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>eig_val_df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="65">
+<div class="cell-output cell-output-display" data-execution_count="12">
 <div>
 
 
@@ -1329,7 +1356,7 @@ Eigenvalues
 </div>
 </div>
 </div>
-<div id="adb00312" class="cell" data-execution_count="14">
+<div id="1fb8c878" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Eigenvectors </span><span class="ch">\n</span><span class="sc">%s</span><span class="st">'</span> <span class="op">%</span>eig_vecs)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Eigenvectors 
@@ -1578,7 +1605,7 @@ Eigenvalues
 </section>
 <section id="pca-visualization" class="level1">
 <h1>PCA Visualization</h1>
-<div id="455c3581" class="cell" data-execution_count="15">
+<div id="b83852ad" class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># importing PCA module </span></span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.decomposition <span class="im">import</span> PCA</span>
 <span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>pca <span class="op">=</span> PCA (n_components<span class="op">=</span><span class="dv">6</span>)</span>
@@ -1587,7 +1614,7 @@ Eigenvalues
 </div>
 <section id="scree-plot" class="level2">
 <h2 class="anchored" data-anchor-id="scree-plot">Scree Plot</h2>
-<div id="3450a2fd" class="cell" data-execution_count="16">
+<div id="5ecefda5" class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>sns.set_style (<span class="st">'whitegrid'</span>)</span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>PC_values <span class="op">=</span> np.arange(pca.n_components_) <span class="op">+</span> <span class="dv">1</span></span>
 <span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>plt.plot(PC_values, pca.explained_variance_ratio_, <span class="st">'o-'</span>, linewidth<span class="op">=</span><span class="dv">2</span>, color<span class="op">=</span><span class="st">'green'</span>)</span>
@@ -1608,7 +1635,7 @@ Eigenvalues
 </section>
 <section id="cumulative-variance-plot" class="level2">
 <h2 class="anchored" data-anchor-id="cumulative-variance-plot">Cumulative Variance Plot</h2>
-<div id="f4ca0857" class="cell" data-execution_count="17">
+<div id="d9d0f139" class="cell" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>sns.set_style(<span class="st">'whitegrid'</span>)</span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the cumulative variance for each component</span></span>
 <span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize <span class="op">=</span> (<span class="dv">8</span>, <span class="dv">4</span>))</span>
@@ -1630,15 +1657,15 @@ Eigenvalues
 </div>
 </div>
 </div>
-<div id="c8dc13cf" class="cell" data-execution_count="18">
+<div id="1069fb94" class="cell" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>pca.explained_variance_ratio_.<span class="bu">sum</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="70">
+<div class="cell-output cell-output-display" data-execution_count="17">
 <pre><code>np.float64(0.887587963566906)</code></pre>
 </div>
 </div>
-<div id="0353da0e" class="cell" data-execution_count="19">
+<div id="5e87d11e" class="cell" data-execution_count="19">
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>pca.get_covariance()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="71">
+<div class="cell-output cell-output-display" data-execution_count="18">
 <pre><code>array([[ 1.08156343e+00,  3.25564716e-01,  9.41407673e-01,
          9.41300789e-01,  1.56852511e-01,  4.96533554e-01,
          6.72530754e-01,  7.98934415e-01,  1.46343436e-01,
@@ -1941,15 +1968,15 @@ Eigenvalues
          5.36938333e-01,  5.27336361e-01,  9.67589384e-01]])</code></pre>
 </div>
 </div>
-<div id="6b6dfb8a" class="cell" data-execution_count="20">
+<div id="10df5776" class="cell" data-execution_count="20">
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>x_pca.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="72">
+<div class="cell-output cell-output-display" data-execution_count="19">
 <pre><code>(569, 6)</code></pre>
 </div>
 </div>
-<div id="01bc5dcf" class="cell" data-execution_count="21">
+<div id="b6547ab5" class="cell" data-execution_count="21">
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>x_pca</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="73">
+<div class="cell-output cell-output-display" data-execution_count="20">
 <pre><code>array([[ 9.19283683,  1.94858307, -1.12316616, -3.6337309 ,  1.19511012,
          1.41142445],
        [ 2.3878018 , -3.76817174, -0.52929269, -1.11826386, -0.62177498,
@@ -1965,14 +1992,14 @@ Eigenvalues
          1.61783736]], shape=(569, 6))</code></pre>
 </div>
 </div>
-<div id="ac818e7f" class="cell" data-execution_count="22">
+<div id="900820e8" class="cell" data-execution_count="22">
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert to dataframe</span></span>
 <span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>component_names <span class="op">=</span> [<span class="ss">f"PC</span><span class="sc">{</span>i<span class="op">+</span><span class="dv">1</span><span class="sc">}</span><span class="ss">"</span> <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(x_pca.shape[<span class="dv">1</span>])]</span>
 <span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>x_pca_df <span class="op">=</span> pd.DataFrame(x_pca, columns<span class="op">=</span>component_names)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="25c04a17" class="cell" data-execution_count="23">
+<div id="fc7c736e" class="cell" data-execution_count="23">
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>x_pca_df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="75">
+<div class="cell-output cell-output-display" data-execution_count="22">
 <div>
 
 
@@ -2040,16 +2067,16 @@ Eigenvalues
 </div>
 </div>
 </div>
-<div id="abb53a2b" class="cell" data-execution_count="24">
+<div id="063fb3b2" class="cell" data-execution_count="24">
 <div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>loadings <span class="op">=</span> pd.DataFrame(</span>
 <span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>    pca.components_.T,  <span class="co"># transpose the matrix of loadings</span></span>
 <span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>    columns<span class="op">=</span>component_names,  <span class="co"># so the columns are the principal components</span></span>
 <span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a>    index<span class="op">=</span>cancer.feature_names,  <span class="co"># and the rows are the original features</span></span>
 <span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="e9699e6a" class="cell" data-execution_count="25">
+<div id="bda052f1" class="cell" data-execution_count="25">
 <div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>loadings</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="77">
+<div class="cell-output cell-output-display" data-execution_count="24">
 <div>
 
 
@@ -2342,7 +2369,7 @@ Eigenvalues
 </div>
 </div>
 </div>
-<div id="cc236b2a" class="cell" data-execution_count="26">
+<div id="c47a360b" class="cell" data-execution_count="26">
 <div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>sns.set_style(<span class="st">'whitegrid'</span>)</span>
 <span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">12</span>,<span class="dv">8</span>))</span>
 <span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>plt.scatter(x_pca[:,<span class="dv">0</span>], x_pca[:,<span class="dv">1</span>],</span>
@@ -2362,13 +2389,13 @@ Eigenvalues
 </section>
 <section id="using-principal-component-scores-for-other-machine-learning-algorithm" class="level1">
 <h1>Using Principal Component Scores for Other Machine Learning Algorithm</h1>
-<div id="bfe3c621" class="cell" data-execution_count="27">
+<div id="0c12a70f" class="cell" data-execution_count="27">
 <div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>x_pca_df2 <span class="op">=</span> x_pca_df.copy()</span>
 <span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>x_pca_df2[<span class="st">'target'</span>] <span class="op">=</span> cancer.target <span class="co"># Adding the target variable with the PCA values </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="df225496" class="cell" data-execution_count="28">
+<div id="6f89f1b2" class="cell" data-execution_count="28">
 <div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>x_pca_df2.sample(<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="80">
+<div class="cell-output cell-output-display" data-execution_count="27">
 <div>
 
 
@@ -2387,53 +2414,53 @@ Eigenvalues
 </thead>
 <tbody>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">336</td>
-<td>-2.393276</td>
-<td>0.990031</td>
-<td>-0.757510</td>
-<td>-1.554983</td>
-<td>-1.431458</td>
-<td>-0.343190</td>
+<td data-quarto-table-cell-role="th">523</td>
+<td>-0.619839</td>
+<td>0.636349</td>
+<td>-0.488851</td>
+<td>0.015154</td>
+<td>0.106407</td>
+<td>-0.600716</td>
 <td>1</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">234</td>
-<td>-4.036607</td>
-<td>1.162546</td>
-<td>0.189748</td>
-<td>-0.940517</td>
-<td>0.565599</td>
-<td>-0.806739</td>
+<td data-quarto-table-cell-role="th">494</td>
+<td>-2.793331</td>
+<td>-1.077888</td>
+<td>0.844542</td>
+<td>1.110208</td>
+<td>-0.004870</td>
+<td>0.565603</td>
 <td>1</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">178</td>
-<td>-4.975702</td>
-<td>-3.386205</td>
-<td>0.439838</td>
-<td>1.577570</td>
-<td>-1.033796</td>
-<td>0.926782</td>
+<td data-quarto-table-cell-role="th">427</td>
+<td>-2.314247</td>
+<td>0.402031</td>
+<td>0.274623</td>
+<td>1.670463</td>
+<td>0.536711</td>
+<td>0.508375</td>
 <td>1</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">220</td>
-<td>-2.373502</td>
-<td>-0.733403</td>
-<td>-1.526027</td>
-<td>-1.853330</td>
-<td>-1.183118</td>
-<td>-0.857871</td>
+<td data-quarto-table-cell-role="th">101</td>
+<td>-4.555029</td>
+<td>3.528786</td>
+<td>-0.215264</td>
+<td>-1.091886</td>
+<td>2.758349</td>
+<td>-0.900493</td>
 <td>1</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">530</td>
-<td>-1.530101</td>
-<td>0.405218</td>
-<td>0.604465</td>
-<td>0.347171</td>
-<td>0.786047</td>
-<td>-1.102131</td>
+<td data-quarto-table-cell-role="th">269</td>
+<td>-0.739743</td>
+<td>3.152521</td>
+<td>1.469858</td>
+<td>0.314894</td>
+<td>-0.947689</td>
+<td>-0.531441</td>
 <td>1</td>
 </tr>
 </tbody>
@@ -2442,36 +2469,36 @@ Eigenvalues
 </div>
 </div>
 </div>
-<div id="22f101b7" class="cell" data-execution_count="29">
+<div id="b1dc27a0" class="cell" data-execution_count="29">
 <div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>x_pca_df2[<span class="st">'target'</span>].value_counts()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="81">
+<div class="cell-output cell-output-display" data-execution_count="28">
 <pre><code>target
 1    357
 0    212
 Name: count, dtype: int64</code></pre>
 </div>
 </div>
-<div id="f9fe92b1" class="cell" data-execution_count="30">
+<div id="cd070ceb" class="cell" data-execution_count="30">
 <div class="sourceCode cell-code" id="cb43"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>final_df <span class="op">=</span> x_pca_df2.copy()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="9468ec2b" class="cell" data-execution_count="31">
+<div id="eaea0387" class="cell" data-execution_count="31">
 <div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.linear_model <span class="im">import</span> LogisticRegression</span>
 <span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> train_test_split</span>
 <span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>logreg <span class="op">=</span> LogisticRegression()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="985a2d65" class="cell" data-execution_count="32">
+<div id="80d33e28" class="cell" data-execution_count="32">
 <div class="sourceCode cell-code" id="cb45"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Feature and Target Vectors </span></span>
 <span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>Xlog <span class="op">=</span> final_df.drop([<span class="st">'target'</span>], axis<span class="op">=</span><span class="dv">1</span>)</span>
 <span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>ylog <span class="op">=</span> final_df[<span class="st">'target'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="187d5a9c" class="cell" data-execution_count="33">
+<div id="6ca8f132" class="cell" data-execution_count="33">
 <div class="sourceCode cell-code" id="cb46"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Training and Testing Split </span></span>
 <span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>Xlog_train, Xlog_test, ylog_train, ylog_test <span class="op">=</span> train_test_split(Xlog, ylog, test_size<span class="op">=</span><span class="fl">0.20</span>, random_state<span class="op">=</span><span class="dv">420</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="ebd0e5e8" class="cell" data-execution_count="34">
+<div id="1b3ac170" class="cell" data-execution_count="34">
 <div class="sourceCode cell-code" id="cb47"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>logreg.fit(Xlog_train, ylog_train)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="86">
-<style>#sk-container-id-2 {
+<div class="cell-output cell-output-display" data-execution_count="33">
+<style>#sk-container-id-1 {
   /* Definition of color scheme common for light and dark mode */
   --sklearn-color-text: #000;
   --sklearn-color-text-muted: #666;
@@ -2502,15 +2529,15 @@ Name: count, dtype: int64</code></pre>
   }
 }
 
-#sk-container-id-2 {
+#sk-container-id-1 {
   color: var(--sklearn-color-text);
 }
 
-#sk-container-id-2 pre {
+#sk-container-id-1 pre {
   padding: 0;
 }
 
-#sk-container-id-2 input.sk-hidden--visually {
+#sk-container-id-1 input.sk-hidden--visually {
   border: 0;
   clip: rect(1px 1px 1px 1px);
   clip: rect(1px, 1px, 1px, 1px);
@@ -2522,7 +2549,7 @@ Name: count, dtype: int64</code></pre>
   width: 1px;
 }
 
-#sk-container-id-2 div.sk-dashed-wrapped {
+#sk-container-id-1 div.sk-dashed-wrapped {
   border: 1px dashed var(--sklearn-color-line);
   margin: 0 0.4em 0.5em 0.4em;
   box-sizing: border-box;
@@ -2530,7 +2557,7 @@ Name: count, dtype: int64</code></pre>
   background-color: var(--sklearn-color-background);
 }
 
-#sk-container-id-2 div.sk-container {
+#sk-container-id-1 div.sk-container {
   /* jupyter's `normalize.less` sets `[hidden] { display: none; }`
      but bootstrap.min.css set `[hidden] { display: none !important; }`
      so we also need the `!important` here to be able to override the
@@ -2540,7 +2567,7 @@ Name: count, dtype: int64</code></pre>
   position: relative;
 }
 
-#sk-container-id-2 div.sk-text-repr-fallback {
+#sk-container-id-1 div.sk-text-repr-fallback {
   display: none;
 }
 
@@ -2556,14 +2583,14 @@ div.sk-item {
 
 /* Parallel-specific style estimator block */
 
-#sk-container-id-2 div.sk-parallel-item::after {
+#sk-container-id-1 div.sk-parallel-item::after {
   content: "";
   width: 100%;
   border-bottom: 2px solid var(--sklearn-color-text-on-default-background);
   flex-grow: 1;
 }
 
-#sk-container-id-2 div.sk-parallel {
+#sk-container-id-1 div.sk-parallel {
   display: flex;
   align-items: stretch;
   justify-content: center;
@@ -2571,28 +2598,28 @@ div.sk-item {
   position: relative;
 }
 
-#sk-container-id-2 div.sk-parallel-item {
+#sk-container-id-1 div.sk-parallel-item {
   display: flex;
   flex-direction: column;
 }
 
-#sk-container-id-2 div.sk-parallel-item:first-child::after {
+#sk-container-id-1 div.sk-parallel-item:first-child::after {
   align-self: flex-end;
   width: 50%;
 }
 
-#sk-container-id-2 div.sk-parallel-item:last-child::after {
+#sk-container-id-1 div.sk-parallel-item:last-child::after {
   align-self: flex-start;
   width: 50%;
 }
 
-#sk-container-id-2 div.sk-parallel-item:only-child::after {
+#sk-container-id-1 div.sk-parallel-item:only-child::after {
   width: 0;
 }
 
 /* Serial-specific style estimator block */
 
-#sk-container-id-2 div.sk-serial {
+#sk-container-id-1 div.sk-serial {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -2610,14 +2637,14 @@ clickable and can be expanded/collapsed.
 
 /* Pipeline and ColumnTransformer style (default) */
 
-#sk-container-id-2 div.sk-toggleable {
+#sk-container-id-1 div.sk-toggleable {
   /* Default theme specific background. It is overwritten whether we have a
   specific estimator or a Pipeline/ColumnTransformer */
   background-color: var(--sklearn-color-background);
 }
 
 /* Toggleable label */
-#sk-container-id-2 label.sk-toggleable__label {
+#sk-container-id-1 label.sk-toggleable__label {
   cursor: pointer;
   display: flex;
   width: 100%;
@@ -2630,13 +2657,13 @@ clickable and can be expanded/collapsed.
   gap: 0.5em;
 }
 
-#sk-container-id-2 label.sk-toggleable__label .caption {
+#sk-container-id-1 label.sk-toggleable__label .caption {
   font-size: 0.6rem;
   font-weight: lighter;
   color: var(--sklearn-color-text-muted);
 }
 
-#sk-container-id-2 label.sk-toggleable__label-arrow:before {
+#sk-container-id-1 label.sk-toggleable__label-arrow:before {
   /* Arrow on the left of the label */
   content: "▸";
   float: left;
@@ -2644,13 +2671,13 @@ clickable and can be expanded/collapsed.
   color: var(--sklearn-color-icon);
 }
 
-#sk-container-id-2 label.sk-toggleable__label-arrow:hover:before {
+#sk-container-id-1 label.sk-toggleable__label-arrow:hover:before {
   color: var(--sklearn-color-text);
 }
 
 /* Toggleable content - dropdown */
 
-#sk-container-id-2 div.sk-toggleable__content {
+#sk-container-id-1 div.sk-toggleable__content {
   max-height: 0;
   max-width: 0;
   overflow: hidden;
@@ -2659,12 +2686,12 @@ clickable and can be expanded/collapsed.
   background-color: var(--sklearn-color-unfitted-level-0);
 }
 
-#sk-container-id-2 div.sk-toggleable__content.fitted {
+#sk-container-id-1 div.sk-toggleable__content.fitted {
   /* fitted */
   background-color: var(--sklearn-color-fitted-level-0);
 }
 
-#sk-container-id-2 div.sk-toggleable__content pre {
+#sk-container-id-1 div.sk-toggleable__content pre {
   margin: 0.2em;
   border-radius: 0.25em;
   color: var(--sklearn-color-text);
@@ -2672,79 +2699,79 @@ clickable and can be expanded/collapsed.
   background-color: var(--sklearn-color-unfitted-level-0);
 }
 
-#sk-container-id-2 div.sk-toggleable__content.fitted pre {
+#sk-container-id-1 div.sk-toggleable__content.fitted pre {
   /* unfitted */
   background-color: var(--sklearn-color-fitted-level-0);
 }
 
-#sk-container-id-2 input.sk-toggleable__control:checked~div.sk-toggleable__content {
+#sk-container-id-1 input.sk-toggleable__control:checked~div.sk-toggleable__content {
   /* Expand drop-down */
   max-height: 200px;
   max-width: 100%;
   overflow: auto;
 }
 
-#sk-container-id-2 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {
+#sk-container-id-1 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {
   content: "▾";
 }
 
 /* Pipeline/ColumnTransformer-specific style */
 
-#sk-container-id-2 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {
+#sk-container-id-1 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {
   color: var(--sklearn-color-text);
   background-color: var(--sklearn-color-unfitted-level-2);
 }
 
-#sk-container-id-2 div.sk-label.fitted input.sk-toggleable__control:checked~label.sk-toggleable__label {
+#sk-container-id-1 div.sk-label.fitted input.sk-toggleable__control:checked~label.sk-toggleable__label {
   background-color: var(--sklearn-color-fitted-level-2);
 }
 
 /* Estimator-specific style */
 
 /* Colorize estimator box */
-#sk-container-id-2 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {
+#sk-container-id-1 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {
   /* unfitted */
   background-color: var(--sklearn-color-unfitted-level-2);
 }
 
-#sk-container-id-2 div.sk-estimator.fitted input.sk-toggleable__control:checked~label.sk-toggleable__label {
+#sk-container-id-1 div.sk-estimator.fitted input.sk-toggleable__control:checked~label.sk-toggleable__label {
   /* fitted */
   background-color: var(--sklearn-color-fitted-level-2);
 }
 
-#sk-container-id-2 div.sk-label label.sk-toggleable__label,
-#sk-container-id-2 div.sk-label label {
+#sk-container-id-1 div.sk-label label.sk-toggleable__label,
+#sk-container-id-1 div.sk-label label {
   /* The background is the default theme color */
   color: var(--sklearn-color-text-on-default-background);
 }
 
 /* On hover, darken the color of the background */
-#sk-container-id-2 div.sk-label:hover label.sk-toggleable__label {
+#sk-container-id-1 div.sk-label:hover label.sk-toggleable__label {
   color: var(--sklearn-color-text);
   background-color: var(--sklearn-color-unfitted-level-2);
 }
 
 /* Label box, darken color on hover, fitted */
-#sk-container-id-2 div.sk-label.fitted:hover label.sk-toggleable__label.fitted {
+#sk-container-id-1 div.sk-label.fitted:hover label.sk-toggleable__label.fitted {
   color: var(--sklearn-color-text);
   background-color: var(--sklearn-color-fitted-level-2);
 }
 
 /* Estimator label */
 
-#sk-container-id-2 div.sk-label label {
+#sk-container-id-1 div.sk-label label {
   font-family: monospace;
   font-weight: bold;
   display: inline-block;
   line-height: 1.2em;
 }
 
-#sk-container-id-2 div.sk-label-container {
+#sk-container-id-1 div.sk-label-container {
   text-align: center;
 }
 
 /* Estimator-specific */
-#sk-container-id-2 div.sk-estimator {
+#sk-container-id-1 div.sk-estimator {
   font-family: monospace;
   border: 1px dotted var(--sklearn-color-border-box);
   border-radius: 0.25em;
@@ -2754,18 +2781,18 @@ clickable and can be expanded/collapsed.
   background-color: var(--sklearn-color-unfitted-level-0);
 }
 
-#sk-container-id-2 div.sk-estimator.fitted {
+#sk-container-id-1 div.sk-estimator.fitted {
   /* fitted */
   background-color: var(--sklearn-color-fitted-level-0);
 }
 
 /* on hover */
-#sk-container-id-2 div.sk-estimator:hover {
+#sk-container-id-1 div.sk-estimator:hover {
   /* unfitted */
   background-color: var(--sklearn-color-unfitted-level-2);
 }
 
-#sk-container-id-2 div.sk-estimator.fitted:hover {
+#sk-container-id-1 div.sk-estimator.fitted:hover {
   /* fitted */
   background-color: var(--sklearn-color-fitted-level-2);
 }
@@ -2853,7 +2880,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 
 /* "?"-specific style due to the `<a>` HTML tag */
 
-#sk-container-id-2 a.estimator_doc_link {
+#sk-container-id-1 a.estimator_doc_link {
   float: right;
   font-size: 1rem;
   line-height: 1em;
@@ -2868,40 +2895,40 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
   border: var(--sklearn-color-unfitted-level-1) 1pt solid;
 }
 
-#sk-container-id-2 a.estimator_doc_link.fitted {
+#sk-container-id-1 a.estimator_doc_link.fitted {
   /* fitted */
   border: var(--sklearn-color-fitted-level-1) 1pt solid;
   color: var(--sklearn-color-fitted-level-1);
 }
 
 /* On hover */
-#sk-container-id-2 a.estimator_doc_link:hover {
+#sk-container-id-1 a.estimator_doc_link:hover {
   /* unfitted */
   background-color: var(--sklearn-color-unfitted-level-3);
   color: var(--sklearn-color-background);
   text-decoration: none;
 }
 
-#sk-container-id-2 a.estimator_doc_link.fitted:hover {
+#sk-container-id-1 a.estimator_doc_link.fitted:hover {
   /* fitted */
   background-color: var(--sklearn-color-fitted-level-3);
 }
-</a></style><div id="sk-container-id-2" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>LogisticRegression()</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br>On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden=""><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-2" type="checkbox" checked=""><label for="sk-estimator-id-2" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>LogisticRegression</div></div><div><a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.6/modules/generated/sklearn.linear_model.LogisticRegression.html">?<span>Documentation for LogisticRegression</span></a><span class="sk-estimator-doc-link fitted">i<span>Fitted</span></span></div></label><div class="sk-toggleable__content fitted"><pre>LogisticRegression()</pre></div> </div></div></div></div>
+</a></style><div id="sk-container-id-1" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>LogisticRegression()</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br>On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden=""><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-1" type="checkbox" checked=""><label for="sk-estimator-id-1" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>LogisticRegression</div></div><div><a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.6/modules/generated/sklearn.linear_model.LogisticRegression.html">?<span>Documentation for LogisticRegression</span></a><span class="sk-estimator-doc-link fitted">i<span>Fitted</span></span></div></label><div class="sk-toggleable__content fitted"><pre>LogisticRegression()</pre></div> </div></div></div></div>
 </div>
 </div>
-<div id="6c02e6c4" class="cell" data-execution_count="35">
+<div id="57a3c0bf" class="cell" data-execution_count="35">
 <div class="sourceCode cell-code" id="cb48"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>ylog_predict <span class="op">=</span> logreg.predict(Xlog_test)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="dcc5efab" class="cell" data-execution_count="36">
+<div id="932d73fb" class="cell" data-execution_count="36">
 <div class="sourceCode cell-code" id="cb49"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> accuracy_score</span>
 <span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a>accuracy_score(ylog_test, ylog_predict)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="88">
+<div class="cell-output cell-output-display" data-execution_count="35">
 <pre><code>0.9649122807017544</code></pre>
 </div>
 </div>
 <section id="logistic-regression-with-original-dataset" class="level2">
 <h2 class="anchored" data-anchor-id="logistic-regression-with-original-dataset">Logistic Regression with Original Dataset</h2>
-<div id="2a398e57" class="cell" data-execution_count="37">
+<div id="4369dd1c" class="cell" data-execution_count="37">
 <div class="sourceCode cell-code" id="cb51"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="co"># For original dataset </span></span>
 <span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a>Xorg <span class="op">=</span> cancer[<span class="st">'data'</span>]</span>
 <span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a>yorg <span class="op">=</span> cancer[<span class="st">'target'</span>]</span>
@@ -2917,11 +2944,23 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <span id="cb51-13"><a href="#cb51-13" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb51-14"><a href="#cb51-14" aria-hidden="true" tabindex="-1"></a><span class="co"># for original dataset </span></span>
 <span id="cb51-15"><a href="#cb51-15" aria-hidden="true" tabindex="-1"></a>yorg_predict <span class="op">=</span> logreg.predict(Xorg_test)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>C:\Users\mshar\OneDrive - Southern Illinois University\BSAN405_MLINBUSINESS_WEBSITE\mlbusiness2\Lib\site-packages\sklearn\linear_model\_logistic.py:465: ConvergenceWarning:
+
+lbfgs failed to converge (status=1):
+STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+</code></pre>
 </div>
-<div id="775f0d7f" class="cell" data-execution_count="38">
-<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="co"># for original dataset </span></span>
-<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a>accuracy_score(yorg_test, yorg_predict)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="90">
+</div>
+<div id="2b302325" class="cell" data-execution_count="38">
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="co"># for original dataset </span></span>
+<span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a>accuracy_score(yorg_test, yorg_predict)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="37">
 <pre><code>0.9473684210526315</code></pre>
 </div>
 </div>
@@ -3376,7 +3415,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     <div class="nav-footer-center">
       <ul class="footer-items list-unstyled">
     <li class="nav-item">
- The world's most valuable resource is no longer oil, but data (The Economist, 2017) <br> Copyright@2025, Sharif Islam, DBA, CPA, CMA
+ The world's most valuable resource is no longer oil, but data (The Economist, 2017) <br> Copyright@2026, Sharif Islam, DBA, CPA, CMA
   </li>  
 </ul>
     </div>
